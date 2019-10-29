@@ -8,7 +8,8 @@ cmake_minimum_required(VERSION 3.1)
 
 set(CMAKE_CXX_STANDARD 11) #c++11
 
-set(SOURCES src/main.cpp src/Window.cpp)
+file(GLOB SOURCES src/*.cpp)
+
 if(UNIX AND NOT APPLE)
     set(LINUX TRUE)
 endif()

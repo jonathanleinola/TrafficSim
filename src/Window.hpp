@@ -6,7 +6,7 @@ namespace TrafficSim
 class Window
 {
 public:
-    Window(int width, int height);
+    Window();
     int getWidth() const { return window_.getSize().x; }
     int getHeight() const { return window_.getSize().y; }
     bool isOpen() const { return window_.isOpen(); }

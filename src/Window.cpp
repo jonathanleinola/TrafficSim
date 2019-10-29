@@ -3,8 +3,8 @@
 namespace TrafficSim
 {
 
-Window::Window(int width, int height)
-    : window_(sf::VideoMode(width, height), "Traffic Simulator")
+Window::Window()
+    : window_(sf::VideoMode(sf::VideoMode::getDesktopMode().width / 2, sf::VideoMode::getDesktopMode().height / 2), "Traffic Simulator")
 {
 }
 
