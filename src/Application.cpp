@@ -14,6 +14,7 @@ void Application::run()
     {
         window_.pollEvent();
         window_.clear();
+        //Drawing happens between window.clear() and window.draw()
         window_.display();
     }
 }
