@@ -2,19 +2,13 @@
 
 namespace TrafficSim
 {
-Node::Node(const sf::Vertex &vertex) : vertex_(vertex)
+Node::Node(const sf::Vector2f &position) : position_(position)
 {
 }
 
-void Node::connectTo(Node *other_node)
+void Node::connectTo(std::shared_ptr<Node> &another)
 {
-    neighbors_.push_back(other_node);
-}
-
-void Node::connectWith(Node *other_node)
-{
-    connectTo(other_node);
-    other_node->connectTo(this);
+    neighbors_.push_back(another);
 }
 
 } // namespace TrafficSim

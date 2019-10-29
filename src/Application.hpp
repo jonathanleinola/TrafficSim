@@ -12,5 +12,6 @@ public:
     void close();
 private:
     Window window_;
+    //Map map_;
 };
 } // namespace TrafficSim
