@@ -9,7 +9,9 @@ cmake_minimum_required(VERSION 3.1)
 set(CMAKE_CXX_STANDARD 11) #c++11
 
 set(SOURCES src/main.cpp)
-
+if(UNIX AND NOT APPLE)
+    set(LINUX TRUE)
+endif()
 
 if (${APPLE})
     list(APPEND CMAKE_MODULE_PATH "${CMAKE_SOURCE_DIR}/deps/cmake")
@@ -17,7 +19,10 @@ if (${APPLE})
     if(SFML_FOUND)
         include_directories(${SFML_INCLUDE_DIR})
     endif()
-else(${APPLE})
+    add_executable(${PROJECT_NAME} ${SOURCES})
+    target_link_libraries(${PROJECT_NAME} ${SFML_LIBRARIES} ${SFML_DEPENDENCIES})
+endif ()
+if(LINUX)
     set(SFML_INCLUDE_DIR "deps/SFML/include")
     set(SFML_LIBRARY_DIR "deps/SFML/lib")
     set(SFML_DIR "deps/SFML/lib/cmake/SFML")
@@ -33,11 +38,11 @@ else(${APPLE})
         message(STATUS "SFML_LIBRARIES: ${SFML_LIBRARIES}")
         message(STATUS "SFML_VERSION: ${SFML_VERSION}")
     endif()
+    add_executable(${PROJECT_NAME} ${SOURCES})
+    target_link_libraries(${PROJECT_NAME} sfml-graphics sfml-window sfml-system)
 endif ()
 
 
-add_executable(${PROJECT_NAME} ${SOURCES})
-target_link_libraries(${PROJECT_NAME} ${SFML_LIBRARIES} ${SFML_DEPENDENCIES})
 
 
 
