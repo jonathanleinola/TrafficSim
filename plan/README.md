@@ -8,7 +8,6 @@ Artur Gynter - 569499<br/>
 Hien Cao - 716718<br/>
 <br/>
 <br/>
-<br/>
 ## Project description: ##
 
 This project is developed during the span of the course ELEC - A7151 - Object-Oriented Programming with C++. The topic is about traffic simulator. The topic description and goal are copied from the course material which is simulating and analyzing city traffic can be useful for example when one wants to predict traffic jams or estimate the effect of new roads. 
@@ -66,10 +65,10 @@ Figure 4: Timetable
 
 ![5](projectTimeline.png)
 
-Figure 5: Timeline of the whole project
+Figure 5: Timeline
 
 ![6](timeTable.jpg)
 
-Figure 6: Project schedule - Gantt chart
+Figure 6: Project schedule
 
 
