@@ -1,6 +1,9 @@
 
 # Traffic simulator - Project plan #
 
+![1](coverimg.png)
+<br/>
+<br/>
 Collaborators:<br/>
 Jonathan Leinola - 477329<br/>
 Niko Uski - 51961T<br/>
