@@ -2,10 +2,15 @@
 # Traffic simulator - Project plan #
 
 Collaborators:
+
 Jonathan Leinola - 477329
+
 Niko Uski - 51961T
+
 Artur Gynter - 569499
+
 Hien Cao - 716718
+
 
 
 ## Project description: ##
@@ -17,6 +22,8 @@ Numerous different factors make traffic a highly nonlinear, almost chaotic syste
 ![1](projectStructure.png)
 
 Figure 1: Structure of the application
+
+
 
 
 To support the application, we plan to use external libraries SFML, ImGui, and ImGui + SFML. The link for the mentioned libraries is below:
@@ -35,6 +42,7 @@ Figure 2: Basic features of the software
 
 
 
+
 ## Additional features and advanced features: ##
 
 Our goal is to make additional features on top of basic features. For example, our analysis software should be capable of processing small cities or parts of big cities. We plan to Implement a GUI using SFML and additional libraries for it as mentioned in the project description. The GUIs’ purpose is to visualize roads and cars and show results from the analysis. On top of that, there should be traffic management and building profiles. The advanced features are not discussed in this phase of the project and are to be planned.
@@ -42,6 +50,7 @@ Our goal is to make additional features on top of basic features. For example, o
 ![3](adfeatures.png)
 
 Figure 3: Additional features and advanced features
+
 
 
 
@@ -63,7 +72,7 @@ Figure 4: Timetable
 
 Figure 5: Timeline of the whole project
 
-![6](timeTable.png)
+![6](timeTable.jpg)
 
 Figure 6: Project schedule - Gantt chart
 
