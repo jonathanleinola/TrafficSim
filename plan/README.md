@@ -1,11 +1,11 @@
 
 # Traffic simulator - Project plan #
 
-Collaborators:
-Jonathan Leinola - 477329
-Niko Uski - 51961T
-Artur Gynter - 569499
-Hien Cao - 716718
+Collaborators:<br/>
+Jonathan Leinola - 477329<br/>
+Niko Uski - 51961T<br/>
+Artur Gynter - 569499<br/>
+Hien Cao - 716718<br/>
 <br/>
 <br/>
 <br/>
