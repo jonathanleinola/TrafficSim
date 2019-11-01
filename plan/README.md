@@ -22,6 +22,7 @@ Figure 1: Structure of the application
 <br/>
 To support the application, we plan to use following external libraries: SFML, ImGui, and ImGui + SFML. The link for the mentioned libraries are below:
 <br/>
+<br/>
 SFML - https://github.com/SFML/SFML
 <br/>
 ImGui - https://github.com/ocornut/imgui
