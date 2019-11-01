@@ -57,7 +57,7 @@ We are going to have face-to-face meetings regularly to update the status of the
 
 ![4](chart1.png)
 
-Figure 4: Timetable
+Figure 4: Tasktable
 <br/>
 <br/>
 <br/>
