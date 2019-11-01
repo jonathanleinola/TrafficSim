@@ -1,8 +1,5 @@
 
 # Traffic simulator - Project plan #
-
-![1](coverimg.png)
-<br/>
 <br/>
 Collaborators:<br/>
 Jonathan Leinola - 477329<br/>
@@ -13,7 +10,7 @@ Hien Cao - 716718<br/>
 <br/>
 ## Project description: ##
 
-This project is developed during the span of the course ELEC - A7151 - Object-Oriented Programming with C++. The topic is about traffic simulator. The topic description and goal are copied from the course material which is simulating and analyzing city traffic can be useful for example when one wants to predict traffic jams or estimate the effect of new roads. 
+This project is developed during the span of the course ELEC - A7151 - Object-Oriented Programming with C++. The topic is about traffic simulator. The topic description and goal are copied from the course material. Simulating and analyzing city traffic can be useful for example when one wants to predict traffic jams or estimate the effect of new roads. 
 
 Numerous different factors make traffic a highly nonlinear, almost chaotic system. The goal of this project is to create configurable traffic simulator and analysis tools for it. To ease development and maintenance, the application structure is described in Figure 1.
 
@@ -23,7 +20,7 @@ Figure 1: Structure of the application
 <br/>
 <br/>
 <br/>
-To support the application, we plan to use external libraries SFML, ImGui, and ImGui + SFML. The link for the mentioned libraries is below:
+To support the application, we plan to use following external libraries: SFML, ImGui, and ImGui + SFML. The link for the mentioned libraries are below:
 <br/>
 SFML - https://github.com/SFML/SFML
 <br/>
@@ -35,7 +32,7 @@ ImGui + SFML - https://github.com/eliasdaler/imgui-sfml
 <br/>
 ## Basic features: ##
 
-The minimal feature requirements are presented in figure 2. It is divided into 6 different classes and the workload of them is separated between our team in the 4th section of this document “collaboration and contribution”. We have agreed on some common practices to use c++11 as a base standard for the code and apply the coding style, file naming, etc learned from the course to the project. Of course, the rule number one is to never commit broken code. In addition, to commit small units at a time is considered as a good practice.
+The minimal feature requirements are presented in figure 2. It is divided into 6 different classes and the workload of these  classes is divided between our team in the 4th section of this document “collaboration and contribution”. We have agreed on some common practices to use c++11 as a base standard for the code and apply the coding style, file naming, etc learned from the course to the project. Of course, the rule number one is to never commit broken code. In addition, to commit small units at a time is considered as a good practice.
 
 ![2](basicFeatures.png)
 
