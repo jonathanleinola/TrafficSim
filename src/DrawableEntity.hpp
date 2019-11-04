@@ -6,7 +6,7 @@
 
 /*
 
-    Abstract base class for Road, Building, Car etc
+    Base class for Road, Building, Car etc
     In deriveds' classes' constructor make std::vector which will contain sf::Vertex
     verticies' position you can get from Nodes
 
