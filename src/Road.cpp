@@ -6,6 +6,7 @@ namespace TrafficSim
 Road::Road(const std::shared_ptr<Node> &begin, const std::shared_ptr<Node> &end, float lane_width)
     : begin_(begin), end_(end), dir_(VectorMath::Normalize(end_->getPos() - begin_->getPos())), lane_width_(lane_width)
 {
+    // TODO- when combining roads nodes are not connected correctly
     init();
 }
 
@@ -27,7 +28,7 @@ void Road::createIntersection(const std::shared_ptr<Road> &another, const sf::Ve
     std::shared_ptr<Node> &itrNode = intersection_nodes[1];
     std::shared_ptr<Node> &ibrNode = intersection_nodes[2];
     std::shared_ptr<Node> &iblNode = intersection_nodes[3];
-    
+
     if (itlNode == nullptr)
         itlNode = std::make_shared<Node>(sf::Vector2f(pos.x - lane_width_ * 0.5f, pos.y - lane_width_ * 0.5f));
 

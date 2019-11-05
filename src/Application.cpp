@@ -18,13 +18,18 @@ void Application::run()
     auto n1 = std::make_shared<Node>(sf::Vector2f(window_.getWidth() / 4, window_.getHeight() / 2));
     auto n2 = std::make_shared<Node>(sf::Vector2f(window_.getWidth() * 3 / 4, window_.getHeight() / 2));
 
+    auto n3 = std::make_shared<Node>(sf::Vector2f(window_.getWidth() / 2, window_.getHeight() / 4));
+    auto n4 = std::make_shared<Node>(sf::Vector2f(window_.getWidth()  / 2, window_.getHeight() * 3 / 4));
+
     // We need to connect them
     n1->connect(n2);
+    n3->connect(n4);
 
     // Needs to only give it beginning node
     map_.createRoads(n1);
+    map_.createRoads(n3);
 
-    // we need to check if two roads crosses each other
+    // we need to check if two roads crosses each other, because it will recursively search to all nodes which it is connected to
     map_.checkIntersections();
 
     //Main loop

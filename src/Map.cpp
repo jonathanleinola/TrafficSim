@@ -35,7 +35,7 @@ void Map::checkIntersections()
     }
 }
 
-void Map::constructRoads(const std::shared_ptr<Node> &cur, const std::shared_ptr<Road> &prevRoad, std::map<std::shared_ptr<Node>, bool> &visited)
+void Map::constructRoad(const std::shared_ptr<Node> &cur, const std::shared_ptr<Road> &prevRoad, std::map<std::shared_ptr<Node>, bool> &visited)
 {
     if (visited[cur])
         return;
@@ -47,7 +47,7 @@ void Map::constructRoads(const std::shared_ptr<Node> &cur, const std::shared_ptr
         else
             roads_.push_back(std::make_shared<Road>(*prevRoad, neighbor));
 
-        constructRoads(neighbor, roads_[roads_.size() - 1], visited);
+        constructRoad(neighbor, roads_[roads_.size() - 1], visited);
     }
 }
 
@@ -57,7 +57,7 @@ void Map::createRoads(const std::shared_ptr<Node> &begin)
     std::shared_ptr<Node> cur = begin;
     std::shared_ptr<Node> prev = nullptr;
     std::map<std::shared_ptr<Node>, bool> visited;
-    constructRoads(cur, nullptr, visited);
+    constructRoad(cur, nullptr, visited);
 }
 
 void Map::draw(sf::RenderTarget &target, sf::RenderStates states) const
