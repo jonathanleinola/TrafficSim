@@ -46,8 +46,8 @@ void Application::run()
         window_.draw(map_);
         window_.draw(car);
         car.update(clock_.getElapsedTime().asSeconds());
-        window_.display();
         clock_.restart();
+        window_.display();
     }
 }
 
