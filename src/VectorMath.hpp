@@ -18,6 +18,7 @@ public:
     //Returns angle in Radians
     static float Angle(const sf::Vector2f &a, const sf::Vector2f &b);
 
+    static float Angle(const sf::Vector2f &a);
     // Linear interpolation
     static sf::Vector2f Lerp(const sf::Vector2f &a, const sf::Vector2f &b, float t);
 

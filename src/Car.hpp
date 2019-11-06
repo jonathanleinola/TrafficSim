@@ -4,6 +4,7 @@
 #include <SFML/Graphics.hpp>
 
 #include "Node.hpp"
+#include "VectorMath.hpp"
 
 
 namespace TrafficSim

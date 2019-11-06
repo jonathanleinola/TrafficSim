@@ -44,6 +44,7 @@ void Application::run()
         //Drawing happens between window.clear() and window.draw()
         window_.draw(map_);
         window_.draw(car);
+        car.update(0);
         window_.display();
     }
 }

@@ -18,6 +18,10 @@ float VectorMath::Angle(const sf::Vector2f &a, const sf::Vector2f &b)
 {
     return acos((a.x * b.x + a.y * b.y) / (Size(a) * Size(b)));
 }
+float VectorMath::Angle(const sf::Vector2f &a)
+{
+    return acos((a.x + a.y) / (Size(a)));
+}
 
 sf::Vector2f VectorMath::Normalize(const sf::Vector2f &v)
 {

@@ -9,13 +9,16 @@ namespace TrafficSim
      shape_.setOrigin({shape_.getSize().x /2, shape_.getSize().y /2});
      shape_.setPosition(pos_->getPos());
      shape_.setFillColor(sf::Color::Green);
-     
+     shape_.rotate(VectorMath::Angle(dest_->getPos(), pos_->getPos())*180/M_PI);
  }
     void Car::draw(sf::RenderTarget &target, sf::RenderStates states) const{
         target.draw(shape_,states);
     }
 
     void Car::update(float deltatime){
+        sf::Vector2f dir=VectorMath::Normalize(dest_->getPos()-pos_->getPos());
+        shape_.move(dir*0.01f);
+        
 
     }
 }
