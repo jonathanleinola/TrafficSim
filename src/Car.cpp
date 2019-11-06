@@ -4,7 +4,7 @@ namespace TrafficSim
 {
 
  Car::Car(const std::shared_ptr<Node> &pos,const std::shared_ptr<Node> &dest,const sf::Vector2f &size)
-   : pos_(pos),dest_(dest),shape_(size)
+   : pos_(pos),dest_(dest),shape_(size), speed_(100)
  {
      shape_.setOrigin({shape_.getSize().x /2, shape_.getSize().y /2});
      shape_.setPosition(pos_->getPos());
@@ -17,9 +17,7 @@ namespace TrafficSim
 
     void Car::update(float deltatime){
         sf::Vector2f dir=VectorMath::Normalize(dest_->getPos()-pos_->getPos());
-        shape_.move(dir*0.01f);
-        
-
+        shape_.move(dir*deltatime*speed_);
     }
 }
 

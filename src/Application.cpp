@@ -10,6 +10,7 @@ namespace TrafficSim
 
 Application::Application()
 {
+
 }
 
 void Application::run()
@@ -44,8 +45,9 @@ void Application::run()
         //Drawing happens between window.clear() and window.draw()
         window_.draw(map_);
         window_.draw(car);
-        car.update(0);
+        car.update(clock_.getElapsedTime().asSeconds());
         window_.display();
+        clock_.restart();
     }
 }
 
