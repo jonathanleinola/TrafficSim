@@ -10,14 +10,44 @@ namespace TrafficSim
      shape_.setPosition(pos_->getPos());
      shape_.setFillColor(sf::Color::Green);
      shape_.rotate(VectorMath::Angle(dest_->getPos(), pos_->getPos())*180/M_PI);
+     std::map<std::shared_ptr<Node>, bool> visited;
+     findRoute(pos_, visited);
  }
     void Car::draw(sf::RenderTarget &target, sf::RenderStates states) const{
         target.draw(shape_,states);
     }
 
     void Car::update(float deltatime){
-        sf::Vector2f dir=VectorMath::Normalize(dest_->getPos()-pos_->getPos());
+        if (step_ >= route_.size()) 
+            return;
+        if (VectorMath::Distance(shape_.getPosition(), route_.at(step_)->getPos()) < 5.f)
+        {
+            shape_.setPosition(route_.at(step_)->getPos());
+            step_++;
+            if (step_ >= route_.size()) 
+                return;
+        }
+        sf::Vector2f dir=VectorMath::Normalize(route_.at(step_)->getPos()-pos_->getPos());
+        
         shape_.move(dir*deltatime*speed_);
+    }
+
+    void Car::findRoute(const std::shared_ptr<Node> &cur, std::map<std::shared_ptr<Node>,bool> &visited)
+    {
+        if (visited[cur])
+            return;
+        visited[cur] = true;
+
+        if (visited[dest_])
+        {
+            route_.push_back(cur);
+            return;
+        }
+        for (const auto &neighbor : cur->getNeighbors())
+        {
+           findRoute(neighbor, visited);
+        }
+        
     }
 }
 
