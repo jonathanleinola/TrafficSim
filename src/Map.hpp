@@ -10,8 +10,10 @@ class Map : public sf::Drawable
 {
 public:
     Map();
+    ~Map();
 
     //Entity handling
+    void loadMap(std::string path, int sizeX, int sizeY);
     void update(float delta_time);
     void createRoads(const std::shared_ptr<Node> &begin);
     void checkIntersections();
@@ -23,7 +25,7 @@ private:
     std::vector<Intersection> intersections_;
 
     // Constructs roads from nodes using recursive DFS algorithm to iterate over node graph
-    void constructRoad(const std::shared_ptr<Node> &cur, const std::shared_ptr<Road>& prevRoad, std::map<std::shared_ptr<Node>, bool> &visited);
+    void constructRoad(const std::shared_ptr<Node> &cur, const std::shared_ptr<Road> &prevRoad, std::map<std::shared_ptr<Node>, bool> &visited);
 };
 
 } // namespace TrafficSim

@@ -1,10 +1,23 @@
 #include "Map.hpp"
+#include <fstream>
 
 namespace TrafficSim
 {
 
 Map::Map()
 {
+}
+
+Map::~Map()
+{
+}
+
+void Map::loadMap(std::string path, int sizeX, int sizeY)
+{
+    std::fstream mapFile;
+    mapFile.open(path);
+
+    mapFile.close();
 }
 
 void Map::update(float delta_time)
