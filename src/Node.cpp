@@ -13,6 +13,29 @@ Node::Node(const sf::Vector2f &position, const sf::Color &color)
     shape_.setFillColor(color);
 }
 
+void Node::search_DFS(const std::shared_ptr<Node> &cur, const std::shared_ptr<Node> &dest, std::map<std::shared_ptr<Node>, bool> &visited, std::list<std::shared_ptr<Node>> &path) const
+{
+    if (visited[cur])
+        return;
+
+    visited[cur] = true;
+    if (visited[dest])
+    {
+        path.push_front(cur);
+
+        return;
+    }
+    for (const auto &neighbor : cur->getNeighbors())
+    {
+        search_DFS(neighbor, dest, visited, path);
+    }
+    path.push_front(cur);
+}
+
+float Node::pathDistance(const std::shared_ptr<Node> &node) const
+{
+}
+
 void Node::connect(const std::shared_ptr<Node> &another)
 {
     neighbors_.push_back(another);

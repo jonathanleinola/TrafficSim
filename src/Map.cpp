@@ -51,6 +51,20 @@ void Map::checkIntersections()
     }
 }
 
+void Map::addCar(const sf::Vector2f &pos)
+{
+}
+
+const std::shared_ptr<Node> &Map::closestRoadNode(const sf::Vector2f &pos)
+{
+    std::shared_ptr<Node> closest;
+    for(const auto& road : roads_)
+    {
+        
+    }
+    closest;
+}
+
 void Map::constructRoad(const std::shared_ptr<Node> &cur, const std::shared_ptr<Road> &prevRoad, std::map<std::shared_ptr<Node>, bool> &visited)
 {
     if (visited[cur])

@@ -1,5 +1,6 @@
 #pragma once
 
+#include <list> //std::list
 #include <vector> //std::vector
 #include <memory> //std::shared_ptr
 #include <algorithm> //std::remove_if
@@ -19,9 +20,14 @@ public:
     void connect(const std::shared_ptr<Node> &another);
     void disconnect(const std::shared_ptr<Node> &node);
 
+    // Searching algorithms
+    void search_DFS(const std::shared_ptr<Node> &cur, const std::shared_ptr<Node> &dest, std::map<std::shared_ptr<Node>, bool> &visited, std::list<std::shared_ptr<Node>> &path) const;
+
     //Getters
     const sf::Vector2f& getPos() const { return position_; }
     const std::vector<std::shared_ptr<Node>> &getNeighbors() const { return neighbors_; }
+    //Returns -1 if there is no path to node Uses DFS-algorithm
+    float pathDistance(const std::shared_ptr<Node> &node) const;
 
     // Its drawable only for debugging purpouses
     virtual void draw(sf::RenderTarget &target, sf::RenderStates states) const;

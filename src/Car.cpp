@@ -1,17 +1,20 @@
 #include "Car.hpp"
 
+#include <iostream>
+
 namespace TrafficSim
 {
 
 Car::Car(const std::shared_ptr<Node> &pos, const std::shared_ptr<Node> &dest, const sf::Vector2f &size)
-    : pos_(pos), dest_(dest), shape_(size), speed_(100)
+    : pos_(pos), dest_(dest), prev_(pos), shape_(size), speed_(1000)
 {
     shape_.setOrigin({shape_.getSize().x / 2, shape_.getSize().y / 2});
     shape_.setPosition(pos_->getPos());
     shape_.setFillColor(sf::Color::Green);
-    shape_.rotate(VectorMath::Angle(dest_->getPos(), pos_->getPos()) * 180 / M_PI);
-    std::map<std::shared_ptr<Node>, bool> visited;
-    findRoute(pos_, visited);
+
+    findRoute();
+    for (const auto &node : route_)
+        std::cout << node->getPos().x << "\n";
 }
 void Car::draw(sf::RenderTarget &target, sf::RenderStates states) const
 {
@@ -20,34 +23,31 @@ void Car::draw(sf::RenderTarget &target, sf::RenderStates states) const
 
 void Car::update(float deltatime)
 {
-    if (step_ >= route_.size())
+    if (route_.size() < 1)
         return;
-    if (VectorMath::Distance(shape_.getPosition(), route_.at(step_)->getPos()) < 5.f)
+
+    if (VectorMath::Distance(shape_.getPosition(), route_.front()->getPos()) < 5.f)
     {
-        shape_.setPosition(route_.at(step_)->getPos());
-        step_++;
-        if (step_ >= route_.size())
+        shape_.setPosition(route_.front()->getPos());
+        prev_ = std::make_shared<Node>(*route_.front());
+        route_.pop_front();
+        // Don't go back to beginning node
+        if(route_.front() == pos_)
+            route_.pop_front();
+
+        if(route_.size() < 1)
             return;
     }
-    sf::Vector2f dir = VectorMath::Normalize(route_.at(step_)->getPos() - pos_->getPos());
+
+    sf::Vector2f dir = VectorMath::Normalize(route_.front()->getPos() - prev_->getPos());
+    shape_.setRotation(VectorMath::Angle(dir, {0, 1.f}) * 180.f / M_PI);
 
     shape_.move(dir * deltatime * speed_);
 }
 
-void Car::findRoute(const std::shared_ptr<Node> &cur, std::map<std::shared_ptr<Node>, bool> &visited)
+void Car::findRoute()
 {
-    if (visited[cur])
-        return;
-    visited[cur] = true;
-
-    if (visited[dest_])
-    {
-        route_.push_back(cur);
-        return;
-    }
-    for (const auto &neighbor : cur->getNeighbors())
-    {
-        findRoute(neighbor, visited);
-    }
+    std::map<std::shared_ptr<Node>, bool> visited;
+    pos_->search_DFS(pos_, dest_, visited, route_);
 }
 } // namespace TrafficSim

@@ -17,7 +17,8 @@ public:
     void loadMap(std::string path, int sizeX, int sizeY);
     void update(float delta_time);
     void createRoads(const std::shared_ptr<Node> &begin);
-    void addCar(const std::shared_ptr<Node> &pos);
+    void addCar(const sf::Vector2f &pos);
+    const std::shared_ptr<Node> &closestRoadNode(const sf::Vector2f &pos);
     void checkIntersections();
 
     virtual void draw(sf::RenderTarget &target, sf::RenderStates states) const;

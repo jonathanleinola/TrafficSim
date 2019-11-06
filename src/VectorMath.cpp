@@ -1,12 +1,11 @@
 #include "VectorMath.hpp"
 
-
 namespace TrafficSim
 {
 
 float VectorMath::Size(const sf::Vector2f &v)
 {
-    return sqrt(pow(v.x, 2) + pow(v.y, 2));
+    return Distance(v, {0, 0});
 }
 
 float VectorMath::Distance(const sf::Vector2f &a, const sf::Vector2f &b)
@@ -20,7 +19,7 @@ float VectorMath::Angle(const sf::Vector2f &a, const sf::Vector2f &b)
 }
 float VectorMath::Angle(const sf::Vector2f &a)
 {
-    return acos((a.x + a.y) / (Size(a)));
+    return Angle(a, {1, 0});
 }
 
 sf::Vector2f VectorMath::Normalize(const sf::Vector2f &v)
@@ -50,4 +49,4 @@ float VectorMath::IntersectionPoint(const sf::Vector2f &v1, const sf::Vector2f &
     return num / den;
 }
 
-} // namespace TrafSim
+} // namespace TrafficSim
