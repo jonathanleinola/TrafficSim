@@ -23,7 +23,10 @@ void Map::loadMap(std::string path, int sizeX, int sizeY)
 void Map::update(float delta_time)
 {
     // Move cars, and other things which are dependent on time
-} // namespace TrafSim
+    //cars, humans, trafficlights
+    for (auto &car : cars_)
+        car.update(delta_time);
+}
 
 void Map::checkIntersections()
 {
@@ -79,5 +82,7 @@ void Map::draw(sf::RenderTarget &target, sf::RenderStates states) const
         target.draw(*road, states);
     for (const auto &intersection : intersections_)
         target.draw(intersection, states);
+    for (const auto &car : cars_)
+        target.draw(car, states);
 }
 }; // namespace TrafficSim
