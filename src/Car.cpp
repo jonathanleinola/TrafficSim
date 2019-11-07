@@ -47,6 +47,8 @@ bool Car::frontEmpty(const std::vector<std::unique_ptr<Car>> &cars) const
     {
         if (car->shape_.getGlobalBounds().contains(shape_.getPosition() + dir_ * shape_.getSize().y))
             return false;
+        if(car->shape_.getGlobalBounds().contains(shape_.getPosition() + dir_ * shape_.getSize().y * 0.51f))
+            return false;
     }
     return true;
 }

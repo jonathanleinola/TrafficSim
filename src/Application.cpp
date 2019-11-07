@@ -2,16 +2,14 @@
 
 #include <memory>
 #include <iostream>
-#include <stdlib.h>     // rand
-#include <time.h>       //time
-
+#include <stdlib.h> // rand
+#include <time.h>   //time
 
 namespace TrafficSim
 {
 
 Application::Application()
 {
-
 }
 
 void Application::run()
@@ -24,7 +22,7 @@ void Application::run()
     auto n2 = std::make_shared<Node>(sf::Vector2f(window_.getWidth(), window_.getHeight() / 2));
 
     auto n3 = std::make_shared<Node>(sf::Vector2f(window_.getWidth() / 2, 0));
-    auto n4 = std::make_shared<Node>(sf::Vector2f(window_.getWidth()  / 2, window_.getHeight()));
+    auto n4 = std::make_shared<Node>(sf::Vector2f(window_.getWidth() / 2, window_.getHeight()));
 
     // We need to connect them
     n1->connect(n2);
@@ -36,25 +34,26 @@ void Application::run()
 
     // we need to check if two roads crosses each other, because it will recursively search to all nodes which it is connected to
     map_.checkIntersections();
-    unsigned int counter = 0;
 
-
+    float last_time = gametime_.getElapsedTime().asSeconds();
     //Main loop
     while (window_.isOpen())
     {
-        map_.update(clock_.getElapsedTime().asSeconds());
-        clock_.restart();
+        if (last_time + 1.f < gametime_.getElapsedTime().asSeconds())
+        {
+            last_time = gametime_.getElapsedTime().asSeconds();
+            map_.addCar(sf::Vector2f(rand() % window_.getWidth(), rand() % window_.getHeight()), sf::Vector2f(rand() % window_.getWidth(), rand() % window_.getHeight()));
+        }
+        map_.update(deltatime_.getElapsedTime().asSeconds());
+        deltatime_.restart();
+
         window_.pollEvent();
+
         window_.clear();
         //Drawing happens between window.clear() and window.draw()
-        if(rand() % 1000 == 1)
-        {
-            counter = 0;
-            map_.addCar(sf::Vector2f(rand() % 4000, rand() % 2000), sf::Vector2f(rand() % 4000, rand() % 2000));
-        }
         window_.draw(map_);
+
         window_.display();
-        counter++;
     }
 }
 

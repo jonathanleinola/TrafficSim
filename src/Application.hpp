@@ -14,6 +14,7 @@ public:
 private:
     Window window_;
     Map map_;
-    sf::Clock clock_;
+    sf::Clock deltatime_;
+    sf::Clock gametime_;
 };
 } // namespace TrafficSim
