@@ -18,7 +18,7 @@ public:
     // When we are extending existing road in the same direction
     Road(const Road &prev_road, const std::shared_ptr<Node> &end);
 
-    void createIntersection(const std::shared_ptr<Road>& another, const sf::Vector2f& pos, std::shared_ptr<Node> *intersection_nodes);
+    void createIntersection(Road& another, const sf::Vector2f& pos, std::shared_ptr<Node> *intersection_nodes);
 
     //Getters
     bool isHorizontal() const;

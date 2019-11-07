@@ -3,11 +3,11 @@
 namespace TrafficSim
 {
 
-Intersection::Intersection(const std::shared_ptr<Road> &road1, const std::shared_ptr<Road> &road2, const sf::Vector2f& pos)
-    : pos_(pos), roads_({road1, road2})
+Intersection::Intersection(Road &road1, Road &road2, const sf::Vector2f& pos)
+    : pos_(pos)
 {
-    road1->createIntersection(road2, pos_, intersectionNodes_);
-    road2->createIntersection(road1, pos_, intersectionNodes_);
+    road1.createIntersection(road2, pos_, intersectionNodes_);
+    road2.createIntersection(road1, pos_, intersectionNodes_);
 
     // intersection nodes top left, top right, bot right, bot left.
     std::shared_ptr<Node> &tlNode = intersectionNodes_[0];

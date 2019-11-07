@@ -21,7 +21,7 @@ bool Road::isHorizontal() const
     return abs(dir_.x) > abs(dir_.y);
 }
 
-void Road::createIntersection(const std::shared_ptr<Road> &another, const sf::Vector2f &pos, std::shared_ptr<Node> *intersection_nodes)
+void Road::createIntersection(Road &another, const sf::Vector2f &pos, std::shared_ptr<Node> *intersection_nodes)
 {
     // intersection nodes top left, torright, bot right, bot left.
     std::shared_ptr<Node> &itlNode = intersection_nodes[0];
