@@ -44,7 +44,8 @@ if(LINUX)
 endif ()
 
 
-
+# Additional resources like images and fonts
+configure_file(res/road.png road.png COPYONLY)
 
 
 # Enable additional warnings and debug mode
