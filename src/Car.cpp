@@ -1,6 +1,7 @@
 #include "Car.hpp"
 
 #include <iostream>
+#include <algorithm> // std::max
 
 namespace TrafficSim
 {
@@ -12,15 +13,13 @@ Car::Car(const std::shared_ptr<Node> &pos, const std::shared_ptr<Node> &dest, co
     shape_.setPosition(pos_->getPos());
     shape_.setFillColor(sf::Color::Green);
     findRoute();
-    for(const auto& node : route_)
-        std::cout << node << std::endl;
 }
 void Car::draw(sf::RenderTarget &target, sf::RenderStates states) const
 {
     target.draw(shape_, states);
 }
 
-void Car::update(float deltatime)
+void Car::update(float deltatime, const std::vector<std::unique_ptr<Car>> &cars)
 {
     if (route_.size() < 1)
         return;
@@ -30,18 +29,26 @@ void Car::update(float deltatime)
         shape_.setPosition(route_.front()->getPos());
         prev_ = std::make_shared<Node>(*route_.front());
         route_.pop_front();
-        // Don't go back to beginning node
-        if(route_.front() == pos_)
-            route_.pop_front();
-
-        if(route_.size() < 1)
+        if (route_.size() < 1)
+        {
+            finished = true;
             return;
+        }
+        dir_ = VectorMath::Normalize(route_.front()->getPos() - prev_->getPos());
+        shape_.setRotation(VectorMath::Angle(dir_, {0, 1.f}) * 180.f / M_PI);
     }
+    if (frontEmpty(cars))
+        shape_.move(dir_ * deltatime * speed_);
+}
 
-    sf::Vector2f dir = VectorMath::Normalize(route_.front()->getPos() - prev_->getPos());
-    shape_.setRotation(VectorMath::Angle(dir, {0, 1.f}) * 180.f / M_PI);
-
-    shape_.move(dir * deltatime * speed_);
+bool Car::frontEmpty(const std::vector<std::unique_ptr<Car>> &cars) const
+{
+    for (const auto &car : cars)
+    {
+        if (car->shape_.getGlobalBounds().contains(shape_.getPosition() + dir_ * shape_.getSize().y))
+            return false;
+    }
+    return true;
 }
 
 void Car::findRoute()

@@ -1,8 +1,9 @@
 #include "Map.hpp"
 
 #include <fstream>
-#include <cfloat> // FLT_MAX
+#include <cfloat>   // FLT_MAX
 #include <iostream> // FLT_MAX
+#include <memory>
 
 namespace TrafficSim
 {
@@ -28,7 +29,13 @@ void Map::update(float delta_time)
     // Move cars, and other things which are dependent on time
     //cars, humans, trafficlights
     for (auto &car : cars_)
-        car.update(delta_time);
+        car->update(delta_time, cars_);
+    removeFinishedCars();
+}
+
+void Map::removeFinishedCars()
+{
+    cars_.erase(std::remove_if(cars_.begin(), cars_.end(), [](const auto &car) -> bool { return car->isFinished(); }), cars_.end());
 }
 
 void Map::checkIntersections()
@@ -54,22 +61,24 @@ void Map::checkIntersections()
     }
 }
 
-void Map::addCar(const sf::Vector2f &pos, const sf::Vector2f &dest)
+void Map::addCar(const sf::Vector2f &spawn_pos, const sf::Vector2f &dest)
 {
-    std::shared_ptr<Node> spawn_loc = closestRoadNode(pos);
-    std::shared_ptr<Node> dest_loc = closestEndRoadNode(dest);
-    std::cout << "Spawn loc: " << spawn_loc << std::endl;
-    std::cout <<  "Destination loc: " << dest_loc << std::endl;
-    cars_.emplace_back(spawn_loc, dest_loc, sf::Vector2f(50, 100));
+    std::unique_ptr<Car> car = std::make_unique<Car>(Car(closestRoadNode(spawn_pos, true), closestRoadNode(dest, false), sf::Vector2f(50, 100)));
+    cars_.push_back(std::make_unique<Car>(Car(closestRoadNode(spawn_pos, true), closestRoadNode(dest, false), sf::Vector2f(50, 100))));
 }
 
-std::shared_ptr<Node> Map::closestEndRoadNode(const sf::Vector2f &pos)
+std::shared_ptr<Node> Map::closestRoadNode(const sf::Vector2f &pos, bool fromBegin)
 {
     std::shared_ptr<Node> closest = nullptr;
     float closest_distance = FLT_MAX;
+
     for (const auto &road : roads_)
     {
-        auto pair = road.getLaneEndNodes();
+        std::pair<std::shared_ptr<Node>, std::shared_ptr<Node>> pair;
+        if (fromBegin)
+            pair = road.getLaneBeginNodes();
+        else
+            pair = road.getLaneEndNodes();
         float dist1 = VectorMath::Distance(pair.first->getPos(), pos);
         float dist2 = VectorMath::Distance(pair.second->getPos(), pos);
         if (dist1 < closest_distance)
@@ -81,26 +90,6 @@ std::shared_ptr<Node> Map::closestEndRoadNode(const sf::Vector2f &pos)
         {
             closest_distance = dist2;
             closest = pair.second;
-        }
-    }
-    return closest;
-}
-
-std::shared_ptr<Node> Map::closestRoadNode(const sf::Vector2f &pos)
-{
-    std::shared_ptr<Node> closest = nullptr;
-    float closest_distance = FLT_MAX;
-    for (const auto &road : roads_)
-    {
-        if (VectorMath::Distance(road.getLaneBeginNodes().first->getPos(), pos) < closest_distance)
-        {
-            closest_distance = VectorMath::Distance(road.getLaneBeginNodes().first->getPos(), pos);
-            closest = std::make_shared<Node>(*road.getLaneBeginNodes().first);
-        }
-        if (VectorMath::Distance(road.getLaneBeginNodes().second->getPos(), pos) < closest_distance)
-        {
-            closest_distance = VectorMath::Distance(road.getLaneBeginNodes().second->getPos(), pos);
-            closest = std::make_shared<Node>(*road.getLaneBeginNodes().second);
         }
     }
     return closest;
@@ -136,6 +125,6 @@ void Map::draw(sf::RenderTarget &target, sf::RenderStates states) const
     for (const auto &intersection : intersections_)
         target.draw(intersection, states);
     for (const auto &car : cars_)
-        target.draw(car, states);
+        target.draw(*car, states);
 }
 }; // namespace TrafficSim

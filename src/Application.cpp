@@ -2,6 +2,8 @@
 
 #include <memory>
 #include <iostream>
+#include <stdlib.h>     // rand
+#include <time.h>       //time
 
 
 namespace TrafficSim
@@ -14,6 +16,7 @@ Application::Application()
 
 void Application::run()
 {
+    srand(time(NULL));
     // Example how roads are created
     // First we have two nodes in different locations
     // origin (0, 0) is left top corner
@@ -33,8 +36,8 @@ void Application::run()
 
     // we need to check if two roads crosses each other, because it will recursively search to all nodes which it is connected to
     map_.checkIntersections();
+    unsigned int counter = 0;
 
-    map_.addCar({3000, 3500}, {2000, 1000});
 
     //Main loop
     while (window_.isOpen())
@@ -44,8 +47,14 @@ void Application::run()
         window_.pollEvent();
         window_.clear();
         //Drawing happens between window.clear() and window.draw()
+        if(rand() % 400 == 1)
+        {
+            counter = 0;
+            map_.addCar(sf::Vector2f(rand() % 4000, rand() % 2000), sf::Vector2f(rand() % 4000, rand() % 2000));
+        }
         window_.draw(map_);
         window_.display();
+        counter++;
     }
 }
 
