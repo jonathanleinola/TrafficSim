@@ -16,7 +16,7 @@ public:
     //Entity handling
     void update(float delta_time);
     void addCar(const sf::Vector2f &spawn_pos, const sf::Vector2f &dest);
-    void createRoads(const std::shared_ptr<Node> &begin);
+    void createRoads(const std::shared_ptr<Node> &begin, const sf::Texture &texture);
 
     // Data handling
     // TODO - take std::string always as const ref or even better const char *
@@ -35,7 +35,7 @@ private:
     std::vector<Intersection> intersections_;
 
     // Constructs roads from nodes using recursive DFS algorithm to iterate over node graph
-    void constructRoad(const std::shared_ptr<Node> &cur, const Road *prevRoad, std::map<std::shared_ptr<Node>, bool> &visited);
+    void constructRoad(const std::shared_ptr<Node> &cur, const Road *prevRoad, std::map<std::shared_ptr<Node>, bool> &visited, const sf::Texture &texture);
     // Loops over cars_, and deletes all finished cars
     void removeFinishedCars();
 };

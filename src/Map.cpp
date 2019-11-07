@@ -94,7 +94,7 @@ std::shared_ptr<Node> Map::closestRoadNode(const sf::Vector2f &pos, bool fromBeg
     return closest;
 }
 
-void Map::constructRoad(const std::shared_ptr<Node> &cur, const Road *prevRoad, std::map<std::shared_ptr<Node>, bool> &visited)
+void Map::constructRoad(const std::shared_ptr<Node> &cur, const Road *prevRoad, std::map<std::shared_ptr<Node>, bool> &visited, const sf::Texture &texture)
 {
     if (visited[cur])
         return;
@@ -102,19 +102,19 @@ void Map::constructRoad(const std::shared_ptr<Node> &cur, const Road *prevRoad, 
     for (const auto &neighbor : cur->getNeighbors())
     {
         if (prevRoad == nullptr)
-            roads_.emplace_back(cur, neighbor, 100.f);
+            roads_.emplace_back(cur, neighbor, 100.f, texture);
         else
             roads_.emplace_back(*prevRoad, neighbor);
 
-        constructRoad(neighbor, &roads_[roads_.size() - 1], visited);
+        constructRoad(neighbor, &roads_[roads_.size() - 1], visited, texture);
     }
 }
 
-void Map::createRoads(const std::shared_ptr<Node> &begin)
+void Map::createRoads(const std::shared_ptr<Node> &begin, const sf::Texture &texture)
 {
     std::shared_ptr<Node> cur = begin;
     std::map<std::shared_ptr<Node>, bool> visited;
-    constructRoad(cur, nullptr, visited);
+    constructRoad(cur, nullptr, visited, texture);
 }
 
 void Map::draw(sf::RenderTarget &target, sf::RenderStates states) const

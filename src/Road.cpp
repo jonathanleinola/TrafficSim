@@ -1,10 +1,12 @@
 #include "Road.hpp"
 
+#include <iostream>
+
 namespace TrafficSim
 {
 
-Road::Road(const std::shared_ptr<Node> &begin, const std::shared_ptr<Node> &end, float lane_width)
-    : begin_(begin), end_(end), dir_(VectorMath::Normalize(end_->getPos() - begin_->getPos())), lane_width_(lane_width)
+Road::Road(const std::shared_ptr<Node> &begin, const std::shared_ptr<Node> &end, float lane_width, const sf::Texture &texture)
+    : begin_(begin), end_(end), dir_(VectorMath::Normalize(end_->getPos() - begin_->getPos())), lane_width_(lane_width), road_texture_(texture)
 {
     // TODO- when combining roads nodes are not connected correctly
     init();
@@ -91,6 +93,7 @@ void Road::createIntersection(Road &another, const sf::Vector2f &pos, std::share
     }
 }
 
+
 void Road::init()
 {
     //Perpendicular direction to m_dir.
@@ -102,6 +105,11 @@ void Road::init()
 
     erNode_ = std::make_shared<Node>(brNode_->getPos() + (end_->getPos() - begin_->getPos()));
     elNode_ = std::make_shared<Node>(blNode_->getPos() - (end_->getPos() - begin_->getPos()));
+    // Connect begin nodes to their same lane end nodes
+    brNode_->connect(erNode_);
+    blNode_->connect(elNode_);
+
+    // Drawing stuff
 
     vertices_.reserve(4);
     vertices_.emplace_back(begin_->getPos() + pdir * lane_width_);
@@ -109,13 +117,15 @@ void Road::init()
     vertices_.emplace_back(end_->getPos() + pdir * lane_width_);
     vertices_.emplace_back(end_->getPos() - pdir * lane_width_);
 
-    // Connect begin nodes to their same lane end nodes
-    brNode_->connect(erNode_);
-    blNode_->connect(elNode_);
+    vertices_[0].texCoords = sf::Vector2f(0,0);
+    vertices_[1].texCoords = sf::Vector2f(100,0);
+    vertices_[2].texCoords = sf::Vector2f(0,1000);
+    vertices_[3].texCoords = sf::Vector2f(100,1000);
 }
 
 void Road::draw(sf::RenderTarget &target, sf::RenderStates states) const
 {
+    states.texture = &road_texture_;
     target.draw(&vertices_[0], vertices_.size(), sf::TriangleStrip, states);
     // Drawing the for debuggin purposes
     target.draw(*brNode_);

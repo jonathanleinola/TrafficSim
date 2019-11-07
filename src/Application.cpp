@@ -14,6 +14,18 @@ Application::Application()
 
 void Application::run()
 {
+    sf::Texture roadTexture;
+    if (!roadTexture.loadFromFile("road.png"))
+    {
+        std::cout << "Could not load texture" << std::endl;
+        return;
+    }
+    else
+    {
+        std::cout << "Texture loaded" << std::endl;
+        roadTexture.setRepeated(true);
+    }
+    
     srand(time(NULL));
     // Example how roads are created
     // First we have two nodes in different locations
@@ -29,8 +41,8 @@ void Application::run()
     n3->connect(n4);
 
     // Needs to only give it beginning node
-    map_.createRoads(n1);
-    map_.createRoads(n3);
+    map_.createRoads(n1, roadTexture);
+    map_.createRoads(n3, roadTexture);
 
     // we need to check if two roads crosses each other, because it will recursively search to all nodes which it is connected to
     map_.checkIntersections();

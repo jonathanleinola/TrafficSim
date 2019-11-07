@@ -13,7 +13,7 @@ class Road : public sf::Drawable
 {
 public:
     // Creating new road which will not be connected to anything by default
-    Road(const std::shared_ptr<Node> &begin, const std::shared_ptr<Node> &end, float lane_width);
+    Road(const std::shared_ptr<Node> &begin, const std::shared_ptr<Node> &end, float lane_width, const sf::Texture &texture);
 
     // When we are extending existing road in the same direction
     Road(const Road &prev_road, const std::shared_ptr<Node> &end);
@@ -39,6 +39,8 @@ private:
     std::shared_ptr<Node> begin_, end_;
 
     sf::Vector2f dir_;
+
+    sf::Texture road_texture_;
 
     float lane_width_;
 
