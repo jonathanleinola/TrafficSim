@@ -14,11 +14,13 @@ public:
     ~Map();
 
     //Entity handling
+    // TODO - take std::string always as const ref
     void loadMap(std::string path, int sizeX, int sizeY);
     void update(float delta_time);
     void createRoads(const std::shared_ptr<Node> &begin);
-    void addCar(const sf::Vector2f &pos);
-    const std::shared_ptr<Node> &closestRoadNode(const sf::Vector2f &pos);
+    void addCar(const sf::Vector2f &pos, const sf::Vector2f &dest);
+    std::shared_ptr<Node> closestRoadNode(const sf::Vector2f &pos);
+    std::shared_ptr<Node> closestEndRoadNode(const sf::Vector2f &pos);
     void checkIntersections();
 
     virtual void draw(sf::RenderTarget &target, sf::RenderStates states) const;

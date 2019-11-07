@@ -24,7 +24,7 @@ public:
     bool isHorizontal() const;
     const sf::Vector2f& getDir() const { return dir_; }
     std::pair<sf::Vector2f, sf::Vector2f> getEndPoints() const { return {begin_->getPos(), end_->getPos()}; }
-    std::pair<std::shared_ptr<Node>, std::shared_ptr<Node>> getLaneBeginNodes() const { return {begin_, blNode_}; }
+    std::pair<std::shared_ptr<Node>, std::shared_ptr<Node>> getLaneBeginNodes() const { return {brNode_, blNode_}; }
     std::pair<std::shared_ptr<Node>, std::shared_ptr<Node>> getLaneEndNodes() const { return {erNode_, elNode_}; }
 
     virtual void draw(sf::RenderTarget &target, sf::RenderStates states) const;

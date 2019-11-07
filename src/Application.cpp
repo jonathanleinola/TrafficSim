@@ -3,7 +3,6 @@
 #include <memory>
 #include <iostream>
 
-#include "Car.hpp"
 
 namespace TrafficSim
 {
@@ -26,28 +25,26 @@ void Application::run()
 
     // We need to connect them
     n1->connect(n2);
-    n2->connect(n3);
     n3->connect(n4);
 
     // Needs to only give it beginning node
     map_.createRoads(n1);
-    //map_.createRoads(n3);
+    map_.createRoads(n3);
 
     // we need to check if two roads crosses each other, because it will recursively search to all nodes which it is connected to
     map_.checkIntersections();
 
-    Car car(n1, n4, sf::Vector2f(50,100));
+    map_.addCar({3000, 3500}, {2000, 1000});
 
     //Main loop
     while (window_.isOpen())
     {
+        map_.update(clock_.getElapsedTime().asSeconds());
+        clock_.restart();
         window_.pollEvent();
         window_.clear();
         //Drawing happens between window.clear() and window.draw()
         window_.draw(map_);
-        window_.draw(car);
-        car.update(clock_.getElapsedTime().asSeconds());
-        clock_.restart();
         window_.display();
     }
 }

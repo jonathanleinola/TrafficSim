@@ -1,5 +1,8 @@
 #include "Map.hpp"
+
 #include <fstream>
+#include <cfloat> // FLT_MAX
+#include <iostream> // FLT_MAX
 
 namespace TrafficSim
 {
@@ -51,18 +54,56 @@ void Map::checkIntersections()
     }
 }
 
-void Map::addCar(const sf::Vector2f &pos)
+void Map::addCar(const sf::Vector2f &pos, const sf::Vector2f &dest)
 {
+    std::shared_ptr<Node> spawn_loc = closestRoadNode(pos);
+    std::shared_ptr<Node> dest_loc = closestEndRoadNode(dest);
+    std::cout << "Spawn loc: " << spawn_loc << std::endl;
+    std::cout <<  "Destination loc: " << dest_loc << std::endl;
+    cars_.emplace_back(spawn_loc, dest_loc, sf::Vector2f(50, 100));
 }
 
-const std::shared_ptr<Node> &Map::closestRoadNode(const sf::Vector2f &pos)
+std::shared_ptr<Node> Map::closestEndRoadNode(const sf::Vector2f &pos)
 {
-    std::shared_ptr<Node> closest;
-    for(const auto& road : roads_)
+    std::shared_ptr<Node> closest = nullptr;
+    float closest_distance = FLT_MAX;
+    for (const auto &road : roads_)
     {
-        
+        auto pair = road.getLaneEndNodes();
+        float dist1 = VectorMath::Distance(pair.first->getPos(), pos);
+        float dist2 = VectorMath::Distance(pair.second->getPos(), pos);
+        if (dist1 < closest_distance)
+        {
+            closest_distance = dist1;
+            closest = pair.first;
+        }
+        if (dist2 < closest_distance)
+        {
+            closest_distance = dist2;
+            closest = pair.second;
+        }
     }
-    closest;
+    return closest;
+}
+
+std::shared_ptr<Node> Map::closestRoadNode(const sf::Vector2f &pos)
+{
+    std::shared_ptr<Node> closest = nullptr;
+    float closest_distance = FLT_MAX;
+    for (const auto &road : roads_)
+    {
+        if (VectorMath::Distance(road.getLaneBeginNodes().first->getPos(), pos) < closest_distance)
+        {
+            closest_distance = VectorMath::Distance(road.getLaneBeginNodes().first->getPos(), pos);
+            closest = std::make_shared<Node>(*road.getLaneBeginNodes().first);
+        }
+        if (VectorMath::Distance(road.getLaneBeginNodes().second->getPos(), pos) < closest_distance)
+        {
+            closest_distance = VectorMath::Distance(road.getLaneBeginNodes().second->getPos(), pos);
+            closest = std::make_shared<Node>(*road.getLaneBeginNodes().second);
+        }
+    }
+    return closest;
 }
 
 void Map::constructRoad(const std::shared_ptr<Node> &cur, const Road *prevRoad, std::map<std::shared_ptr<Node>, bool> &visited)
