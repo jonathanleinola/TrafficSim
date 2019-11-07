@@ -47,7 +47,7 @@ void Application::run()
         window_.pollEvent();
         window_.clear();
         //Drawing happens between window.clear() and window.draw()
-        if(rand() % 400 == 1)
+        if(rand() % 1000 == 1)
         {
             counter = 0;
             map_.addCar(sf::Vector2f(rand() % 4000, rand() % 2000), sf::Vector2f(rand() % 4000, rand() % 2000));

@@ -7,7 +7,7 @@ namespace TrafficSim
 {
 
 Car::Car(const std::shared_ptr<Node> &pos, const std::shared_ptr<Node> &dest, const sf::Vector2f &size)
-    : pos_(pos), dest_(dest), prev_(pos), shape_(size), speed_(200)
+    : pos_(pos), dest_(dest), prev_(pos), shape_(size), speed_(200), acceleration_(0)
 {
     shape_.setOrigin({shape_.getSize().x / 2, shape_.getSize().y / 2});
     shape_.setPosition(pos_->getPos());

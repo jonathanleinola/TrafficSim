@@ -63,7 +63,6 @@ void Map::checkIntersections()
 
 void Map::addCar(const sf::Vector2f &spawn_pos, const sf::Vector2f &dest)
 {
-    std::unique_ptr<Car> car = std::make_unique<Car>(Car(closestRoadNode(spawn_pos, true), closestRoadNode(dest, false), sf::Vector2f(50, 100)));
     cars_.push_back(std::make_unique<Car>(Car(closestRoadNode(spawn_pos, true), closestRoadNode(dest, false), sf::Vector2f(50, 100))));
 }
 
