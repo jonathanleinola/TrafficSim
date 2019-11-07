@@ -16,7 +16,7 @@ endif()
 
 if (${APPLE})
     list(APPEND CMAKE_MODULE_PATH "${CMAKE_SOURCE_DIR}/deps/cmake")
-    find_package(SFML 2.5 REQUIRED network audio graphics window system)
+    find_package(SFML 2.5.1 REQUIRED network audio graphics window system)
     if(SFML_FOUND)
         include_directories(${SFML_INCLUDE_DIR})
     endif()

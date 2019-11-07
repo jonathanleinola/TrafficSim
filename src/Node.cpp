@@ -44,17 +44,17 @@ void Node::connect(const std::shared_ptr<Node> &another)
 void Node::disconnect(const std::shared_ptr<Node> &node)
 {
     // Only C++ 14
-    //neighbors_.erase(std::remove_if(neighbors_.begin(), neighbors_.end(), [&node](const auto &n) -> bool { return n == node; }), neighbors_.end());
+    neighbors_.erase(std::remove_if(neighbors_.begin(), neighbors_.end(), [&node](const auto &n) -> bool { return n == node; }), neighbors_.end());
 
     // C++ 11
-    for (auto it = neighbors_.begin(); it != neighbors_.end(); ++it)
-    {
-        if (node == *it)
-        {
-            neighbors_.erase(it);
-            return;
-        }
-    }
+    // for (auto it = neighbors_.begin(); it != neighbors_.end(); ++it)
+    // {
+    //     if (node == *it)
+    //     {
+    //         neighbors_.erase(it);
+    //         return;
+    //     }
+    // }
 }
 
 void Node::draw(sf::RenderTarget &target, sf::RenderStates states) const

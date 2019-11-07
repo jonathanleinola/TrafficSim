@@ -14,14 +14,17 @@ public:
     ~Map();
 
     //Entity handling
-    // TODO - take std::string always as const ref
-    void loadMap(std::string path, int sizeX, int sizeY);
     void update(float delta_time);
-    void createRoads(const std::shared_ptr<Node> &begin);
     void addCar(const sf::Vector2f &spawn_pos, const sf::Vector2f &dest);
+    void createRoads(const std::shared_ptr<Node> &begin);
+
+    // Data handling
+    // TODO - take std::string always as const ref or even better const char *
+    void loadMap(std::string path, int sizeX, int sizeY);
 
     //Finds closest lane-node from map. If fromBegin is true -> finds beginning node else finds ending node
     std::shared_ptr<Node> closestRoadNode(const sf::Vector2f &pos, bool fromBegin);
+    // if there is two roads crossing each other we need to create intersection
     void checkIntersections();
 
     virtual void draw(sf::RenderTarget &target, sf::RenderStates states) const;
@@ -33,6 +36,7 @@ private:
 
     // Constructs roads from nodes using recursive DFS algorithm to iterate over node graph
     void constructRoad(const std::shared_ptr<Node> &cur, const Road *prevRoad, std::map<std::shared_ptr<Node>, bool> &visited);
+    // Loops over cars_, and deletes all finished cars
     void removeFinishedCars();
 };
 

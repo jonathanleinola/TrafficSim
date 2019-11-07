@@ -14,6 +14,7 @@ Car::Car(const std::shared_ptr<Node> &pos, const std::shared_ptr<Node> &dest, co
     shape_.setFillColor(sf::Color::Green);
     findRoute();
 }
+
 void Car::draw(sf::RenderTarget &target, sf::RenderStates states) const
 {
     target.draw(shape_, states);
@@ -34,9 +35,12 @@ void Car::update(float deltatime, const std::vector<std::unique_ptr<Car>> &cars)
             finished = true;
             return;
         }
+        // We only need to change rotation of the car on turn
         dir_ = VectorMath::Normalize(route_.front()->getPos() - prev_->getPos());
         shape_.setRotation(VectorMath::Angle(dir_, {0, 1.f}) * 180.f / M_PI);
     }
+    // Checks if there is something (another car) infront of this car
+    // if there is -> we cant move forward
     if (frontEmpty(cars))
         shape_.move(dir_ * deltatime * speed_);
 }
@@ -45,8 +49,10 @@ bool Car::frontEmpty(const std::vector<std::unique_ptr<Car>> &cars) const
 {
     for (const auto &car : cars)
     {
+        // safe distance to the car infront
         if (car->shape_.getGlobalBounds().contains(shape_.getPosition() + dir_ * shape_.getSize().y))
             return false;
+        // car front
         if(car->shape_.getGlobalBounds().contains(shape_.getPosition() + dir_ * shape_.getSize().y * 0.51f))
             return false;
     }
