@@ -17,12 +17,12 @@ void Application::run()
     sf::Texture roadTexture;
     if (!roadTexture.loadFromFile("road.png"))
     {
-        std::cout << "Could not load texture" << std::endl;
+        std::cout << "Could not load texture: " << "road.png" << std::endl;
         return;
     }
     else
     {
-        std::cout << "Texture loaded" << std::endl;
+        std::cout << "Texture loaded." << std::endl;
         roadTexture.setRepeated(true);
     }
     
