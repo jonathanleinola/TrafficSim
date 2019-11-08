@@ -62,6 +62,7 @@ void Application::run()
         window_.pollEvent();
 
         window_.clear();
+        // test
         //Drawing happens between window.clear() and window.draw()
         window_.draw(map_);
 
