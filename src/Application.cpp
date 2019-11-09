@@ -5,6 +5,8 @@
 #include <stdlib.h> // rand
 #include <time.h>   //time
 
+#include "DataHandler.hpp"
+
 namespace TrafficSim
 {
 
@@ -15,16 +17,11 @@ Application::Application()
 void Application::run()
 {
     sf::Texture roadTexture;
-    if (!roadTexture.loadFromFile("road.png"))
-    {
-        std::cout << "Could not load texture: " << "road.png" << std::endl;
-        return;
-    }
-    else
-    {
-        std::cout << "Texture loaded." << std::endl;
-        roadTexture.setRepeated(true);
-    }
+
+    if(DataHandler::LoadTexture("road.png", roadTexture))
+        return; // error, let's stop our program
+    
+    roadTexture.setRepeated(true);
     
     srand(time(NULL));
     // Example how roads are created
