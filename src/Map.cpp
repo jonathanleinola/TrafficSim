@@ -5,6 +5,7 @@
 #include <iostream> // FLT_MAX
 #include <memory>
 
+
 namespace TrafficSim
 {
 
@@ -14,6 +15,21 @@ Map::Map()
 
 Map::~Map()
 {
+}
+
+void Map::createGrid(int window_width, int window_height)
+{
+    float size = window_width / 16;
+    int x_tile_count = window_width / size;
+    int y_tile_count = window_height / size;
+    grid_.reserve(x_tile_count*y_tile_count);
+    for(int i = 0; i < y_tile_count; ++i)
+    {
+        for(int j = 0; j < x_tile_count; ++j)
+        {
+            grid_.push_back(std::make_unique<Tile>(sf::Vector2f(j * size, i*size), size));
+        }
+    }
 }
 
 void Map::loadMap(std::string path, int sizeX, int sizeY)
@@ -119,6 +135,8 @@ void Map::createRoads(const std::shared_ptr<Node> &begin, const sf::Texture &tex
 
 void Map::draw(sf::RenderTarget &target, sf::RenderStates states) const
 {
+    for(const auto &tile : grid_)
+        target.draw(*tile, states);
     for (const auto &road : roads_)
         target.draw(road, states);
     for (const auto &intersection : intersections_)

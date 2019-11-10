@@ -18,11 +18,14 @@ void Application::run()
 {
     sf::Texture roadTexture;
 
+    map_.createGrid(window_.getWidth(), window_.getHeight());
+
     if(DataHandler::LoadTexture("road.png", roadTexture))
-        return; // error, let's stop our program
+        return; // error, lets stop our program
     
     roadTexture.setRepeated(true);
     
+    // give random seed
     srand(time(NULL));
     // Example how roads are created
     // First we have two nodes in different locations
