@@ -19,17 +19,7 @@ Map::~Map()
 
 void Map::createGrid(int window_width, int window_height)
 {
-    float size = window_width / 16;
-    int x_tile_count = window_width / size;
-    int y_tile_count = window_height / size;
-    grid_.reserve(x_tile_count*y_tile_count);
-    for(int i = 0; i < y_tile_count; ++i)
-    {
-        for(int j = 0; j < x_tile_count; ++j)
-        {
-            grid_.push_back(std::make_unique<Tile>(sf::Vector2f(j * size, i*size), size));
-        }
-    }
+
 }
 
 void Map::loadMap(std::string path, int sizeX, int sizeY)
