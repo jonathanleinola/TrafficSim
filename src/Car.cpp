@@ -9,7 +9,6 @@ namespace TrafficSim
 Car::Car(const std::shared_ptr<Node> &pos, const std::shared_ptr<Node> &dest, const sf::Vector2f &size, const sf::Texture &carTexture)
     : pos_(pos), dest_(dest), prev_(pos), shape_(size), speed_(200), acceleration_(0)
 {
-    shape_.setFillColor(sf::Color(50,0,0,50));
     shape_.setTexture(&carTexture);
     shape_.setOrigin({shape_.getSize().x / 2, shape_.getSize().y / 2});
     shape_.setPosition(pos_->getPos());
