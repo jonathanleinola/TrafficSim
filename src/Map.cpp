@@ -10,16 +10,12 @@ namespace TrafficSim
 {
 
 Map::Map()
+    : grid_(120)
 {
 }
 
 Map::~Map()
 {
-}
-
-void Map::createGrid(int window_width, int window_height)
-{
-
 }
 
 void Map::loadMap(std::string path, int sizeX, int sizeY)
@@ -125,8 +121,7 @@ void Map::createRoads(const std::shared_ptr<Node> &begin, const sf::Texture &tex
 
 void Map::draw(sf::RenderTarget &target, sf::RenderStates states) const
 {
-    for(const auto &tile : grid_)
-        target.draw(*tile, states);
+    target.draw(grid_, states);
     for (const auto &road : roads_)
         target.draw(road, states);
     for (const auto &intersection : intersections_)

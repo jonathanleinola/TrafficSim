@@ -18,8 +18,6 @@ void Application::run()
 {
     sf::Texture roadTexture;
 
-    map_.createGrid(window_.getWidth(), window_.getHeight());
-
     if(DataHandler::LoadTexture("road.png", roadTexture))
         return; // error, lets stop our program
     
