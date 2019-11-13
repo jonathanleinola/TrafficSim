@@ -28,7 +28,7 @@ public:
     static unsigned int GetIndex(unsigned int x, unsigned int y);
 
 private:
-    // 20 x 20 tile map
+    // tile_count_ x tile_count_ tile map
     constexpr static unsigned int tile_count_ = 100;
     std::array<std::unique_ptr<Tile>, tile_count_ * tile_count_> tiles_;
 

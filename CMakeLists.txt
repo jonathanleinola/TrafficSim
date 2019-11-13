@@ -9,6 +9,8 @@ cmake_minimum_required(VERSION 3.1)
 set(CMAKE_CXX_STANDARD 14) #c++11
 
 file(GLOB SOURCES src/*.cpp)
+set(IMGUI_SOURCES deps/imgui/imgui.cpp deps/imgui/imgui_widgets.cpp deps/imgui/imgui_draw.cpp deps/imgui/imgui_demo.cpp deps/imgui-sfml/imgui-SFML.cpp)
+
 
 if(UNIX AND NOT APPLE)
     set(LINUX TRUE)
@@ -20,7 +22,7 @@ if (${APPLE})
     if(SFML_FOUND)
         include_directories(${SFML_INCLUDE_DIR})
     endif()
-    add_executable(${PROJECT_NAME} ${SOURCES})
+    add_executable(${PROJECT_NAME} ${SOURCES} ${IMGUI_SOURCES})
     target_link_libraries(${PROJECT_NAME} ${SFML_LIBRARIES} ${SFML_DEPENDENCIES})
 endif ()
 if(LINUX)
@@ -39,15 +41,22 @@ if(LINUX)
         message(STATUS "SFML_LIBRARIES: ${SFML_LIBRARIES}")
         message(STATUS "SFML_VERSION: ${SFML_VERSION}")
     endif()
-    add_executable(${PROJECT_NAME} ${SOURCES})
+    add_executable(${PROJECT_NAME} ${SOURCES} ${IMGUI_SOURCES})
     target_link_libraries(${PROJECT_NAME} sfml-graphics sfml-window sfml-system)
 endif ()
 
-
+include_directories(deps/imgui)
+include_directories(deps/imgui-sfml)
 # Additional resources like images and fonts
 configure_file(res/road.png road.png COPYONLY)
 configure_file(res/yellow_car.jpeg yellow_car.jpeg COPYONLY)
 
+find_package(OpenGL REQUIRED)
+if(NOT OPENGL_FOUND)
+    message(WARNING "OpenGL not found!\n")
+endif()
+include_directories(${OPENGL_INCLUDE_DIRS})
+target_link_libraries(${PROJECT_NAME} ${OPENGL_LIBRARIES})
 
 # Enable additional warnings and debug mode
 set (CMAKE_CXX_FLAGS "-g -W -pedantic")

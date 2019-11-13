@@ -17,10 +17,11 @@ public:
 
     // For rendering stuff on the screen
     void draw(const sf::Drawable &obj) { window_.draw(obj); };
-    void clear() { window_.clear(); };
-    void display() { window_.display(); };
+    void clear();
+    void display();
 
 private:
     sf::RenderWindow window_;
+    sf::Clock clock_;
 };
 } // namespace TrafficSim

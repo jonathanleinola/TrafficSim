@@ -7,6 +7,10 @@
 
 #include "DataHandler.hpp"
 
+#include "imgui.h"
+#include "imgui-SFML.h"
+#include "imgui_internal.h"
+
 namespace TrafficSim
 {
 
@@ -63,7 +67,9 @@ void Application::run()
 
         window_.clear();
         // test
-
+        ImGui::Begin("New window");
+        ImGui::Button("Hello");
+        ImGui::End();
         //Drawing happens between window.clear() and window.draw()
         window_.draw(map_);
 
