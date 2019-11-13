@@ -96,6 +96,8 @@ std::shared_ptr<Node> Map::closestRoadNode(const sf::Vector2f &pos, bool fromBeg
     return closest;
 }
 
+
+
 void Map::constructRoad(const std::shared_ptr<Node> &cur, const Road *prevRoad, std::map<std::shared_ptr<Node>, bool> &visited, const sf::Texture &texture)
 {
     if (visited[cur])

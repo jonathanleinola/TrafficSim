@@ -13,14 +13,6 @@ Node::Node(const sf::Vector2f &position, const sf::Color &color)
     shape_.setFillColor(color);
 }
 
-Node::Node(const std::shared_ptr<Tile> &tile, const sf::Color &color)
-    : position_(tile->getCenter()), shape_(6.f)
-{
-    shape_.setOrigin(3.f, 3.f);
-    shape_.setPosition(position_);
-    shape_.setFillColor(color);
-}
-
 void Node::search_DFS(const std::shared_ptr<Node> &cur, const std::shared_ptr<Node> &dest, std::map<std::shared_ptr<Node>, bool> &visited, std::list<std::shared_ptr<Node>> &path) const
 {
     if (visited[cur])

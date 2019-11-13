@@ -7,7 +7,6 @@
 
 #include <SFML/Graphics.hpp>
 
-#include "Tile.hpp"
 
 namespace TrafficSim
 {
@@ -17,7 +16,6 @@ class Node : public sf::Drawable
 public:
     //Default constructor
     Node(const sf::Vector2f &position, const sf::Color &color = sf::Color::Red);
-    Node(const std::shared_ptr<Tile> &tile, const sf::Color &color = sf::Color::Red);
 
     // This creates one way connection
     void connect(const std::shared_ptr<Node> &another);

@@ -25,45 +25,52 @@ Grid::Grid(float tile_size)
     }
 }
 
-unsigned int Grid::GetIndex(unsigned int x, unsigned int y)
+Tile *Grid::getTile(unsigned int index)
 {
-    return y * tile_count_ + x;
+    if(index < tile_count_ * tile_count_)
+        return tiles_[index].get();
+    return nullptr;
 }
 
-const std::unique_ptr<Tile> &Grid::getUpNeighbor(unsigned int index) const
+unsigned int Grid::getUpNeighbor(unsigned int index) const
 {
     if (index < tile_count_)
-        return nullptr;
+        return UINT_MAX;
     else
-        return tiles_[index - tile_count_];
+        return index - tile_count_;
 }
 
-const std::unique_ptr<Tile> &Grid::getRightNeighbor(unsigned int index) const
+unsigned int Grid::getRightNeighbor(unsigned int index) const
 {
     if ((tile_count_ - 1) % index == 0)
-        return nullptr;
+        return UINT_MAX;
     else
-        return tiles_[index + 1];
+        return index + 1;
 }
-const std::unique_ptr<Tile> &Grid::getDownNeighbor(unsigned int index) const
+unsigned int Grid::getDownNeighbor(unsigned int index) const
 {
     if (index + tile_count_ <= tile_count_ * tile_count_)
-        return nullptr;
+        return UINT_MAX;
     else
-        return tiles_[index + tile_count_];
+        return index + tile_count_;
 }
-const std::unique_ptr<Tile> &Grid::getLeftNeighbor(unsigned int index) const
+unsigned int Grid::getLeftNeighbor(unsigned int index) const
 {
     if ((tile_count_) % index == 0)
-        return nullptr;
+        return UINT_MAX;
     else
-        return tiles_[index - 1];
+        return index - 1;
 }
 
 void Grid::draw(sf::RenderTarget &target, sf::RenderStates states) const
 {
     for (const auto &tile : tiles_)
         target.draw(*tile, states);
+}
+
+unsigned int Grid::GetIndex(unsigned int x, unsigned int y)
+{
+    return y * tile_count_ + x;
 }
 
 } // namespace TrafficSim
