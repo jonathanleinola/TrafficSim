@@ -16,7 +16,7 @@ public:
 
     //Entity handling
     void update(float delta_time);
-    void addCar(const sf::Vector2f &spawn_pos, const sf::Vector2f &dest);
+    void addCar(const sf::Vector2f &spawn_pos, const sf::Vector2f &dest, const sf::Texture &carTexture);
     void createRoads(const std::shared_ptr<Node> &begin, const sf::Texture &texture);
 
     // Data handling

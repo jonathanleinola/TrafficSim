@@ -46,6 +46,7 @@ endif ()
 
 # Additional resources like images and fonts
 configure_file(res/road.png road.png COPYONLY)
+configure_file(res/yellow_car.jpeg yellow_car.jpeg COPYONLY)
 
 
 # Enable additional warnings and debug mode

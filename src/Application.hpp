@@ -11,6 +11,7 @@ public:
     Application();
     void run();
     void close();
+
 private:
     Window window_;
     Map map_;

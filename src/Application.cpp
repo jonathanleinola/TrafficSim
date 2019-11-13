@@ -16,13 +16,15 @@ Application::Application()
 
 void Application::run()
 {
-    sf::Texture roadTexture;
+    sf::Texture roadTexture, carTexture;
 
-    if(DataHandler::LoadTexture("road.png", roadTexture))
+    if (DataHandler::LoadTexture("road.png", roadTexture))
+        return;
+    if (DataHandler::LoadTexture("yellow_car.jpeg", carTexture))
         return; // error, lets stop our program
-    
+
     roadTexture.setRepeated(true);
-    
+
     // give random seed
     srand(time(NULL));
     // Example how roads are created
@@ -52,7 +54,7 @@ void Application::run()
         if (last_time + 1.f < gametime_.getElapsedTime().asSeconds())
         {
             last_time = gametime_.getElapsedTime().asSeconds();
-            map_.addCar(sf::Vector2f(rand() % window_.getWidth(), rand() % window_.getHeight()), sf::Vector2f(rand() % window_.getWidth(), rand() % window_.getHeight()));
+            map_.addCar(sf::Vector2f(rand() % window_.getWidth(), rand() % window_.getHeight()), sf::Vector2f(rand() % window_.getWidth(), rand() % window_.getHeight()), carTexture);
         }
         map_.update(deltatime_.getElapsedTime().asSeconds());
         deltatime_.restart();
@@ -61,7 +63,7 @@ void Application::run()
 
         window_.clear();
         // test
-        
+
         //Drawing happens between window.clear() and window.draw()
         window_.draw(map_);
 

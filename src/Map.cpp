@@ -5,7 +5,6 @@
 #include <iostream> // FLT_MAX
 #include <memory>
 
-
 namespace TrafficSim
 {
 
@@ -63,9 +62,9 @@ void Map::checkIntersections()
     }
 }
 
-void Map::addCar(const sf::Vector2f &spawn_pos, const sf::Vector2f &dest)
+void Map::addCar(const sf::Vector2f &spawn_pos, const sf::Vector2f &dest, const sf::Texture &carTexture)
 {
-    cars_.push_back(std::make_unique<Car>(Car(closestRoadNode(spawn_pos, true), closestRoadNode(dest, false), sf::Vector2f(50, 100))));
+    cars_.push_back(std::make_unique<Car>(Car(closestRoadNode(spawn_pos, true), closestRoadNode(dest, false), sf::Vector2f(50, 100), carTexture)));
 }
 
 std::shared_ptr<Node> Map::closestRoadNode(const sf::Vector2f &pos, bool fromBegin)

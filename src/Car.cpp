@@ -6,12 +6,13 @@
 namespace TrafficSim
 {
 
-Car::Car(const std::shared_ptr<Node> &pos, const std::shared_ptr<Node> &dest, const sf::Vector2f &size)
+Car::Car(const std::shared_ptr<Node> &pos, const std::shared_ptr<Node> &dest, const sf::Vector2f &size, const sf::Texture &carTexture)
     : pos_(pos), dest_(dest), prev_(pos), shape_(size), speed_(200), acceleration_(0)
 {
+    // shape_.setFillColor(sf::Color::Black);
+    shape_.setTexture(&carTexture);
     shape_.setOrigin({shape_.getSize().x / 2, shape_.getSize().y / 2});
     shape_.setPosition(pos_->getPos());
-    shape_.setFillColor(sf::Color::Green);
     findRoute();
 }
 
@@ -53,7 +54,7 @@ bool Car::frontEmpty(const std::vector<std::unique_ptr<Car>> &cars) const
         if (car->shape_.getGlobalBounds().contains(shape_.getPosition() + dir_ * shape_.getSize().y))
             return false;
         // car front
-        if(car->shape_.getGlobalBounds().contains(shape_.getPosition() + dir_ * shape_.getSize().y * 0.51f))
+        if (car->shape_.getGlobalBounds().contains(shape_.getPosition() + dir_ * shape_.getSize().y * 0.51f))
             return false;
     }
     return true;
