@@ -1,4 +1,5 @@
 #include "Grid.hpp"
+#include <climits>
 
 namespace TrafficSim
 {
