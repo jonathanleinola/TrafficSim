@@ -14,6 +14,7 @@
 #include "StraightRoad.hpp"
 #include "RoadIntersection.hpp"
 #include "RoadTrisection.hpp"
+#include "RoadJunction.hpp"
 
 namespace TrafficSim
 {
@@ -38,7 +39,7 @@ void Application::run()
     if (DataHandler::LoadTexture("yellow_car.jpeg", carTexture))
         return;
 
-    sf::Texture roadTexture, rightTexture, leftTexture, rightIntersection, leftIntersection, rightTrisection, leftTrisection;
+    sf::Texture roadTexture, rightTexture, leftTexture, rightIntersection, leftIntersection, rightTrisection, leftTrisection, rightJunction, leftJunction;
 
     if (DataHandler::LoadTexture("straight_road.png", roadTexture))
         return; // error, lets stop our program
@@ -54,11 +55,16 @@ void Application::run()
         return;
     if (DataHandler::LoadTexture("left_trisection.png", leftTrisection))
         return;
+    if (DataHandler::LoadTexture("right_junction.png", rightJunction))
+        return;
+    if (DataHandler::LoadTexture("left_junction.png", leftJunction))
+        return;
 
     StraightRoad::SetTexture(&roadTexture);
     RoadTurn::SetTextures(&rightTexture, &leftTexture);
     RoadIntersection::SetTextures(&rightIntersection, &leftIntersection);
     RoadTrisection::SetTextures(&rightTrisection, &leftTrisection);
+    RoadJunction::SetTextures(&rightJunction, &leftJunction);
 
     // give random seed
     srand(time(NULL));

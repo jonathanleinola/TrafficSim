@@ -1,5 +1,7 @@
 #include "RoadTile.hpp"
 
+#include <iostream>
+
 namespace TrafficSim
 {
 
@@ -8,6 +10,20 @@ RoadTile::RoadTile(const Tile &tile)
 {
     rect_.setFillColor(sf::Color::White);
     rect_.setOutlineThickness(0.f);
+}
+
+void RoadTile::connectTo(Tile *another, NeighborIndex from)
+{
+    RoadTile *road_tile;
+    if (another->getType() != TileType::Empty)
+        road_tile = static_cast<RoadTile *>(another);
+    else
+        return;
+    if (road_tile->connectableFrom(from))
+    {
+        this->node_->connect(road_tile->getNode());
+        std::cout << "Connected" << std::endl;
+    }
 }
 
 void RoadTile::rotate()

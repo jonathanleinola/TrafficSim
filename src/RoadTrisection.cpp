@@ -1,6 +1,5 @@
 #include "RoadTrisection.hpp"
 
-#include <iostream>
 
 namespace TrafficSim
 {
@@ -12,22 +11,6 @@ RoadTrisection::RoadTrisection(const Tile &tile)
     : RoadTile(tile)
 {
     rect_.setTexture(RoadTrisection::RightTexture);
-    rect_.setFillColor(sf::Color::White);
-    rect_.setOutlineThickness(0.f);
-}
-
-void RoadTrisection::connectTo(Tile *another, NeighborIndex from)
-{
-    RoadTile *road_tile;
-    if (another->getType() != TileType::Empty)
-        road_tile = static_cast<RoadTile *>(another);
-    else
-        return;
-    if (road_tile->connectableFrom(from))
-    {
-        this->node_->connect(road_tile->getNode());
-        std::cout << "Connected" << std::endl;
-    }
 }
 
 void RoadTrisection::connect(std::array<Tile *, 4> &neighbors)

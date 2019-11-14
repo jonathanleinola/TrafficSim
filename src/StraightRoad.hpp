@@ -16,7 +16,6 @@ public:
     virtual TileType getType() const { return TileType::StraightRoadType; }
     virtual void connect(std::array<Tile *, 4> &neighbors);
     virtual bool connectableFrom(NeighborIndex n_index) const;
-    virtual void connectTo(Tile *another, NeighborIndex from);
 
     static void SetTexture(sf::Texture * texture);
 

@@ -1,6 +1,5 @@
 #include "StraightRoad.hpp"
 
-#include <iostream>
 
 namespace TrafficSim
 {
@@ -11,21 +10,6 @@ StraightRoad::StraightRoad(const Tile &tile)
     : RoadTile(tile)
 {
     rect_.setTexture(StraightRoad::Texture);
-    rect_.setFillColor(sf::Color::White);
-    rect_.setOutlineThickness(0.f);
-}
-
-void StraightRoad::connectTo(Tile *another, NeighborIndex from)
-{
-    if (another->getType() == TileType::Empty)
-        return;
-
-    RoadTile *road_tile = static_cast<RoadTile *>(another);
-    if (road_tile->connectableFrom(from))
-    {
-        this->node_->connect(road_tile->getNode());
-        std::cout << "Connected" << std::endl;
-    }
 }
 
 void StraightRoad::connect(std::array<Tile *, 4> &neighbors)

@@ -22,6 +22,6 @@ public:
 
 protected:
     sf::Vector2f dir_;
-    virtual void connectTo(Tile *another, NeighborIndex from) = 0;
+    void connectTo(Tile *another, NeighborIndex from);
 };
 } // namespace TrafficSim

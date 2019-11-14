@@ -61,6 +61,9 @@ configure_file(res/left_intersection.png left_intersection.png COPYONLY)
 configure_file(res/right_trisection.png right_trisection.png COPYONLY)
 configure_file(res/left_trisection.png left_trisection.png COPYONLY)
 
+configure_file(res/right_junction.png right_junction.png COPYONLY)
+configure_file(res/left_junction.png left_junction.png COPYONLY)
+
 
 find_package(OpenGL REQUIRED)
 if(NOT OPENGL_FOUND)

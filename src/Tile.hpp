@@ -14,7 +14,8 @@ enum TileType
     StraightRoadType,
     RoadTurnType,
     IntersectionType,
-    TrisectionType
+    TrisectionType,
+    JunctionType
 };
 
 enum NeighborIndex

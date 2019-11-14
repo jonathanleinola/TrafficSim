@@ -45,8 +45,6 @@ void Map::addCar(const sf::Vector2f &spawn_pos, const sf::Vector2f &dest, const 
 {
     auto n1 = closestRoadNode(spawn_pos);
     auto n2 = closestRoadNode(dest);
-    std::cout << n1 << std::endl;
-    std::cout << n2 << std::endl;
     if(!n1)
         return;
     if(n1->getPos() == n2->getPos())

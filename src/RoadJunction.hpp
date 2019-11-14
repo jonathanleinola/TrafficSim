@@ -4,13 +4,14 @@
 
 namespace TrafficSim
 {
-class RoadTurn : public RoadTile
+
+class RoadJunction : public RoadTile
 {
 public:
-    RoadTurn(const Tile &tile);
+    RoadJunction(const Tile &tile);
 
     virtual void flip();
-    virtual TileType getType() const { return TileType::RoadTurnType; }
+    virtual TileType getType() const { return TileType::JunctionType; }
     virtual void connect(std::array<Tile *, 4> &neighbors);
     virtual bool connectableFrom(NeighborIndex n_index) const;
 
@@ -20,6 +21,5 @@ private:
     bool right_turn_ = true;
     static sf::Texture *RightTexture;
     static sf::Texture *LeftTexture;
-    
 };
 } // namespace TrafficSim
