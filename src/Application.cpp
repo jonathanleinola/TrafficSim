@@ -34,12 +34,12 @@ Application *Application::GetInstance()
 
 void Application::run()
 {
-    sf::Texture carTexture;
+    sf::Texture carTexture, roadTexture, rightTexture, leftTexture, rightIntersection, leftIntersection, rightTrisection, leftTrisection, rightJunction, leftJunction;
 
-    if (DataHandler::LoadTexture("road.png", roadTexture))
-        return;
     if (DataHandler::LoadTexture("green_car.png", carTexture))
         return; // error, lets stop our program
+    if (DataHandler::LoadTexture("straight_road.png", roadTexture))
+        return;
     if (DataHandler::LoadTexture("right_turn.png", rightTexture))
         return;
     if (DataHandler::LoadTexture("left_turn.png", leftTexture))

@@ -48,7 +48,13 @@ endif ()
 include_directories(deps/imgui)
 include_directories(deps/imgui-sfml)
 # Additional resources like images and fonts
-configure_file(res/yellow_car.jpeg yellow_car.jpeg COPYONLY)
+configure_file(res/car/blue_car.png blue_car.png COPYONLY)
+configure_file(res/car/brown_car.png brown_car.png COPYONLY)
+configure_file(res/car/green_car.png green_car.png COPYONLY)
+configure_file(res/car/grey_car.png grey_car.png COPYONLY)
+configure_file(res/car/red_car.png red_car.png COPYONLY)
+configure_file(res/car/teal_car.png teal_car.png COPYONLY)
+configure_file(res/car/white_car.png white_car.png COPYONLY)
 
 configure_file(res/straight_road.png straight_road.png COPYONLY)
 
