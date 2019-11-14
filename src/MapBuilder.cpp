@@ -36,11 +36,13 @@ void MapBuilder::drawGUI()
     ImGui::BeginChild("Road type", ImVec2(0, 0), true);
     if (editing_mode_ == EditingMode::Add)
     {
-
+        ImGui::Text("Road type selected:");
         if (ImGui::RadioButton("Straight Road", selected_road_ == TileType::StraightRoadType))
             selected_road_ = TileType::StraightRoadType;
         if (ImGui::RadioButton("Road Turn", selected_road_ == TileType::RoadTurnType))
             selected_road_ = TileType::RoadTurnType;
+        if (ImGui::RadioButton("Intersection", selected_road_ == TileType::IntersectionType))
+            selected_road_ = TileType::IntersectionType;
     }
     ImGui::EndChild();
 
@@ -48,8 +50,24 @@ void MapBuilder::drawGUI()
     if (selected_tile_ != UINT_MAX && grid_.getTile(selected_tile_)->getType() != TileType::Empty)
     {
         ImGui::Begin("Tile Editor");
-        ImGui::RadioButton("Straight Road", grid_.getTile(selected_tile_)->getType() == TileType::StraightRoadType);
-        ImGui::RadioButton("Road Turn", grid_.getTile(selected_tile_)->getType() == TileType::RoadTurnType);
+        if (ImGui::RadioButton("Straight Road", grid_.getTile(selected_tile_)->getType() == TileType::StraightRoadType))
+        {
+            if (grid_.getTile(selected_tile_)->getType() == TileType::StraightRoadType)
+                return;
+            addRoad(grid_.getTile(selected_tile_)->getCenter(), StraightRoadType);
+        }
+        if (ImGui::RadioButton("Road Turn", grid_.getTile(selected_tile_)->getType() == TileType::RoadTurnType))
+        {
+            if (grid_.getTile(selected_tile_)->getType() == TileType::RoadTurnType)
+                return;
+            addRoad(grid_.getTile(selected_tile_)->getCenter(), RoadTurnType);
+        }
+        if (ImGui::RadioButton("Intersection", grid_.getTile(selected_tile_)->getType() == TileType::IntersectionType))
+        {
+            if (grid_.getTile(selected_tile_)->getType() == TileType::IntersectionType)
+                return;
+            addRoad(grid_.getTile(selected_tile_)->getCenter(), IntersectionType);
+        }
         ImGui::End();
     }
 }
@@ -68,7 +86,7 @@ void MapBuilder::handleInput(const sf::Event &ev)
             selectTile(sf::Vector2f(ev.mouseButton.x, ev.mouseButton.y));
             break;
         case Add:
-            addRoad(sf::Vector2f(ev.mouseButton.x, ev.mouseButton.y));
+            addRoad(sf::Vector2f(ev.mouseButton.x, ev.mouseButton.y), selected_road_);
             break;
         case Remove:
             removeRoad(sf::Vector2f(ev.mouseButton.x, ev.mouseButton.y));
@@ -102,20 +120,23 @@ void MapBuilder::selectTile(const sf::Vector2f &pos)
     }
 }
 
-void MapBuilder::addRoad(const sf::Vector2f &pos)
+void MapBuilder::addRoad(const sf::Vector2f &pos, TileType type)
 {
     auto &tile = grid_.getTile(pos);
-    if (!tile || tile->getType() != TileType::Empty)
+    if (!tile || tile->getType() == type)
         return;
 
     std::unique_ptr<Tile> road_tile;
-    switch (selected_road_)
+    switch (type)
     {
     case StraightRoadType:
         road_tile = std::make_unique<StraightRoad>(*tile);
         break;
     case RoadTurnType:
         road_tile = std::make_unique<RoadTurn>(*tile);
+        break;
+    case IntersectionType:
+        road_tile = std::make_unique<RoadIntersection>(*tile);
         break;
     default:
         break;
@@ -126,7 +147,7 @@ void MapBuilder::addRoad(const sf::Vector2f &pos)
 void MapBuilder::removeRoad(const sf::Vector2f &pos)
 {
     auto &tile = grid_.getTile(pos);
-    if (!tile || tile->getType() != TileType::StraightRoadType)
+    if (!tile || tile->getType() == TileType::Empty)
         return;
     std::unique_ptr<Tile> empty_tile = std::make_unique<Tile>(tile->getPos(), tile->getSize(), tile->getTileIndex());
     tile.swap(empty_tile);
@@ -156,7 +177,7 @@ void MapBuilder::flipRoad(const sf::Vector2f &pos)
 
 void MapBuilder::connectRoad(std::unique_ptr<Tile> &tile)
 {
-    if (tile && tile->getType() == TileType::StraightRoadType)
+    if (tile && tile->getType() != TileType::Empty)
     {
         tile->getNode()->disconnectAll();
         RoadTile *road_tile = static_cast<RoadTile *>(tile.get());

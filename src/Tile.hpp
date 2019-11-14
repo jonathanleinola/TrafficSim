@@ -12,7 +12,8 @@ enum TileType
 {
     Empty,
     StraightRoadType,
-    RoadTurnType
+    RoadTurnType,
+    IntersectionType
 };
 
 enum NeighborIndex

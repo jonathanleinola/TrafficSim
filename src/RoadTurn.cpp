@@ -32,6 +32,7 @@ void RoadTurn::connectTo(Tile *another, NeighborIndex from)
 
 void RoadTurn::connect(std::array<Tile *, 4> &neighbors)
 {
+
     if (dir_.y == 1)
         connectTo(neighbors[NeighborIndex::UP], NeighborIndex::DOWN);
 
@@ -64,7 +65,7 @@ bool RoadTurn::connectableFrom(NeighborIndex n_index) const
     else
     {
         if (n_index == NeighborIndex::UP)
-            return dir_.x == -1;
+            return dir_.x == 1;
 
         else if (n_index == NeighborIndex::RIGHT)
             return dir_.y == -1;
@@ -89,6 +90,7 @@ void RoadTurn::flip()
     {
         rect_.setTexture(&RoadTurn::RightTexture);
     }
+    dir_ = -dir_;
     right_turn_ = !right_turn_;
 }
 

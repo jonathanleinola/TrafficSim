@@ -10,6 +10,7 @@
 #include "RoadTile.hpp"
 #include "RoadTurn.hpp"
 #include "StraightRoad.hpp"
+#include "RoadIntersection.hpp"
 
 namespace TrafficSim
 {
@@ -41,7 +42,7 @@ private:
     unsigned int selected_tile_ = UINT_MAX;
 
 private:
-    void addRoad(const sf::Vector2f &pos);
+    void addRoad(const sf::Vector2f &pos, TileType type);
     void removeRoad(const sf::Vector2f &pos);
     void flipRoad(const sf::Vector2f &pos);
     void selectTile(const sf::Vector2f &pos);

@@ -52,6 +52,8 @@ configure_file(res/yellow_car.jpeg yellow_car.jpeg COPYONLY)
 configure_file(res/straight_road.png straight_road.png COPYONLY)
 configure_file(res/road_right_turn.png road_right_turn.png COPYONLY)
 configure_file(res/road_left_turn.png road_left_turn.png COPYONLY)
+configure_file(res/right_intersection_tile.png right_intersection_tile.png COPYONLY)
+configure_file(res/left_intersection_tile.png left_intersection_tile.png COPYONLY)
 
 
 find_package(OpenGL REQUIRED)
