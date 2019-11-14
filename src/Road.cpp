@@ -18,6 +18,8 @@ Road::Road(const Road &prev_road, const std::shared_ptr<Node> &end)
     init();
 }
 
+
+
 bool Road::isHorizontal() const
 {
     return abs(dir_.x) > abs(dir_.y);

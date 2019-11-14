@@ -4,6 +4,8 @@
 #include "imgui-SFML.h"
 #include "imgui_internal.h"
 
+#include "Application.hpp"
+
 namespace TrafficSim
 {
 
@@ -32,12 +34,14 @@ void Window::display()
 
 void Window::pollEvent()
 {
+    auto app = Application::GetInstance();
     sf::Event ev;
     while (window_.pollEvent(ev))
     {
         ImGui::SFML::ProcessEvent(ev);
         if (ev.type == sf::Event::Closed)
             window_.close();
+        app->handleEvent(ev);
     }
 }
 

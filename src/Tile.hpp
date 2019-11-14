@@ -2,27 +2,49 @@
 
 #include <SFML/Graphics.hpp>
 
+#include "VectorMath.hpp"
 #include "Node.hpp"
 
 namespace TrafficSim
 {
+enum TileType
+{
+    Empty,
+    RoadType
+};
+
+
 class Tile : public sf::Drawable
 {
 public:
     Tile(const sf::Vector2f &pos, float size, unsigned int tile_index);
 
+    const sf::Vector2f &getPos() const { return pos_; };
     sf::Vector2f getCenter() const;
     unsigned int getTileIndex() const { return tile_index_; }
+    float getSize() const { return size_; }
+
+    void selectTile();
+    void unSelectTile();
+
+    // Rotates 90 degrees clockwise
+    void rotate();
+
+    const sf::Vector2f &getDir() const { return dir_; }
 
     std::shared_ptr<Node> getNode() const { return node_; }
 
     virtual void draw(sf::RenderTarget &target, sf::RenderStates states) const;
 
-private:
+    virtual TileType getType() const { return TileType::Empty; }
+
+protected:
     std::shared_ptr<Node> node_;
     sf::Vector2f pos_;
     float size_;
     sf::RectangleShape rect_;
     unsigned int tile_index_;
+    // Up: { 0, 1 }, Right { 1, 0 }, Down { 0, -1 }, Left { -1, 0 }
+    sf::Vector2f dir_;
 };
 } // namespace TrafficSim
