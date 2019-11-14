@@ -8,6 +8,8 @@
 
 #include "Grid.hpp"
 #include "RoadTile.hpp"
+#include "RoadTurn.hpp"
+#include "StraightRoad.hpp"
 
 namespace TrafficSim
 {
@@ -17,7 +19,8 @@ enum EditingMode
     Select,
     Add,
     Remove,
-    Rotate
+    Rotate,
+    Flip
 };
 
 class MapBuilder
@@ -31,17 +34,20 @@ public:
 
 private:
     bool building_mode_ = true;
+    bool gui_hovered = false;
     Grid &grid_;
     EditingMode editing_mode_ = EditingMode::Select;
+    TileType selected_road_ = TileType::StraightRoadType;
     unsigned int selected_tile_ = UINT_MAX;
 
 private:
     void addRoad(const sf::Vector2f &pos);
     void removeRoad(const sf::Vector2f &pos);
+    void flipRoad(const sf::Vector2f &pos);
     void selectTile(const sf::Vector2f &pos);
     void rotateRoad(const sf::Vector2f &pos);
-    void connectToNeighbor(std::unique_ptr<Tile> &tile, std::unique_ptr<Tile> &neighbor);
     void connectRoad(std::unique_ptr<Tile> &tile);
     void connectRoads();
+
 };
 } // namespace TrafficSim

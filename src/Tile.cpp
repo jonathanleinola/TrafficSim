@@ -3,7 +3,7 @@
 namespace TrafficSim
 {
 Tile::Tile(const sf::Vector2f &pos, float size, unsigned int tile_index)
-    : pos_(pos), size_(size), rect_(sf::Vector2f(size, size)), tile_index_(tile_index), dir_(0, 0)
+    : pos_(pos), size_(size), rect_(sf::Vector2f(size, size)), tile_index_(tile_index)
 {
     // Nice green color
     rect_.setOrigin(sf::Vector2f(size_ / 2, size_ / 2));
@@ -31,12 +31,6 @@ void Tile::unSelectTile()
     sf::Color c = rect_.getFillColor();
     c.a = 255;
     rect_.setFillColor(c);
-}
-
-void Tile::rotate()
-{
-    dir_ = sf::Vector2f(dir_.y, -dir_.x);
-    rect_.rotate(90);
 }
 
 void Tile::draw(sf::RenderTarget &target, sf::RenderStates states) const

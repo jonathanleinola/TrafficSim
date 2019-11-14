@@ -48,9 +48,10 @@ endif ()
 include_directories(deps/imgui)
 include_directories(deps/imgui-sfml)
 # Additional resources like images and fonts
-configure_file(res/road.png road.png COPYONLY)
 configure_file(res/yellow_car.jpeg yellow_car.jpeg COPYONLY)
 configure_file(res/straight_road.png straight_road.png COPYONLY)
+configure_file(res/road_right_turn.png road_right_turn.png COPYONLY)
+configure_file(res/road_left_turn.png road_left_turn.png COPYONLY)
 
 
 find_package(OpenGL REQUIRED)

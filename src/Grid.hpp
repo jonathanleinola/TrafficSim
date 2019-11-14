@@ -9,6 +9,7 @@
 
 namespace TrafficSim
 {
+
 class Grid : public sf::Drawable
 {
 public:
@@ -24,6 +25,7 @@ public:
     std::unique_ptr<Tile> &getRightNeighbor(unsigned int index);
     std::unique_ptr<Tile> &getDownNeighbor(unsigned int index);
     std::unique_ptr<Tile> &getLeftNeighbor(unsigned int index);
+    std::array<Tile*, 4> getNeigborTiles(unsigned int index);
     unsigned int getTileCount() const { return tile_count_; }
     unsigned int getSize() const { return tile_count_ * tile_count_; }   
 

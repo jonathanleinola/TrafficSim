@@ -7,12 +7,21 @@
 
 namespace TrafficSim
 {
+
 enum TileType
 {
     Empty,
-    RoadType
+    StraightRoadType,
+    RoadTurnType
 };
 
+enum NeighborIndex
+{
+    UP = 0,
+    RIGHT,
+    DOWN,
+    LEFT
+};
 
 class Tile : public sf::Drawable
 {
@@ -27,15 +36,8 @@ public:
     void selectTile();
     void unSelectTile();
 
-    // Rotates 90 degrees clockwise
-    void rotate();
-
-    const sf::Vector2f &getDir() const { return dir_; }
-
     std::shared_ptr<Node> getNode() const { return node_; }
-
     virtual void draw(sf::RenderTarget &target, sf::RenderStates states) const;
-
     virtual TileType getType() const { return TileType::Empty; }
 
 protected:
@@ -45,6 +47,5 @@ protected:
     sf::RectangleShape rect_;
     unsigned int tile_index_;
     // Up: { 0, 1 }, Right { 1, 0 }, Down { 0, -1 }, Left { -1, 0 }
-    sf::Vector2f dir_;
 };
 } // namespace TrafficSim

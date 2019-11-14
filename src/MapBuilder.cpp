@@ -15,40 +15,43 @@ MapBuilder::MapBuilder(Grid &grid)
 void MapBuilder::drawGUI()
 {
     ImGui::Begin("Map Editor");
-    std::string mode = "Current mode: ";
-    switch (editing_mode_)
-    {
-    case EditingMode::Select:
-        mode += "Select";
-        break;
-    case EditingMode::Add:
-        mode += "Add";
-        break;
-    case EditingMode::Remove:
-        mode += "Remove";
-        break;
-    case EditingMode::Rotate:
-        mode += "Rotate";
-        break;
-    }
-    ImGui::Text(mode.c_str());
-    if (ImGui::Button("Select"))
-    {
+    gui_hovered = ImGui::IsAnyWindowHovered();
+    // Choose click mode
+    if (ImGui::RadioButton("Select", editing_mode_ == EditingMode::Select))
         editing_mode_ = EditingMode::Select;
-    }
-    if (ImGui::Button("Add"))
-    {
+
+    if (ImGui::RadioButton("Add", editing_mode_ == EditingMode::Add))
         editing_mode_ = EditingMode::Add;
-    }
-    if (ImGui::Button("Remove"))
-    {
+
+    if (ImGui::RadioButton("Remove", editing_mode_ == EditingMode::Remove))
         editing_mode_ = EditingMode::Remove;
-    }
-    if (ImGui::Button("Rotate"))
-    {
+
+    if (ImGui::RadioButton("Rotate", editing_mode_ == EditingMode::Rotate))
         editing_mode_ = EditingMode::Rotate;
+
+    if (ImGui::RadioButton("Flip", editing_mode_ == EditingMode::Flip))
+        editing_mode_ = EditingMode::Flip;
+
+    // Choose road type to add
+    ImGui::BeginChild("Road type", ImVec2(0, 0), true);
+    if (editing_mode_ == EditingMode::Add)
+    {
+
+        if (ImGui::RadioButton("Straight Road", selected_road_ == TileType::StraightRoadType))
+            selected_road_ = TileType::StraightRoadType;
+        if (ImGui::RadioButton("Road Turn", selected_road_ == TileType::RoadTurnType))
+            selected_road_ = TileType::RoadTurnType;
     }
+    ImGui::EndChild();
+
     ImGui::End();
+    if (selected_tile_ != UINT_MAX && grid_.getTile(selected_tile_)->getType() != TileType::Empty)
+    {
+        ImGui::Begin("Tile Editor");
+        ImGui::RadioButton("Straight Road", grid_.getTile(selected_tile_)->getType() == TileType::StraightRoadType);
+        ImGui::RadioButton("Road Turn", grid_.getTile(selected_tile_)->getType() == TileType::RoadTurnType);
+        ImGui::End();
+    }
 }
 
 void MapBuilder::handleInput(const sf::Event &ev)
@@ -57,19 +60,24 @@ void MapBuilder::handleInput(const sf::Event &ev)
         return;
     if (ev.type == sf::Event::MouseButtonPressed)
     {
+        if (gui_hovered)
+            return;
         switch (editing_mode_)
         {
-        case EditingMode::Select:
+        case Select:
             selectTile(sf::Vector2f(ev.mouseButton.x, ev.mouseButton.y));
             break;
-        case EditingMode::Add:
+        case Add:
             addRoad(sf::Vector2f(ev.mouseButton.x, ev.mouseButton.y));
             break;
-        case EditingMode::Remove:
+        case Remove:
             removeRoad(sf::Vector2f(ev.mouseButton.x, ev.mouseButton.y));
             break;
-        case EditingMode::Rotate:
+        case Rotate:
             rotateRoad(sf::Vector2f(ev.mouseButton.x, ev.mouseButton.y));
+            break;
+        case Flip:
+            flipRoad(sf::Vector2f(ev.mouseButton.x, ev.mouseButton.y));
             break;
         }
     }
@@ -97,16 +105,28 @@ void MapBuilder::selectTile(const sf::Vector2f &pos)
 void MapBuilder::addRoad(const sf::Vector2f &pos)
 {
     auto &tile = grid_.getTile(pos);
-    if (!tile || tile->getType() == TileType::RoadType)
+    if (!tile || tile->getType() != TileType::Empty)
         return;
-    std::unique_ptr<Tile> road_tile = std::make_unique<RoadTile>(*tile);
+
+    std::unique_ptr<Tile> road_tile;
+    switch (selected_road_)
+    {
+    case StraightRoadType:
+        road_tile = std::make_unique<StraightRoad>(*tile);
+        break;
+    case RoadTurnType:
+        road_tile = std::make_unique<RoadTurn>(*tile);
+        break;
+    default:
+        break;
+    }
     tile.swap(road_tile);
     connectRoads();
 }
 void MapBuilder::removeRoad(const sf::Vector2f &pos)
 {
     auto &tile = grid_.getTile(pos);
-    if (!tile || tile->getType() != TileType::RoadType)
+    if (!tile || tile->getType() != TileType::StraightRoadType)
         return;
     std::unique_ptr<Tile> empty_tile = std::make_unique<Tile>(tile->getPos(), tile->getSize(), tile->getTileIndex());
     tile.swap(empty_tile);
@@ -115,52 +135,33 @@ void MapBuilder::removeRoad(const sf::Vector2f &pos)
 void MapBuilder::rotateRoad(const sf::Vector2f &pos)
 {
     auto &tile = grid_.getTile(pos);
-    if (!tile || tile->getType() != TileType::RoadType)
+    if (!tile || tile->getType() == TileType::Empty)
         return;
-    if (tile->getType() == TileType::RoadType)
-        tile->rotate();
 
+    RoadTile *road_tile = static_cast<RoadTile *>(tile.get());
+    road_tile->rotate();
     connectRoads();
 }
 
-void MapBuilder::connectToNeighbor(std::unique_ptr<Tile> &tile, std::unique_ptr<Tile> &neighbor)
+void MapBuilder::flipRoad(const sf::Vector2f &pos)
 {
-    if (neighbor && neighbor->getType() == TileType::RoadType)
-    {
-        if (tile->getDir() == neighbor->getDir())
-        {
-            tile->getNode()->connect(neighbor->getNode());
-            std::cout << "Tile connected" << std::endl;
-        }
-    }
+    auto &tile = grid_.getTile(pos);
+    if (!tile || tile->getType() == TileType::Empty)
+        return;
+
+    RoadTile *road_tile = static_cast<RoadTile *>(tile.get());
+    road_tile->flip();
+    connectRoads();
 }
 
 void MapBuilder::connectRoad(std::unique_ptr<Tile> &tile)
 {
-    if (tile && tile->getType() == TileType::RoadType)
+    if (tile && tile->getType() == TileType::StraightRoadType)
     {
         tile->getNode()->disconnectAll();
-        sf::Vector2f dir = tile->getDir();
-        if (dir.x == 1)
-        {
-            auto &neighbor = grid_.getRightNeighbor(tile->getTileIndex());
-            connectToNeighbor(tile, neighbor);
-        }
-        else if (dir.x == -1)
-        {
-            auto &neighbor = grid_.getLeftNeighbor(tile->getTileIndex());
-            connectToNeighbor(tile, neighbor);
-        }
-        else if (dir.y == 1)
-        {
-            auto &neighbor = grid_.getUpNeighbor(tile->getTileIndex());
-            connectToNeighbor(tile, neighbor);
-        }
-        else if (dir.y == -1)
-        {
-            auto &neighbor = grid_.getDownNeighbor(tile->getTileIndex());
-            connectToNeighbor(tile, neighbor);
-        }
+        RoadTile *road_tile = static_cast<RoadTile *>(tile.get());
+        auto arr = grid_.getNeigborTiles(tile->getTileIndex());
+        road_tile->connect(arr);
     }
 }
 

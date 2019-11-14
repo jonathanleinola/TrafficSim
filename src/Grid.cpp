@@ -30,6 +30,16 @@ void Grid::update(float delta_time)
 {
 }
 
+std::array<Tile *, 4> Grid::getNeigborTiles(unsigned int index)
+{
+    std::array<Tile*, 4> neighbors;
+    neighbors[NeighborIndex::UP] = getUpNeighbor(index).get();
+    neighbors[NeighborIndex::RIGHT] = getRightNeighbor(index).get();
+    neighbors[NeighborIndex::DOWN] = getDownNeighbor(index).get();
+    neighbors[NeighborIndex::LEFT] = getLeftNeighbor(index).get();
+    return neighbors;
+}
+
 std::unique_ptr<Tile> &Grid::getTile(unsigned int index)
 {
     if (index < tile_count_ * tile_count_)

@@ -11,6 +11,7 @@
 
 #include "DataHandler.hpp"
 #include "RoadTile.hpp"
+#include "StraightRoad.hpp"
 
 namespace TrafficSim
 {
@@ -30,14 +31,19 @@ Application *Application::GetInstance()
 
 void Application::run()
 {
-    sf::Texture roadTexture, carTexture;
+    sf::Texture roadTexture, carTexture, rightTexture, leftTexture;
 
     if (DataHandler::LoadTexture("straight_road.png", roadTexture))
-        return;
-    if (DataHandler::LoadTexture("yellow_car.jpeg", carTexture))
         return; // error, lets stop our program
+    if (DataHandler::LoadTexture("yellow_car.jpeg", carTexture))
+        return;
+    if (DataHandler::LoadTexture("road_right_turn.png", rightTexture))
+        return;
+    if (DataHandler::LoadTexture("road_left_turn.png", leftTexture))
+        return;
 
-    RoadTile::SetTexture(roadTexture);
+    StraightRoad::SetTexture(roadTexture);
+    RoadTurn::SetTextures(rightTexture, leftTexture);
     // give random seed
     srand(time(NULL));
 

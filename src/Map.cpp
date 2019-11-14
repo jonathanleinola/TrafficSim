@@ -57,7 +57,7 @@ std::shared_ptr<Node> Map::closestRoadNode(const sf::Vector2f &pos)
     float closest_distance = FLT_MAX;
     for (unsigned int i = 0; i < grid_.getSize(); ++i)
     {
-        if (grid_.getTile(i)->getType() == TileType::RoadType)
+        if (grid_.getTile(i)->getType() == TileType::StraightRoadType)
         {
             float dist = VectorMath::Distance(pos, grid_.getTile(i)->getCenter());
             if (closest_distance > dist)
