@@ -14,11 +14,10 @@ RoadTile::RoadTile(const Tile &tile)
 
 void RoadTile::connectTo(Tile *another, NeighborIndex from)
 {
-    RoadTile *road_tile;
-    if (another->getType() != TileType::Empty)
-        road_tile = static_cast<RoadTile *>(another);
-    else
+    if (!another || another->getType() == TileType::Empty)
         return;
+
+    RoadTile *road_tile = static_cast<RoadTile *>(another);
     if (road_tile->connectableFrom(from))
     {
         this->node_->connect(road_tile->getNode());

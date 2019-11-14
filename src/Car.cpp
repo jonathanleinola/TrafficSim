@@ -40,7 +40,14 @@ void Car::update(float deltatime, const std::vector<std::unique_ptr<Car>> &cars)
         }
         // We only need to change rotation of the car on turn
         dir_ = VectorMath::Normalize(route_.front()->getPos() - prev_->getPos());
-        shape_.setRotation(VectorMath::Angle(dir_, {0, 1.f}) * 180.f / M_PI);
+        if (dir_.x == 1)
+            shape_.setRotation(90);
+        else if (dir_.x == -1)
+            shape_.setRotation(270);
+        else if (dir_.y == -1)
+            shape_.setRotation(0);
+        else if (dir_.y == 1)
+            shape_.setRotation(180);
     }
     // Checks if there is something (another car) infront of this car
     // if there is -> we cant move forward
