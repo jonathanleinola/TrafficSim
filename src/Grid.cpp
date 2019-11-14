@@ -47,7 +47,7 @@ std::unique_ptr<Tile> &Grid::getTile(const sf::Vector2f &pos)
     return tiles_[i * tile_count_ + j];
 }
 
-const std::unique_ptr<Tile> &Grid::getUpNeighbor(unsigned int index) const
+std::unique_ptr<Tile> &Grid::getUpNeighbor(unsigned int index)
 {
     if (index < tile_count_)
         return nulltile_;
@@ -55,21 +55,21 @@ const std::unique_ptr<Tile> &Grid::getUpNeighbor(unsigned int index) const
     return tiles_[index - tile_count_];
 }
 
-const std::unique_ptr<Tile> &Grid::getRightNeighbor(unsigned int index) const
+std::unique_ptr<Tile> &Grid::getRightNeighbor(unsigned int index)
 {
     if ((tile_count_ - 1) % index == 0)
         return nulltile_;
 
     return tiles_[index + 1];
 }
-const std::unique_ptr<Tile> &Grid::getDownNeighbor(unsigned int index) const
+std::unique_ptr<Tile> &Grid::getDownNeighbor(unsigned int index)
 {
     if (index + tile_count_ >= tile_count_ * tile_count_)
         return nulltile_;
 
     return tiles_[index + tile_count_];
 }
-const std::unique_ptr<Tile> &Grid::getLeftNeighbor(unsigned int index) const
+std::unique_ptr<Tile> &Grid::getLeftNeighbor(unsigned int index)
 {
     if ((tile_count_) % index == 0)
         return nulltile_;

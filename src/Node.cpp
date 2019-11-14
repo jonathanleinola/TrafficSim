@@ -41,6 +41,11 @@ void Node::connect(const std::shared_ptr<Node> &another)
     neighbors_.push_back(another);
 }
 
+void Node::disconnectAll()
+{
+    neighbors_.clear();
+}
+
 void Node::disconnect(const std::shared_ptr<Node> &node)
 {
     // Only C++ 14

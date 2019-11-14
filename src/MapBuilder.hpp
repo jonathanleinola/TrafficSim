@@ -9,13 +9,15 @@
 #include "Grid.hpp"
 #include "RoadTile.hpp"
 
-
 namespace TrafficSim
 {
 
 enum EditingMode
 {
-    Select, Add, Remove, Rotate
+    Select,
+    Add,
+    Remove,
+    Rotate
 };
 
 class MapBuilder
@@ -38,5 +40,8 @@ private:
     void removeRoad(const sf::Vector2f &pos);
     void selectTile(const sf::Vector2f &pos);
     void rotateRoad(const sf::Vector2f &pos);
+    void connectToNeighbor(std::unique_ptr<Tile> &tile, std::unique_ptr<Tile> &neighbor);
+    void connectRoad(std::unique_ptr<Tile> &tile);
+    void connectRoads();
 };
 } // namespace TrafficSim

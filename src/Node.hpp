@@ -20,6 +20,7 @@ public:
     // This creates one way connection
     void connect(const std::shared_ptr<Node> &another);
     void disconnect(const std::shared_ptr<Node> &node);
+    void disconnectAll();
 
     // Searching algorithms
     void search_DFS(const std::shared_ptr<Node> &cur, const std::shared_ptr<Node> &dest, std::map<std::shared_ptr<Node>, bool> &visited, std::list<std::shared_ptr<Node>> &path) const;

@@ -20,10 +20,10 @@ public:
     std::unique_ptr<Tile> &getTile(unsigned int index);
     std::unique_ptr<Tile> &getTile(const sf::Vector2f &pos);
     // Returns UINT_MAX if there is no tile on that index
-    const std::unique_ptr<Tile> &getUpNeighbor(unsigned int index) const;
-    const std::unique_ptr<Tile> &getRightNeighbor(unsigned int index) const;
-    const std::unique_ptr<Tile> &getDownNeighbor(unsigned int index) const;
-    const std::unique_ptr<Tile> &getLeftNeighbor(unsigned int index) const;
+    std::unique_ptr<Tile> &getUpNeighbor(unsigned int index);
+    std::unique_ptr<Tile> &getRightNeighbor(unsigned int index);
+    std::unique_ptr<Tile> &getDownNeighbor(unsigned int index);
+    std::unique_ptr<Tile> &getLeftNeighbor(unsigned int index);
     unsigned int getTileCount() const { return tile_count_; }
     unsigned int getSize() const { return tile_count_ * tile_count_; }   
 
