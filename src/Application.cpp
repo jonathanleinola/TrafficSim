@@ -24,7 +24,7 @@ void Application::run()
 
     if (DataHandler::LoadTexture("road.png", roadTexture))
         return;
-    if (DataHandler::LoadTexture("yellow_car.jpeg", carTexture))
+    if (DataHandler::LoadTexture("yellow_car.png", carTexture))
         return; // error, lets stop our program
 
     roadTexture.setRepeated(true);
