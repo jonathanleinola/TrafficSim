@@ -18,9 +18,9 @@ public:
     virtual bool connectableFrom(NeighborIndex n_index) const;
     virtual void connectTo(Tile *another, NeighborIndex from);
 
-    static void SetTexture(const sf::Texture &texture);
+    static void SetTexture(sf::Texture * texture);
 
 private:
-    static sf::Texture Texture;
+    static sf::Texture *Texture;
 };
 } // namespace TrafficSim

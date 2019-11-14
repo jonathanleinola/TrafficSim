@@ -5,23 +5,22 @@
 namespace TrafficSim
 {
 
-sf::Texture StraightRoad::Texture;
+sf::Texture *StraightRoad::Texture;
 
 StraightRoad::StraightRoad(const Tile &tile)
     : RoadTile(tile)
 {
-    rect_.setTexture(&StraightRoad::Texture);
+    rect_.setTexture(StraightRoad::Texture);
     rect_.setFillColor(sf::Color::White);
     rect_.setOutlineThickness(0.f);
 }
 
 void StraightRoad::connectTo(Tile *another, NeighborIndex from)
 {
-    RoadTile *road_tile;
-    if (another->getType() != TileType::Empty)
-        road_tile = static_cast<RoadTile *>(another);
-    else
+    if (another->getType() == TileType::Empty)
         return;
+
+    RoadTile *road_tile = static_cast<RoadTile *>(another);
     if (road_tile->connectableFrom(from))
     {
         this->node_->connect(road_tile->getNode());
@@ -67,7 +66,7 @@ void StraightRoad::flip()
     rotate();
 }
 
-void StraightRoad::SetTexture(const sf::Texture &texture)
+void StraightRoad::SetTexture(sf::Texture *texture)
 {
     StraightRoad::Texture = texture;
 }

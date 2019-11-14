@@ -64,7 +64,7 @@ void Node::disconnect(const std::shared_ptr<Node> &node)
 
 void Node::draw(sf::RenderTarget &target, sf::RenderStates states) const
 {
-    target.draw(shape_, states);
+    //target.draw(shape_, states);
 }
 
 std::ostream &operator<<(std::ostream &os, const Node *node)

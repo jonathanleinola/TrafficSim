@@ -6,7 +6,7 @@
 
 namespace TrafficSim
 {
-// This class is abstractio on everything what happens in our simulation
+// This class is abstraction on everything what happens in our simulation
 // cars, roads, intersections, building etc are added to a Map
 class Map : public sf::Drawable
 {
@@ -17,8 +17,6 @@ public:
     //Entity handling
     void update(float delta_time);
     void addCar(const sf::Vector2f &spawn_pos, const sf::Vector2f &dest, const sf::Texture &carTexture);
-    void addRoad(const sf::Vector2f &pos);
-    void updateRoads();
 
     Grid &getGrid() { return grid_; }
     std::shared_ptr<Node> closestRoadNode(const sf::Vector2f &pos);

@@ -33,12 +33,15 @@ Application *Application::GetInstance()
 
 void Application::run()
 {
-    sf::Texture roadTexture, carTexture, rightTexture, leftTexture, rightIntersection, leftIntersection, rightTrisection, leftTrisection;
+    sf::Texture carTexture;
+
+    if (DataHandler::LoadTexture("yellow_car.jpeg", carTexture))
+        return;
+
+    sf::Texture roadTexture, rightTexture, leftTexture, rightIntersection, leftIntersection, rightTrisection, leftTrisection;
 
     if (DataHandler::LoadTexture("straight_road.png", roadTexture))
         return; // error, lets stop our program
-    if (DataHandler::LoadTexture("yellow_car.jpeg", carTexture))
-        return;
     if (DataHandler::LoadTexture("right_turn.png", rightTexture))
         return;
     if (DataHandler::LoadTexture("left_turn.png", leftTexture))
@@ -52,10 +55,10 @@ void Application::run()
     if (DataHandler::LoadTexture("left_trisection.png", leftTrisection))
         return;
 
-    StraightRoad::SetTexture(roadTexture);
-    RoadTurn::SetTextures(rightTexture, leftTexture);
-    RoadIntersection::SetTextures(rightIntersection, leftIntersection);
-    RoadTrisection::SetTextures(rightTrisection, leftTrisection);
+    StraightRoad::SetTexture(&roadTexture);
+    RoadTurn::SetTextures(&rightTexture, &leftTexture);
+    RoadIntersection::SetTextures(&rightIntersection, &leftIntersection);
+    RoadTrisection::SetTextures(&rightTrisection, &leftTrisection);
 
     // give random seed
     srand(time(NULL));
@@ -65,6 +68,11 @@ void Application::run()
     //Main loop
     while (window_.isOpen())
     {
+        if (last_time + 1.f < gametime_.getElapsedTime().asSeconds())
+        {
+            last_time = gametime_.getElapsedTime().asSeconds();
+            map_.addCar(sf::Vector2f(rand() % window_.getWidth(), rand() % window_.getHeight()), sf::Vector2f(rand() % window_.getWidth(), rand() % window_.getHeight()), carTexture);
+        }
         map_.update(deltatime_.getElapsedTime().asSeconds());
         deltatime_.restart();
 

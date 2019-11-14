@@ -23,7 +23,10 @@ void Car::draw(sf::RenderTarget &target, sf::RenderStates states) const
 void Car::update(float deltatime, const std::vector<std::unique_ptr<Car>> &cars)
 {
     if (route_.size() < 1)
+    {
+        finished = true;
         return;
+    }
 
     if (VectorMath::Distance(shape_.getPosition(), route_.front()->getPos()) < 5.f)
     {

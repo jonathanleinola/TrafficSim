@@ -47,7 +47,10 @@ void Map::addCar(const sf::Vector2f &spawn_pos, const sf::Vector2f &dest, const 
     auto n2 = closestRoadNode(dest);
     std::cout << n1 << std::endl;
     std::cout << n2 << std::endl;
-
+    if(!n1)
+        return;
+    if(n1->getPos() == n2->getPos())
+        return;
     cars_.push_back(std::make_unique<Car>(Car(closestRoadNode(spawn_pos), closestRoadNode(dest), sf::Vector2f(50, 100), carTexture)));
 }
 
@@ -69,6 +72,7 @@ std::shared_ptr<Node> Map::closestRoadNode(const sf::Vector2f &pos)
     }
     return closest;
 }
+
 
 void Map::draw(sf::RenderTarget &target, sf::RenderStates states) const
 {

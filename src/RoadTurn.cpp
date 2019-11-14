@@ -5,13 +5,13 @@
 namespace TrafficSim
 {
 
-sf::Texture RoadTurn::RightTexture;
-sf::Texture RoadTurn::LeftTexture;
+sf::Texture *RoadTurn::RightTexture;
+sf::Texture *RoadTurn::LeftTexture;
 
 RoadTurn::RoadTurn(const Tile &tile)
     : RoadTile(tile)
 {
-    rect_.setTexture(&RoadTurn::RightTexture);
+    rect_.setTexture(RoadTurn::RightTexture);
     rect_.setFillColor(sf::Color::White);
     rect_.setOutlineThickness(0.f);
 }
@@ -84,17 +84,17 @@ void RoadTurn::flip()
 {
     if (right_turn_)
     {
-        rect_.setTexture(&RoadTurn::LeftTexture);
+        rect_.setTexture(RoadTurn::LeftTexture);
     }
     else
     {
-        rect_.setTexture(&RoadTurn::RightTexture);
+        rect_.setTexture(RoadTurn::RightTexture);
     }
     dir_ = -dir_;
     right_turn_ = !right_turn_;
 }
 
-void RoadTurn::SetTextures(const sf::Texture &right_texture, const sf::Texture &left_texture)
+void RoadTurn::SetTextures(sf::Texture *right_texture, sf::Texture *left_texture)
 {
     RoadTurn::RightTexture = right_texture;
     RoadTurn::LeftTexture = left_texture;
