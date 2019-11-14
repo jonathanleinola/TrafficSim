@@ -36,12 +36,9 @@ void Application::run()
 {
     sf::Texture carTexture;
 
-    if (DataHandler::LoadTexture("yellow_car.jpeg", carTexture))
+    if (DataHandler::LoadTexture("road.png", roadTexture))
         return;
-
-    sf::Texture roadTexture, rightTexture, leftTexture, rightIntersection, leftIntersection, rightTrisection, leftTrisection, rightJunction, leftJunction;
-
-    if (DataHandler::LoadTexture("straight_road.png", roadTexture))
+    if (DataHandler::LoadTexture("green_car.png", carTexture))
         return; // error, lets stop our program
     if (DataHandler::LoadTexture("right_turn.png", rightTexture))
         return;
