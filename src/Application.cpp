@@ -52,6 +52,10 @@ void Application::run()
     map_.checkIntersections();
 
     float last_time = gametime_.getElapsedTime().asSeconds();
+    float fps_array[3];
+    fps_array[0] = 0.1f;
+    fps_array[1] = 0.8f;
+    fps_array[2] = 0.3f;
     //Main loop
     while (window_.isOpen())
     {
@@ -68,7 +72,9 @@ void Application::run()
         window_.clear();
         // test
         ImGui::Begin("New window");
-        ImGui::Button("Hello");
+        int x = ImGui::GetContentRegionAvail().x;
+        int y = ImGui::GetContentRegionAvail().y;
+        ImGui::PlotLines("", fps_array, 3, 0, NULL, 0, 1, ImVec2(x, y));
         ImGui::End();
         //Drawing happens between window.clear() and window.draw()
         window_.draw(map_);

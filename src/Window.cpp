@@ -10,6 +10,7 @@ namespace TrafficSim
 Window::Window()
     : window_(sf::VideoMode(sf::VideoMode::getDesktopMode().width / 2, sf::VideoMode::getDesktopMode().height / 2), "Traffic Simulator")
 {
+    window_.setVerticalSyncEnabled(true);
     ImGui::SFML::Init(window_);
     window_.resetGLStates();
     ImGui::SFML::Update(window_, clock_.restart());
