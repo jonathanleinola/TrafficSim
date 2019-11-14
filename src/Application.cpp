@@ -13,6 +13,7 @@
 #include "RoadTile.hpp"
 #include "StraightRoad.hpp"
 #include "RoadIntersection.hpp"
+#include "RoadTrisection.hpp"
 
 namespace TrafficSim
 {
@@ -32,25 +33,30 @@ Application *Application::GetInstance()
 
 void Application::run()
 {
-    sf::Texture roadTexture, carTexture, rightTexture, leftTexture, rightIntersection, leftIntersection;
+    sf::Texture roadTexture, carTexture, rightTexture, leftTexture, rightIntersection, leftIntersection, rightTrisection, leftTrisection;
 
     if (DataHandler::LoadTexture("straight_road.png", roadTexture))
         return; // error, lets stop our program
     if (DataHandler::LoadTexture("yellow_car.jpeg", carTexture))
         return;
-    if (DataHandler::LoadTexture("road_right_turn.png", rightTexture))
+    if (DataHandler::LoadTexture("right_turn.png", rightTexture))
         return;
-    if (DataHandler::LoadTexture("road_left_turn.png", leftTexture))
+    if (DataHandler::LoadTexture("left_turn.png", leftTexture))
         return;
-    if (DataHandler::LoadTexture("right_intersection_tile.png", rightIntersection))
+    if (DataHandler::LoadTexture("right_intersection.png", rightIntersection))
         return;
-    if (DataHandler::LoadTexture("left_intersection_tile.png", leftIntersection))
+    if (DataHandler::LoadTexture("left_intersection.png", leftIntersection))
+        return;
+    if (DataHandler::LoadTexture("right_trisection.png", rightTrisection))
+        return;
+    if (DataHandler::LoadTexture("left_trisection.png", leftTrisection))
         return;
 
     StraightRoad::SetTexture(roadTexture);
     RoadTurn::SetTextures(rightTexture, leftTexture);
     RoadIntersection::SetTextures(rightIntersection, leftIntersection);
-    
+    RoadTrisection::SetTextures(rightTrisection, leftTrisection);
+
     // give random seed
     srand(time(NULL));
 

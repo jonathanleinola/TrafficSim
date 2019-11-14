@@ -43,6 +43,8 @@ void MapBuilder::drawGUI()
             selected_road_ = TileType::RoadTurnType;
         if (ImGui::RadioButton("Intersection", selected_road_ == TileType::IntersectionType))
             selected_road_ = TileType::IntersectionType;
+        if (ImGui::RadioButton("Trisection", selected_road_ == TileType::TrisectionType))
+            selected_road_ = TileType::TrisectionType;
     }
     ImGui::EndChild();
 
@@ -67,6 +69,12 @@ void MapBuilder::drawGUI()
             if (grid_.getTile(selected_tile_)->getType() == TileType::IntersectionType)
                 return;
             addRoad(grid_.getTile(selected_tile_)->getCenter(), IntersectionType);
+        }
+        if (ImGui::RadioButton("Trisection", grid_.getTile(selected_tile_)->getType() == TileType::TrisectionType))
+        {
+            if (grid_.getTile(selected_tile_)->getType() == TileType::TrisectionType)
+                return;
+            addRoad(grid_.getTile(selected_tile_)->getCenter(), TrisectionType);
         }
         ImGui::End();
     }
@@ -137,6 +145,9 @@ void MapBuilder::addRoad(const sf::Vector2f &pos, TileType type)
         break;
     case IntersectionType:
         road_tile = std::make_unique<RoadIntersection>(*tile);
+        break;
+    case TrisectionType:
+        road_tile = std::make_unique<RoadTrisection>(*tile);
         break;
     default:
         break;

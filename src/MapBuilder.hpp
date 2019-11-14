@@ -11,6 +11,7 @@
 #include "RoadTurn.hpp"
 #include "StraightRoad.hpp"
 #include "RoadIntersection.hpp"
+#include "RoadTrisection.hpp"
 
 namespace TrafficSim
 {
