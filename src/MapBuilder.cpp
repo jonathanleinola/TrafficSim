@@ -12,41 +12,48 @@ MapBuilder::MapBuilder(Grid &grid)
 {
 }
 
+const char *editing_mode(EditingMode mode)
+{
+    return (const char *[]){
+        "Select",
+        "Add",
+        "Remove",
+        "Rotate",
+        "Flip"}[mode];
+}
+
+const char *road_type_name(TileType type)
+{
+    return (const char *[]){
+        "Straight Road",
+        "Road Turn",
+        "Intersection",
+        "Trisection",
+        "Road Junction"}[type];
+}
+
 void MapBuilder::drawGUI()
 {
     ImGui::Begin("Map Editor");
     gui_hovered = ImGui::IsAnyWindowHovered();
     // Choose click mode
-    if (ImGui::RadioButton("Select", editing_mode_ == EditingMode::Select))
-        editing_mode_ = EditingMode::Select;
-
-    if (ImGui::RadioButton("Add", editing_mode_ == EditingMode::Add))
-        editing_mode_ = EditingMode::Add;
-
-    if (ImGui::RadioButton("Remove", editing_mode_ == EditingMode::Remove))
-        editing_mode_ = EditingMode::Remove;
-
-    if (ImGui::RadioButton("Rotate", editing_mode_ == EditingMode::Rotate))
-        editing_mode_ = EditingMode::Rotate;
-
-    if (ImGui::RadioButton("Flip", editing_mode_ == EditingMode::Flip))
-        editing_mode_ = EditingMode::Flip;
-
+    for (int i = 0; i != EditingMode::ModeCount; i++)
+    {
+        EditingMode mode = static_cast<EditingMode>(i);
+        if (ImGui::RadioButton(editing_mode(mode), editing_mode_ == mode))
+            editing_mode_ = mode;
+    }
     // Choose road type to add
     ImGui::BeginChild("Road type", ImVec2(0, 0), true);
     if (editing_mode_ == EditingMode::Add)
     {
         ImGui::Text("Road type selected:");
-        if (ImGui::RadioButton("Straight Road", selected_road_ == TileType::StraightRoadType))
-            selected_road_ = TileType::StraightRoadType;
-        if (ImGui::RadioButton("Road Turn", selected_road_ == TileType::RoadTurnType))
-            selected_road_ = TileType::RoadTurnType;
-        if (ImGui::RadioButton("Intersection", selected_road_ == TileType::IntersectionType))
-            selected_road_ = TileType::IntersectionType;
-        if (ImGui::RadioButton("Trisection", selected_road_ == TileType::TrisectionType))
-            selected_road_ = TileType::TrisectionType;
-        if (ImGui::RadioButton("Road Junction", selected_road_ == TileType::JunctionType))
-            selected_road_ = TileType::JunctionType;
+        for (int i = 0; i != TileType::Empty; i++)
+        {
+            TileType road_type = static_cast<TileType>(i);
+            if (ImGui::RadioButton(road_type_name(road_type), selected_road_ == road_type))
+                selected_road_ = road_type;
+        }
     }
     ImGui::EndChild();
 
@@ -54,36 +61,11 @@ void MapBuilder::drawGUI()
     if (selected_tile_ != UINT_MAX && grid_.getTile(selected_tile_)->getType() != TileType::Empty)
     {
         ImGui::Begin("Tile Editor");
-        if (ImGui::RadioButton("Straight Road", grid_.getTile(selected_tile_)->getType() == TileType::StraightRoadType))
+        for (int i = 0; i != TileType::Empty; i++)
         {
-            if (grid_.getTile(selected_tile_)->getType() == TileType::StraightRoadType)
-                return;
-            addRoad(grid_.getTile(selected_tile_)->getCenter(), StraightRoadType);
-        }
-        if (ImGui::RadioButton("Road Turn", grid_.getTile(selected_tile_)->getType() == TileType::RoadTurnType))
-        {
-            if (grid_.getTile(selected_tile_)->getType() == TileType::RoadTurnType)
-                return;
-            addRoad(grid_.getTile(selected_tile_)->getCenter(), RoadTurnType);
-        }
-        if (ImGui::RadioButton("Intersection", grid_.getTile(selected_tile_)->getType() == TileType::IntersectionType))
-        {
-            if (grid_.getTile(selected_tile_)->getType() == TileType::IntersectionType)
-                return;
-            addRoad(grid_.getTile(selected_tile_)->getCenter(), IntersectionType);
-        }
-        if (ImGui::RadioButton("Trisection", grid_.getTile(selected_tile_)->getType() == TileType::TrisectionType))
-        {
-            if (grid_.getTile(selected_tile_)->getType() == TileType::TrisectionType)
-                return;
-            addRoad(grid_.getTile(selected_tile_)->getCenter(), TrisectionType);
-        }
-
-        if (ImGui::RadioButton("Trisection", grid_.getTile(selected_tile_)->getType() == TileType::JunctionType))
-        {
-            if (grid_.getTile(selected_tile_)->getType() == TileType::JunctionType)
-                return;
-            addRoad(grid_.getTile(selected_tile_)->getCenter(), TileType::JunctionType);
+            TileType road_type = static_cast<TileType>(i);
+            if (ImGui::RadioButton(road_type_name(road_type), grid_.getTile(selected_tile_)->getType() == road_type))
+                addRoad(grid_.getTile(selected_tile_)->getCenter(), road_type);
         }
         ImGui::End();
     }

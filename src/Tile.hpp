@@ -10,12 +10,14 @@ namespace TrafficSim
 
 enum TileType
 {
-    Empty,
     StraightRoadType,
     RoadTurnType,
     IntersectionType,
     TrisectionType,
-    JunctionType
+    JunctionType,
+
+    // Keep this as last
+    Empty,
 };
 
 enum NeighborIndex

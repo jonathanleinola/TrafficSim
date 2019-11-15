@@ -18,11 +18,14 @@ namespace TrafficSim
 
 enum EditingMode
 {
-    Select,
+    Select = 0,
     Add,
     Remove,
     Rotate,
-    Flip
+    Flip,
+
+    // Keep this as last
+    ModeCount
 };
 
 class MapBuilder
@@ -50,6 +53,5 @@ private:
     void rotateRoad(const sf::Vector2f &pos);
     void connectRoad(std::unique_ptr<Tile> &tile);
     void connectRoads();
-
 };
 } // namespace TrafficSim
