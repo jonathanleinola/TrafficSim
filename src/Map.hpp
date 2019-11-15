@@ -1,6 +1,5 @@
 #pragma once
 
-#include "Intersection.hpp"
 #include "Car.hpp"
 #include "Grid.hpp"
 
