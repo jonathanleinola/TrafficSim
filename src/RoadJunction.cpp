@@ -4,8 +4,8 @@
 namespace TrafficSim
 {
 
-sf::Texture *RoadJunction::RightTexture;
-sf::Texture *RoadJunction::LeftTexture;
+const sf::Texture *RoadJunction::RightTexture;
+const sf::Texture *RoadJunction::LeftTexture;
 
 RoadJunction::RoadJunction(const Tile &tile)
     : RoadTile(tile)
@@ -59,7 +59,7 @@ void RoadJunction::flip()
     right_turn_ = !right_turn_;
 }
 
-void RoadJunction::SetTextures(sf::Texture *right_texture, sf::Texture *left_texture)
+void RoadJunction::SetTextures(const sf::Texture *right_texture,const  sf::Texture *left_texture)
 {
     RoadJunction::RightTexture = right_texture;
     RoadJunction::LeftTexture = left_texture;

@@ -10,7 +10,7 @@ namespace TrafficSim
 
 enum TileType
 {
-    StraightRoadType,
+    StraightRoadType = 0,
     RoadTurnType,
     IntersectionType,
     TrisectionType,

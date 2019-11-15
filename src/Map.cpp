@@ -41,7 +41,7 @@ void Map::removeFinishedCars()
     cars_.erase(std::remove_if(cars_.begin(), cars_.end(), [](const auto &car) -> bool { return car->isFinished(); }), cars_.end());
 }
 
-void Map::addCar(const sf::Vector2f &spawn_pos, const sf::Vector2f &dest, const sf::Texture &carTexture)
+void Map::addCar(const sf::Vector2f &spawn_pos, const sf::Vector2f &dest, const sf::Texture *carTexture)
 {
     auto n1 = closestRoadNode(spawn_pos);
     auto n2 = closestRoadNode(dest);

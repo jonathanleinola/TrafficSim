@@ -48,6 +48,8 @@ endif ()
 include_directories(deps/imgui)
 include_directories(deps/imgui-sfml)
 # Additional resources like images and fonts
+configure_file(res/texture_list.txt texture_list.txt COPYONLY)
+
 configure_file(res/car/blue_car.png blue_car.png COPYONLY)
 configure_file(res/car/brown_car.png brown_car.png COPYONLY)
 configure_file(res/car/green_car.png green_car.png COPYONLY)

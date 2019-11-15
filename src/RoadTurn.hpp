@@ -14,12 +14,12 @@ public:
     virtual void connect(std::array<Tile *, 4> &neighbors);
     virtual bool connectableFrom(NeighborIndex n_index) const;
 
-    static void SetTextures(sf::Texture *right_texture, sf::Texture *left_texture);
+    static void SetTextures(const sf::Texture *right_texture, const sf::Texture *left_texture);
 
 private:
     bool right_turn_ = true;
-    static sf::Texture *RightTexture;
-    static sf::Texture *LeftTexture;
+    const static sf::Texture *RightTexture;
+    const static sf::Texture *LeftTexture;
     
 };
 } // namespace TrafficSim

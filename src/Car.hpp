@@ -11,7 +11,7 @@ namespace TrafficSim
 class Car : public sf::Drawable
 {
 public:
-    Car(const std::shared_ptr<Node> &pos, const std::shared_ptr<Node> &dest, const sf::Vector2f &size, const sf::Texture &carTexture);
+    Car(const std::shared_ptr<Node> &pos, const std::shared_ptr<Node> &dest, const sf::Vector2f &size, const sf::Texture *carTexture);
 
     // Called every frame to move car
     void update(float deltatime, const std::vector<std::unique_ptr<Car>> &cars); //deltatime is time from the last update

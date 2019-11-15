@@ -2,6 +2,8 @@
 
 #include <memory>
 #include <iostream>
+#include <string>
+#include <utility>
 #include <stdlib.h> // rand
 #include <time.h>   //time
 
@@ -34,34 +36,14 @@ Application *Application::GetInstance()
 
 void Application::run()
 {
-    sf::Texture carTexture, roadTexture, rightTexture, leftTexture, rightIntersection, leftIntersection, rightTrisection, leftTrisection, rightJunction, leftJunction;
+    std::map<std::string, std::unique_ptr<sf::Texture>> textures;
+    DataHandler::LoadTexturesFromFile("texture_list.txt", textures);
 
-    if (DataHandler::LoadTexture("green_car.png", carTexture))
-        return; // error, lets stop our program
-    if (DataHandler::LoadTexture("straight_road.png", roadTexture))
-        return;
-    if (DataHandler::LoadTexture("right_turn.png", rightTexture))
-        return;
-    if (DataHandler::LoadTexture("left_turn.png", leftTexture))
-        return;
-    if (DataHandler::LoadTexture("right_intersection.png", rightIntersection))
-        return;
-    if (DataHandler::LoadTexture("left_intersection.png", leftIntersection))
-        return;
-    if (DataHandler::LoadTexture("right_trisection.png", rightTrisection))
-        return;
-    if (DataHandler::LoadTexture("left_trisection.png", leftTrisection))
-        return;
-    if (DataHandler::LoadTexture("right_junction.png", rightJunction))
-        return;
-    if (DataHandler::LoadTexture("left_junction.png", leftJunction))
-        return;
-
-    StraightRoad::SetTexture(&roadTexture);
-    RoadTurn::SetTextures(&rightTexture, &leftTexture);
-    RoadIntersection::SetTextures(&rightIntersection, &leftIntersection);
-    RoadTrisection::SetTextures(&rightTrisection, &leftTrisection);
-    RoadJunction::SetTextures(&rightJunction, &leftJunction);
+    StraightRoad::SetTexture(textures["straight_road"].get());
+    RoadTurn::SetTextures(textures["right_turn"].get(), textures["left_turn"].get());
+    RoadIntersection::SetTextures(textures["right_intersection"].get(), textures["left_intersection"].get());
+    RoadTrisection::SetTextures(textures["right_trisection"].get(), textures["left_trisection"].get());
+    RoadJunction::SetTextures(textures["right_junction"].get(), textures["left_junction"].get());
 
     // give random seed
     srand(time(NULL));
@@ -74,7 +56,7 @@ void Application::run()
         if (last_time + 1.f < gametime_.getElapsedTime().asSeconds())
         {
             last_time = gametime_.getElapsedTime().asSeconds();
-            map_.addCar(sf::Vector2f(rand() % window_.getWidth(), rand() % window_.getHeight()), sf::Vector2f(rand() % window_.getWidth(), rand() % window_.getHeight()), carTexture);
+            map_.addCar(sf::Vector2f(rand() % window_.getWidth(), rand() % window_.getHeight()), sf::Vector2f(rand() % window_.getWidth(), rand() % window_.getHeight()), textures["blue_car"].get());
         }
         map_.update(deltatime_.getElapsedTime().asSeconds());
         deltatime_.restart();

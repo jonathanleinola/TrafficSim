@@ -4,7 +4,7 @@
 namespace TrafficSim
 {
 
-sf::Texture *StraightRoad::Texture;
+const sf::Texture *StraightRoad::Texture;
 
 StraightRoad::StraightRoad(const Tile &tile)
     : RoadTile(tile)
@@ -50,7 +50,7 @@ void StraightRoad::flip()
     rotate();
 }
 
-void StraightRoad::SetTexture(sf::Texture *texture)
+void StraightRoad::SetTexture(const sf::Texture *texture)
 {
     StraightRoad::Texture = texture;
 }

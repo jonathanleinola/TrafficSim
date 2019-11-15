@@ -1,11 +1,10 @@
 #include "RoadTurn.hpp"
 
-
 namespace TrafficSim
 {
 
-sf::Texture *RoadTurn::RightTexture;
-sf::Texture *RoadTurn::LeftTexture;
+const sf::Texture *RoadTurn::RightTexture;
+const sf::Texture *RoadTurn::LeftTexture;
 
 RoadTurn::RoadTurn(const Tile &tile)
     : RoadTile(tile)
@@ -77,7 +76,7 @@ void RoadTurn::flip()
     right_turn_ = !right_turn_;
 }
 
-void RoadTurn::SetTextures(sf::Texture *right_texture, sf::Texture *left_texture)
+void RoadTurn::SetTextures(const sf::Texture *right_texture, const sf::Texture *left_texture)
 {
     RoadTurn::RightTexture = right_texture;
     RoadTurn::LeftTexture = left_texture;

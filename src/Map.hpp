@@ -15,7 +15,7 @@ public:
 
     //Entity handling
     void update(float delta_time);
-    void addCar(const sf::Vector2f &spawn_pos, const sf::Vector2f &dest, const sf::Texture &carTexture);
+    void addCar(const sf::Vector2f &spawn_pos, const sf::Vector2f &dest, const sf::Texture *carTexture);
 
     Grid &getGrid() { return grid_; }
     std::shared_ptr<Node> closestRoadNode(const sf::Vector2f &pos);
