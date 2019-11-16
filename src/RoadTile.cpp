@@ -12,6 +12,40 @@ RoadTile::RoadTile(const Tile &tile)
     rect_.setOutlineThickness(0.f);
 }
 
+void RoadTile::autoRotate(std::array<Tile *, 4> &neighbors)
+{
+    if(neighbors[LEFT] && neighbors[LEFT]->getType() != Empty)
+        return;
+    if (neighbors[UP] && neighbors[UP]->getType() != Empty)
+    {
+        RoadTile *r = static_cast<RoadTile *>(neighbors[UP]);
+        if (r->canConnectTo(DOWN))
+        {
+            rotate();
+            return;
+        }
+    }
+    if (neighbors[RIGHT] && neighbors[RIGHT]->getType() != Empty)
+    {
+        RoadTile *r = static_cast<RoadTile *>(neighbors[RIGHT]);
+        if (r->canConnectTo(LEFT))
+        {
+            flip();
+            return;
+        }
+    }
+    if (neighbors[DOWN] && neighbors[DOWN]->getType() != Empty)
+    {
+        RoadTile *r = static_cast<RoadTile *>(neighbors[DOWN]);
+        if (r->canConnectTo(UP))
+        {
+            rotate();
+            flip();
+            return;
+        }
+    }
+}
+
 void RoadTile::connectTo(Tile *another, NeighborIndex from)
 {
     if (!another || another->getType() == TileType::Empty)

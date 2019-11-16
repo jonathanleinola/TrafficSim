@@ -15,9 +15,11 @@ public:
     virtual void flip();
     virtual TileType getType() const { return TileType::StraightRoadType; }
     virtual void connect(std::array<Tile *, 4> &neighbors);
-    virtual bool connectableFrom(NeighborIndex n_index) const;
 
-    static void SetTexture(const sf::Texture * texture);
+    virtual bool connectableFrom(NeighborIndex n_index) const;
+    virtual bool canConnectTo(NeighborIndex n_index) const;
+
+    static void SetTexture(const sf::Texture *texture);
 
 private:
     const static sf::Texture *Texture;

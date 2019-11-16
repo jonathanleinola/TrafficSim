@@ -1,6 +1,5 @@
 #include "RoadJunction.hpp"
 
-
 namespace TrafficSim
 {
 
@@ -16,31 +15,48 @@ RoadJunction::RoadJunction(const Tile &tile)
 void RoadJunction::connect(std::array<Tile *, 4> &neighbors)
 {
     if (dir_.y == 1)
-        connectTo(neighbors[NeighborIndex::UP], NeighborIndex::DOWN);
+        connectTo(neighbors[UP], DOWN);
 
     else if (dir_.x == 1)
-        connectTo(neighbors[NeighborIndex::RIGHT], NeighborIndex::LEFT);
+        connectTo(neighbors[RIGHT], LEFT);
 
     else if (dir_.y == -1)
-        connectTo(neighbors[NeighborIndex::DOWN], NeighborIndex::UP);
+        connectTo(neighbors[DOWN], UP);
 
     else if (dir_.x == -1)
-        connectTo(neighbors[NeighborIndex::LEFT], NeighborIndex::RIGHT);
+        connectTo(neighbors[LEFT], RIGHT);
+}
+
+bool RoadJunction::canConnectTo(NeighborIndex n_index) const
+{
+    if (n_index == UP)
+        return dir_.y == 1;
+
+    else if (n_index == RIGHT)
+        return dir_.x == 1;
+
+    else if (n_index == DOWN)
+        return dir_.y == -1;
+
+    else if (n_index == LEFT)
+        return dir_.x == -1;
+
+    return false;
 }
 
 bool RoadJunction::connectableFrom(NeighborIndex n_index) const
 {
-    if (n_index == NeighborIndex::UP)
-        return dir_.y == -1 || (dir_.x == 1 && right_turn_) || (dir_.x == -1 && !right_turn_);
+    if (n_index == UP)
+        return dir_.y == -1 || (dir_.x == -1 && right_turn_) || (dir_.x == 1 && !right_turn_);
 
-    else if (n_index == NeighborIndex::RIGHT)
-        return dir_.x == -1 || (dir_.y == -1 && right_turn_) || (dir_.y == 1 && !right_turn_);
+    else if (n_index == RIGHT)
+        return dir_.x == -1 || (dir_.y == 1 && right_turn_) || (dir_.y == -1 && !right_turn_);
 
-    else if (n_index == NeighborIndex::DOWN)
-        return dir_.y == 1 || (dir_.x == -1 && right_turn_) || (dir_.x == 1 && !right_turn_);
+    else if (n_index == DOWN)
+        return dir_.y == 1 || (dir_.x == 1 && right_turn_) || (dir_.x == -1 && !right_turn_);
 
-    else if (n_index == NeighborIndex::LEFT)
-        return dir_.x == 1 || (dir_.y == 1 && right_turn_) || (dir_.y == -1 && !right_turn_);
+    else if (n_index == LEFT)
+        return dir_.x == 1 || (dir_.y == -1 && right_turn_) || (dir_.y == 1 && !right_turn_);
 
     return false;
 }
@@ -59,7 +75,7 @@ void RoadJunction::flip()
     right_turn_ = !right_turn_;
 }
 
-void RoadJunction::SetTextures(const sf::Texture *right_texture,const  sf::Texture *left_texture)
+void RoadJunction::SetTextures(const sf::Texture *right_texture, const sf::Texture *left_texture)
 {
     RoadJunction::RightTexture = right_texture;
     RoadJunction::LeftTexture = left_texture;

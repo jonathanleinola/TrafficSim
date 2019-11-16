@@ -1,6 +1,5 @@
 #include "RoadTrisection.hpp"
 
-
 namespace TrafficSim
 {
 
@@ -17,53 +16,70 @@ void RoadTrisection::connect(std::array<Tile *, 4> &neighbors)
 {
     if (dir_.y == 1)
     {
-        connectTo(neighbors[NeighborIndex::UP], NeighborIndex::DOWN);
+        connectTo(neighbors[UP], DOWN);
         if (right_turn_)
-            connectTo(neighbors[NeighborIndex::RIGHT], NeighborIndex::LEFT);
+            connectTo(neighbors[RIGHT], LEFT);
         else
-            connectTo(neighbors[NeighborIndex::LEFT], NeighborIndex::RIGHT);
+            connectTo(neighbors[LEFT], RIGHT);
     }
 
     else if (dir_.x == 1)
     {
-        connectTo(neighbors[NeighborIndex::RIGHT], NeighborIndex::LEFT);
+        connectTo(neighbors[RIGHT], LEFT);
         if (right_turn_)
-            connectTo(neighbors[NeighborIndex::DOWN], NeighborIndex::UP);
+            connectTo(neighbors[DOWN], UP);
         else
-            connectTo(neighbors[NeighborIndex::UP], NeighborIndex::DOWN);
+            connectTo(neighbors[UP], DOWN);
     }
 
     else if (dir_.y == -1)
     {
-        connectTo(neighbors[NeighborIndex::DOWN], NeighborIndex::UP);
+        connectTo(neighbors[DOWN], UP);
         if (right_turn_)
-            connectTo(neighbors[NeighborIndex::LEFT], NeighborIndex::RIGHT);
+            connectTo(neighbors[LEFT], RIGHT);
         else
-            connectTo(neighbors[NeighborIndex::RIGHT], NeighborIndex::LEFT);
+            connectTo(neighbors[RIGHT], LEFT);
     }
 
     else if (dir_.x == -1)
     {
-        connectTo(neighbors[NeighborIndex::LEFT], NeighborIndex::RIGHT);
+        connectTo(neighbors[LEFT], RIGHT);
         if (right_turn_)
-            connectTo(neighbors[NeighborIndex::UP], NeighborIndex::DOWN);
+            connectTo(neighbors[UP], DOWN);
         else
-            connectTo(neighbors[NeighborIndex::DOWN], NeighborIndex::UP);
+            connectTo(neighbors[DOWN], UP);
     }
+}
+
+bool RoadTrisection::canConnectTo(NeighborIndex n_index) const
+{
+    if (n_index == UP)
+        return dir_.y == 1 || (right_turn_ && dir_.x == -1) || (!right_turn_ && dir_.x == 1);
+
+    else if (n_index == RIGHT)
+        return dir_.x == 1 || (right_turn_ && dir_.y == 1) || (!right_turn_ && dir_.y == -1);
+
+    else if (n_index == DOWN)
+        return dir_.y == -1 || (right_turn_ && dir_.x == 1) || (!right_turn_ && dir_.x == -1);
+
+    else if (n_index == LEFT)
+        return dir_.x == -1 || (right_turn_ && dir_.y == -1) || (!right_turn_ && dir_.y == 1);
+
+    return false;
 }
 
 bool RoadTrisection::connectableFrom(NeighborIndex n_index) const
 {
-    if (n_index == NeighborIndex::UP)
+    if (n_index == UP)
         return dir_.y == -1;
 
-    else if (n_index == NeighborIndex::RIGHT)
+    else if (n_index == RIGHT)
         return dir_.x == -1;
 
-    else if (n_index == NeighborIndex::DOWN)
+    else if (n_index == DOWN)
         return dir_.y == 1;
 
-    else if (n_index == NeighborIndex::LEFT)
+    else if (n_index == LEFT)
         return dir_.x == 1;
 
     return false;

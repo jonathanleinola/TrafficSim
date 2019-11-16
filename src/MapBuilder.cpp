@@ -167,6 +167,10 @@ void MapBuilder::addRoad(const sf::Vector2f &pos, TileType type)
     default:
         break;
     }
+    RoadTile *r = static_cast<RoadTile *>(road_tile.get());
+    auto arr = grid_.getNeigborTiles(tile->getTileIndex());
+    r->autoRotate(arr);
+
     tile.swap(road_tile);
     connectRoads();
 }

@@ -12,50 +12,103 @@ RoadTurn::RoadTurn(const Tile &tile)
     rect_.setTexture(RoadTurn::RightTexture);
 }
 
+void RoadTurn::autoRotate(std::array<Tile *, 4> &neighbors)
+{
+    if(neighbors[DOWN] && neighbors[DOWN]->getType() != Empty)
+        return;
+    if (neighbors[UP] && neighbors[UP]->getType() != Empty)
+    {
+        RoadTile *r = static_cast<RoadTile *>(neighbors[UP]);
+        if (r->canConnectTo(DOWN))
+        {
+            rotate();
+            rotate();
+            return;
+        }
+    }
+    if (neighbors[RIGHT] && neighbors[RIGHT]->getType() != Empty)
+    {
+        RoadTile *r = static_cast<RoadTile *>(neighbors[RIGHT]);
+        if (r->canConnectTo(LEFT))
+        {
+            rotate();
+            rotate();
+            rotate();
+            return;
+        }
+    }
+    if (neighbors[LEFT] && neighbors[LEFT]->getType() != Empty)
+    {
+        RoadTile *r = static_cast<RoadTile *>(neighbors[LEFT]);
+        if (r->canConnectTo(RIGHT))
+        {
+            rotate();
+            return;
+        }
+    }
+}
+
 void RoadTurn::connect(std::array<Tile *, 4> &neighbors)
 {
 
     if (dir_.y == 1)
-        connectTo(neighbors[NeighborIndex::UP], NeighborIndex::DOWN);
+        connectTo(neighbors[UP], DOWN);
 
     else if (dir_.x == 1)
-        connectTo(neighbors[NeighborIndex::RIGHT], NeighborIndex::LEFT);
+        connectTo(neighbors[RIGHT], LEFT);
 
     else if (dir_.y == -1)
-        connectTo(neighbors[NeighborIndex::DOWN], NeighborIndex::UP);
+        connectTo(neighbors[DOWN], UP);
 
     else if (dir_.x == -1)
-        connectTo(neighbors[NeighborIndex::LEFT], NeighborIndex::RIGHT);
+        connectTo(neighbors[LEFT], RIGHT);
+}
+
+bool RoadTurn::canConnectTo(NeighborIndex n_index) const
+{
+    if (n_index == UP)
+        return dir_.y == 1;
+
+    else if (n_index == RIGHT)
+        return dir_.x == 1;
+
+    else if (n_index == DOWN)
+        return dir_.y == -1;
+
+    else if (n_index == LEFT)
+        return dir_.x == -1;
+
+    return false;
 }
 
 bool RoadTurn::connectableFrom(NeighborIndex n_index) const
 {
     if (right_turn_)
     {
-        if (n_index == NeighborIndex::UP)
+        if (n_index == UP)
             return dir_.x == -1;
 
-        else if (n_index == NeighborIndex::RIGHT)
+        else if (n_index == RIGHT)
             return dir_.y == 1;
 
-        else if (n_index == NeighborIndex::DOWN)
+        else if (n_index == DOWN)
             return dir_.x == 1;
 
-        else if (n_index == NeighborIndex::LEFT)
+        else if (n_index == LEFT)
             return dir_.y == -1;
     }
     else
     {
-        if (n_index == NeighborIndex::UP)
+        if (n_index == UP)
             return dir_.x == 1;
 
-        else if (n_index == NeighborIndex::RIGHT)
+        else if (n_index == RIGHT)
             return dir_.y == -1;
 
-        else if (n_index == NeighborIndex::DOWN)
+        else if (n_index == DOWN)
             return dir_.x == -1;
 
-        else if (n_index == NeighborIndex::LEFT)
+        else if (n_index == LEFT)
             return dir_.y == 1;
     }
 

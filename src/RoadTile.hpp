@@ -18,7 +18,11 @@ public:
     virtual void flip() = 0;
     virtual TileType getType() const = 0;
     virtual void connect(std::array<Tile *, 4> &neighbors) = 0;
+    // Auto rotates road if there is neighbor, only RoadTurn has own implementation
+    virtual void autoRotate(std::array<Tile *, 4> &neighbors);
+
     virtual bool connectableFrom(NeighborIndex n_index) const = 0;
+    virtual bool canConnectTo(NeighborIndex n_index) const = 0;
 
 protected:
     sf::Vector2f dir_;
