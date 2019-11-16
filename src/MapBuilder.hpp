@@ -18,8 +18,7 @@ namespace TrafficSim
 
 enum EditingOption
 {
-    Select = 0,
-    Add,
+    Add = 0,
     Remove,
     Rotate,
     Flip,
@@ -41,9 +40,10 @@ private:
     bool building_mode_ = true;
     bool gui_hovered = false;
     Grid &grid_;
-    EditingOption editing_option_ = EditingOption::Select;
+    EditingOption editing_option_ = EditingOption::Add;
     TileType road_option_ = TileType::StraightRoadType;
     unsigned int selected_tile_index = UINT_MAX;
+    sf::Vector2f select_menu_pos_;
 
 private:
     void addRoad(const sf::Vector2f &pos, TileType type);

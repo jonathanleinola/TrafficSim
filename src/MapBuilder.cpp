@@ -15,7 +15,6 @@ MapBuilder::MapBuilder(Grid &grid)
 const char *editing_mode(EditingOption mode)
 {
     return (const char *[]){
-        "Select",
         "Add",
         "Remove",
         "Rotate",
@@ -36,6 +35,7 @@ void MapBuilder::drawGUI()
 {
     ImGui::Begin("Map Editor");
     gui_hovered = ImGui::IsAnyWindowHovered();
+
     // Choose click mode
     for (int i = 0; i != EditingOption::ModeCount; i++)
     {
@@ -43,6 +43,7 @@ void MapBuilder::drawGUI()
         if (ImGui::RadioButton(editing_mode(mode), editing_option_ == mode))
             editing_option_ = mode;
     }
+    
     // Choose road type to add
     ImGui::BeginChild("Road type", ImVec2(0, 0), true);
     if (editing_option_ == EditingOption::Add)
@@ -56,17 +57,28 @@ void MapBuilder::drawGUI()
         }
     }
     ImGui::EndChild();
-
     ImGui::End();
+
+    // Left-click option menu
     if (selected_tile_index != UINT_MAX && grid_.getTile(selected_tile_index)->getType() != TileType::Empty)
     {
+        ImGui::SetNextWindowPos(select_menu_pos_);
         ImGui::Begin("Tile Editor");
+        ImGui::BeginColumns("", 2);
         for (int i = 0; i != TileType::Empty; i++)
         {
             TileType road_type = static_cast<TileType>(i);
             if (ImGui::RadioButton(road_type_name(road_type), grid_.getTile(selected_tile_index)->getType() == road_type))
                 addRoad(grid_.getTile(selected_tile_index)->getCenter(), road_type);
         }
+        ImGui::NextColumn();
+        if (ImGui::Button("Rotate"))
+            rotateRoad(grid_.getTile(selected_tile_index)->getCenter());
+        if (ImGui::Button("Flip"))
+            flipRoad(grid_.getTile(selected_tile_index)->getCenter());
+        if (ImGui::Button("Remove"))
+            removeRoad(grid_.getTile(selected_tile_index)->getCenter());
+        ImGui::EndColumns();
         ImGui::End();
     }
 }
@@ -79,23 +91,29 @@ void MapBuilder::handleInput(const sf::Event &ev)
     {
         if (gui_hovered)
             return;
-        switch (editing_option_)
+        if (ev.mouseButton.button == sf::Mouse::Left)
         {
-        case Select:
+            switch (editing_option_)
+            {
+            case Add:
+                addRoad(sf::Vector2f(ev.mouseButton.x, ev.mouseButton.y), road_option_);
+                break;
+            case Remove:
+                removeRoad(sf::Vector2f(ev.mouseButton.x, ev.mouseButton.y));
+                break;
+            case Rotate:
+                rotateRoad(sf::Vector2f(ev.mouseButton.x, ev.mouseButton.y));
+                break;
+            case Flip:
+                flipRoad(sf::Vector2f(ev.mouseButton.x, ev.mouseButton.y));
+                break;
+            default:
+                break;
+            }
+        }
+        else if (ev.mouseButton.button == sf::Mouse::Right)
+        {
             selectTile(sf::Vector2f(ev.mouseButton.x, ev.mouseButton.y));
-            break;
-        case Add:
-            addRoad(sf::Vector2f(ev.mouseButton.x, ev.mouseButton.y), road_option_);
-            break;
-        case Remove:
-            removeRoad(sf::Vector2f(ev.mouseButton.x, ev.mouseButton.y));
-            break;
-        case Rotate:
-            rotateRoad(sf::Vector2f(ev.mouseButton.x, ev.mouseButton.y));
-            break;
-        case Flip:
-            flipRoad(sf::Vector2f(ev.mouseButton.x, ev.mouseButton.y));
-            break;
         }
     }
 }
@@ -116,6 +134,7 @@ void MapBuilder::selectTile(const sf::Vector2f &pos)
         if (selected_tile_index != UINT_MAX)
             grid_.getTile(selected_tile_index)->unSelectTile();
         selected_tile_index = new_tile->getTileIndex();
+        select_menu_pos_ = new_tile->getPos() + sf::Vector2f(new_tile->getSize(), 0.f);
     }
 }
 
