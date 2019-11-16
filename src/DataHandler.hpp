@@ -7,17 +7,22 @@
 #include <string>
 #include <utility>
 
-
 namespace TrafficSim
 {
-    
+
 class DataHandler
 {
 
 public:
+    DataHandler(){};
     // Loads texture from file
-    static bool LoadTexture(const char *src, sf::Texture &texture_dest);
-    static bool LoadTexturesFromFile(const char *src, std::map<std::string, std::unique_ptr<sf::Texture>> &dest);
+    void loadTexture(const char *src);
+    void loadTexturesFromFile(const char *src);
+
+    const sf::Texture *getTextrue(const char *texture_name) { return textures_[texture_name].get(); }
+
+private:
+    std::map<std::string, std::unique_ptr<sf::Texture>> textures_;
 };
 
 } // namespace TrafficSim

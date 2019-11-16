@@ -11,7 +11,6 @@
 #include "imgui-SFML.h"
 #include "imgui_internal.h"
 
-#include "DataHandler.hpp"
 #include "RoadTile.hpp"
 #include "StraightRoad.hpp"
 #include "RoadIntersection.hpp"
@@ -27,24 +26,16 @@ Application::Application()
     : builder_(map_.getGrid())
 {
     AppInstance = this;
-}
-
-Application *Application::GetInstance()
-{
-    return AppInstance;
+    data_.loadTexturesFromFile("texture_list.txt");
+    StraightRoad::SetTexture(data_.getTextrue("straight_road"));
+    RoadTurn::SetTextures(data_.getTextrue("right_turn"), data_.getTextrue("left_turn"));
+    RoadIntersection::SetTextures(data_.getTextrue("right_intersection"), data_.getTextrue("left_intersection"));
+    RoadTrisection::SetTextures(data_.getTextrue("right_trisection"), data_.getTextrue("left_trisection"));
+    RoadJunction::SetTextures(data_.getTextrue("right_junction"), data_.getTextrue("left_junction"));
 }
 
 void Application::run()
 {
-    std::map<std::string, std::unique_ptr<sf::Texture>> textures;
-    DataHandler::LoadTexturesFromFile("texture_list.txt", textures);
-
-    StraightRoad::SetTexture(textures["straight_road"].get());
-    RoadTurn::SetTextures(textures["right_turn"].get(), textures["left_turn"].get());
-    RoadIntersection::SetTextures(textures["right_intersection"].get(), textures["left_intersection"].get());
-    RoadTrisection::SetTextures(textures["right_trisection"].get(), textures["left_trisection"].get());
-    RoadJunction::SetTextures(textures["right_junction"].get(), textures["left_junction"].get());
-
     // give random seed
     srand(time(NULL));
 
@@ -56,7 +47,7 @@ void Application::run()
         if (last_time + 1.f < gametime_.getElapsedTime().asSeconds())
         {
             last_time = gametime_.getElapsedTime().asSeconds();
-            map_.addCar(sf::Vector2f(rand() % window_.getWidth(), rand() % window_.getHeight()), sf::Vector2f(rand() % window_.getWidth(), rand() % window_.getHeight()), textures["blue_car"].get());
+            map_.addCar(sf::Vector2f(rand() % window_.getWidth(), rand() % window_.getHeight()), sf::Vector2f(rand() % window_.getWidth(), rand() % window_.getHeight()), data_.getTextrue("blue_car"));
         }
         map_.update(deltatime_.getElapsedTime().asSeconds());
         deltatime_.restart();
@@ -78,6 +69,11 @@ void Application::handleEvent(const sf::Event &ev)
 
 void Application::close()
 {
+}
+
+Application *Application::GetInstance()
+{
+    return AppInstance;
 }
 
 } // namespace TrafficSim
