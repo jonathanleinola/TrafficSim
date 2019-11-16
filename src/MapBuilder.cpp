@@ -7,14 +7,15 @@
 namespace TrafficSim
 {
 
-MapBuilder::MapBuilder(Grid &grid)
-    : grid_(grid)
+MapBuilder::MapBuilder(Grid &grid, const Window &window)
+    : grid_(grid), window_(window)
 {
 }
 
 const char *editing_mode(EditingOption mode)
 {
     return (const char *[]){
+        "Inspect",
         "Add",
         "Remove",
         "Rotate",
@@ -43,7 +44,7 @@ void MapBuilder::drawGUI()
         if (ImGui::RadioButton(editing_mode(mode), editing_option_ == mode))
             editing_option_ = mode;
     }
-    
+
     // Choose road type to add
     ImGui::BeginChild("Road type", ImVec2(0, 0), true);
     if (editing_option_ == EditingOption::Add)
@@ -91,21 +92,22 @@ void MapBuilder::handleInput(const sf::Event &ev)
     {
         if (gui_hovered)
             return;
+        sf::Vector2f pos = window_.convert(sf::Vector2i(ev.mouseButton.x, ev.mouseButton.y));
         if (ev.mouseButton.button == sf::Mouse::Left)
         {
             switch (editing_option_)
             {
             case Add:
-                addRoad(sf::Vector2f(ev.mouseButton.x, ev.mouseButton.y), road_option_);
+                addRoad(pos, road_option_);
                 break;
             case Remove:
-                removeRoad(sf::Vector2f(ev.mouseButton.x, ev.mouseButton.y));
+                removeRoad(pos);
                 break;
             case Rotate:
-                rotateRoad(sf::Vector2f(ev.mouseButton.x, ev.mouseButton.y));
+                rotateRoad(pos);
                 break;
             case Flip:
-                flipRoad(sf::Vector2f(ev.mouseButton.x, ev.mouseButton.y));
+                flipRoad(pos);
                 break;
             default:
                 break;
@@ -113,7 +115,7 @@ void MapBuilder::handleInput(const sf::Event &ev)
         }
         else if (ev.mouseButton.button == sf::Mouse::Right)
         {
-            selectTile(sf::Vector2f(ev.mouseButton.x, ev.mouseButton.y));
+            selectTile(pos);
         }
     }
 }

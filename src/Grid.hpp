@@ -35,7 +35,7 @@ public:
 
 private:
     // tile_count_ x tile_count_ tile map
-    constexpr static unsigned int tile_count_ = 100;
+    constexpr static unsigned int tile_count_ = 50;
     std::array<std::unique_ptr<Tile>, tile_count_ * tile_count_> tiles_;
     std::unique_ptr<Tile> nulltile_ = nullptr;
     float tile_size_;

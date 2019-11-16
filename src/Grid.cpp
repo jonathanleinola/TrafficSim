@@ -67,7 +67,7 @@ std::unique_ptr<Tile> &Grid::getUpNeighbor(unsigned int index)
 
 std::unique_ptr<Tile> &Grid::getRightNeighbor(unsigned int index)
 {
-    if ((tile_count_ - 1) % index == 0)
+    if (index == 0 || (tile_count_ - 1) % index == 0)
         return nulltile_;
 
     return tiles_[index + 1];
@@ -81,7 +81,7 @@ std::unique_ptr<Tile> &Grid::getDownNeighbor(unsigned int index)
 }
 std::unique_ptr<Tile> &Grid::getLeftNeighbor(unsigned int index)
 {
-    if ((tile_count_) % index == 0)
+    if (index == 0 || (tile_count_) % index == 0)
         return nulltile_;
 
     return tiles_[index - 1];

@@ -6,6 +6,7 @@
 #include "imgui-SFML.h"
 #include "imgui_internal.h"
 
+#include "Window.hpp"
 #include "Grid.hpp"
 #include "RoadTurn.hpp"
 #include "StraightRoad.hpp"
@@ -18,7 +19,8 @@ namespace TrafficSim
 
 enum EditingOption
 {
-    Add = 0,
+    Inspect = 0,
+    Add,
     Remove,
     Rotate,
     Flip,
@@ -30,17 +32,18 @@ enum EditingOption
 class MapBuilder
 {
 public:
-    MapBuilder(Grid &grid);
+    MapBuilder(Grid &grid, const Window &window);
 
     void toggle_building_mode() { building_mode_ = !building_mode_; }
     void handleInput(const sf::Event &ev);
     void drawGUI();
 
 private:
+    Grid &grid_;
+    const Window &window_;
     bool building_mode_ = true;
     bool gui_hovered = false;
-    Grid &grid_;
-    EditingOption editing_option_ = EditingOption::Add;
+    EditingOption editing_option_ = Inspect;
     TileType road_option_ = TileType::StraightRoadType;
     unsigned int selected_tile_index = UINT_MAX;
     sf::Vector2f select_menu_pos_;

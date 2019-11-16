@@ -23,7 +23,7 @@ namespace TrafficSim
 Application *Application::AppInstance = nullptr;
 
 Application::Application()
-    : builder_(map_.getGrid())
+    : builder_(map_.getGrid(), window_)
 {
     AppInstance = this;
     data_.loadTexturesFromFile("texture_list.txt");
@@ -40,6 +40,7 @@ void Application::run()
     srand(time(NULL));
 
     float last_time = gametime_.getElapsedTime().asSeconds();
+    sf::Vector2i delta_mouse_pos = sf::Mouse::getPosition();
 
     //Main loop
     while (window_.isOpen())
@@ -49,15 +50,18 @@ void Application::run()
             last_time = gametime_.getElapsedTime().asSeconds();
             map_.addCar(sf::Vector2f(rand() % window_.getWidth(), rand() % window_.getHeight()), sf::Vector2f(rand() % window_.getWidth(), rand() % window_.getHeight()), data_.getTextrue("blue_car"));
         }
-        map_.update(deltatime_.getElapsedTime().asSeconds());
-        deltatime_.restart();
 
         window_.pollEvent();
+        map_.update(deltatime_.getElapsedTime().asSeconds());
+        handleInputBuffers(deltatime_.getElapsedTime().asSeconds(), delta_mouse_pos - sf::Mouse::getPosition());
+        deltatime_.restart();
+        delta_mouse_pos = sf::Mouse::getPosition();
 
         window_.clear();
         //Drawing happens between window.clear() and window.draw()
         window_.draw(map_);
         builder_.drawGUI();
+        window_.drawGUI(data_);
         window_.display();
     }
 }
@@ -65,6 +69,32 @@ void Application::run()
 void Application::handleEvent(const sf::Event &ev)
 {
     builder_.handleInput(ev);
+    switch (ev.type)
+    {
+    case sf::Event::KeyPressed:
+        key_buffer_[ev.key.code] = true;
+        break;
+    case sf::Event::KeyReleased:
+        key_buffer_[ev.key.code] = false;
+        break;
+    case sf::Event::MouseButtonPressed:
+        button_buffer_[ev.mouseButton.button] = true;
+        break;
+    case sf::Event::MouseButtonReleased:
+        button_buffer_[ev.mouseButton.button] = false;
+        break;
+    case sf::Event::MouseWheelScrolled:
+        break;
+    default:
+        break;
+    }
+}
+
+void Application::handleInputBuffers(const float deltatime, const sf::Vector2i &delta_mp)
+{
+    //Mouse buttons
+    if (button_buffer_[sf::Mouse::Right])
+        window_.moveView(delta_mp);
 }
 
 void Application::close()
