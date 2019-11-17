@@ -39,6 +39,7 @@ public:
     float getSize() const { return size_; }
 
     void selectTile();
+    void hoverTile();
     void unSelectTile();
 
     std::shared_ptr<Node> getNode() const { return node_; }

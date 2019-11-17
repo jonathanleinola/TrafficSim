@@ -55,11 +55,13 @@ private:
     EditingOption editing_option_ = Inspect;
     TileType road_option_ = TileType::StraightRoadType;
     unsigned int selected_tile_index = UINT_MAX;
+    unsigned int hovered_tile_index = UINT_MAX;
     sf::Vector2i select_menu_pos_;
 
 private:
     void removeRoad(const sf::Vector2f &pos);
     void selectTile(const sf::Vector2f &pos);
+    void unSelectTile();
     void connectRoad(std::unique_ptr<Tile> &tile);
     void connectRoads();
 };

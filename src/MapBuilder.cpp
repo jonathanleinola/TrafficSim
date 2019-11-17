@@ -84,62 +84,6 @@ void MapBuilder::drawGUI()
     }
 }
 
-void MapBuilder::handleInput(const sf::Event &ev)
-{
-    if (!building_mode_)
-        return;
-    if (ev.type == sf::Event::MouseButtonPressed)
-    {
-        if (gui_hovered)
-            return;
-        sf::Vector2f pos = window_.convert(sf::Vector2i(ev.mouseButton.x, ev.mouseButton.y));
-        if (ev.mouseButton.button == sf::Mouse::Left)
-        {
-            switch (editing_option_)
-            {
-            case Add:
-                addRoad(pos, road_option_);
-                break;
-            case Remove:
-                removeRoad(pos);
-                break;
-            case Rotate:
-                rotateRoad(pos);
-                break;
-            case Flip:
-                flipRoad(pos);
-                break;
-            default:
-                break;
-            }
-        }
-        else if (ev.mouseButton.button == sf::Mouse::Right)
-        {
-            selectTile(pos);
-        }
-    }
-}
-
-void MapBuilder::selectTile(const sf::Vector2f &pos)
-{
-    auto &new_tile = grid_.getTile(pos);
-    if (!new_tile)
-        return;
-    if (new_tile->getTileIndex() == selected_tile_index)
-    {
-        new_tile->unSelectTile();
-        selected_tile_index = UINT_MAX;
-    }
-    else
-    {
-        new_tile->selectTile();
-        if (selected_tile_index != UINT_MAX)
-            grid_.getTile(selected_tile_index)->unSelectTile();
-        selected_tile_index = new_tile->getTileIndex();
-        select_menu_pos_ = window_.convert(new_tile->getPos() + sf::Vector2f(new_tile->getSize(), 0.f));
-    }
-}
-
 void MapBuilder::addRoad(const sf::Vector2f &pos, TileType type)
 {
     auto &tile = grid_.getTile(pos);
@@ -230,6 +174,90 @@ void MapBuilder::clearMap()
 {
     grid_.init();
     connectRoads();
+}
+/*
+*   Builder input
+*/
+
+void MapBuilder::selectTile(const sf::Vector2f &pos)
+{
+    auto &new_tile = grid_.getTile(pos);
+    if (!new_tile)
+    {
+        unSelectTile();
+        return;
+    }
+    if (new_tile->getTileIndex() == selected_tile_index)
+    {
+        new_tile->unSelectTile();
+        selected_tile_index = UINT_MAX;
+    }
+    else
+    {
+        new_tile->selectTile();
+        unSelectTile();
+        selected_tile_index = new_tile->getTileIndex();
+        select_menu_pos_ = window_.convert(new_tile->getPos() + sf::Vector2f(new_tile->getSize(), 0.f));
+    }
+}
+
+void MapBuilder::unSelectTile()
+{
+    if (selected_tile_index != UINT_MAX)
+        grid_.getTile(selected_tile_index)->unSelectTile();
+    selected_tile_index = UINT_MAX;
+}
+
+void MapBuilder::handleInput(const sf::Event &ev)
+{
+    if (!building_mode_)
+        return;
+    if (ev.type == sf::Event::MouseButtonPressed)
+    {
+        if (gui_hovered)
+            return;
+        sf::Vector2f pos = window_.convert(sf::Vector2i(ev.mouseButton.x, ev.mouseButton.y));
+        if (ev.mouseButton.button == sf::Mouse::Left)
+        {
+            switch (editing_option_)
+            {
+            case Add:
+                addRoad(pos, road_option_);
+                break;
+            case Remove:
+                removeRoad(pos);
+                break;
+            case Rotate:
+                rotateRoad(pos);
+                break;
+            case Flip:
+                flipRoad(pos);
+                break;
+            default:
+                break;
+            }
+            unSelectTile();
+        }
+        else if (ev.mouseButton.button == sf::Mouse::Right)
+        {
+            selectTile(pos);
+        }
+    }
+    else if (ev.type == sf::Event::MouseMoved)
+    {
+        sf::Vector2f pos = window_.convert(sf::Vector2i(ev.mouseMove.x, ev.mouseMove.y));
+        auto &new_tile = grid_.getTile(pos);
+        if (!new_tile)
+            return;
+        if (selected_tile_index != new_tile->getTileIndex())
+        {
+            if (hovered_tile_index != UINT_MAX)
+                if (hovered_tile_index != selected_tile_index)
+                    grid_.getTile(hovered_tile_index)->unSelectTile();
+            new_tile->hoverTile();
+            hovered_tile_index = new_tile->getTileIndex();
+        }
+    }
 }
 
 } // namespace TrafficSim
