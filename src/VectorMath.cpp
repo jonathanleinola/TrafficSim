@@ -20,7 +20,7 @@ float VectorMath::Angle(const sf::Vector2f &a, const sf::Vector2f &b)
 
 float VectorMath::Angle(const sf::Vector2f &a)
 {
-    return atan(a.y / a.x);
+    return a.x < 0 ? - Angle(a, {1, 0}) : Angle(a, {1,0});
 }
 
 sf::Vector2f VectorMath::Normalize(const sf::Vector2f &v)

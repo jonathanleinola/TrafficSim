@@ -73,11 +73,6 @@ void Window::drawGUI()
         }
         ImGui::EndMainMenuBar();
     }
-    ImGui::Begin("Choose file to load from: ");
-    ImGui::BeginChild("Files");
-    
-    ImGui::EndChild();
-    ImGui::End();
 }
 
 void Window::zoomView(sf::Vector2i relative_to, float zoom_dir)
