@@ -6,13 +6,13 @@
 #include "imgui-SFML.h"
 #include "imgui_internal.h"
 
-#include "Window.hpp"
 #include "Grid.hpp"
 #include "RoadTurn.hpp"
 #include "StraightRoad.hpp"
 #include "RoadIntersection.hpp"
 #include "RoadTrisection.hpp"
 #include "RoadJunction.hpp"
+#include "Window.hpp"
 
 namespace TrafficSim
 {
@@ -38,6 +38,15 @@ public:
     void handleInput(const sf::Event &ev);
     void drawGUI();
 
+    void clearMap();
+
+    // Adds a road
+    void addRoad(const sf::Vector2f &pos, TileType type);
+    // Rotates roads 90 degrees clockwise
+    void rotateRoad(const sf::Vector2f &pos);
+    //Rotates flips roads
+    void flipRoad(const sf::Vector2f &pos);
+
 private:
     Grid &grid_;
     const Window &window_;
@@ -46,14 +55,11 @@ private:
     EditingOption editing_option_ = Inspect;
     TileType road_option_ = TileType::StraightRoadType;
     unsigned int selected_tile_index = UINT_MAX;
-    sf::Vector2f select_menu_pos_;
+    sf::Vector2i select_menu_pos_;
 
 private:
-    void addRoad(const sf::Vector2f &pos, TileType type);
     void removeRoad(const sf::Vector2f &pos);
-    void flipRoad(const sf::Vector2f &pos);
     void selectTile(const sf::Vector2f &pos);
-    void rotateRoad(const sf::Vector2f &pos);
     void connectRoad(std::unique_ptr<Tile> &tile);
     void connectRoads();
 };

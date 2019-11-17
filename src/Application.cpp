@@ -32,6 +32,7 @@ Application::Application()
     RoadIntersection::SetTextures(data_.getTextrue("right_intersection"), data_.getTextrue("left_intersection"));
     RoadTrisection::SetTextures(data_.getTextrue("right_trisection"), data_.getTextrue("left_trisection"));
     RoadJunction::SetTextures(data_.getTextrue("right_junction"), data_.getTextrue("left_junction"));
+
 }
 
 void Application::run()
@@ -61,7 +62,7 @@ void Application::run()
         //Drawing happens between window.clear() and window.draw()
         window_.draw(map_);
         builder_.drawGUI();
-        window_.drawGUI(data_);
+        window_.drawGUI();
         window_.display();
     }
 }

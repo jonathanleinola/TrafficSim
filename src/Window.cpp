@@ -10,7 +10,7 @@ namespace TrafficSim
 {
 
 Window::Window()
-    : window_(sf::VideoMode(sf::VideoMode::getDesktopMode().width / 2, sf::VideoMode::getDesktopMode().height / 2), "Traffic Simulator", sf::Style::Default, sf::ContextSettings(0,0,8)),
+    : window_(sf::VideoMode(sf::VideoMode::getDesktopMode().width / 2, sf::VideoMode::getDesktopMode().height / 2), "Traffic Simulator", sf::Style::Default, sf::ContextSettings(0, 0, 8)),
       view_(sf::View(sf::FloatRect(0, 0, sf::VideoMode::getDesktopMode().width / 2, sf::VideoMode::getDesktopMode().height / 2)))
 {
     window_.setView(view_);
@@ -57,13 +57,13 @@ void Window::moveView(const sf::Vector2i &delta_pos)
     window_.setView(view_);
 }
 
-void Window::drawGUI(DataHandler &data_handler)
+void Window::drawGUI()
 {
     if (ImGui::BeginMainMenuBar())
     {
         if (ImGui::BeginMenu("File"))
         {
-            if (ImGui::MenuItem("Open"))
+            if (ImGui::MenuItem("Load"))
             {
             }
             if (ImGui::MenuItem("Save"))
@@ -73,6 +73,11 @@ void Window::drawGUI(DataHandler &data_handler)
         }
         ImGui::EndMainMenuBar();
     }
+    ImGui::Begin("Choose file to load from: ");
+    ImGui::BeginChild("Files");
+    
+    ImGui::EndChild();
+    ImGui::End();
 }
 
 void Window::zoomView(sf::Vector2i relative_to, float zoom_dir)

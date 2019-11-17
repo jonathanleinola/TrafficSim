@@ -20,7 +20,6 @@ public:
     static void SetTextures(const sf::Texture *right_texture, const sf::Texture *left_texture);
 
 private:
-    bool right_turn_ = true;
     const static sf::Texture *RightTexture;
     const static sf::Texture *LeftTexture;
 };

@@ -136,7 +136,7 @@ void MapBuilder::selectTile(const sf::Vector2f &pos)
         if (selected_tile_index != UINT_MAX)
             grid_.getTile(selected_tile_index)->unSelectTile();
         selected_tile_index = new_tile->getTileIndex();
-        select_menu_pos_ = new_tile->getPos() + sf::Vector2f(new_tile->getSize(), 0.f);
+        select_menu_pos_ = window_.convert(new_tile->getPos() + sf::Vector2f(new_tile->getSize(), 0.f));
     }
 }
 
@@ -207,6 +207,7 @@ void MapBuilder::flipRoad(const sf::Vector2f &pos)
 
 void MapBuilder::connectRoad(std::unique_ptr<Tile> &tile)
 {
+    // TODO - Do we need to disconnect empty tiles when clearing?
     if (tile && tile->getType() != TileType::Empty)
     {
         tile->getNode()->disconnectAll();
@@ -223,6 +224,12 @@ void MapBuilder::connectRoads()
         auto &tile = grid_.getTile(i);
         connectRoad(tile);
     }
+}
+
+void MapBuilder::clearMap()
+{
+    grid_.init();
+    connectRoads();
 }
 
 } // namespace TrafficSim

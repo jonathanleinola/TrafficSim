@@ -14,6 +14,7 @@ class Grid : public sf::Drawable
 {
 public:
     Grid(float tile_size);
+    void init();
 
     void update(float delta_time);
 

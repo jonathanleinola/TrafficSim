@@ -17,6 +17,11 @@ Grid::Grid(float tile_size)
     * 
     * 
     */
+   init();
+}
+
+void Grid::init()
+{
     for (unsigned int i = 0; i < tile_count_; ++i)
     {
         for (unsigned int j = 0; j < tile_count_; ++j)
@@ -32,7 +37,7 @@ void Grid::update(float delta_time)
 
 std::array<Tile *, 4> Grid::getNeigborTiles(unsigned int index)
 {
-    std::array<Tile*, 4> neighbors;
+    std::array<Tile *, 4> neighbors;
     neighbors[NeighborIndex::UP] = getUpNeighbor(index).get();
     neighbors[NeighborIndex::RIGHT] = getRightNeighbor(index).get();
     neighbors[NeighborIndex::DOWN] = getDownNeighbor(index).get();
