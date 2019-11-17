@@ -11,11 +11,11 @@
 #include "imgui-SFML.h"
 #include "imgui_internal.h"
 
-#include "RoadTile.hpp"
-#include "StraightRoad.hpp"
-#include "RoadIntersection.hpp"
-#include "RoadTrisection.hpp"
-#include "RoadJunction.hpp"
+#include "trafficsim/RoadTile.hpp"
+#include "trafficsim/StraightRoad.hpp"
+#include "trafficsim/RoadIntersection.hpp"
+#include "trafficsim/RoadTrisection.hpp"
+#include "trafficsim/RoadJunction.hpp"
 
 namespace TrafficSim
 {

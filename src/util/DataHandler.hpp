@@ -1,7 +1,7 @@
 #pragma once
 
 #include <SFML/Graphics.hpp>
-#include "MapBuilder.hpp"
+#include "trafficsim/MapBuilder.hpp"
 
 #include <map>
 #include <memory>

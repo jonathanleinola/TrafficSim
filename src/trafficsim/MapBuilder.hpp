@@ -12,7 +12,7 @@
 #include "RoadIntersection.hpp"
 #include "RoadTrisection.hpp"
 #include "RoadJunction.hpp"
-#include "Window.hpp"
+#include "core/Window.hpp"
 
 namespace TrafficSim
 {

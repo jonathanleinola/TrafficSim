@@ -2,8 +2,8 @@
 #include <memory>
 #include <SFML/Graphics.hpp>
 
-#include "Node.hpp"
-#include "VectorMath.hpp"
+#include "trafficsim/Node.hpp"
+#include "util/VectorMath.hpp"
 
 namespace TrafficSim
 {

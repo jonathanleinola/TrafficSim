@@ -63,7 +63,10 @@
         "typeinfo": "cpp",
         "utility": "cpp",
         "fstream": "cpp",
-        "list": "cpp"
+        "list": "cpp",
+        "deque": "cpp",
+        "stack": "cpp",
+        "thread": "cpp"
     },
     "C_Cpp.errorSquiggles": "Disabled"
 }

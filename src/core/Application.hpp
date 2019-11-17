@@ -1,9 +1,9 @@
 #pragma once
 
 #include "Window.hpp"
-#include "Map.hpp"
-#include "MapBuilder.hpp"
-#include "DataHandler.hpp"
+#include "trafficsim/Map.hpp"
+#include "trafficsim/MapBuilder.hpp"
+#include "util/DataHandler.hpp"
 
 namespace TrafficSim
 {
