@@ -9,16 +9,15 @@ cmake_minimum_required(VERSION 3.1)
 set(CMAKE_CXX_STANDARD 14) #c++11
 
 file(GLOB SOURCES src/*.cpp)
+file(GLOB CORE src/core/*.cpp)
+file(GLOB UTILS src/util/*.cpp)
+file(GLOB TRAFFICSIM src/trafficsim/*.cpp)
 set(IMGUI_SOURCES deps/imgui/imgui.cpp deps/imgui/imgui_widgets.cpp deps/imgui/imgui_draw.cpp deps/imgui/imgui_demo.cpp deps/imgui-sfml/imgui-SFML.cpp)
 
 
 if(UNIX AND NOT APPLE)
     set(LINUX TRUE)
 endif()
-
-file(GLOB CORE src/core/*.cpp)
-file(GLOB UTILS src/util/*.cpp)
-file(GLOB TRAFFICSIM src/trafficsim/*.cpp)
 
 if (${APPLE})
     list(APPEND CMAKE_MODULE_PATH "${CMAKE_SOURCE_DIR}/deps/cmake")

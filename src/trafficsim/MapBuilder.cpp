@@ -7,8 +7,8 @@
 namespace TrafficSim
 {
 
-MapBuilder::MapBuilder(Grid &grid, const Window &window)
-    : grid_(grid), window_(window)
+MapBuilder::MapBuilder(Map &map, const Window &window)
+    : map_(map), window_(window)
 {
 }
 
@@ -16,10 +16,11 @@ const char *editing_mode(EditingOption mode)
 {
     return (const char *[]){
         "Inspect",
-        "Add",
+        "Add road",
         "Remove",
         "Rotate",
-        "Flip"}[mode];
+        "Flip",
+        "Add light"}[mode];
 }
 
 const char *road_type_name(TileType type)
@@ -47,7 +48,7 @@ void MapBuilder::drawGUI()
 
     // Choose road type to add
     ImGui::BeginChild("Road type", ImVec2(0, 0), true);
-    if (editing_option_ == EditingOption::Add)
+    if (editing_option_ == EditingOption::AddRoad)
     {
         ImGui::Text("Road type selected:");
         for (int i = 0; i != TileType::Empty; i++)
@@ -61,7 +62,7 @@ void MapBuilder::drawGUI()
     ImGui::End();
 
     // Left-click option menu
-    if (selected_tile_index != UINT_MAX && grid_.getTile(selected_tile_index)->getType() != TileType::Empty)
+    if (selected_tile_index != UINT_MAX && map_.getGrid().getTile(selected_tile_index)->getType() != TileType::Empty)
     {
         ImGui::SetNextWindowPos(select_menu_pos_);
         ImGui::Begin("Tile Editor");
@@ -69,16 +70,16 @@ void MapBuilder::drawGUI()
         for (int i = 0; i != TileType::Empty; i++)
         {
             TileType road_type = static_cast<TileType>(i);
-            if (ImGui::RadioButton(road_type_name(road_type), grid_.getTile(selected_tile_index)->getType() == road_type))
-                addRoad(grid_.getTile(selected_tile_index)->getCenter(), road_type);
+            if (ImGui::RadioButton(road_type_name(road_type), map_.getGrid().getTile(selected_tile_index)->getType() == road_type))
+                addRoad(map_.getGrid().getTile(selected_tile_index)->getCenter(), road_type);
         }
         ImGui::NextColumn();
         if (ImGui::Button("Rotate"))
-            rotateRoad(grid_.getTile(selected_tile_index)->getCenter());
+            rotateRoad(map_.getGrid().getTile(selected_tile_index)->getCenter());
         if (ImGui::Button("Flip"))
-            flipRoad(grid_.getTile(selected_tile_index)->getCenter());
+            flipRoad(map_.getGrid().getTile(selected_tile_index)->getCenter());
         if (ImGui::Button("Remove"))
-            removeRoad(grid_.getTile(selected_tile_index)->getCenter());
+            removeRoad(map_.getGrid().getTile(selected_tile_index)->getCenter());
         ImGui::EndColumns();
         ImGui::End();
     }
@@ -86,7 +87,7 @@ void MapBuilder::drawGUI()
 
 void MapBuilder::addRoad(const sf::Vector2f &pos, TileType type)
 {
-    auto &tile = grid_.getTile(pos);
+    auto &tile = map_.getGrid().getTile(pos);
     if (!tile || tile->getType() == type)
         return;
 
@@ -112,15 +113,26 @@ void MapBuilder::addRoad(const sf::Vector2f &pos, TileType type)
         break;
     }
     RoadTile *r = static_cast<RoadTile *>(road_tile.get());
-    auto arr = grid_.getNeigborTiles(tile->getTileIndex());
+    auto arr = map_.getGrid().getNeigborTiles(tile->getTileIndex());
     r->autoRotate(arr);
 
     tile.swap(road_tile);
     connectRoads();
 }
+
+void MapBuilder::addTrafficLight(const sf::Vector2f &pos)
+{
+    auto &tile = map_.getGrid().getTile(pos);
+    if (!tile || tile->getType() != StraightRoadType)
+        return;
+
+    RoadTile *road = static_cast<RoadTile *>(tile.get());
+    map_.addLight(road);
+}
+
 void MapBuilder::removeRoad(const sf::Vector2f &pos)
 {
-    auto &tile = grid_.getTile(pos);
+    auto &tile = map_.getGrid().getTile(pos);
     if (!tile || tile->getType() == TileType::Empty)
         return;
     std::unique_ptr<Tile> empty_tile = std::make_unique<Tile>(tile->getPos(), tile->getSize(), tile->getTileIndex());
@@ -129,7 +141,7 @@ void MapBuilder::removeRoad(const sf::Vector2f &pos)
 }
 void MapBuilder::rotateRoad(const sf::Vector2f &pos)
 {
-    auto &tile = grid_.getTile(pos);
+    auto &tile = map_.getGrid().getTile(pos);
     if (!tile || tile->getType() == TileType::Empty)
         return;
 
@@ -140,7 +152,7 @@ void MapBuilder::rotateRoad(const sf::Vector2f &pos)
 
 void MapBuilder::flipRoad(const sf::Vector2f &pos)
 {
-    auto &tile = grid_.getTile(pos);
+    auto &tile = map_.getGrid().getTile(pos);
     if (!tile || tile->getType() == TileType::Empty)
         return;
 
@@ -156,23 +168,23 @@ void MapBuilder::connectRoad(std::unique_ptr<Tile> &tile)
     {
         tile->getNode()->disconnectAll();
         RoadTile *road_tile = static_cast<RoadTile *>(tile.get());
-        auto arr = grid_.getNeigborTiles(tile->getTileIndex());
+        auto arr = map_.getGrid().getNeigborTiles(tile->getTileIndex());
         road_tile->connect(arr);
     }
 }
 
 void MapBuilder::connectRoads()
 {
-    for (unsigned int i = 0; i < grid_.getSize(); ++i)
+    for (unsigned int i = 0; i < map_.getGrid().getSize(); ++i)
     {
-        auto &tile = grid_.getTile(i);
+        auto &tile = map_.getGrid().getTile(i);
         connectRoad(tile);
     }
 }
 
 void MapBuilder::clearMap()
 {
-    grid_.init();
+    map_.getGrid().init();
     connectRoads();
 }
 /*
@@ -181,7 +193,7 @@ void MapBuilder::clearMap()
 
 void MapBuilder::selectTile(const sf::Vector2f &pos)
 {
-    auto &new_tile = grid_.getTile(pos);
+    auto &new_tile = map_.getGrid().getTile(pos);
     if (!new_tile)
     {
         unSelectTile();
@@ -204,7 +216,7 @@ void MapBuilder::selectTile(const sf::Vector2f &pos)
 void MapBuilder::unSelectTile()
 {
     if (selected_tile_index != UINT_MAX)
-        grid_.getTile(selected_tile_index)->unSelectTile();
+        map_.getGrid().getTile(selected_tile_index)->unSelectTile();
     selected_tile_index = UINT_MAX;
 }
 
@@ -221,7 +233,7 @@ void MapBuilder::handleInput(const sf::Event &ev)
         {
             switch (editing_option_)
             {
-            case Add:
+            case AddRoad:
                 addRoad(pos, road_option_);
                 break;
             case Remove:
@@ -232,6 +244,9 @@ void MapBuilder::handleInput(const sf::Event &ev)
                 break;
             case Flip:
                 flipRoad(pos);
+                break;
+            case AddLight:
+                addTrafficLight(pos);
                 break;
             default:
                 break;
@@ -246,14 +261,14 @@ void MapBuilder::handleInput(const sf::Event &ev)
     else if (ev.type == sf::Event::MouseMoved)
     {
         sf::Vector2f pos = window_.convert(sf::Vector2i(ev.mouseMove.x, ev.mouseMove.y));
-        auto &new_tile = grid_.getTile(pos);
+        auto &new_tile = map_.getGrid().getTile(pos);
         if (!new_tile)
             return;
         if (selected_tile_index != new_tile->getTileIndex())
         {
             if (hovered_tile_index != UINT_MAX)
                 if (hovered_tile_index != selected_tile_index)
-                    grid_.getTile(hovered_tile_index)->unSelectTile();
+                    map_.getGrid().getTile(hovered_tile_index)->unSelectTile();
             new_tile->hoverTile();
             hovered_tile_index = new_tile->getTileIndex();
         }

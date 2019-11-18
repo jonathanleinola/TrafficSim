@@ -19,14 +19,6 @@ Map::~Map()
 {
 }
 
-void Map::loadMap(std::string path, int sizeX, int sizeY)
-{
-    std::fstream mapFile;
-    mapFile.open(path);
-
-    mapFile.close();
-}
-
 void Map::update(float delta_time)
 {
     // Move cars, and other things which are dependent on time
@@ -34,22 +26,33 @@ void Map::update(float delta_time)
     for (auto &car : cars_)
         car->update(delta_time, cars_);
     removeFinishedCars();
-}
 
-void Map::removeFinishedCars()
-{
-    cars_.erase(std::remove_if(cars_.begin(), cars_.end(), [](const auto &car) -> bool { return car->isFinished(); }), cars_.end());
+    for (auto &light_handler : light_handlers_)
+        light_handler->update(delta_time);
 }
 
 void Map::addCar(const sf::Vector2f &spawn_pos, const sf::Vector2f &dest, const sf::Texture *carTexture)
 {
     auto n1 = closestRoadNode(spawn_pos);
     auto n2 = closestRoadNode(dest);
-    if(!n1)
+    if (!n1)
         return;
-    if(n1->getPos() == n2->getPos())
+    if (n1->getPos() == n2->getPos())
         return;
     cars_.push_back(std::make_unique<Car>(Car(closestRoadNode(spawn_pos), closestRoadNode(dest), sf::Vector2f(50, 100), carTexture)));
+}
+
+void Map::addLight(const RoadTile *road)
+{
+    if(light_handlers_.size() < 1)
+        light_handlers_.push_back(std::make_unique<TrafficLightHandler>(0));
+    
+    light_handlers_.at(0)->addLight(road);
+}
+
+void Map::removeFinishedCars()
+{
+    cars_.erase(std::remove_if(cars_.begin(), cars_.end(), [](const auto &car) -> bool { return car->isFinished(); }), cars_.end());
 }
 
 std::shared_ptr<Node> Map::closestRoadNode(const sf::Vector2f &pos)
@@ -71,11 +74,12 @@ std::shared_ptr<Node> Map::closestRoadNode(const sf::Vector2f &pos)
     return closest;
 }
 
-
 void Map::draw(sf::RenderTarget &target, sf::RenderStates states) const
 {
     target.draw(grid_, states);
     for (const auto &car : cars_)
         target.draw(*car, states);
+    for (auto &light_handler : light_handlers_)
+        target.draw(*light_handler, states);
 }
 }; // namespace TrafficSim

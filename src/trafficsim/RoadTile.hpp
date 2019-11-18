@@ -12,7 +12,7 @@ public:
     RoadTile(const Tile &tile);
 
     const sf::Vector2f &getDir() const { return dir_; }
-    const bool isFlipped() const { return right_turn_; }
+    bool isFlipped() const { return right_turn_; }
 
     void rotate();
 

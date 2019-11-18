@@ -23,7 +23,7 @@ namespace TrafficSim
 Application *Application::AppInstance = nullptr;
 
 Application::Application()
-    : builder_(map_.getGrid(), window_)
+    : builder_(map_, window_)
 {
     AppInstance = this;
     data_.loadTexturesFromFile("texture_list.txt");
