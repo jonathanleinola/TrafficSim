@@ -47,7 +47,6 @@ public:
     void rotateRoad(const sf::Vector2f &pos);
     //Rotates flips roads
     void flipRoad(const sf::Vector2f &pos);
-    // Adds traffic light if there is straight road on pos
     void addTrafficLight(const sf::Vector2f &pos);
 
 private:

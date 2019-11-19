@@ -5,28 +5,34 @@
 namespace TrafficSim
 {
 
-TrafficLight::TrafficLight(const RoadTile *tile, unsigned int handler_id)
+TrafficLight::TrafficLight(const sf::Vector2f &pos, const sf::Vector2f &dir, float tile_size, unsigned int handler_id)
     : handler_id_(handler_id), shape_(sf::Vector2f(50, 20))
 {
     setColor(RED);
-    if (tile->getDir().x == 1)
+    initPos(pos, dir, tile_size);
+}
+
+void TrafficLight::initPos(const sf::Vector2f &pos, const sf::Vector2f &dir, float tile_size)
+{
+    if (dir.x == 1)
     {
-        pos_ = tile->getPos() + sf::Vector2f(tile->getSize()-shape_.getSize().x, tile->getSize());
+        pos_ = pos + sf::Vector2f(tile_size - shape_.getSize().x, tile_size - shape_.getSize().y);
+        shape_.setRotation(0);
     }
-    else if (tile->getDir().x == -1)
+    else if (dir.x == -1)
     {
-        pos_ = tile->getPos() + sf::Vector2f(shape_.getSize().x, 0);
-        shape_.rotate(180);
+        pos_ = pos + sf::Vector2f(shape_.getSize().x, shape_.getSize().y);
+        shape_.setRotation(180);
     }
-    else if (tile->getDir().y == 1)
+    else if (dir.y == 1)
     {
-        pos_ = tile->getPos() + sf::Vector2f(tile->getSize(), shape_.getSize().x);
-        shape_.rotate(270);
+        pos_ = pos + sf::Vector2f(tile_size - shape_.getSize().y, shape_.getSize().x);
+        shape_.setRotation(270);
     }
-    else if (tile->getDir().y == -1)
+    else if (dir.y == -1)
     {
-        pos_ = tile->getPos() + sf::Vector2f(0, tile->getSize() - shape_.getSize().x);
-        shape_.rotate(90);
+        pos_ = pos + sf::Vector2f(shape_.getSize().y, tile_size - shape_.getSize().x);
+        shape_.setRotation(90);
     }
     shape_.setPosition(pos_);
 }
@@ -34,7 +40,7 @@ TrafficLight::TrafficLight(const RoadTile *tile, unsigned int handler_id)
 void TrafficLight::update(float delta_time)
 {
     activated_for_ += delta_time;
-    if(color_ == YELLOW && activated_for_ < green_time_ && activated_for_ > yellow_time_)
+    if (color_ == YELLOW && activated_for_ < green_time_ && activated_for_ > yellow_time_)
         setColor(GREEN);
     // Yellow just before de activation
     if (color_ == GREEN && activated_for_ > green_time_ - yellow_time_)

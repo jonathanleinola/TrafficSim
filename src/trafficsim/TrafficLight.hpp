@@ -2,7 +2,6 @@
 
 #include <SFML/Graphics.hpp>
 
-#include "RoadTile.hpp"
 
 namespace TrafficSim
 {
@@ -17,7 +16,7 @@ enum LightColor
 class TrafficLight : public sf::Drawable
 {
 public:
-    TrafficLight(const RoadTile *tile, unsigned int handler_id);
+    TrafficLight(const sf::Vector2f &pos, const sf::Vector2f &dir, float tile_size, unsigned int handler_id);
 
     bool isActivated() const { return activated_; }
     unsigned int getHandlerId() const { return handler_id_; }
@@ -25,6 +24,7 @@ public:
     void update(float delta_time);
 
     void setHandlerId(unsigned int id) { handler_id_ = id; }
+    void initPos(const sf::Vector2f &pos, const sf::Vector2f &dir, float tile_size);
     void activate();
 
     virtual void draw(sf::RenderTarget &target, sf::RenderStates states) const;

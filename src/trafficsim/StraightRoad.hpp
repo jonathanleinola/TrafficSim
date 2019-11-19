@@ -12,7 +12,6 @@ class StraightRoad : public RoadTile
 public:
     StraightRoad(const Tile &tile);
 
-    virtual void flip();
     virtual TileType getType() const { return TileType::StraightRoadType; }
     virtual void connect(std::array<Tile *, 4> &neighbors);
 

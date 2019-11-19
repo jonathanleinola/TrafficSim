@@ -4,6 +4,7 @@
 
 #include "Car.hpp"
 #include "Grid.hpp"
+#include "RoadTile.hpp"
 #include "TrafficLightHandler.hpp"
 
 namespace TrafficSim
@@ -20,7 +21,8 @@ public:
     void update(float delta_time);
 
     void addCar(const sf::Vector2f &spawn_pos, const sf::Vector2f &dest, const sf::Texture *carTexture);
-    void addLight(const RoadTile *road);
+    void addLight(RoadTile *road);
+    void removeLight(RoadTile *road);
 
     Grid &getGrid() { return grid_; }
     std::shared_ptr<Node> closestRoadNode(const sf::Vector2f &pos);

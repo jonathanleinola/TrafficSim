@@ -62,12 +62,6 @@ bool StraightRoad::connectableFrom(NeighborIndex n_index) const
     return false;
 }
 
-void StraightRoad::flip()
-{
-    rotate();
-    rotate();
-}
-
 void StraightRoad::SetTexture(const sf::Texture *texture)
 {
     StraightRoad::Texture = texture;

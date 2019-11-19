@@ -42,13 +42,25 @@ void Map::addCar(const sf::Vector2f &spawn_pos, const sf::Vector2f &dest, const 
     cars_.push_back(std::make_unique<Car>(Car(closestRoadNode(spawn_pos), closestRoadNode(dest), sf::Vector2f(50, 100), carTexture)));
 }
 
-void Map::addLight(const RoadTile *road)
+void Map::addLight(RoadTile *road)
 {
     if(light_handlers_.size() < 1)
         light_handlers_.push_back(std::make_unique<TrafficLightHandler>(0));
-    
-    light_handlers_.at(0)->addLight(road);
+    if(road->getLight())
+        return;
+    road->addLight(0);
+    light_handlers_.at(0)->addLight(road->getLight());
 }
+
+void Map::removeLight(RoadTile *road)
+{
+    void *light = road->getLight();
+    if(!light)
+        return;
+    light_handlers_.at(road->removeLight())->removeLight(light);
+
+}
+
 
 void Map::removeFinishedCars()
 {

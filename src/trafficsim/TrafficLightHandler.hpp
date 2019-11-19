@@ -14,7 +14,9 @@ class TrafficLightHandler : public sf::Drawable
 public:
     TrafficLightHandler(unsigned int handler_id);
 
-    void addLight(const RoadTile *road_tile);
+    void addLight(TrafficLight *light);
+    void removeLight(void *light_to_remove);
+
     void update(float delta_time);
 
 
@@ -26,7 +28,7 @@ private:
     unsigned int active_light_ = UINT_MAX;
 
     // TODO ? Lights that are stored in the same inner vector can be activated (green) at the same time
-    std::vector<std::unique_ptr<TrafficLight>> lights_;
+    std::vector<TrafficLight*> lights_;
 };
 
 } // namespace TrafficSim

@@ -135,6 +135,8 @@ void MapBuilder::removeRoad(const sf::Vector2f &pos)
     auto &tile = map_.getGrid().getTile(pos);
     if (!tile || tile->getType() == TileType::Empty)
         return;
+    RoadTile *road = static_cast<RoadTile*>(tile.get());
+    map_.removeLight(road);
     std::unique_ptr<Tile> empty_tile = std::make_unique<Tile>(tile->getPos(), tile->getSize(), tile->getTileIndex());
     tile.swap(empty_tile);
     connectRoads();
