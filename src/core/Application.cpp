@@ -94,7 +94,7 @@ void Application::handleEvent(const sf::Event &ev)
 void Application::handleInputBuffers(const float deltatime, const sf::Vector2i &delta_mp)
 {
     //Mouse buttons
-    if (button_buffer_[sf::Mouse::Right])
+    if (button_buffer_[sf::Mouse::Left])
         window_.moveView(delta_mp);
 }
 
