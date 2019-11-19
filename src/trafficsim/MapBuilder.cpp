@@ -231,7 +231,7 @@ void MapBuilder::handleInput(const sf::Event &ev)
         if (gui_hovered)
             return;
         sf::Vector2f pos = window_.convert(sf::Vector2i(ev.mouseButton.x, ev.mouseButton.y));
-        if (ev.mouseButton.button == sf::Mouse::Left)
+        if (ev.mouseButton.button == sf::Mouse::Right)
         {
             switch (editing_option_)
             {
@@ -255,7 +255,7 @@ void MapBuilder::handleInput(const sf::Event &ev)
             }
             unSelectTile();
         }
-        else if (ev.mouseButton.button == sf::Mouse::Right)
+        else if (ev.mouseButton.button == sf::Mouse::Left)
         {
             selectTile(pos);
         }
