@@ -19,6 +19,7 @@ public:
 
     void update(float delta_time);
 
+    const std::vector<TrafficLight *> &getLights() const { return lights_; }
 
     virtual void draw(sf::RenderTarget &target, sf::RenderStates states) const;
 
@@ -28,7 +29,7 @@ private:
     unsigned int active_light_ = UINT_MAX;
 
     // TODO ? Lights that are stored in the same inner vector can be activated (green) at the same time
-    std::vector<TrafficLight*> lights_;
+    std::vector<TrafficLight *> lights_;
 };
 
 } // namespace TrafficSim

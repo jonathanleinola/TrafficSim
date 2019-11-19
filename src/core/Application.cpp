@@ -46,7 +46,7 @@ void Application::run()
     //Main loop
     while (window_.isOpen())
     {
-        if (last_time + 1.f < gametime_.getElapsedTime().asSeconds())
+        if (last_time + 2.f < gametime_.getElapsedTime().asSeconds())
         {
             last_time = gametime_.getElapsedTime().asSeconds();
             map_.addCar(sf::Vector2f(rand() % window_.getWidth(), rand() % window_.getHeight()), sf::Vector2f(rand() % window_.getWidth(), rand() % window_.getHeight()), data_.getTextrue("blue_car"));

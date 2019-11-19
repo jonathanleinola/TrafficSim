@@ -24,7 +24,7 @@ void Map::update(float delta_time)
     // Move cars, and other things which are dependent on time
     //cars, humans, trafficlights
     for (auto &car : cars_)
-        car->update(delta_time, cars_);
+        car->update(delta_time, cars_, light_handlers_);
     removeFinishedCars();
 
     for (auto &light_handler : light_handlers_)

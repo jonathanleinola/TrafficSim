@@ -20,7 +20,7 @@ void Car::draw(sf::RenderTarget &target, sf::RenderStates states) const
     target.draw(shape_, states);
 }
 
-void Car::update(float deltatime, const std::vector<std::unique_ptr<Car>> &cars)
+void Car::update(float deltatime, const std::vector<std::unique_ptr<Car>> &cars, const std::vector<std::unique_ptr<TrafficLightHandler>> &light_handlers)
 {
     if (route_.size() < 1)
     {
@@ -51,11 +51,11 @@ void Car::update(float deltatime, const std::vector<std::unique_ptr<Car>> &cars)
     }
     // Checks if there is something (another car) infront of this car
     // if there is -> we cant move forward
-    if (frontEmpty(cars))
+    if (frontEmpty(cars, light_handlers))
         shape_.move(dir_ * deltatime * speed_);
 }
 
-bool Car::frontEmpty(const std::vector<std::unique_ptr<Car>> &cars) const
+bool Car::frontEmpty(const std::vector<std::unique_ptr<Car>> &cars, const std::vector<std::unique_ptr<TrafficLightHandler>> &light_handlers) const
 {
     for (const auto &car : cars)
     {
@@ -65,6 +65,22 @@ bool Car::frontEmpty(const std::vector<std::unique_ptr<Car>> &cars) const
         // car front
         if (car->shape_.getGlobalBounds().contains(shape_.getPosition() + dir_ * shape_.getSize().y * 0.51f))
             return false;
+    }
+    for (const auto &light_manager : light_handlers)
+    {
+        const auto &lights = light_manager->getLights();
+        for (const auto &light : lights)
+        {
+            if (!light->canDrive())
+            {
+                if (light->getBlocker().getGlobalBounds().contains(shape_.getPosition() + dir_ * shape_.getSize().y))
+                    return false;
+                // car front
+                if (light->getBlocker().getGlobalBounds().contains(shape_.getPosition() + dir_ * shape_.getSize().y * 0.51f))
+                    return false;
+            }
+            // light infront
+        }
     }
     return true;
 }
