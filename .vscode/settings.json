@@ -66,13 +66,7 @@
         "list": "cpp",
         "deque": "cpp",
         "stack": "cpp",
-        "thread": "cpp",
-        "*.tcc": "cpp",
-        "clocale": "cpp",
-        "memory_resource": "cpp",
-        "numeric": "cpp",
-        "random": "cpp",
-        "cinttypes": "cpp"
+        "thread": "cpp"
     },
     "C_Cpp.errorSquiggles": "Disabled"
 }
