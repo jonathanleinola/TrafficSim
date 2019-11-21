@@ -11,6 +11,7 @@ class Application
 {
 public:
     Application();
+
     void run();
     void close();
     void handleEvent(const sf::Event &ev);

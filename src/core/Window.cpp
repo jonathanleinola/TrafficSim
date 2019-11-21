@@ -53,6 +53,8 @@ void Window::pollEvent()
 
 void Window::moveView(const sf::Vector2i &delta_pos)
 {
+    if(gui_hovered_)
+        return;
     view_.move(delta_pos.x * zoom_, delta_pos.y * zoom_);
     window_.setView(view_);
 }
@@ -77,7 +79,7 @@ void Window::drawGUI()
 
 void Window::zoomView(sf::Vector2i relative_to, float zoom_dir)
 {
-    if (zoom_dir == 0)
+    if (zoom_dir == 0 || gui_hovered_)
         return;
     const sf::Vector2f beforeCoord{window_.mapPixelToCoords(relative_to)};
     const float zoomfactor = 1.1f;

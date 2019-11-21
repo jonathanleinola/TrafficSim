@@ -14,6 +14,9 @@ public:
     int getHeight() const { return window_.getSize().y; }
     bool isOpen() const { return window_.isOpen(); }
 
+    bool isGuiHovered() const { return gui_hovered_; }
+    void setGuiHovered(bool val) const { gui_hovered_ = val; }
+
     // View stuff
     sf::Vector2i convert(const sf::Vector2f &point) const { return window_.mapCoordsToPixel(point); }
     sf::Vector2f convert(const sf::Vector2i &point) const { return window_.mapPixelToCoords(point); }
@@ -28,13 +31,14 @@ public:
     void display();
 
 private:
-    void zoomView(sf::Vector2i relative_to, float zoom);
-
-
-private:
     sf::RenderWindow window_;
     sf::Clock clock_;
     sf::View view_;
     float zoom_ = 1.f;
+    mutable bool gui_hovered_ = false;
+
+
+private:
+    void zoomView(sf::Vector2i relative_to, float zoom);
 };
 } // namespace TrafficSim

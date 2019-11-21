@@ -36,7 +36,7 @@ const char *road_type_name(TileType type)
 void MapBuilder::drawGUI()
 {
     ImGui::Begin("Map Editor");
-    gui_hovered = ImGui::IsAnyWindowHovered();
+    window_.setGuiHovered(ImGui::IsAnyWindowHovered());
 
     // Choose click mode
     for (int i = 0; i != EditingOption::ModeCount; i++)
@@ -228,7 +228,7 @@ void MapBuilder::handleInput(const sf::Event &ev)
         return;
     if (ev.type == sf::Event::MouseButtonPressed)
     {
-        if (gui_hovered)
+        if (window_.isGuiHovered())
             return;
         sf::Vector2f pos = window_.convert(sf::Vector2i(ev.mouseButton.x, ev.mouseButton.y));
         if (ev.mouseButton.button == sf::Mouse::Right)

@@ -36,6 +36,7 @@ public:
     MapBuilder(Map &map, const Window &window);
 
     void toggle_building_mode() { building_mode_ = !building_mode_; }
+
     void handleInput(const sf::Event &ev);
     void drawGUI();
 
@@ -53,7 +54,6 @@ private:
     Map &map_;
     const Window &window_;
     bool building_mode_ = true;
-    bool gui_hovered = false;
     EditingOption editing_option_ = Inspect;
     TileType road_option_ = TileType::StraightRoadType;
     unsigned int selected_tile_index = UINT_MAX;
