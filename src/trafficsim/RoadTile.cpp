@@ -29,7 +29,11 @@ unsigned int RoadTile::removeLight()
 void RoadTile::autoRotate(std::array<Tile *, 4> &neighbors)
 {
     if (neighbors[LEFT] && neighbors[LEFT]->getType() != Empty)
-        return;
+    {
+        RoadTile *r = static_cast<RoadTile *>(neighbors[LEFT]);
+        if (r->canConnectTo(RIGHT))
+            return;
+    }
     if (neighbors[UP] && neighbors[UP]->getType() != Empty)
     {
         RoadTile *r = static_cast<RoadTile *>(neighbors[UP]);
@@ -77,7 +81,7 @@ void RoadTile::rotate()
 {
     dir_ = sf::Vector2f(dir_.y, -dir_.x);
     rect_.rotate(90);
-    if(light_)
+    if (light_)
         light_->initPos(pos_, dir_, size_);
 }
 
