@@ -84,8 +84,6 @@ void Application::handleEvent(const sf::Event &ev)
     case sf::Event::MouseButtonReleased:
         button_buffer_[ev.mouseButton.button] = false;
         break;
-    case sf::Event::MouseWheelScrolled:
-        break;
     default:
         break;
     }

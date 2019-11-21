@@ -22,8 +22,10 @@ public:
     // For cars
     bool canDrive() const { return can_drive_; }
     unsigned int getHandlerId() const { return handler_id_; }
+
     // For cars
     const sf::RectangleShape &getBlocker() const { return blocker_; }
+    const sf::Vector2f &getPos() const { return shape_.getPosition(); }
 
     void update(float delta_time);
 

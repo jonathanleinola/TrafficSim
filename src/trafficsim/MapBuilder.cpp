@@ -66,6 +66,7 @@ void MapBuilder::drawGUI()
     {
         ImGui::SetNextWindowPos(select_menu_pos_);
         ImGui::Begin("Tile Editor");
+        sf::Vector2i another_pos(select_menu_pos_.x, select_menu_pos_.y + ImGui::GetWindowHeight());
         ImGui::BeginColumns("", 2);
         for (int i = 0; i != TileType::Empty; i++)
         {
@@ -80,6 +81,23 @@ void MapBuilder::drawGUI()
             flipRoad(map_.getGrid().getTile(selected_tile_index)->getCenter());
         if (ImGui::Button("Remove"))
             removeRoad(map_.getGrid().getTile(selected_tile_index)->getCenter());
+        // Traffic light editor
+        RoadTile *road_tile = static_cast<RoadTile *>(map_.getGrid().getTile(selected_tile_index).get());
+        if (road_tile->getLight())
+        {
+            if (ImGui::Button("Remove Light"))
+            {
+                map_.removeLight(road_tile->getLight());
+                road_tile->removeLight();
+            }
+            if (ImGui::Button("New handler"))
+            {
+                map_.newLightHandler(road_tile->getLight());
+            }
+            if (ImGui::Button("Change Handler"))
+            {
+            }
+        }
         ImGui::EndColumns();
         ImGui::End();
     }
@@ -127,7 +145,10 @@ void MapBuilder::addTrafficLight(const sf::Vector2f &pos)
         return;
 
     RoadTile *road = static_cast<RoadTile *>(tile.get());
-    map_.addLight(road);
+    if (road->getLight())
+        return;
+    road->addLight(map_.getCurrentHandlerId());
+    map_.addLight(road->getLight());
 }
 
 void MapBuilder::removeRoad(const sf::Vector2f &pos)
@@ -135,8 +156,11 @@ void MapBuilder::removeRoad(const sf::Vector2f &pos)
     auto &tile = map_.getGrid().getTile(pos);
     if (!tile || tile->getType() == TileType::Empty)
         return;
-    RoadTile *road = static_cast<RoadTile*>(tile.get());
-    map_.removeLight(road);
+    RoadTile *road = static_cast<RoadTile *>(tile.get());
+    if (road->getLight())
+    {
+        map_.removeLight(road->getLight());
+    }
     std::unique_ptr<Tile> empty_tile = std::make_unique<Tile>(tile->getPos(), tile->getSize(), tile->getTileIndex());
     tile.swap(empty_tile);
     connectRoads();

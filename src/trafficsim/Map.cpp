@@ -42,25 +42,34 @@ void Map::addCar(const sf::Vector2f &spawn_pos, const sf::Vector2f &dest, const 
     cars_.push_back(std::make_unique<Car>(Car(closestRoadNode(spawn_pos), closestRoadNode(dest), sf::Vector2f(50, 100), carTexture)));
 }
 
-void Map::addLight(RoadTile *road)
+void Map::addLight(TrafficLight *light)
 {
-    if(light_handlers_.size() < 1)
+    if (light_handlers_.size() < 1)
         light_handlers_.push_back(std::make_unique<TrafficLightHandler>(0));
-    if(road->getLight())
-        return;
-    road->addLight(0);
-    light_handlers_.at(0)->addLight(road->getLight());
+
+    light_handlers_.at(current_handler_id_)->addLight(light);
 }
 
-void Map::removeLight(RoadTile *road)
+void Map::newLightHandler(TrafficLight *light)
 {
-    void *light = road->getLight();
-    if(!light)
-        return;
-    light_handlers_.at(road->removeLight())->removeLight(light);
-
+    if (light_handlers_.at(light_handlers_.size() - 1)->getLightCount() < 0)
+    {
+        current_handler_id_ = light_handlers_.size() - 1;
+    }
+    else
+    {
+        light_handlers_.push_back(std::make_unique<TrafficLightHandler>(light_handlers_.size()));
+        current_handler_id_ = light_handlers_.size() - 1;
+    }
+    light_handlers_.at(light->getHandlerId())->removeLight(light, light->getPos());
+    light->setHandlerId(current_handler_id_);
+    light_handlers_.at(current_handler_id_)->addLight(light);
 }
 
+void Map::removeLight(TrafficLight *light)
+{
+    light_handlers_.at(light->getHandlerId())->removeLight(light, light->getPos());
+}
 
 void Map::removeFinishedCars()
 {
