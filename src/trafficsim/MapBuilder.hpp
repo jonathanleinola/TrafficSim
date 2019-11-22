@@ -2,10 +2,6 @@
 
 #include <climits> // UINT_MAX
 
-#include "imgui.h"
-#include "imgui-SFML.h"
-#include "imgui_internal.h"
-
 #include "Map.hpp"
 #include "RoadTurn.hpp"
 #include "StraightRoad.hpp"

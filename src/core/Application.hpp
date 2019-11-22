@@ -3,6 +3,7 @@
 #include "Window.hpp"
 #include "trafficsim/Map.hpp"
 #include "trafficsim/MapBuilder.hpp"
+#include "trafficsim/TimeLine.hpp"
 #include "util/DataHandler.hpp"
 
 namespace TrafficSim
@@ -21,11 +22,8 @@ private:
     Window window_;
     Map map_;
     MapBuilder builder_;
+    TimeLine time_line_;
     DataHandler data_;
-    // This is resetted every frame. It tracks time between two frames
-    sf::Clock deltatime_;
-    // This timer will not be resetted. It will track time from start
-    sf::Clock gametime_;
 
     // Input buffers
     bool key_buffer_[sf::Keyboard::KeyCount]{false};

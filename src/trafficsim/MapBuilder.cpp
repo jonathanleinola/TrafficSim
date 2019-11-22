@@ -4,6 +4,10 @@
 #include <memory>
 #include <iostream>
 
+#include "imgui.h"
+#include "imgui-SFML.h"
+#include "imgui_internal.h"
+
 namespace TrafficSim
 {
 
@@ -36,7 +40,6 @@ const char *road_type_name(TileType type)
 void MapBuilder::drawGUI()
 {
     ImGui::Begin("Map Editor");
-    window_.setGuiHovered(ImGui::IsAnyWindowHovered());
 
     // Choose click mode
     for (int i = 0; i != EditingOption::ModeCount; i++)

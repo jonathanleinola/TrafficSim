@@ -22,6 +22,11 @@ Window::Window()
     ImGui::GetFont()->Scale = 3.0f;
 }
 
+void Window::checkHover() const
+{
+    gui_hovered_ = ImGui::IsAnyWindowHovered() || ImGui::IsAnyItemActive();
+}
+
 void Window::clear()
 {
     ImGui::SFML::Update(window_, clock_.restart());

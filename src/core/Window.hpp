@@ -13,9 +13,10 @@ public:
     int getWidth() const { return window_.getSize().x; }
     int getHeight() const { return window_.getSize().y; }
     bool isOpen() const { return window_.isOpen(); }
-
     bool isGuiHovered() const { return gui_hovered_; }
     void setGuiHovered(bool val) const { gui_hovered_ = val; }
+
+    void checkHover() const;
 
     // View stuff
     sf::Vector2i convert(const sf::Vector2f &point) const { return window_.mapCoordsToPixel(point); }
@@ -36,7 +37,6 @@ private:
     sf::View view_;
     float zoom_ = 1.f;
     mutable bool gui_hovered_ = false;
-
 
 private:
     void zoomView(sf::Vector2i relative_to, float zoom);

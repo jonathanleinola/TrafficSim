@@ -19,16 +19,20 @@ Map::~Map()
 {
 }
 
-void Map::update(float delta_time)
+void Map::update(float game_time)
 {
     // Move cars, and other things which are dependent on time
     //cars, humans, trafficlights
+    double delta_time = game_time - game_time_.asSeconds();
+    game_time_ = sf::seconds(game_time);
+    
     for (auto &car : cars_)
         car->update(delta_time, cars_, light_handlers_);
     removeFinishedCars();
 
     for (auto &light_handler : light_handlers_)
         light_handler->update(delta_time);
+
 }
 
 void Map::addCar(const sf::Vector2f &spawn_pos, const sf::Vector2f &dest, const sf::Texture *carTexture)

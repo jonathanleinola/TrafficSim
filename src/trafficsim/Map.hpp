@@ -18,7 +18,7 @@ public:
     ~Map();
 
     //Entity handling
-    void update(float delta_time);
+    void update(float game_time);
 
     void addCar(const sf::Vector2f &spawn_pos, const sf::Vector2f &dest, const sf::Texture *carTexture);
     
@@ -34,6 +34,7 @@ public:
     virtual void draw(sf::RenderTarget &target, sf::RenderStates states) const;
 
 private:
+    sf::Time game_time_;
     std::vector<std::unique_ptr<Car>> cars_;
     Grid grid_;
     std::vector<std::unique_ptr<TrafficLightHandler>> light_handlers_;
