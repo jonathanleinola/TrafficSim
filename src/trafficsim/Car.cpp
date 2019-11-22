@@ -28,7 +28,8 @@ void Car::update(float deltatime, const std::vector<std::unique_ptr<Car>> &cars,
         return;
     }
 
-    if (VectorMath::Distance(shape_.getPosition(), route_.front()->getPos()) < 5.f)
+    float delta_step = deltatime * speed_;
+    if (VectorMath::Distance(shape_.getPosition(), route_.front()->getPos()) < delta_step)
     {
         shape_.setPosition(route_.front()->getPos());
         prev_ = std::make_shared<Node>(*route_.front());
