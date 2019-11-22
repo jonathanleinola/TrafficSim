@@ -22,9 +22,9 @@ Window::Window()
     ImGui::GetFont()->Scale = 3.0f;
 }
 
-void Window::checkHover() const
+bool Window::isGuiHovered() const
 {
-    gui_hovered_ = ImGui::IsAnyWindowHovered() || ImGui::IsAnyItemActive();
+    return ImGui::GetIO().WantCaptureMouse;
 }
 
 void Window::clear()
@@ -58,7 +58,7 @@ void Window::pollEvent()
 
 void Window::moveView(const sf::Vector2i &delta_pos)
 {
-    if(gui_hovered_)
+    if (isGuiHovered())
         return;
     view_.move(delta_pos.x * zoom_, delta_pos.y * zoom_);
     window_.setView(view_);
@@ -84,7 +84,7 @@ void Window::drawGUI()
 
 void Window::zoomView(sf::Vector2i relative_to, float zoom_dir)
 {
-    if (zoom_dir == 0 || gui_hovered_)
+    if (zoom_dir == 0 || isGuiHovered())
         return;
     const sf::Vector2f beforeCoord{window_.mapPixelToCoords(relative_to)};
     const float zoomfactor = 1.1f;

@@ -51,7 +51,6 @@ void Application::run()
             map_.addCar(sf::Vector2f(rand() % window_.getWidth(), rand() % window_.getHeight()), sf::Vector2f(rand() % window_.getWidth(), rand() % window_.getHeight()), data_.getTextrue("blue_car"));
         }
 
-        window_.checkHover();
         window_.pollEvent();
         handleInputBuffers(time_line_.getFrameTime(), delta_mouse_pos - sf::Mouse::getPosition());
         map_.update(time_line_.getGameTime());
