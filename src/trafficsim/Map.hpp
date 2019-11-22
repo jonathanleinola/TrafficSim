@@ -23,7 +23,7 @@ public:
     void addCar(const sf::Vector2f &spawn_pos, const sf::Vector2f &dest, const sf::Texture *carTexture);
     
     void removeLight(TrafficLight *light);
-    void addLight(TrafficLight *light);
+    void addLight(TrafficLight *light, unsigned int handler_id = UINT_MAX);
     void newLightHandler(TrafficLight *light);
 
     unsigned int getCurrentHandlerId() const { return current_handler_id_; }

@@ -98,8 +98,7 @@ void MapBuilder::drawGUI()
                 map_.newLightHandler(road_tile->getLight());
             }
             if (ImGui::Button("Change Handler"))
-            {
-            }
+                selected_light_ = road_tile->getLight();
         }
         ImGui::EndColumns();
         ImGui::End();
@@ -211,6 +210,22 @@ void MapBuilder::connectRoads()
     }
 }
 
+void MapBuilder::changeLightHandler(const sf::Vector2f &pos)
+{
+    auto &tile = map_.getGrid().getTile(pos);
+    if (!tile || tile->getType() == TileType::Empty)
+        return;
+    RoadTile *new_light_tile = static_cast<RoadTile*>(tile.get());
+    TrafficLight *new_light = new_light_tile->getLight();
+    if(new_light_tile->getLight())
+    {
+        map_.removeLight(selected_light_);
+        selected_light_->setHandlerId(new_light->getHandlerId());
+        map_.addLight(selected_light_, new_light->getHandlerId());
+    }
+    selected_light_ = nullptr;
+}
+
 void MapBuilder::clearMap()
 {
     map_.getGrid().init();
@@ -260,6 +275,10 @@ void MapBuilder::handleInput(const sf::Event &ev)
         sf::Vector2f pos = window_.convert(sf::Vector2i(ev.mouseButton.x, ev.mouseButton.y));
         if (ev.mouseButton.button == sf::Mouse::Right)
         {
+            if (selected_light_)
+            {
+                changeLightHandler(pos);
+            }
             switch (editing_option_)
             {
             case AddRoad:

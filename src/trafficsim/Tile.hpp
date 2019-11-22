@@ -33,6 +33,8 @@ class Tile : public sf::Drawable
 public:
     Tile(const sf::Vector2f &pos, float size, unsigned int tile_index);
 
+    virtual TileType getType() const { return TileType::Empty; }
+    std::shared_ptr<Node> getNode() const { return node_; }
     const sf::Vector2f &getPos() const { return pos_; };
     sf::Vector2f getCenter() const;
     unsigned int getTileIndex() const { return tile_index_; }
@@ -42,9 +44,7 @@ public:
     void hoverTile();
     void unSelectTile();
 
-    std::shared_ptr<Node> getNode() const { return node_; }
     virtual void draw(sf::RenderTarget &target, sf::RenderStates states) const;
-    virtual TileType getType() const { return TileType::Empty; }
 
 protected:
     std::shared_ptr<Node> node_;

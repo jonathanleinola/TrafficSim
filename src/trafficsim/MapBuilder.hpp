@@ -56,6 +56,7 @@ private:
     unsigned int selected_tile_index = UINT_MAX;
     unsigned int hovered_tile_index = UINT_MAX;
     sf::Vector2i select_menu_pos_;
+    TrafficLight *selected_light_ = nullptr;
 
 private:
     void removeRoad(const sf::Vector2f &pos);
@@ -63,5 +64,6 @@ private:
     void unSelectTile();
     void connectRoad(std::unique_ptr<Tile> &tile);
     void connectRoads();
+    void changeLightHandler(const sf::Vector2f &pos);
 };
 } // namespace TrafficSim

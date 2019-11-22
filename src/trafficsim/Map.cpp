@@ -25,14 +25,13 @@ void Map::update(float game_time)
     //cars, humans, trafficlights
     double delta_time = game_time - game_time_.asSeconds();
     game_time_ = sf::seconds(game_time);
-    
+
     for (auto &car : cars_)
         car->update(delta_time, cars_, light_handlers_);
     removeFinishedCars();
 
     for (auto &light_handler : light_handlers_)
         light_handler->update(delta_time);
-
 }
 
 void Map::addCar(const sf::Vector2f &spawn_pos, const sf::Vector2f &dest, const sf::Texture *carTexture)
@@ -46,12 +45,15 @@ void Map::addCar(const sf::Vector2f &spawn_pos, const sf::Vector2f &dest, const 
     cars_.push_back(std::make_unique<Car>(Car(closestRoadNode(spawn_pos), closestRoadNode(dest), sf::Vector2f(50, 100), carTexture)));
 }
 
-void Map::addLight(TrafficLight *light)
+void Map::addLight(TrafficLight *light, unsigned int handler_id)
 {
     if (light_handlers_.size() < 1)
         light_handlers_.push_back(std::make_unique<TrafficLightHandler>(0));
 
-    light_handlers_.at(current_handler_id_)->addLight(light);
+    if(handler_id < light_handlers_.size())
+        light_handlers_.at(handler_id)->addLight(light);
+    else
+        light_handlers_.at(current_handler_id_)->addLight(light);
 }
 
 void Map::newLightHandler(TrafficLight *light)
