@@ -14,8 +14,12 @@ RoadTurn::RoadTurn(const Tile &tile)
 
 void RoadTurn::autoRotate(std::array<Tile *, 4> &neighbors)
 {
-    if(neighbors[DOWN] && neighbors[DOWN]->getType() != Empty)
-        return;
+    if (neighbors[DOWN] && neighbors[DOWN]->getType() != Empty)
+    {
+        RoadTile *r = static_cast<RoadTile *>(neighbors[DOWN]);
+        if (r->canConnectTo(UP))
+            return;
+    }
     if (neighbors[UP] && neighbors[UP]->getType() != Empty)
     {
         RoadTile *r = static_cast<RoadTile *>(neighbors[UP]);

@@ -62,8 +62,8 @@ void TimeLine::drawGUI()
     ImGui::Begin("Time");
     
     ImGui::Text(timeToString().c_str());
-
-    ImGui::SliderFloat("Time scale", &multiplier_, 0.f, 20.f, "%.1f");
+    // 25 is pretty much highest highest multiplier without encountering bugs
+    ImGui::SliderFloat("Time scale", &multiplier_, 0.f, 25.f, "%.1f");
     ImGui::SliderFloat("Time", &hours, 0.f, 24.0f, "%.1f");
 
     game_time_ = sf::seconds(hours * 60 * 60);
