@@ -155,9 +155,16 @@ void Application::handleEvent(const sf::Event &ev)
 
 void Application::handleInputBuffers(const float deltatime, const sf::Vector2i &delta_mp)
 {
-    //Mouse buttons
+    // LEFT mouse button is pressed down
     if (button_buffer_[sf::Mouse::Left])
-        window_.moveView(delta_mp);
+    {
+        // if left control is down add a road if not move map
+        if (key_buffer_[sf::Keyboard::LControl])
+            builder_.slideAdd(window_.convert(sf::Mouse::getPosition(window_.getWindow())));
+        else
+            window_.moveView(delta_mp);
+    }
+
 }
 
 void Application::close()

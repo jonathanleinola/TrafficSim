@@ -73,7 +73,6 @@ void RoadTile::connectTo(Tile *another, NeighborIndex from)
     if (road_tile->connectableFrom(from))
     {
         this->node_->connect(road_tile->getNode());
-        std::cout << "Connected" << std::endl;
     }
 }
 

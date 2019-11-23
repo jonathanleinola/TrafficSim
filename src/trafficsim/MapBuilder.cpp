@@ -67,7 +67,7 @@ void MapBuilder::drawGUI()
     ImGui::End();
 
     // Left-click option menu
-    if (selected_tile_index != UINT_MAX && map_.getGrid().getTile(selected_tile_index)->getType() != TileType::Empty)
+    if (selected_tile_index_ != UINT_MAX && map_.getGrid().getTile(selected_tile_index_)->getType() != TileType::Empty)
     {
         ImGui::SetNextWindowPos(select_menu_pos_);
         ImGui::Begin("Tile Editor");
@@ -76,20 +76,20 @@ void MapBuilder::drawGUI()
         for (int i = 0; i != TileType::Empty; i++)
         {
             TileType road_type = static_cast<TileType>(i);
-            if (ImGui::RadioButton(road_type_name(road_type), map_.getGrid().getTile(selected_tile_index)->getType() == road_type))
-                addRoad(map_.getGrid().getTile(selected_tile_index)->getCenter(), road_type);
+            if (ImGui::RadioButton(road_type_name(road_type), map_.getGrid().getTile(selected_tile_index_)->getType() == road_type))
+                addRoad(map_.getGrid().getTile(selected_tile_index_)->getCenter(), road_type);
         }
         ImGui::NextColumn();
         if (ImGui::Button("Rotate"))
-            rotateRoad(map_.getGrid().getTile(selected_tile_index)->getCenter());
+            rotateRoad(map_.getGrid().getTile(selected_tile_index_)->getCenter());
         if (ImGui::Button("Flip"))
-            flipRoad(map_.getGrid().getTile(selected_tile_index)->getCenter());
+            flipRoad(map_.getGrid().getTile(selected_tile_index_)->getCenter());
         if (ImGui::Button("Remove"))
-            removeRoad(map_.getGrid().getTile(selected_tile_index)->getCenter());
+            removeRoad(map_.getGrid().getTile(selected_tile_index_)->getCenter());
         // Traffic light editor
         ImGui::EndColumns();
         ImGui::End();
-        RoadTile *road_tile = dynamic_cast<RoadTile *>(map_.getGrid().getTile(selected_tile_index).get());
+        RoadTile *road_tile = dynamic_cast<RoadTile *>(map_.getGrid().getTile(selected_tile_index_).get());
         ImGui::SetNextWindowPos(another_pos);
         ImGui::Begin("Traffic Light editor");
         if (road_tile && road_tile->getLight())
@@ -155,6 +155,16 @@ void MapBuilder::addRoad(const sf::Vector2f &pos, TileType type)
 
     tile.swap(road_tile);
     connectRoads();
+}
+
+void MapBuilder::slideAdd(const sf::Vector2f &pos)
+{
+    selected_tile_index_ = UINT_MAX;
+    if(hovered_tile_index_ == last_added_tile_)
+        return;
+
+    addRoad(pos, StraightRoadType);
+    last_added_tile_ = hovered_tile_index_;
 }
 
 void MapBuilder::addTrafficLight(const sf::Vector2f &pos)
@@ -260,36 +270,36 @@ void MapBuilder::selectTile(const sf::Vector2f &pos)
         unSelectTile();
         return;
     }
-    if (new_tile->getTileIndex() == selected_tile_index)
+    if (new_tile->getTileIndex() == selected_tile_index_)
     {
         new_tile->unSelectTile();
-        selected_tile_index = UINT_MAX;
+        selected_tile_index_ = UINT_MAX;
     }
     else
     {
         new_tile->selectTile();
         unSelectTile();
-        selected_tile_index = new_tile->getTileIndex();
+        selected_tile_index_ = new_tile->getTileIndex();
         select_menu_pos_ = window_.convert(new_tile->getPos() + sf::Vector2f(new_tile->getSize(), 0.f));
     }
 }
 
 void MapBuilder::unSelectTile()
 {
-    if (selected_tile_index != UINT_MAX)
-        map_.getGrid().getTile(selected_tile_index)->unSelectTile();
-    selected_tile_index = UINT_MAX;
+    if (selected_tile_index_ != UINT_MAX)
+        map_.getGrid().getTile(selected_tile_index_)->unSelectTile();
+    selected_tile_index_ = UINT_MAX;
 }
 
 void MapBuilder::setBuildingMode(bool val)
 {
-    if(building_mode_ == val)
+    if (building_mode_ == val)
         return;
     building_mode_ = val;
     editing_option_ = Inspect;
     road_option_ = TileType::StraightRoadType;
-    selected_tile_index = UINT_MAX;
-    hovered_tile_index = UINT_MAX;
+    selected_tile_index_ = UINT_MAX;
+    hovered_tile_index_ = UINT_MAX;
     selected_light_ = nullptr;
 }
 
@@ -339,13 +349,13 @@ void MapBuilder::handleInput(const sf::Event &ev)
         auto &new_tile = map_.getGrid().getTile(pos);
         if (!new_tile)
             return;
-        if (selected_tile_index != new_tile->getTileIndex())
+        if (selected_tile_index_ != new_tile->getTileIndex())
         {
-            if (hovered_tile_index != UINT_MAX)
-                if (hovered_tile_index != selected_tile_index)
-                    map_.getGrid().getTile(hovered_tile_index)->unSelectTile();
+            if (hovered_tile_index_ != UINT_MAX)
+                if (hovered_tile_index_ != selected_tile_index_)
+                    map_.getGrid().getTile(hovered_tile_index_)->unSelectTile();
             new_tile->hoverTile();
-            hovered_tile_index = new_tile->getTileIndex();
+            hovered_tile_index_ = new_tile->getTileIndex();
         }
     }
 }

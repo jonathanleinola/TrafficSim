@@ -12,6 +12,7 @@ public:
     //Getters
     int getWidth() const { return window_.getSize().x; }
     int getHeight() const { return window_.getSize().y; }
+    const sf::Window &getWindow() const { return window_; }
     bool isOpen() const { return window_.isOpen(); }
     bool isGuiHovered() const;
 

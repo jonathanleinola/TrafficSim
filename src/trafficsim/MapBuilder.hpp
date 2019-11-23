@@ -41,6 +41,8 @@ public:
 
     // Adds a road
     void addRoad(const sf::Vector2f &pos, TileType type);
+    void slideAdd(const sf::Vector2f &pos);
+
     // Rotates roads 90 degrees clockwise
     void rotateRoad(const sf::Vector2f &pos);
     //Rotates flips roads
@@ -53,10 +55,12 @@ private:
     bool building_mode_ = true;
     EditingOption editing_option_ = Inspect;
     TileType road_option_ = TileType::StraightRoadType;
-    unsigned int selected_tile_index = UINT_MAX;
-    unsigned int hovered_tile_index = UINT_MAX;
+    unsigned int selected_tile_index_ = UINT_MAX;
+    unsigned int hovered_tile_index_ = UINT_MAX;
+    unsigned int last_added_tile_ = UINT_MAX;
     TrafficLight *selected_light_ = nullptr;
     sf::Vector2i select_menu_pos_;
+
 
 private:
     void removeRoad(const sf::Vector2f &pos);
