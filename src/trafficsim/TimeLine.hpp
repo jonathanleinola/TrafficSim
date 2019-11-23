@@ -15,6 +15,7 @@ public:
     float getGameTime() const;
     float getRealTime() const;
     float getFrameTime() const;
+    float getMultiplier() const { return multiplier_; }
 
     // Need to call this once every frame so our game_clock_ will be updated
     void update();

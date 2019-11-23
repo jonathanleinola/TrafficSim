@@ -35,6 +35,8 @@ public:
 
     virtual void draw(sf::RenderTarget &target, sf::RenderStates states) const;
 
+public:
+    float green_time_ = 5;
 private:
     // This stores in which handler does this light belongs to, can be changed in run time
     unsigned int handler_id_;
@@ -48,7 +50,6 @@ private:
     bool can_drive_ = false;
 
     // For how long each light will be activated
-    float green_time_ = 5;
     float yellow_time_ = 1;
     // time in seconds from lights activation
     float activated_for_ = 0;

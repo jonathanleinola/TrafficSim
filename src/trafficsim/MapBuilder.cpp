@@ -85,9 +85,16 @@ void MapBuilder::drawGUI()
         if (ImGui::Button("Remove"))
             removeRoad(map_.getGrid().getTile(selected_tile_index)->getCenter());
         // Traffic light editor
-        RoadTile *road_tile = static_cast<RoadTile *>(map_.getGrid().getTile(selected_tile_index).get());
-        if (road_tile->getLight())
+        ImGui::EndColumns();
+        ImGui::End();
+        RoadTile *road_tile = dynamic_cast<RoadTile *>(map_.getGrid().getTile(selected_tile_index).get());
+        ImGui::SetNextWindowPos(another_pos);
+        ImGui::Begin("Traffic Light editor");
+        if (road_tile && road_tile->getLight())
         {
+            int time = road_tile->getLight()->green_time_;
+            if (ImGui::SliderInt("Green time", &time, 0.f, 100.f, "%.0f"))
+                road_tile->getLight()->green_time_ = time;
             if (ImGui::Button("Remove Light"))
             {
                 map_.removeLight(road_tile->getLight());
@@ -100,7 +107,6 @@ void MapBuilder::drawGUI()
             if (ImGui::Button("Change Handler"))
                 selected_light_ = road_tile->getLight();
         }
-        ImGui::EndColumns();
         ImGui::End();
     }
 }
@@ -131,6 +137,15 @@ void MapBuilder::addRoad(const sf::Vector2f &pos, TileType type)
         break;
     default:
         break;
+    }
+    if (tile->getType() != Empty)
+    {
+        RoadTile *temp = static_cast<RoadTile *>(tile.get());
+        if (temp->getLight())
+        {
+            map_.removeLight(temp->getLight());
+            temp->removeLight();
+        }
     }
     RoadTile *r = static_cast<RoadTile *>(road_tile.get());
     auto arr = map_.getGrid().getNeigborTiles(tile->getTileIndex());
@@ -215,9 +230,9 @@ void MapBuilder::changeLightHandler(const sf::Vector2f &pos)
     auto &tile = map_.getGrid().getTile(pos);
     if (!tile || tile->getType() == TileType::Empty)
         return;
-    RoadTile *new_light_tile = static_cast<RoadTile*>(tile.get());
+    RoadTile *new_light_tile = static_cast<RoadTile *>(tile.get());
     TrafficLight *new_light = new_light_tile->getLight();
-    if(new_light_tile->getLight())
+    if (new_light_tile->getLight())
     {
         map_.removeLight(selected_light_);
         selected_light_->setHandlerId(new_light->getHandlerId());

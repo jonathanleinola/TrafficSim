@@ -45,9 +45,9 @@ void Application::run()
     //Main loop
     while (window_.isOpen())
     {
-        if (last_time + 2.f < time_line_.getRealTime())
+        if (last_time < time_line_.getRealTime())
         {
-            last_time = time_line_.getRealTime();
+            last_time = time_line_.getRealTime() + 2.f / time_line_.getMultiplier();
             map_.addCar(sf::Vector2f(rand() % window_.getWidth(), rand() % window_.getHeight()), sf::Vector2f(rand() % window_.getWidth(), rand() % window_.getHeight()), data_.getTextrue("blue_car"));
         }
 
