@@ -46,7 +46,7 @@ public:
             dice(std::normal_distribution<>(MR,1.5)),
             unidice(std::uniform_int_distribution<>(1,MR))
         {
-            rng.seed(::time(NULL));
+            // rng.seed(::time(NULL));
         }   
         ~Rando(){}
 
