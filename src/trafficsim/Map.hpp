@@ -20,13 +20,14 @@ public:
     //Entity handling
     void update(float game_time);
 
-    void addCar(const sf::Vector2f &spawn_pos, const sf::Vector2f &dest, const sf::Texture *carTexture);
-    
+    void addCar(const sf::Vector2f &spawn_pos, const sf::Vector2f &dest);
+
     void removeLight(TrafficLight *light);
     void addLight(TrafficLight *light, unsigned int handler_id = UINT_MAX);
     void newLightHandler(TrafficLight *light);
 
     unsigned int getCurrentHandlerId() const { return current_handler_id_; }
+    void setSimulating(bool val);
 
     Grid &getGrid() { return grid_; }
     std::shared_ptr<Node> closestRoadNode(const sf::Vector2f &pos);
@@ -34,6 +35,7 @@ public:
     virtual void draw(sf::RenderTarget &target, sf::RenderStates states) const;
 
 private:
+    bool simulating_ = false;
     sf::Time game_time_;
     std::vector<std::unique_ptr<Car>> cars_;
     Grid grid_;

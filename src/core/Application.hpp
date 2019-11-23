@@ -8,6 +8,16 @@
 
 namespace TrafficSim
 {
+
+enum State
+{
+    Editing = 0,
+    Simulating,
+    
+    // keep this last
+    StateCount
+};
+
 class Application
 {
 public:
@@ -18,12 +28,16 @@ public:
     void handleEvent(const sf::Event &ev);
     void handleInputBuffers(const float deltatime, const sf::Vector2i &delta_mp);
 
+    void changeState(State new_state);
+    void drawGUI();
+
 private:
     Window window_;
     Map map_;
     MapBuilder builder_;
     TimeLine time_line_;
     DataHandler data_;
+    State app_state_ = Editing;
 
     // Input buffers
     bool key_buffer_[sf::Keyboard::KeyCount]{false};

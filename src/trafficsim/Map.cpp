@@ -23,6 +23,8 @@ void Map::update(float game_time)
 {
     // Move cars, and other things which are dependent on time
     //cars, humans, trafficlights
+    if(!simulating_)
+        return;
     double delta_time = game_time - game_time_.asSeconds();
     game_time_ = sf::seconds(game_time);
 
@@ -34,7 +36,7 @@ void Map::update(float game_time)
         light_handler->update(delta_time);
 }
 
-void Map::addCar(const sf::Vector2f &spawn_pos, const sf::Vector2f &dest, const sf::Texture *carTexture)
+void Map::addCar(const sf::Vector2f &spawn_pos, const sf::Vector2f &dest)
 {
     auto n1 = closestRoadNode(spawn_pos);
     auto n2 = closestRoadNode(dest);
@@ -42,7 +44,7 @@ void Map::addCar(const sf::Vector2f &spawn_pos, const sf::Vector2f &dest, const 
         return;
     if (n1->getPos() == n2->getPos())
         return;
-    cars_.push_back(std::make_unique<Car>(Car(closestRoadNode(spawn_pos), closestRoadNode(dest), sf::Vector2f(50, 100), carTexture)));
+    cars_.push_back(std::make_unique<Car>(Car(closestRoadNode(spawn_pos), closestRoadNode(dest), sf::Vector2f(50, 100))));
 }
 
 void Map::addLight(TrafficLight *light, unsigned int handler_id)
@@ -50,7 +52,7 @@ void Map::addLight(TrafficLight *light, unsigned int handler_id)
     if (light_handlers_.size() < 1)
         light_handlers_.push_back(std::make_unique<TrafficLightHandler>(0));
 
-    if(handler_id < light_handlers_.size())
+    if (handler_id < light_handlers_.size())
         light_handlers_.at(handler_id)->addLight(light);
     else
         light_handlers_.at(current_handler_id_)->addLight(light);
@@ -101,12 +103,26 @@ std::shared_ptr<Node> Map::closestRoadNode(const sf::Vector2f &pos)
     return closest;
 }
 
+void Map::setSimulating(bool val)
+{
+    if(simulating_ == val)
+        return;
+    simulating_ = val;
+    cars_.clear();
+}
+
 void Map::draw(sf::RenderTarget &target, sf::RenderStates states) const
 {
     target.draw(grid_, states);
-    for (const auto &car : cars_)
-        target.draw(*car, states);
-    for (auto &light_handler : light_handlers_)
-        target.draw(*light_handler, states);
+    if (simulating_)
+    {
+        for (const auto &car : cars_)
+            target.draw(*car, states);
+    }
+    else
+    {
+        for (auto &light_handler : light_handlers_)
+            target.draw(*light_handler, states);
+    }
 }
 }; // namespace TrafficSim

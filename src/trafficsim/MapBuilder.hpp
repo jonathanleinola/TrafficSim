@@ -32,7 +32,7 @@ class MapBuilder
 public:
     MapBuilder(Map &map, const Window &window);
 
-    void toggle_building_mode() { building_mode_ = !building_mode_; }
+    void setBuildingMode(bool val);
 
     void handleInput(const sf::Event &ev);
     void drawGUI();
@@ -55,8 +55,8 @@ private:
     TileType road_option_ = TileType::StraightRoadType;
     unsigned int selected_tile_index = UINT_MAX;
     unsigned int hovered_tile_index = UINT_MAX;
-    sf::Vector2i select_menu_pos_;
     TrafficLight *selected_light_ = nullptr;
+    sf::Vector2i select_menu_pos_;
 
 private:
     void removeRoad(const sf::Vector2f &pos);

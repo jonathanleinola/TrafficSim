@@ -2,14 +2,20 @@
 
 #include <iostream>
 #include <algorithm> // std::max
+#include "Rando.hpp"
 
 namespace TrafficSim
 {
 
-Car::Car(const std::shared_ptr<Node> &pos, const std::shared_ptr<Node> &dest, const sf::Vector2f &size, const sf::Texture *carTexture)
+std::vector<const sf::Texture *> Car::Textures_;
+
+Car::Car(const std::shared_ptr<Node> &pos, const std::shared_ptr<Node> &dest, const sf::Vector2f &size)
     : pos_(pos), dest_(dest), prev_(pos), shape_(size), speed_(200), acceleration_(0)
 {
-    shape_.setTexture(carTexture);
+    Rando r(Textures_.size());
+    int r_i = r.uniroll();
+    std::cout << r_i << std::endl;
+    shape_.setTexture(Textures_.at(r_i-1));
     shape_.setOrigin({shape_.getSize().x / 2, shape_.getSize().y / 2});
     shape_.setPosition(pos_->getPos());
     findRoute();
@@ -18,6 +24,11 @@ Car::Car(const std::shared_ptr<Node> &pos, const std::shared_ptr<Node> &dest, co
 void Car::draw(sf::RenderTarget &target, sf::RenderStates states) const
 {
     target.draw(shape_, states);
+}
+
+void Car::AddTexture(const sf::Texture *carTexture)
+{
+    Textures_.push_back(carTexture);
 }
 
 void Car::update(float deltatime, const std::vector<std::unique_ptr<Car>> &cars, const std::vector<std::unique_ptr<TrafficLightHandler>> &light_handlers)

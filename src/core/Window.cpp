@@ -64,23 +64,6 @@ void Window::moveView(const sf::Vector2i &delta_pos)
     window_.setView(view_);
 }
 
-void Window::drawGUI()
-{
-    if (ImGui::BeginMainMenuBar())
-    {
-        if (ImGui::BeginMenu("File"))
-        {
-            if (ImGui::MenuItem("Load"))
-            {
-            }
-            if (ImGui::MenuItem("Save"))
-            {
-            }
-            ImGui::EndMenu();
-        }
-        ImGui::EndMainMenuBar();
-    }
-}
 
 void Window::zoomView(sf::Vector2i relative_to, float zoom_dir)
 {

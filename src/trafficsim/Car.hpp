@@ -1,5 +1,7 @@
 #pragma once
 #include <memory>
+#include <vector>
+
 #include <SFML/Graphics.hpp>
 
 #include "Node.hpp"
@@ -12,7 +14,7 @@ namespace TrafficSim
 class Car : public sf::Drawable
 {
 public:
-    Car(const std::shared_ptr<Node> &pos, const std::shared_ptr<Node> &dest, const sf::Vector2f &size, const sf::Texture *carTexture);
+    Car(const std::shared_ptr<Node> &pos, const std::shared_ptr<Node> &dest, const sf::Vector2f &size);
 
     // Called every frame to move car
     void update(float deltatime, const std::vector<std::unique_ptr<Car>> &cars, const std::vector<std::unique_ptr<TrafficLightHandler>> &light_handlers); //deltatime is time from the last update
@@ -21,6 +23,8 @@ public:
     bool isFinished() const { return finished; }
 
     virtual void draw(sf::RenderTarget &target, sf::RenderStates states) const;
+
+    static void AddTexture(const sf::Texture *carTexture);
 
 private:
     const std::shared_ptr<Node> pos_, dest_;
@@ -32,6 +36,7 @@ private:
     sf::RectangleShape shape_;
     bool finished = false;
     sf::Vector2f dir_;
+    static std::vector<const sf::Texture*> Textures_;
 
     void findRoute();
     // returns true if there is nothing infront of the car

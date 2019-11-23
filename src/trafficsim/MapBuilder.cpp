@@ -39,6 +39,8 @@ const char *road_type_name(TileType type)
 
 void MapBuilder::drawGUI()
 {
+    if (!building_mode_)
+        return;
     ImGui::Begin("Map Editor");
 
     // Choose click mode
@@ -279,10 +281,20 @@ void MapBuilder::unSelectTile()
     selected_tile_index = UINT_MAX;
 }
 
+void MapBuilder::setBuildingMode(bool val)
+{
+    if(building_mode_ == val)
+        return;
+    building_mode_ = val;
+    editing_option_ = Inspect;
+    road_option_ = TileType::StraightRoadType;
+    selected_tile_index = UINT_MAX;
+    hovered_tile_index = UINT_MAX;
+    selected_light_ = nullptr;
+}
+
 void MapBuilder::handleInput(const sf::Event &ev)
 {
-    if (!building_mode_)
-        return;
     if (ev.type == sf::Event::MouseButtonPressed)
     {
         if (window_.isGuiHovered())

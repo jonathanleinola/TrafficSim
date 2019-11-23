@@ -21,7 +21,6 @@ public:
     void moveView(const sf::Vector2i &delta_pos);
 
     void pollEvent();
-    void drawGUI();
 
     // For rendering stuff on the screen
     void draw(const sf::Drawable &obj) { window_.draw(obj); };
