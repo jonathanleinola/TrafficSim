@@ -10,11 +10,33 @@
 
 namespace TrafficSim
 {
+
+/*
+*   Every Road type is derived from this class
+*   RoadTile is abstract class, and is derived from Tile
+*   
+*   Functions inherited from Tile:
+*   getNode()
+*   getPos()
+*   getTileIndex()
+*   
+*   Overrided function from Tile:
+*   getType()
+*   
+*   Functions to implement in derived classes:
+*   getType()
+*   connect()
+*   connectableFrom()
+*   canConnectTo()
+*/
+
 class RoadTile : public Tile
 {
 public:
     RoadTile(const Tile &tile);
 
+    // Direction of the road
+    // Up: { 0, 1 }, Right { 1, 0 }, Down { 0, -1 }, Left { -1, 0 }
     const sf::Vector2f &getDir() const { return dir_; }
     bool isFlipped() const { return right_turn_; }
     TrafficLight *getLight() { return light_.get(); }
@@ -24,11 +46,12 @@ public:
     void addLight(unsigned int handler_id);
     unsigned int removeLight();
 
-    virtual TileType getType() const = 0;
-    virtual void connect(std::array<Tile *, 4> &neighbors) = 0;
     // Auto rotates road if there is neighbor, only RoadTurn has own implementation
     virtual void autoRotate(std::array<Tile *, 4> &neighbors);
 
+    // Pure virtual functions
+    virtual TileType getType() const = 0;
+    virtual void connect(std::array<Tile *, 4> &neighbors) = 0;
     virtual bool connectableFrom(NeighborIndex n_index) const = 0;
     virtual bool canConnectTo(NeighborIndex n_index) const = 0;
 
