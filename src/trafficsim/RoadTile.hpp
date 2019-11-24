@@ -35,6 +35,7 @@ public:
     virtual void draw(sf::RenderTarget &target, sf::RenderStates states) const;
 
 protected:
+    // Up: { 0, 1 }, Right { 1, 0 }, Down { 0, -1 }, Left { -1, 0 }
     sf::Vector2f dir_;
     bool right_turn_ = true;
     std::unique_ptr<TrafficLight> light_ = nullptr;

@@ -35,15 +35,23 @@ public:
 
     virtual TileType getType() const { return TileType::Empty; }
     std::shared_ptr<Node> getNode() const { return node_; }
+    // Returns left top corner of the tile
     const sf::Vector2f &getPos() const { return pos_; };
+    // Returns center of the tile
     sf::Vector2f getCenter() const;
+    // Returns index of the tile
+    // This index is position of the tile in Grid's tiles_ std::array
     unsigned int getTileIndex() const { return tile_index_; }
+    // Returns side length
     float getSize() const { return size_; }
 
+    // Highlights this tile if selected in MapBuilder
     void selectTile();
+    // Highlights this tile if it is under mouse
     void hoverTile();
+    // Removes higlightion
     void unSelectTile();
-
+    // Draws Tile
     virtual void draw(sf::RenderTarget &target, sf::RenderStates states) const;
 
 protected:
@@ -51,7 +59,6 @@ protected:
     sf::Vector2f pos_;
     float size_;
     sf::RectangleShape rect_;
-    unsigned int tile_index_;
-    // Up: { 0, 1 }, Right { 1, 0 }, Down { 0, -1 }, Left { -1, 0 }
+    const unsigned int tile_index_;
 };
 } // namespace TrafficSim

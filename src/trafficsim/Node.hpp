@@ -17,9 +17,11 @@ public:
     //Default constructor
     Node(const sf::Vector2f &position, const sf::Color &color = sf::Color::Red);
 
-    // This creates one way connection
+    // Creates one way connection, by adding "another" to neighbors_
     void connect(const std::shared_ptr<Node> &another);
+    // Removes connection, by erasing "node" from neighbors_
     void disconnect(const std::shared_ptr<Node> &node);
+    // Removes all nodes from neighbors_
     void disconnectAll();
 
     // Searching algorithms

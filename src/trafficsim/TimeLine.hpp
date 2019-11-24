@@ -11,10 +11,13 @@ class TimeLine
 public:
     TimeLine();
 
-    // Returns time as seconds
+    // Returns game time in seconds
     float getGameTime() const;
+    // Returns time from starting the app in seconds
     float getRealTime() const;
+    // Returns time elapsed from last frame
     float getFrameTime() const;
+    // Returns multiplier which is used to speed up game time
     float getMultiplier() const { return multiplier_; }
 
     // Need to call this once every frame so our game_clock_ will be updated
