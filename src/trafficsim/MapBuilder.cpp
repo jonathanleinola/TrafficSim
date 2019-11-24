@@ -89,7 +89,7 @@ void MapBuilder::drawGUI()
         // Traffic light editor
         ImGui::EndColumns();
         ImGui::End();
-        RoadTile *road_tile = dynamic_cast<RoadTile *>(map_.getGrid().getTile(selected_tile_index_).get());
+        RoadTile *road_tile = dynamic_cast<RoadTile *>(map_.getGrid().getTile(selected_tile_index_));
         ImGui::SetNextWindowPos(another_pos);
         ImGui::Begin("Traffic Light editor");
         if (road_tile && road_tile->getLight())
@@ -115,7 +115,7 @@ void MapBuilder::drawGUI()
 
 void MapBuilder::addRoad(const sf::Vector2f &pos, TileType type)
 {
-    auto &tile = map_.getGrid().getTile(pos);
+    auto tile = map_.getGrid().getTile(pos);
     if (!tile || tile->getType() == type)
         return;
 
@@ -142,7 +142,7 @@ void MapBuilder::addRoad(const sf::Vector2f &pos, TileType type)
     }
     if (tile->getType() != Empty)
     {
-        RoadTile *temp = static_cast<RoadTile *>(tile.get());
+        RoadTile *temp = static_cast<RoadTile *>(tile);
         if (temp->getLight())
         {
             map_.removeLight(temp->getLight());
@@ -153,7 +153,7 @@ void MapBuilder::addRoad(const sf::Vector2f &pos, TileType type)
     auto arr = map_.getGrid().getNeigborTiles(tile->getTileIndex());
     r->autoRotate(arr);
 
-    tile.swap(road_tile);
+    map_.getGrid().swapTile(road_tile);
     connectRoads();
 }
 
@@ -166,7 +166,7 @@ void MapBuilder::slideAdd(const sf::Vector2f &pos)
     {
         if (!map_.getGrid().getTile(hovered_tile_index_) || map_.getGrid().getTile(hovered_tile_index_)->getType() != Empty)
             return;
-        auto last_tile = map_.getGrid().getTile(last_tile_index_).get();
+        auto last_tile = map_.getGrid().getTile(last_tile_index_);
         if (last_tile && last_tile->getType() != Empty)
         {
             auto last_road = static_cast<RoadTile *>(last_tile);
@@ -178,7 +178,7 @@ void MapBuilder::slideAdd(const sf::Vector2f &pos)
                     addRoad(last_tile->getCenter(), RoadTurnType);
                     if (last_tile_index_ - hovered_tile_index_ == map_.getGrid().getTileCount())
                     {
-                        auto new_road = static_cast<RoadTile *>(map_.getGrid().getTile(last_tile_index_).get());
+                        auto new_road = static_cast<RoadTile *>(map_.getGrid().getTile(last_tile_index_));
                         new_road->flip();
                     }
                 }
@@ -190,7 +190,7 @@ void MapBuilder::slideAdd(const sf::Vector2f &pos)
                     addRoad(last_tile->getCenter(), RoadTurnType);
                     if (hovered_tile_index_ - last_tile_index_ == map_.getGrid().getTileCount())
                     {
-                        auto new_road = static_cast<RoadTile *>(map_.getGrid().getTile(last_tile_index_).get());
+                        auto new_road = static_cast<RoadTile *>(map_.getGrid().getTile(last_tile_index_));
                         new_road->flip();
                     }
                 }
@@ -202,7 +202,7 @@ void MapBuilder::slideAdd(const sf::Vector2f &pos)
                     addRoad(last_tile->getCenter(), RoadTurnType);
                     if (last_tile_index_ - hovered_tile_index_ == 1)
                     {
-                        auto new_road = static_cast<RoadTile *>(map_.getGrid().getTile(last_tile_index_).get());
+                        auto new_road = static_cast<RoadTile *>(map_.getGrid().getTile(last_tile_index_));
                         new_road->flip();
                     }
                 }
@@ -214,7 +214,7 @@ void MapBuilder::slideAdd(const sf::Vector2f &pos)
                     addRoad(last_tile->getCenter(), RoadTurnType);
                     if (hovered_tile_index_ - last_tile_index_ == 1)
                     {
-                        auto new_road = static_cast<RoadTile *>(map_.getGrid().getTile(last_tile_index_).get());
+                        auto new_road = static_cast<RoadTile *>(map_.getGrid().getTile(last_tile_index_));
                         new_road->flip();
                     }
                 }
@@ -227,11 +227,11 @@ void MapBuilder::slideAdd(const sf::Vector2f &pos)
 
 void MapBuilder::addTrafficLight(const sf::Vector2f &pos)
 {
-    auto &tile = map_.getGrid().getTile(pos);
+    auto tile = map_.getGrid().getTile(pos);
     if (!tile || tile->getType() != StraightRoadType)
         return;
 
-    RoadTile *road = static_cast<RoadTile *>(tile.get());
+    RoadTile *road = static_cast<RoadTile *>(tile);
     if (road->getLight())
         return;
     road->addLight(map_.getCurrentHandlerId());
@@ -240,47 +240,47 @@ void MapBuilder::addTrafficLight(const sf::Vector2f &pos)
 
 void MapBuilder::removeRoad(const sf::Vector2f &pos)
 {
-    auto &tile = map_.getGrid().getTile(pos);
+    auto tile = map_.getGrid().getTile(pos);
     if (!tile || tile->getType() == TileType::Empty)
         return;
-    RoadTile *road = static_cast<RoadTile *>(tile.get());
+    RoadTile *road = static_cast<RoadTile *>(tile);
     if (road->getLight())
     {
         map_.removeLight(road->getLight());
     }
     std::unique_ptr<Tile> empty_tile = std::make_unique<Tile>(tile->getPos(), tile->getSize(), tile->getTileIndex());
-    tile.swap(empty_tile);
+    map_.getGrid().swapTile(empty_tile);
     connectRoads();
 }
 void MapBuilder::rotateRoad(const sf::Vector2f &pos)
 {
-    auto &tile = map_.getGrid().getTile(pos);
+    auto tile = map_.getGrid().getTile(pos);
     if (!tile || tile->getType() == TileType::Empty)
         return;
 
-    RoadTile *road_tile = static_cast<RoadTile *>(tile.get());
+    RoadTile *road_tile = static_cast<RoadTile *>(tile);
     road_tile->rotate();
     connectRoads();
 }
 
 void MapBuilder::flipRoad(const sf::Vector2f &pos)
 {
-    auto &tile = map_.getGrid().getTile(pos);
+    auto tile = map_.getGrid().getTile(pos);
     if (!tile || tile->getType() == TileType::Empty)
         return;
 
-    RoadTile *road_tile = static_cast<RoadTile *>(tile.get());
+    RoadTile *road_tile = static_cast<RoadTile *>(tile);
     road_tile->flip();
     connectRoads();
 }
 
-void MapBuilder::connectRoad(std::unique_ptr<Tile> &tile)
+void MapBuilder::connectRoad(Tile *tile)
 {
     // TODO - Do we need to disconnect empty tiles when clearing?
     if (tile && tile->getType() != TileType::Empty)
     {
         tile->getNode()->disconnectAll();
-        RoadTile *road_tile = static_cast<RoadTile *>(tile.get());
+        RoadTile *road_tile = static_cast<RoadTile *>(tile);
         auto arr = map_.getGrid().getNeigborTiles(tile->getTileIndex());
         road_tile->connect(arr);
     }
@@ -290,17 +290,17 @@ void MapBuilder::connectRoads()
 {
     for (unsigned int i = 0; i < map_.getGrid().getSize(); ++i)
     {
-        auto &tile = map_.getGrid().getTile(i);
+        auto tile = map_.getGrid().getTile(i);
         connectRoad(tile);
     }
 }
 
 void MapBuilder::changeLightHandler(const sf::Vector2f &pos)
 {
-    auto &tile = map_.getGrid().getTile(pos);
+    auto tile = map_.getGrid().getTile(pos);
     if (!tile || tile->getType() == TileType::Empty)
         return;
-    RoadTile *new_light_tile = static_cast<RoadTile *>(tile.get());
+    RoadTile *new_light_tile = static_cast<RoadTile *>(tile);
     TrafficLight *new_light = new_light_tile->getLight();
     if (new_light_tile->getLight())
     {
@@ -322,7 +322,7 @@ void MapBuilder::clearMap()
 
 void MapBuilder::selectTile(const sf::Vector2f &pos)
 {
-    auto &new_tile = map_.getGrid().getTile(pos);
+    auto new_tile = map_.getGrid().getTile(pos);
     if (!new_tile)
     {
         unSelectTile();
@@ -404,7 +404,7 @@ void MapBuilder::handleInput(const sf::Event &ev)
     else if (ev.type == sf::Event::MouseMoved)
     {
         sf::Vector2f pos = window_.convert(sf::Vector2i(ev.mouseMove.x, ev.mouseMove.y));
-        auto &new_tile = map_.getGrid().getTile(pos);
+        auto new_tile = map_.getGrid().getTile(pos);
         if (!new_tile)
             return;
         if (selected_tile_index_ != new_tile->getTileIndex())

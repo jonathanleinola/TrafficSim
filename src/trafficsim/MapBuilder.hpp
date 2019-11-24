@@ -66,7 +66,7 @@ private:
     void removeRoad(const sf::Vector2f &pos);
     void selectTile(const sf::Vector2f &pos);
     void unSelectTile();
-    void connectRoad(std::unique_ptr<Tile> &tile);
+    void connectRoad(Tile *tile);
     void connectRoads();
     void changeLightHandler(const sf::Vector2f &pos);
 };

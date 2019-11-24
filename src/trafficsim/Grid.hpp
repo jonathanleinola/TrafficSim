@@ -19,13 +19,16 @@ public:
     void update(float delta_time);
 
     // Returns nullptr if there is no tile on that index
-    std::unique_ptr<Tile> &getTile(unsigned int index);
-    std::unique_ptr<Tile> &getTile(const sf::Vector2f &pos);
+    Tile *getTile(unsigned int index);
+    Tile *getTile(const sf::Vector2f &pos);
     // Returns UINT_MAX if there is no tile on that index
-    std::unique_ptr<Tile> &getUpNeighbor(unsigned int index);
-    std::unique_ptr<Tile> &getRightNeighbor(unsigned int index);
-    std::unique_ptr<Tile> &getDownNeighbor(unsigned int index);
-    std::unique_ptr<Tile> &getLeftNeighbor(unsigned int index);
+    Tile *getUpNeighbor(unsigned int index);
+    Tile *getRightNeighbor(unsigned int index);
+    Tile *getDownNeighbor(unsigned int index);
+    Tile *getLeftNeighbor(unsigned int index);
+
+    void swapTile(std::unique_ptr<Tile> &tile);
+
     std::array<Tile*, 4> getNeigborTiles(unsigned int index);
     unsigned int getTileCount() const { return tile_count_; }
     unsigned int getSize() const { return tile_count_ * tile_count_; }   
