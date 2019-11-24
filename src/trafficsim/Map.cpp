@@ -15,10 +15,6 @@ Map::Map()
 {
 }
 
-Map::~Map()
-{
-}
-
 void Map::update(float game_time)
 {
     // Move cars, and other things which are dependent on time
@@ -88,7 +84,7 @@ std::shared_ptr<Node> Map::closestRoadNode(const sf::Vector2f &pos)
 {
     std::shared_ptr<Node> closest = nullptr;
     float closest_distance = FLT_MAX;
-    for (unsigned int i = 0; i < grid_.getSize(); ++i)
+    for (unsigned int i = 0; i < grid_.getTotalTileCount(); ++i)
     {
         if (grid_.getTile(i)->getType() == TileType::StraightRoadType)
         {

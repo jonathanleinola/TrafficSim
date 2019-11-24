@@ -32,21 +32,28 @@ class MapBuilder
 public:
     MapBuilder(Map &map, const Window &window);
 
+    // When App state is switched to "Editing"
     void setBuildingMode(bool val);
 
+    // Handles mouse inputs to edit map
     void handleInput(const sf::Event &ev);
+
+    // Editor GUI, drawed only when building_mode_ == true
     void drawGUI();
 
+    // Sets all Tiles to Empty with Grid::init()
     void clearMap();
 
     // Adds a road
     void addRoad(const sf::Vector2f &pos, TileType type);
+    // When Left Control and left mousebutton pressed this gets called
     void slideAdd(const sf::Vector2f &pos);
 
     // Rotates roads 90 degrees clockwise
     void rotateRoad(const sf::Vector2f &pos);
     //Rotates flips roads
     void flipRoad(const sf::Vector2f &pos);
+    // Adds traffic light, only to StraightRoadType Tiles
     void addTrafficLight(const sf::Vector2f &pos);
 
 private:
@@ -54,11 +61,17 @@ private:
     const Window &window_;
     bool building_mode_ = true;
     EditingOption editing_option_ = Inspect;
+    // Stores which road is put down when AddRoad is selected
     TileType road_option_ = TileType::StraightRoadType;
+    // Stores highlighted tile, which was left clicked
     unsigned int selected_tile_index_ = UINT_MAX;
+    // Stores highlighted tile, which is under mouse
     unsigned int hovered_tile_index_ = UINT_MAX;
+    // Stores index of last added tile for slideAdd()
     unsigned int last_tile_index_ = UINT_MAX;
+    // Stores light which if highlighted tile has one
     TrafficLight *selected_light_ = nullptr;
+    // This stores menu which gets opened when road is selected
     sf::Vector2i select_menu_pos_;
 
 

@@ -22,10 +22,18 @@ public:
     // returns true if car is at its destination
     bool isFinished() const { return finished; }
 
+    // Inherited from sf::Drawable, draws shape_
     virtual void draw(sf::RenderTarget &target, sf::RenderStates states) const;
 
+    // Adds a texture to a std::vector of textures
     static void AddTexture(const sf::Texture *carTexture);
 
+private:
+    void findRoute();
+    // returns true if there is nothing infront of the car
+    // TODO - more efficient collider algorithm eg. raycast
+    bool frontEmpty(const std::vector<std::unique_ptr<Car>> &cars, const std::vector<std::unique_ptr<TrafficLightHandler>> &light_handlers) const;
+    
 private:
     const std::shared_ptr<Node> pos_, dest_;
     // Tracks previous node
@@ -38,10 +46,6 @@ private:
     sf::Vector2f dir_;
     static std::vector<const sf::Texture*> Textures_;
 
-    void findRoute();
-    // returns true if there is nothing infront of the car
-    // TODO - more efficient collider algorithm eg. raycast
-    bool frontEmpty(const std::vector<std::unique_ptr<Car>> &cars, const std::vector<std::unique_ptr<TrafficLightHandler>> &light_handlers) const;
 };
 
 } // namespace TrafficSim

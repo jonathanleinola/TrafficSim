@@ -14,9 +14,9 @@ class Grid : public sf::Drawable
 {
 public:
     Grid(float tile_size);
+    // Initializes all elements of tiles_ to Empty Tile
+    // Used to init Grid or clear grid
     void init();
-
-    void update(float delta_time);
 
     // Returns nullptr if there is no tile on that index
     Tile *getTile(unsigned int index);
@@ -26,22 +26,30 @@ public:
     Tile *getRightNeighbor(unsigned int index);
     Tile *getDownNeighbor(unsigned int index);
     Tile *getLeftNeighbor(unsigned int index);
+    // Gets all neighbors from of tile located at index
+    std::array<Tile*, 4> getNeigborTiles(unsigned int index);
+    // Returns map's side length
+    unsigned int getSideCount() const { return TileCount; }
+    // Returns map total tile count
+    unsigned int getTotalTileCount() const { return TileCount * TileCount; }
 
+    // Stores tile in tiles_ array by swapping it with other element at tile->getTileIndex(). 
+    // Old tile is destroyed usually
     void swapTile(std::unique_ptr<Tile> &tile);
 
-    std::array<Tile*, 4> getNeigborTiles(unsigned int index);
-    unsigned int getTileCount() const { return tile_count_; }
-    unsigned int getSize() const { return tile_count_ * tile_count_; }   
-
+    // Inherited from sf::Drawable base class
+    // Draws all tiles in tiles_
     virtual void draw(sf::RenderTarget &target, sf::RenderStates states) const;
 
-    static unsigned int GetTileIndex(unsigned int x, unsigned int y);
 
 private:
-    // tile_count_ x tile_count_ tile map
-    constexpr static unsigned int tile_count_ = 50;
-    std::array<std::unique_ptr<Tile>, tile_count_ * tile_count_> tiles_;
-    std::unique_ptr<Tile> nulltile_ = nullptr;
-    float tile_size_;
+    // TileCount x TileCount tile map
+    constexpr static unsigned int TileCount = 50;
+    // Length of one side of square Tile
+    static float Tile_size;
+    
+private:
+    std::array<std::unique_ptr<Tile>, TileCount * TileCount> tiles_;
+    
 };
 } // namespace TrafficSim

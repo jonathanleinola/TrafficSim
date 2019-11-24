@@ -15,36 +15,42 @@ class Map : public sf::Drawable
 {
 public:
     Map();
-    ~Map();
+    
+    // gets called when app state is changed
+    void setSimulating(bool val);
 
     //Entity handling
     void update(float game_time);
 
+    // Add car to closest Road to "spawn_pos". It's destination will be 
+    // closest Road to "dest"
     void addCar(const sf::Vector2f &spawn_pos, const sf::Vector2f &dest);
 
+    // For trafficLight handlers
     void removeLight(TrafficLight *light);
     void addLight(TrafficLight *light, unsigned int handler_id = UINT_MAX);
     void newLightHandler(TrafficLight *light);
-
     unsigned int getCurrentHandlerId() const { return current_handler_id_; }
-    void setSimulating(bool val);
 
-    Grid &getGrid() { return grid_; }
-    std::shared_ptr<Node> closestRoadNode(const sf::Vector2f &pos);
-
+    // Inherited from sf::Drawable base class, draws Grid, cars and Traffic Light connections if in editing mode
     virtual void draw(sf::RenderTarget &target, sf::RenderStates states) const;
+
+private:
+    // Returns clocest Node to "pos" which is on the Road.
+    std::shared_ptr<Node> closestRoadNode(const sf::Vector2f &pos);
+    // Loops over cars_, and deletes all finished cars
+    void removeFinishedCars();
+
+public:
+    Grid grid_;
 
 private:
     bool simulating_ = false;
     sf::Time game_time_;
     std::vector<std::unique_ptr<Car>> cars_;
-    Grid grid_;
     std::vector<std::unique_ptr<TrafficLightHandler>> light_handlers_;
     unsigned int current_handler_id_ = 0;
 
-private:
-    // Loops over cars_, and deletes all finished cars
-    void removeFinishedCars();
 };
 
 } // namespace TrafficSim

@@ -59,10 +59,11 @@ void Application::run()
         }
 
         window_.pollEvent();
-        handleInputBuffers(time_line_.getFrameTime(), delta_mouse_pos - sf::Mouse::getPosition());
+
         map_.update(time_line_.getGameTime());
         time_line_.update();
-
+        
+        handleInputBuffers(delta_mouse_pos - sf::Mouse::getPosition());
         delta_mouse_pos = sf::Mouse::getPosition();
 
         window_.clear();
@@ -153,13 +154,13 @@ void Application::handleEvent(const sf::Event &ev)
     }
 }
 
-void Application::handleInputBuffers(const float deltatime, const sf::Vector2i &delta_mp)
+void Application::handleInputBuffers(const sf::Vector2i &delta_mp)
 {
     // LEFT mouse button is pressed down
     if (button_buffer_[sf::Mouse::Left])
     {
         // if left control is down add a road if not move map
-        if (key_buffer_[sf::Keyboard::LControl])
+        if (key_buffer_[sf::Keyboard::LControl] && app_state_ == Editing)
             builder_.slideAdd(window_.convert(sf::Mouse::getPosition(window_.getWindow())));
         else
             window_.moveView(delta_mp);
