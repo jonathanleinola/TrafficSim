@@ -57,7 +57,7 @@ private:
     TileType road_option_ = TileType::StraightRoadType;
     unsigned int selected_tile_index_ = UINT_MAX;
     unsigned int hovered_tile_index_ = UINT_MAX;
-    unsigned int last_added_tile_ = UINT_MAX;
+    unsigned int last_tile_index_ = UINT_MAX;
     TrafficLight *selected_light_ = nullptr;
     sf::Vector2i select_menu_pos_;
 
