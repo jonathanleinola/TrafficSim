@@ -1,21 +1,43 @@
-# Sample README file for C++ programming project
+# Traffic Simulator
 
-This is an initial git repository for your programming project.
-It contains an initial directory structure that we wish you could
-use as follows:
+Traffic simulator implemented in C++
 
-  * `plan/` -- Your project plan should be put here. You may use different sources,
-    but we hope to get the plan **also as a pdf file**.
+* _Jonathan Leinola_
+* _Niko Uski_
+* _Artur Gynter_
+* _Hien Cao_
 
-  * `doc/` -- The documentation sources related to your project should be put here.
-    You may use different tools for documentation (e.g. latex),
-    but we hope to get the final version of the document
-    **also as pdf file**.
+## Dependencies
 
-  * `src/` -- Here are the C++ source files. You can have subfolders as needed.
+* CMake (to generate makefile)
+* GNU make (to build)
+* OpenGL (dependency in SFML and ImGui)
 
-  * `README.md` -- This file. You should modify it to represent
-    your project.
+## Working enviroments
 
-You may also add other new directories as needed, for example
-for testing tools.
+* Unix including Mac OS
+
+
+## How to build
+
+1. Clone `git clone https://courses-git.comnet.aalto.fi/CPlusPlus/traffic-simulator-2019-1.git`
+  it or download zip and unzip
+2. Create build directory inside of the project folder: `mkdir build`
+3. Open navigate into new "build" folder with terminal: `cd build`
+4. Generate makefile with CMake: `cmake ..`
+5. Build generated makefile: `make`
+6. Run it: `./a`
+
+
+## Libraries used
+
+* SFML - Simple and Fast Multimedia Library
+  - https://github.com/SFML/SFML
+  
+* ImGui - Immediate Mode Graphical User interface for C++
+  - https://github.com/ocornut/imgui
+
+* ImGui - Library which allows you to use ImGui with SFML
+  - https://github.com/eliasdaler/imgui-sfml
+ 
+ 
