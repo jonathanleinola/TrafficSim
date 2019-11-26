@@ -1,13 +1,12 @@
 #pragma once
 
-#include <list>         //std::list
-#include <vector>       //std::vector
-#include <memory>       //std::shared_ptr
-#include <algorithm>    //std::remove_if
-#include <cstdint>      //std::uint8_t
+#include <list>      //std::list
+#include <vector>    //std::vector
+#include <memory>    //std::shared_ptr
+#include <algorithm> //std::remove_if
+#include <cstdint>   //std::uint8_t
 
 #include <SFML/Graphics.hpp>
-
 
 namespace TrafficSim
 {
@@ -17,7 +16,6 @@ class Node : public sf::Drawable
 public:
     //Default constructor
     Node(const sf::Vector2f &position);
-
 
     // Creates one way connection, by adding "another" to neighbors_
     void connect(const std::shared_ptr<Node> &another);
@@ -36,7 +34,7 @@ public:
     float pathDistance(const std::shared_ptr<Node> &node) const;
 
     void incrementCounter(const sf::Time &game_time) const;
-    std::uint8_t getLastCount(const sf::Time &game_time) const;
+    const std::vector<std::uint8_t> &getCarsPassed() const { return cars_passed_; }
     void resetCounter() const;
 
     // Its drawable only for debugging purpouses
@@ -57,7 +55,6 @@ private:
 
     // For debugging
     sf::CircleShape shape_;
-
 };
 
 std::ostream &operator<<(std::ostream &os, const Node *node);

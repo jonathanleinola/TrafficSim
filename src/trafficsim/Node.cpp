@@ -21,14 +21,6 @@ Node::Node(const sf::Vector2f &position)
 
 }
 
-std::uint8_t Node::getLastCount(const sf::Time &game_time) const
-{
-    const unsigned int window = 24 * 60 * 60 / Samples_;
-    float g_time = game_time.asSeconds();
-    unsigned int index = g_time / window;
-    std::cout << index << std::endl;
-    return cars_passed_.at(index);
-}
 
 void Node::incrementCounter(const sf::Time &game_time) const
 {

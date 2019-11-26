@@ -62,7 +62,7 @@ void Application::run()
 
         map_.update(time_line_.getGameTime(), time_line_.getFrameTime() * time_line_.getMultiplier());
         time_line_.update();
-        
+
         handleInputBuffers(delta_mouse_pos - sf::Mouse::getPosition());
         delta_mouse_pos = sf::Mouse::getPosition();
 
@@ -166,7 +166,6 @@ void Application::handleInputBuffers(const sf::Vector2i &delta_mp)
         else
             window_.moveView(delta_mp);
     }
-
 }
 
 void Application::close()
