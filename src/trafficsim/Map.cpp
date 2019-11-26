@@ -56,7 +56,7 @@ void Map::addLight(TrafficLight *light, unsigned int handler_id)
 
 void Map::newLightHandler(TrafficLight *light)
 {
-    if (light_handlers_.at(light_handlers_.size() - 1)->getLightCount() < 0)
+    if (light_handlers_.at(light_handlers_.size() - 1)->getLightCount() < 1)
     {
         current_handler_id_ = light_handlers_.size() - 1;
     }
@@ -121,4 +121,4 @@ void Map::draw(sf::RenderTarget &target, sf::RenderStates states) const
             target.draw(*light_handler, states);
     }
 }
-}; // namespace TrafficSim
+} // namespace TrafficSim

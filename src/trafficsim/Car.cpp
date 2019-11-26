@@ -14,7 +14,6 @@ Car::Car(const std::shared_ptr<Node> &pos, const std::shared_ptr<Node> &dest, co
 {
     Rando r(Textures_.size());
     int r_i = r.uniroll();
-    std::cout << r_i << std::endl;
     shape_.setTexture(Textures_.at(r_i-1));
     shape_.setOrigin({shape_.getSize().x / 2, shape_.getSize().y / 2});
     shape_.setPosition(pos_->getPos());

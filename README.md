@@ -18,7 +18,7 @@ Traffic simulator implemented in C++
 * Unix including Mac OS
 
 
-## How to build
+## How to build?
 
 1. Clone `git clone https://courses-git.comnet.aalto.fi/CPlusPlus/traffic-simulator-2019-1.git`
   it or download zip and unzip
