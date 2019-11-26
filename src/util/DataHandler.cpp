@@ -1,5 +1,4 @@
 #include "DataHandler.hpp"
-
 #include <iostream>
 #include <fstream>
 
@@ -24,6 +23,7 @@ void DataHandler::loadMap(const char *file_name, MapBuilder &builder) const
 
 void DataHandler::saveMap(const char *file_name, Grid &grid) const
 {
+
     /*
     *   Use XML or JSON
     *   
@@ -39,6 +39,34 @@ void DataHandler::saveMap(const char *file_name, Grid &grid) const
     * 
     *   to get the position of road use .getPos()
     */
+    //if(grid.getTile(0)==NULL)
+    //    return 0;
+    std::cout << "Save map" << std::endl;
+    FILE * fp=fopen(file_name,"w");
+    //if(!fp)
+    //    return 0;
+
+    for(unsigned int i=0;i<grid.getSideCount()*grid.getSideCount();i++)
+    {   
+
+        //std::cout << pos.x <<" "<< pos.y << std::endl;
+        if(grid.getTile(i)->getType()!=5)
+        {
+            
+            RoadTile *road = static_cast<RoadTile *>(grid.getTile(i));
+            fprintf(fp, "%d,{%f %f},{%f %f}\n", road->getType(),road->getDir().x,road->getDir().y,road->getPos().x,road->getPos().y);
+        }
+        else
+        {
+
+        }
+            
+            
+    }
+    
+
+    fclose(fp);
+    std::cout << "Map Saved" << std::endl;
    
 }
 

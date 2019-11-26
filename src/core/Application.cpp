@@ -115,6 +115,7 @@ void Application::drawGUI()
             }
             if (ImGui::MenuItem("Save"))
             {
+                data_.saveMap("test", map_.grid_);
             }
             ImGui::EndMenu();
         }
