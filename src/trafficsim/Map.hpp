@@ -20,7 +20,7 @@ public:
     void setSimulating(bool val);
 
     //Entity handling
-    void update(float game_time);
+    void update(const sf::Time &game_time, float delta_time);
 
     // Add car to closest Road to "spawn_pos". It's destination will be 
     // closest Road to "dest"
@@ -46,7 +46,6 @@ public:
 
 private:
     bool simulating_ = false;
-    sf::Time game_time_;
     std::vector<std::unique_ptr<Car>> cars_;
     std::vector<std::unique_ptr<TrafficLightHandler>> light_handlers_;
     unsigned int current_handler_id_ = 0;

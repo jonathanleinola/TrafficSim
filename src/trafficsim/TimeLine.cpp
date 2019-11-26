@@ -14,9 +14,9 @@ TimeLine::TimeLine()
 {
 }
 
-float TimeLine::getGameTime() const
+const sf::Time &TimeLine::getGameTime() const
 {
-    return game_time_.asSeconds();
+    return game_time_;
 }
 
 float TimeLine::getRealTime() const

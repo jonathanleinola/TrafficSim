@@ -34,6 +34,8 @@ public:
     Tile(const sf::Vector2f &pos, float size, unsigned int tile_index);
 
     virtual TileType getType() const { return TileType::Empty; }
+    // TODO: Maybe we don't need nodes for empty tiles?
+    // TODO: return raw pointer?
     std::shared_ptr<Node> getNode() const { return node_; }
     // Returns left top corner of the tile
     const sf::Vector2f &getPos() const { return pos_; };

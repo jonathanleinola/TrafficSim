@@ -17,7 +17,7 @@ public:
     Car(const std::shared_ptr<Node> &pos, const std::shared_ptr<Node> &dest, const sf::Vector2f &size);
 
     // Called every frame to move car
-    void update(float deltatime, const std::vector<std::unique_ptr<Car>> &cars, const std::vector<std::unique_ptr<TrafficLightHandler>> &light_handlers); //deltatime is time from the last update
+    void update(const sf::Time &game_time, float deltatime, const std::vector<std::unique_ptr<Car>> &cars, const std::vector<std::unique_ptr<TrafficLightHandler>> &light_handlers); //deltatime is time from the last update
 
     // returns true if car is at its destination
     bool isFinished() const { return finished; }
