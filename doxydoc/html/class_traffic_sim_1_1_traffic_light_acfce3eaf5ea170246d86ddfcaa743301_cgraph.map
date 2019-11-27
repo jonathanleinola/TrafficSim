@@ -1,8 +1,0 @@
-<map id="TrafficSim::TrafficLight::TrafficLight" name="TrafficSim::TrafficLight::TrafficLight">
-<area shape="rect" id="node1" title=" " alt="" coords="5,67,159,105"/>
-<area shape="rect" id="node2" href="$classsf_1_1_rectangle_shape.html#ae54a07ff5537bf76de6748f592b34896" title="Get the size of the rectangle." alt="" coords="409,5,546,44"/>
-<area shape="rect" id="node3" href="$class_traffic_sim_1_1_traffic_light.html#afed8bedf77e7b962e56159d156af2ac4" title=" " alt="" coords="207,67,361,105"/>
-<area shape="rect" id="node6" href="$classsf_1_1_transformable.html#a56c67bd80aae8418d13fb96c034d25ec" title="set the local origin of the object" alt="" coords="218,129,350,168"/>
-<area shape="rect" id="node4" href="$classsf_1_1_transformable.html#a4dbfb1a7c80688b0b4c477d706550208" title="set the position of the object" alt="" coords="412,68,544,107"/>
-<area shape="rect" id="node5" href="$classsf_1_1_transformable.html#a32baf2bf1a74699b03bf8c95030a38ed" title="set the orientation of the object" alt="" coords="412,131,544,169"/>
-</map>

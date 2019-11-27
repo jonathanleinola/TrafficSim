@@ -1,4 +1,0 @@
-<map id="Matrix::Matrix" name="Matrix::Matrix">
-<area shape="rect" id="node1" title="Construct implicitly from SFML transform." alt="" coords="5,5,107,31"/>
-<area shape="rect" id="node2" href="$_glsl_8inl.html#aad1baaf4188242e642326ce2230aaa74" title="Helper functions to copy sf::Transform to sf::Glsl::Mat3/4." alt="" coords="155,5,240,31"/>
-</map>

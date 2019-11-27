@@ -1,7 +1,0 @@
-<map id="ImGui::BeginDragDropTarget" name="ImGui::BeginDragDropTarget">
-<area shape="rect" id="node1" title=" " alt="" coords="5,55,199,80"/>
-<area shape="rect" id="node2" href="$struct_im_gui_window.html#a44931b6e73248930490d2c89377a8233" title=" " alt="" coords="247,55,484,80"/>
-<area shape="rect" id="node3" href="$struct_im_vector.html#a6da15f3c402099ed57078835ab942f8e" title=" " alt="" coords="546,5,656,31"/>
-<area shape="rect" id="node4" href="$imgui_8cpp.html#a33122859a4b717e3f210dc3975450773" title=" " alt="" coords="553,55,649,80"/>
-<area shape="rect" id="node5" href="$namespace_im_gui.html#a85a245c78a9f7c351636bdad6e60c488" title=" " alt="" coords="532,104,670,129"/>
-</map>

@@ -1,6 +1,0 @@
-<map id="TrafficSim::HomeRoad" name="TrafficSim::HomeRoad">
-<area shape="rect" id="node1" title=" " alt="" coords="5,783,161,923"/>
-<area shape="rect" id="node2" href="$class_traffic_sim_1_1_road_tile.html" title=" " alt="" coords="11,448,156,735"/>
-<area shape="rect" id="node3" href="$class_traffic_sim_1_1_tile.html" title=" " alt="" coords="26,140,140,400"/>
-<area shape="rect" id="node4" href="$classsf_1_1_drawable.html" title="Abstract base class for objects that can be drawn to a render target." alt="" coords="30,5,136,92"/>
-</map>

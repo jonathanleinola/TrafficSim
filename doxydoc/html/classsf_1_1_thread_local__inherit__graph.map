@@ -1,5 +1,0 @@
-<map id="sf::ThreadLocal" name="sf::ThreadLocal">
-<area shape="rect" id="node1" title="Defines variables with thread&#45;local storage." alt="" coords="24,140,148,253"/>
-<area shape="rect" id="node3" href="$classsf_1_1_thread_local_ptr.html" title="Pointer to a thread&#45;local variable." alt="" coords="5,301,166,441"/>
-<area shape="rect" id="node2" href="$classsf_1_1_non_copyable.html" title="Utility class that makes any derived class non&#45;copyable." alt="" coords="21,5,151,92"/>
-</map>

@@ -1,5 +1,0 @@
-<map id="sf::VertexBuffer" name="sf::VertexBuffer">
-<area shape="rect" id="node1" title="Vertex buffer storage for one or more 2D primitives." alt="" coords="86,153,220,387"/>
-<area shape="rect" id="node2" href="$classsf_1_1_drawable.html" title="Abstract base class for objects that can be drawn to a render target." alt="" coords="5,12,111,99"/>
-<area shape="rect" id="node3" href="$classsf_1_1_gl_resource.html" title="Base class for classes that require an OpenGL context." alt="" coords="134,5,363,105"/>
-</map>

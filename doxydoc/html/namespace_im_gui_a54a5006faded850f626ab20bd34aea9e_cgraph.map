@@ -1,9 +1,0 @@
-<map id="ImGui::Scrollbar" name="ImGui::Scrollbar">
-<area shape="rect" id="node1" title=" " alt="" coords="5,80,122,105"/>
-<area shape="rect" id="node2" href="$namespace_im_gui.html#adcf5ffe47aec540a47648298b01d0219" title=" " alt="" coords="170,31,322,56"/>
-<area shape="rect" id="node6" href="$namespace_im_gui.html#a85a245c78a9f7c351636bdad6e60c488" title=" " alt="" coords="177,80,315,105"/>
-<area shape="rect" id="node7" href="$struct_im_gui_window.html#a147da28bf5d167cbe0a363c4a578dea1" title=" " alt="" coords="177,129,316,155"/>
-<area shape="rect" id="node3" href="$struct_im_gui_window.html#adc0a43f74a0b53a15a4bc4fea05524fe" title=" " alt="" coords="370,24,565,63"/>
-<area shape="rect" id="node4" href="$struct_im_vector.html#a6da15f3c402099ed57078835ab942f8e" title=" " alt="" coords="613,5,722,31"/>
-<area shape="rect" id="node5" href="$imgui_8cpp.html#adec19457181b552e88615922ef344f73" title=" " alt="" coords="625,55,710,80"/>
-</map>

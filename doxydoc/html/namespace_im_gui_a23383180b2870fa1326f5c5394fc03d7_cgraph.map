@@ -1,8 +1,0 @@
-<map id="ImGui::RenderArrow" name="ImGui::RenderArrow">
-<area shape="rect" id="node1" title=" " alt="" coords="5,61,148,87"/>
-<area shape="rect" id="node2" href="$namespace_im_gui.html#a0de2d9bd347d9866511eb8d014e62556" title=" " alt="" coords="214,12,356,37"/>
-<area shape="rect" id="node4" href="$namespace_im_gui.html#a7ceba68eca2b09fb6bf1ad88037e6203" title=" " alt="" coords="196,61,374,87"/>
-<area shape="rect" id="node5" href="$namespace_im_gui.html#a7ec12551caa737505087c80e38b94937" title=" " alt="" coords="214,111,356,136"/>
-<area shape="rect" id="node3" href="$namespace_im_gui.html#abe2691de0b1a71c774ab24cc91564a94" title=" " alt="" coords="431,5,611,44"/>
-<area shape="rect" id="node6" href="$struct_im_draw_list.html#af1dd4a3888034c5f71b66a38e44edf31" title=" " alt="" coords="422,111,621,136"/>
-</map>

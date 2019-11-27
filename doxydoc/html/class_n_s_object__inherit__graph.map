@@ -1,9 +1,0 @@
-<map id="NSObject" name="NSObject">
-<area shape="rect" id="node1" title=" " alt="" coords="507,5,586,79"/>
-<area shape="rect" id="node2" href="$interface_app_delegate.html" title=" " alt="" coords="5,253,104,327"/>
-<area shape="rect" id="node3" href="$interface_framebuffer_descriptor.html" title=" " alt="" coords="127,233,342,347"/>
-<area shape="rect" id="node4" href="$interface_im_gui_example_app_delegate.html" title=" " alt="" coords="366,253,551,327"/>
-<area shape="rect" id="node5" href="$interface_metal_buffer.html" title=" " alt="" coords="575,247,697,333"/>
-<area shape="rect" id="node6" href="$interface_metal_context.html" title=" " alt="" coords="720,127,952,453"/>
-<area shape="rect" id="node7" href="$interface_renderer.html" title=" " alt="" coords="976,253,1085,327"/>
-</map>

@@ -1,5 +1,0 @@
-<map id="TrafficSim::DataHandler::loadMap" name="TrafficSim::DataHandler::loadMap">
-<area shape="rect" id="node1" title=" " alt="" coords="5,5,168,44"/>
-<area shape="rect" id="node2" href="$class_traffic_sim_1_1_map_builder.html#a0cd6025f8d369ad8df6ffaddc6126471" title=" " alt="" coords="216,5,372,44"/>
-<area shape="rect" id="node3" href="$class_traffic_sim_1_1_grid.html#afcfe2ca1ab9ca0188bb75e13b7aaf464" title=" " alt="" coords="420,12,558,37"/>
-</map>

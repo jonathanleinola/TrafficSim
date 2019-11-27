@@ -1,9 +1,0 @@
-<map id="ImGui::SFML::Update" name="ImGui::SFML::Update">
-<area shape="rect" id="node1" title=" " alt="" coords="5,129,156,155"/>
-<area shape="rect" id="node2" href="$namespace_im_gui.html#a3179e560812f878f3961ce803a5d9302" title=" " alt="" coords="250,5,349,31"/>
-<area shape="rect" id="node3" href="$classsf_1_1_touch.html#af1b7035be709091c7475075e43e2bc23" title="Get the current position of a touch in desktop coordinates." alt="" coords="225,55,374,80"/>
-<area shape="rect" id="node4" href="$classsf_1_1_mouse.html#ac368680f797b7f6e4f50b5b7928c1387" title="Get the current position of the mouse in desktop coordinates." alt="" coords="223,104,376,129"/>
-<area shape="rect" id="node5" href="$classsf_1_1_touch.html#a2f85297123ea4e401d02c346e50d48a3" title="Check if a touch event is currently down." alt="" coords="237,153,362,179"/>
-<area shape="rect" id="node6" href="$classsf_1_1_window.html#aad3991c25e0a83afbb4d62febf9b7b14" title="Show or hide the mouse cursor." alt="" coords="204,203,395,241"/>
-<area shape="rect" id="node7" href="$namespace_im_gui_1_1_s_f_m_l.html#a92d53e47eaec3b55728ad29912ad6a6f" title=" " alt="" coords="224,265,375,291"/>
-</map>

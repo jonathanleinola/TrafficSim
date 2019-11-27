@@ -1,7 +1,0 @@
-<map id="deps/imgui/examples/imgui_impl_opengl3.h" name="deps/imgui/examples/imgui_impl_opengl3.h">
-<area shape="rect" id="node1" title=" " alt="" coords="271,5,426,44"/>
-<area shape="rect" id="node2" href="$deps_2imgui_2examples_2example__emscripten_2main_8cpp.html" title=" " alt="" coords="5,92,153,144"/>
-<area shape="rect" id="node3" href="$deps_2imgui_2examples_2example__glfw__opengl3_2main_8cpp.html" title=" " alt="" coords="177,92,339,144"/>
-<area shape="rect" id="node4" href="$deps_2imgui_2examples_2example__sdl__opengl3_2main_8cpp.html" title=" " alt="" coords="363,92,518,144"/>
-<area shape="rect" id="node5" href="$imgui__impl__opengl3_8cpp.html" title=" " alt="" coords="542,99,710,137"/>
-</map>

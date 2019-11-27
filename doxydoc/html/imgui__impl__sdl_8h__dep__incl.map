@@ -1,9 +1,0 @@
-<map id="deps/imgui/examples/imgui_impl_sdl.h" name="deps/imgui/examples/imgui_impl_sdl.h">
-<area shape="rect" id="node1" title=" " alt="" coords="455,5,602,44"/>
-<area shape="rect" id="node2" href="$deps_2imgui_2examples_2example__emscripten_2main_8cpp.html" title=" " alt="" coords="5,92,153,144"/>
-<area shape="rect" id="node3" href="$deps_2imgui_2examples_2example__sdl__directx11_2main_8cpp.html" title=" " alt="" coords="178,92,338,144"/>
-<area shape="rect" id="node4" href="$deps_2imgui_2examples_2example__sdl__opengl2_2main_8cpp.html" title=" " alt="" coords="362,92,517,144"/>
-<area shape="rect" id="node5" href="$deps_2imgui_2examples_2example__sdl__opengl3_2main_8cpp.html" title=" " alt="" coords="541,92,695,144"/>
-<area shape="rect" id="node6" href="$deps_2imgui_2examples_2example__sdl__vulkan_2main_8cpp.html" title=" " alt="" coords="719,92,866,144"/>
-<area shape="rect" id="node7" href="$imgui__impl__sdl_8cpp.html" title=" " alt="" coords="890,99,1037,137"/>
-</map>

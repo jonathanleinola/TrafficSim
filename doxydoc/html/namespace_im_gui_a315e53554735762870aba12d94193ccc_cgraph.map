@@ -1,7 +1,0 @@
-<map id="ImGui::DrawRectFilled" name="ImGui::DrawRectFilled">
-<area shape="rect" id="node1" title=" " alt="" coords="5,61,160,87"/>
-<area shape="rect" id="node2" href="$struct_im_draw_list.html#af80a64eefee86b0f1b0876d3f753935d" title=" " alt="" coords="211,5,390,31"/>
-<area shape="rect" id="node3" href="$namespace_im_gui.html#abe2691de0b1a71c774ab24cc91564a94" title=" " alt="" coords="211,55,391,93"/>
-<area shape="rect" id="node4" href="$namespace_im_gui.html#aa100c22a9feafe843fa12c66590cbda0" title=" " alt="" coords="208,117,393,143"/>
-<area shape="rect" id="node5" href="$namespace_im_gui.html#a7ceba68eca2b09fb6bf1ad88037e6203" title=" " alt="" coords="441,117,619,143"/>
-</map>

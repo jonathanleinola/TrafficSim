@@ -1,8 +1,0 @@
-<map id="sf::Shape::getFillColor" name="sf::Shape::getFillColor">
-<area shape="rect" id="node1" title="Get the fill color of the shape." alt="" coords="648,55,801,80"/>
-<area shape="rect" id="node2" href="$class_traffic_sim_1_1_tile.html#ab1edf221dffea4992c78509804040f27" title=" " alt="" coords="420,5,591,31"/>
-<area shape="rect" id="node3" href="$class_traffic_sim_1_1_tile.html#a8cbbaa320fc02129bfb2ffe0682a60b4" title=" " alt="" coords="419,55,592,80"/>
-<area shape="rect" id="node4" href="$class_traffic_sim_1_1_tile.html#a599f1e15dedbe7fa60e00957ceae1dea" title=" " alt="" coords="411,104,600,129"/>
-<area shape="rect" id="node5" href="$class_traffic_sim_1_1_map_builder.html#aad9b4302b46806dfd3f4bea4a6ebddb6" title=" " alt="" coords="207,97,363,136"/>
-<area shape="rect" id="node6" href="$class_traffic_sim_1_1_application.html#a6f64803b6867722060658276988af76c" title=" " alt="" coords="5,97,159,136"/>
-</map>

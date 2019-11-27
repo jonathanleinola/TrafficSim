@@ -1,4 +1,0 @@
-<map id="sf::RenderTarget::mapPixelToCoords" name="sf::RenderTarget::mapPixelToCoords">
-<area shape="rect" id="node1" title="Convert a point from target coordinates to world coordinates, using the current view." alt="" coords="189,5,371,44"/>
-<area shape="rect" id="node2" href="$class_traffic_sim_1_1_window.html#ac72bff8ce1a6621b8c890956da71f909" title=" " alt="" coords="5,5,141,44"/>
-</map>

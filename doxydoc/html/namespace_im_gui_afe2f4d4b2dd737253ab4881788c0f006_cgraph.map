@@ -1,5 +1,0 @@
-<map id="ImGui::ImageButton" name="ImGui::ImageButton">
-<area shape="rect" id="node1" title=" " alt="" coords="5,31,145,56"/>
-<area shape="rect" id="node2" href="$classsf_1_1_sprite.html#a1a76155146c8ff37c4eb5a306b4e9ebe" title="Get the source texture of the sprite." alt="" coords="207,5,351,31"/>
-<area shape="rect" id="node3" href="$classsf_1_1_sprite.html#a3492896fe7b63f58ae022c5b8bec5c98" title="Get the sub&#45;rectangle of the texture displayed by the sprite." alt="" coords="193,55,364,80"/>
-</map>

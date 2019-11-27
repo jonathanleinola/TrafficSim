@@ -1,4 +1,0 @@
-<map id="TrafficSim::Window::draw" name="TrafficSim::Window::draw">
-<area shape="rect" id="node1" title=" " alt="" coords="5,5,141,44"/>
-<area shape="rect" id="node2" href="$classsf_1_1_render_target.html#a12417a3bcc245c41d957b29583556f39" title="Draw a drawable object to the render target." alt="" coords="189,12,345,37"/>
-</map>

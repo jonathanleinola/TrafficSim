@@ -1,4 +1,0 @@
-<map id="copyVector" name="copyVector">
-<area shape="rect" id="node1" title="Helper functions to copy sf::Color to sf::Glsl::Vec4/Ivec4." alt="" coords="173,5,260,31"/>
-<area shape="rect" id="node2" href="$struct_vector4.html#af1da65a743ddbb5c779b41eae766c00d" title="Construct float vector implicitly from color." alt="" coords="5,5,125,31"/>
-</map>

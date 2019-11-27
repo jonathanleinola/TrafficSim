@@ -1,6 +1,0 @@
-<map id="ImGui::SFML::UpdateFontTexture" name="ImGui::SFML::UpdateFontTexture">
-<area shape="rect" id="node1" title=" " alt="" coords="5,55,226,80"/>
-<area shape="rect" id="node2" href="$classsf_1_1_texture.html#a89b4c7d204acf1033c3a1b6e0a3ad0a3" title="Create the texture." alt="" coords="303,5,431,31"/>
-<area shape="rect" id="node3" href="$namespace_im_gui.html#a3179e560812f878f3961ce803a5d9302" title=" " alt="" coords="317,55,417,80"/>
-<area shape="rect" id="node4" href="$struct_im_font_atlas.html#a8abb0c4e67ebb38249d4df71218c4eec" title=" " alt="" coords="274,104,460,143"/>
-</map>

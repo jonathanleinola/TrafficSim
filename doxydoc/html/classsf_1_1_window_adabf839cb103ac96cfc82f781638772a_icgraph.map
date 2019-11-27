@@ -1,7 +1,0 @@
-<map id="sf::Window::display" name="sf::Window::display">
-<area shape="rect" id="node1" title="Display on screen what has been rendered to the window so far." alt="" coords="515,40,651,65"/>
-<area shape="rect" id="node2" href="$class_traffic_sim_1_1_window.html#ad2e044cc7fb44f85baa032401cf3da1a" title=" " alt="" coords="332,5,467,44"/>
-<area shape="rect" id="node5" href="$deps_2imgui-sfml_2examples_2main_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4" title=" " alt="" coords="374,68,425,93"/>
-<area shape="rect" id="node3" href="$class_traffic_sim_1_1_application.html#a4aaf993e1907d3a8bc6ba4013ab7d802" title=" " alt="" coords="104,12,284,37"/>
-<area shape="rect" id="node4" href="$src_2core_2main_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4" title=" " alt="" coords="5,12,56,37"/>
-</map>

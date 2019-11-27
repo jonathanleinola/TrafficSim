@@ -1,7 +1,0 @@
-<map id="TrafficSim::Window::moveView" name="TrafficSim::Window::moveView">
-<area shape="rect" id="node1" title=" " alt="" coords="5,61,141,100"/>
-<area shape="rect" id="node2" href="$class_traffic_sim_1_1_window.html#ab07eee21f7122fe070602e860c4778e6" title=" " alt="" coords="208,5,344,44"/>
-<area shape="rect" id="node4" href="$classsf_1_1_view.html#a0c82144b837caf812f7cb25a43d80c41" title="Move the view relatively to its current position." alt="" coords="222,68,330,93"/>
-<area shape="rect" id="node5" href="$classsf_1_1_render_target.html#a063db6dd0a14913504af30e50cb6d946" title="Change the current active view." alt="" coords="189,117,363,143"/>
-<area shape="rect" id="node3" href="$namespace_im_gui.html#a3179e560812f878f3961ce803a5d9302" title=" " alt="" coords="411,12,511,37"/>
-</map>

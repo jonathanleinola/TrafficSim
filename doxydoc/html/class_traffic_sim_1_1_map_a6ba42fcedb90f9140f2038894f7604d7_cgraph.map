@@ -1,8 +1,0 @@
-<map id="TrafficSim::Map::newLightHandler" name="TrafficSim::Map::newLightHandler">
-<area shape="rect" id="node1" title=" " alt="" coords="5,71,180,109"/>
-<area shape="rect" id="node2" href="$class_traffic_sim_1_1_traffic_light.html#a0e1ec02ab2bd62e26a51c835decb447e" title=" " alt="" coords="471,5,625,44"/>
-<area shape="rect" id="node3" href="$class_traffic_sim_1_1_traffic_light.html#a9aee9e0039c1d527a6d352c1a2b7f039" title=" " alt="" coords="471,77,625,116"/>
-<area shape="rect" id="node5" href="$class_traffic_sim_1_1_map.html#a2ca117b09ad360ac8d53448007852e10" title=" " alt="" coords="228,52,423,77"/>
-<area shape="rect" id="node6" href="$class_traffic_sim_1_1_traffic_light.html#a69ae6c562dfe68c6a8687570e030bc4d" title=" " alt="" coords="249,153,403,192"/>
-<area shape="rect" id="node4" href="$classsf_1_1_transformable.html#a73f9739bc6e74db2cea154bc8e94ec46" title="get the position of the object" alt="" coords="673,77,805,116"/>
-</map>

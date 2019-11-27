@@ -1,9 +1,0 @@
-<map id="ImGui::SFML::Update" name="ImGui::SFML::Update">
-<area shape="rect" id="node1" title=" " alt="" coords="5,129,156,155"/>
-<area shape="rect" id="node2" href="$classsf_1_1_time.html#aa3df2f992d0b0041b4eb02258d43f0e3" title="Return the time value as a number of seconds." alt="" coords="225,5,366,31"/>
-<area shape="rect" id="node3" href="$namespace_im_gui.html#a3179e560812f878f3961ce803a5d9302" title=" " alt="" coords="245,55,345,80"/>
-<area shape="rect" id="node4" href="$classsf_1_1_mouse.html#ab647159eb88e369a0332a9c5a7ba6687" title="Check if a mouse button is pressed." alt="" coords="204,104,387,129"/>
-<area shape="rect" id="node5" href="$classsf_1_1_touch.html#a2f85297123ea4e401d02c346e50d48a3" title="Check if a touch event is currently down." alt="" coords="233,153,358,179"/>
-<area shape="rect" id="node6" href="$namespace_im_gui.html#ab3f1fc018f903b7ad79fd10663375774" title=" " alt="" coords="231,203,360,228"/>
-<area shape="rect" id="node7" href="$classsf_1_1_mouse.html#a1222e16c583be9e3d176d86e0b7817d7" title="Set the current position of the mouse in desktop coordinates." alt="" coords="220,252,371,277"/>
-</map>

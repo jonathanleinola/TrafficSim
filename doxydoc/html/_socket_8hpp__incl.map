@@ -1,9 +1,0 @@
-<map id="deps/SFML/include/SFML/Network/Socket.hpp" name="deps/SFML/include/SFML/Network/Socket.hpp">
-<area shape="rect" id="node1" title=" " alt="" coords="303,5,478,44"/>
-<area shape="rect" id="node2" href="$_network_2_export_8hpp.html" title=" " alt="" coords="5,165,183,191"/>
-<area shape="rect" id="node4" href="$_socket_handle_8hpp.html" title=" " alt="" coords="207,165,429,191"/>
-<area shape="rect" id="node5" href="$_non_copyable_8hpp.html" title=" " alt="" coords="356,92,571,117"/>
-<area shape="rect" id="node7" title=" " alt="" coords="595,92,652,117"/>
-<area shape="rect" id="node3" href="$_config_8hpp.html" title=" " alt="" coords="256,239,381,264"/>
-<area shape="rect" id="node6" href="$_system_2_export_8hpp.html" title=" " alt="" coords="453,165,626,191"/>
-</map>

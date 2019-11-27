@@ -1,8 +1,0 @@
-<map id="TrafficSim::RoadTile::getType" name="TrafficSim::RoadTile::getType">
-<area shape="rect" id="node1" title=" " alt="" coords="744,37,885,76"/>
-<area shape="rect" id="node2" href="$class_traffic_sim_1_1_road_tile.html#a0131f94c1d3f619d783f49abda9b1b5d" title=" " alt="" coords="544,5,685,44"/>
-<area shape="rect" id="node3" href="$class_traffic_sim_1_1_data_handler.html#ae90e0fef300a53540cec160097a51372" title=" " alt="" coords="533,68,696,107"/>
-<area shape="rect" id="node4" href="$class_traffic_sim_1_1_application.html#a3ed14f7ab32ac834d56751c763d76001" title=" " alt="" coords="332,68,485,107"/>
-<area shape="rect" id="node5" href="$class_traffic_sim_1_1_application.html#a4aaf993e1907d3a8bc6ba4013ab7d802" title=" " alt="" coords="104,75,284,100"/>
-<area shape="rect" id="node6" href="$src_2core_2main_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4" title=" " alt="" coords="5,75,56,100"/>
-</map>

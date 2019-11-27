@@ -1,6 +1,0 @@
-<map id="sf::Event::JoystickMoveEvent" name="sf::Event::JoystickMoveEvent">
-<area shape="rect" id="node1" title="Joystick axis move event parameters (JoystickMoved)" alt="" coords="19,140,214,213"/>
-<area shape="rect" id="node2" title=" " alt="" coords="5,5,52,79"/>
-<area shape="rect" id="node3" title=" " alt="" coords="97,5,136,79"/>
-<area shape="rect" id="node4" title=" " alt="" coords="191,5,237,79"/>
-</map>

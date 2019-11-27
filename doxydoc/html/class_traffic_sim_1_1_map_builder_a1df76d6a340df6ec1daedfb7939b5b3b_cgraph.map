@@ -1,6 +1,0 @@
-<map id="TrafficSim::MapBuilder::rotateRoad" name="TrafficSim::MapBuilder::rotateRoad">
-<area shape="rect" id="node1" title=" " alt="" coords="5,27,161,65"/>
-<area shape="rect" id="node2" href="$class_traffic_sim_1_1_grid.html#a88f381817f866b60d9f8d7b6ee6d4f3d" title=" " alt="" coords="209,5,369,31"/>
-<area shape="rect" id="node3" href="$class_traffic_sim_1_1_road_tile.html#a42a3bd6227b9a66a9cac0fc9918176bd" title=" " alt="" coords="219,55,360,93"/>
-<area shape="rect" id="node4" href="$classsf_1_1_transformable.html#af8a5ffddc0d93f238fee3bf8efe1ebda" title="Rotate the object." alt="" coords="417,55,549,93"/>
-</map>
