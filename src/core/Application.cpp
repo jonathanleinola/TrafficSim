@@ -16,6 +16,7 @@
 #include "trafficsim/RoadIntersection.hpp"
 #include "trafficsim/RoadTrisection.hpp"
 #include "trafficsim/RoadJunction.hpp"
+#include "trafficsim/HomeRoad.hpp"
 
 namespace TrafficSim
 {

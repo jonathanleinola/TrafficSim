@@ -63,6 +63,8 @@ configure_file(res/car/white_car.png white_car.png COPYONLY)
 
 configure_file(res/straight_road.png straight_road.png COPYONLY)
 
+configure_file(res/home_road.png home_road.png COPYONLY)
+
 configure_file(res/right_turn.png right_turn.png COPYONLY)
 configure_file(res/left_turn.png left_turn.png COPYONLY)
 

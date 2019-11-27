@@ -34,7 +34,8 @@ const char *road_type_name(TileType type)
         "Road Turn",
         "Intersection",
         "Trisection",
-        "Road Junction"}[type];
+        "Road Junction",
+        "Home Road"}[type];
 }
 
 void MapBuilder::drawGUI()
@@ -136,6 +137,9 @@ void MapBuilder::addRoad(const sf::Vector2f &pos, TileType type)
         break;
     case JunctionType:
         road_tile = std::make_unique<RoadJunction>(*tile);
+        break;
+    case HomeRoadType:
+        road_tile = std::make_unique<HomeRoad>(*tile);
         break;
     default:
         break;

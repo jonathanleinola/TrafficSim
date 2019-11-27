@@ -15,3 +15,4 @@ right_turn right_turn.png
 right_trisection right_trisection.png
 left_trisection left_trisection.png
 straight_road straight_road.png
+home_road home_road.png
