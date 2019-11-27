@@ -11,8 +11,8 @@ class HomeRoad : public RoadTile
 {
 public:
     HomeRoad(const Tile &tile);
+    virtual RoadType getType() const { return RoadType::HomeRoadType; }
 
-    virtual TileType getType() const { return TileType::HomeRoadType; }
     virtual void connect(std::array<Tile *, 4> &neighbors);
 
     virtual bool connectableFrom(NeighborIndex n_index) const;

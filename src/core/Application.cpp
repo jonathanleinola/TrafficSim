@@ -115,12 +115,15 @@ void Application::drawGUI()
     {
         if (ImGui::BeginMenu("File"))
         {
-            if (ImGui::MenuItem("Load"))
+            if (ImGui::MenuItem("Load", "Ctrl+O"))
             {
+                // ".ts" for traffic sim :)
+                data_.loadMap("test.ts", builder_);
             }
-            if (ImGui::MenuItem("Save"))
+            if (ImGui::MenuItem("Save", "Ctrl+S"))
             {
-                data_.saveMap("test", map_.grid_);
+                // ".ts" for traffic sim :)
+                data_.saveMap("test.ts", map_.grid_);
             }
             ImGui::EndMenu();
         }
@@ -132,6 +135,22 @@ void Application::drawGUI()
                 if (ImGui::MenuItem(state_mode(new_state), "", app_state_ == new_state))
                     changeState(new_state);
             }
+            ImGui::EndMenu();
+        }
+        if (ImGui::BeginMenu("Scale"))
+        {
+            if (ImGui::MenuItem("Scale: 100%", "Ctrl+1", ImGui::GetFont()->Scale == 1.f))
+                ImGui::GetFont()->Scale = 1.f;
+            if (ImGui::MenuItem("Scale: 125%", "Ctrl+2", ImGui::GetFont()->Scale == 1.25f))
+                ImGui::GetFont()->Scale = 1.25f;
+            if (ImGui::MenuItem("Scale: 150%", "Ctrl+3", ImGui::GetFont()->Scale == 1.5f))
+                ImGui::GetFont()->Scale = 1.5f;
+            if (ImGui::MenuItem("Scale: 200%", "Ctrl+4", ImGui::GetFont()->Scale == 2.f))
+                ImGui::GetFont()->Scale = 2.f;
+            if (ImGui::MenuItem("Scale: 250%", "Ctrl+5", ImGui::GetFont()->Scale == 2.5f))
+                ImGui::GetFont()->Scale = 2.5f;
+            if (ImGui::MenuItem("Scale: 300%", "Ctrl+6", ImGui::GetFont()->Scale == 3.f))
+                ImGui::GetFont()->Scale = 3.f;
             ImGui::EndMenu();
         }
         ImGui::EndMainMenuBar();
@@ -158,6 +177,27 @@ void Application::handleEvent(const sf::Event &ev)
         break;
     default:
         break;
+    }
+    // Shortcuts
+    if (ev.type == sf::Event::KeyPressed)
+    {
+        if (ev.key.code == sf::Keyboard::Num1 && key_buffer_[sf::Keyboard::LControl])
+            ImGui::GetFont()->Scale = 1.f;
+        if (ev.key.code == sf::Keyboard::Num2 && key_buffer_[sf::Keyboard::LControl])
+            ImGui::GetFont()->Scale = 1.25f;
+        if (ev.key.code == sf::Keyboard::Num3 && key_buffer_[sf::Keyboard::LControl])
+            ImGui::GetFont()->Scale = 1.5f;
+        if (ev.key.code == sf::Keyboard::Num4 && key_buffer_[sf::Keyboard::LControl])
+            ImGui::GetFont()->Scale = 2.f;
+        if (ev.key.code == sf::Keyboard::Num5 && key_buffer_[sf::Keyboard::LControl])
+            ImGui::GetFont()->Scale = 2.5f;
+        if (ev.key.code == sf::Keyboard::Num6 && key_buffer_[sf::Keyboard::LControl])
+            ImGui::GetFont()->Scale = 3.f;
+
+        if (ev.key.code == sf::Keyboard::S && key_buffer_[sf::Keyboard::LControl])
+            data_.saveMap("test.ts", map_.grid_);
+        if (ev.key.code == sf::Keyboard::O && key_buffer_[sf::Keyboard::LControl])
+            data_.loadMap("test.ts", builder_);
     }
 }
 

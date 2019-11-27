@@ -38,12 +38,17 @@ enum RoadType
     JunctionType,
     HomeRoadType,
 
+    // Keep as last
+    TypeCount,
 };
 
 class RoadTile : public Tile
 {
 public:
     RoadTile(const Tile &tile);
+
+    virtual TileCategory getCategory() const { return TileCategory::RoadCategory; };
+    virtual RoadType getType() const = 0;
 
     // Direction of the road
     // Up: { 0, 1 }, Right { 1, 0 }, Down { 0, -1 }, Left { -1, 0 }
@@ -60,7 +65,6 @@ public:
     virtual void autoRotate(std::array<Tile *, 4> &neighbors);
 
     // Pure virtual functions
-    virtual TileType getType() const = 0;
     virtual void connect(std::array<Tile *, 4> &neighbors) = 0;
     virtual bool connectableFrom(NeighborIndex n_index) const = 0;
     virtual bool canConnectTo(NeighborIndex n_index) const = 0;

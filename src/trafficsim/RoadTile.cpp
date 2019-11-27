@@ -28,13 +28,13 @@ unsigned int RoadTile::removeLight()
 
 void RoadTile::autoRotate(std::array<Tile *, 4> &neighbors)
 {
-    if (neighbors[LEFT] && neighbors[LEFT]->getType() != Empty)
+    if (neighbors[LEFT] && neighbors[LEFT]->getCategory() == TileCategory::RoadCategory)
     {
         RoadTile *r = static_cast<RoadTile *>(neighbors[LEFT]);
         if (r->canConnectTo(RIGHT))
             return;
     }
-    if (neighbors[UP] && neighbors[UP]->getType() != Empty)
+    if (neighbors[UP] && neighbors[UP]->getCategory() == TileCategory::RoadCategory)
     {
         RoadTile *r = static_cast<RoadTile *>(neighbors[UP]);
         if (r->canConnectTo(DOWN))
@@ -43,7 +43,7 @@ void RoadTile::autoRotate(std::array<Tile *, 4> &neighbors)
             return;
         }
     }
-    if (neighbors[RIGHT] && neighbors[RIGHT]->getType() != Empty)
+    if (neighbors[RIGHT] && neighbors[RIGHT]->getCategory() == TileCategory::RoadCategory)
     {
         RoadTile *r = static_cast<RoadTile *>(neighbors[RIGHT]);
         if (r->canConnectTo(LEFT))
@@ -52,7 +52,7 @@ void RoadTile::autoRotate(std::array<Tile *, 4> &neighbors)
             return;
         }
     }
-    if (neighbors[DOWN] && neighbors[DOWN]->getType() != Empty)
+    if (neighbors[DOWN] && neighbors[DOWN]->getCategory() == TileCategory::RoadCategory)
     {
         RoadTile *r = static_cast<RoadTile *>(neighbors[DOWN]);
         if (r->canConnectTo(UP))
@@ -66,7 +66,7 @@ void RoadTile::autoRotate(std::array<Tile *, 4> &neighbors)
 
 void RoadTile::connectTo(Tile *another, NeighborIndex from)
 {
-    if (!another || another->getType() == TileType::Empty)
+    if (!another || another->getCategory() != TileCategory::RoadCategory)
         return;
 
     RoadTile *road_tile = static_cast<RoadTile *>(another);

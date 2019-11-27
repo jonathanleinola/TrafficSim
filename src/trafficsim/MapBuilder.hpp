@@ -10,6 +10,7 @@
 #include "RoadJunction.hpp"
 #include "TrafficLight.hpp"
 #include "core/Window.hpp"
+#include "BuildingTile.hpp"
 #include "HomeRoad.hpp"
 
 namespace TrafficSim
@@ -46,7 +47,7 @@ public:
     void clearMap();
 
     // Adds a road
-    void addRoad(const sf::Vector2f &pos, TileType type);
+    void addRoad(const sf::Vector2f &pos, RoadType type);
     // When Left Control and left mousebutton pressed this gets called
     void slideAdd(const sf::Vector2f &pos);
 
@@ -63,7 +64,7 @@ private:
     bool building_mode_ = true;
     EditingOption editing_option_ = Inspect;
     // Stores which road is put down when AddRoad is selected
-    TileType road_option_ = TileType::StraightRoadType;
+    RoadType road_option_ = RoadType::StraightRoadType;
     // Stores highlighted tile, which was left clicked
     unsigned int selected_tile_index_ = UINT_MAX;
     // Stores highlighted tile, which is under mouse

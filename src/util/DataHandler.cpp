@@ -51,7 +51,7 @@ void DataHandler::saveMap(const char *file_name, Grid &grid) const
     {   
 
         //std::cout << pos.x <<" "<< pos.y << std::endl;
-        if(grid.getTile(i)->getType()!= TileType::Empty)
+        if(grid.getTile(i)->getCategory() == RoadCategory)
         {
             
             RoadTile *road = static_cast<RoadTile *>(grid.getTile(i));

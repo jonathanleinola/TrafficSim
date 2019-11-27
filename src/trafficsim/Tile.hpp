@@ -27,8 +27,8 @@ class Tile : public sf::Drawable
 {
 public:
     Tile(const sf::Vector2f &pos, float size, unsigned int tile_index);
-
-    virtual TileType getType() const { return TileType::Empty; }
+    
+    virtual TileCategory getCategory() const { return TileCategory::Empty; }
     // TODO: Maybe we don't need nodes for empty tiles?
     // TODO: return raw pointer?
     std::shared_ptr<Node> getNode() const { return node_; }
