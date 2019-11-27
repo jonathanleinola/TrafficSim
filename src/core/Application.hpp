@@ -4,6 +4,7 @@
 #include "trafficsim/Map.hpp"
 #include "trafficsim/MapBuilder.hpp"
 #include "trafficsim/TimeLine.hpp"
+#include "trafficsim/Statistics.hpp"
 #include "util/DataHandler.hpp"
 
 namespace TrafficSim
@@ -13,7 +14,7 @@ enum State
 {
     Editing = 0,
     Simulating,
-    
+
     // keep this last
     StateCount
 };
@@ -42,6 +43,7 @@ private:
     Map map_;
     MapBuilder builder_;
     TimeLine time_line_;
+    Statistics statistics_;
     DataHandler data_;
     State app_state_ = Editing;
 

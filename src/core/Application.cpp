@@ -24,7 +24,7 @@ namespace TrafficSim
 Application *Application::AppInstance = nullptr;
 
 Application::Application()
-    : builder_(map_, window_)
+    : builder_(map_, window_), statistics_(map_, window_)
 {
     AppInstance = this;
     data_.loadTexturesFromFile("texture_list.txt");
@@ -103,7 +103,10 @@ const char *state_mode(State state)
 void Application::drawGUI()
 {
     if (app_state_ == Simulating)
+    {
         time_line_.drawGUI();
+        statistics_.drawGUI();
+    }
     if (app_state_ == Editing)
         builder_.drawGUI();
 
@@ -137,6 +140,7 @@ void Application::drawGUI()
 void Application::handleEvent(const sf::Event &ev)
 {
     builder_.handleInput(ev);
+    statistics_.handleInput(ev);
     switch (ev.type)
     {
     case sf::Event::KeyPressed:
