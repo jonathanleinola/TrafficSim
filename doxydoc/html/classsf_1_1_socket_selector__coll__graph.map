@@ -1,0 +1,3 @@
+<map id="sf::SocketSelector" name="sf::SocketSelector">
+<area shape="rect" id="node1" title="Multiplexer that allows to read from multiple sockets." alt="" coords="5,5,144,185"/>
+</map>

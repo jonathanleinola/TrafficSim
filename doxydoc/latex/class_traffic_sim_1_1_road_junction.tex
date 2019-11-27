@@ -1,0 +1,153 @@
+\hypertarget{class_traffic_sim_1_1_road_junction}{}\doxysection{Traffic\+Sim\+::Road\+Junction Class Reference}
+\label{class_traffic_sim_1_1_road_junction}\index{TrafficSim::RoadJunction@{TrafficSim::RoadJunction}}
+
+
+{\ttfamily \#include $<$Road\+Junction.\+hpp$>$}
+
+
+
+Inheritance diagram for Traffic\+Sim\+::Road\+Junction\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=550pt]{class_traffic_sim_1_1_road_junction__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Traffic\+Sim\+::Road\+Junction\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=550pt]{class_traffic_sim_1_1_road_junction__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_traffic_sim_1_1_road_junction_a05a01c9bda005ff311826dca399a52e6}{Road\+Junction}} (const \mbox{\hyperlink{class_traffic_sim_1_1_tile}{Tile}} \&tile)
+\item 
+virtual \mbox{\hyperlink{glcorearb_8h_a950fc91edb4504f62f1c577bf4727c29}{void}} \mbox{\hyperlink{class_traffic_sim_1_1_road_junction_acb2ba4b05c7cfe04029a780db296986e}{flip}} ()
+\item 
+virtual \mbox{\hyperlink{namespace_traffic_sim_adffe7d61e7ebed8faf807a197ebbf517}{Tile\+Type}} \mbox{\hyperlink{class_traffic_sim_1_1_road_junction_ad584218221469ea62ac2a8f40924fd73}{get\+Type}} () const
+\item 
+virtual \mbox{\hyperlink{glcorearb_8h_a950fc91edb4504f62f1c577bf4727c29}{void}} \mbox{\hyperlink{class_traffic_sim_1_1_road_junction_a5c4dabeca1dc303712b988b916c835bd}{connect}} (std\+::array$<$ \mbox{\hyperlink{class_traffic_sim_1_1_tile}{Tile}} $\ast$, 4 $>$ \&neighbors)
+\item 
+virtual bool \mbox{\hyperlink{class_traffic_sim_1_1_road_junction_ae734402c1a429907003e0986e7065af2}{connectable\+From}} (\mbox{\hyperlink{namespace_traffic_sim_a1436ed07fee6136bfb9b45aee271d714}{Neighbor\+Index}} n\+\_\+index) const
+\item 
+virtual bool \mbox{\hyperlink{class_traffic_sim_1_1_road_junction_a10249818cc05d786bbae68f02cedaa75}{can\+Connect\+To}} (\mbox{\hyperlink{namespace_traffic_sim_a1436ed07fee6136bfb9b45aee271d714}{Neighbor\+Index}} n\+\_\+index) const
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static \mbox{\hyperlink{glcorearb_8h_a950fc91edb4504f62f1c577bf4727c29}{void}} \mbox{\hyperlink{class_traffic_sim_1_1_road_junction_a5405ca649c32c24bc8e9bc4f43611874}{Set\+Textures}} (const \mbox{\hyperlink{classsf_1_1_texture}{sf\+::\+Texture}} $\ast$right\+\_\+texture, const \mbox{\hyperlink{classsf_1_1_texture}{sf\+::\+Texture}} $\ast$left\+\_\+texture)
+\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_traffic_sim_1_1_road_junction_a05a01c9bda005ff311826dca399a52e6}\label{class_traffic_sim_1_1_road_junction_a05a01c9bda005ff311826dca399a52e6}} 
+\index{TrafficSim::RoadJunction@{TrafficSim::RoadJunction}!RoadJunction@{RoadJunction}}
+\index{RoadJunction@{RoadJunction}!TrafficSim::RoadJunction@{TrafficSim::RoadJunction}}
+\doxysubsubsection{\texorpdfstring{RoadJunction()}{RoadJunction()}}
+{\footnotesize\ttfamily Traffic\+Sim\+::\+Road\+Junction\+::\+Road\+Junction (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_traffic_sim_1_1_tile}{Tile}} \&}]{tile }\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_traffic_sim_1_1_road_junction_a05a01c9bda005ff311826dca399a52e6_cgraph}
+\end{center}
+\end{figure}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_traffic_sim_1_1_road_junction_a10249818cc05d786bbae68f02cedaa75}\label{class_traffic_sim_1_1_road_junction_a10249818cc05d786bbae68f02cedaa75}} 
+\index{TrafficSim::RoadJunction@{TrafficSim::RoadJunction}!canConnectTo@{canConnectTo}}
+\index{canConnectTo@{canConnectTo}!TrafficSim::RoadJunction@{TrafficSim::RoadJunction}}
+\doxysubsubsection{\texorpdfstring{canConnectTo()}{canConnectTo()}}
+{\footnotesize\ttfamily bool Traffic\+Sim\+::\+Road\+Junction\+::can\+Connect\+To (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{namespace_traffic_sim_a1436ed07fee6136bfb9b45aee271d714}{Neighbor\+Index}}}]{n\+\_\+index }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{class_traffic_sim_1_1_road_tile_a14c0b9fae3d5f6b90a5aabe9f062c144}{Traffic\+Sim\+::\+Road\+Tile}}.
+
+\mbox{\Hypertarget{class_traffic_sim_1_1_road_junction_a5c4dabeca1dc303712b988b916c835bd}\label{class_traffic_sim_1_1_road_junction_a5c4dabeca1dc303712b988b916c835bd}} 
+\index{TrafficSim::RoadJunction@{TrafficSim::RoadJunction}!connect@{connect}}
+\index{connect@{connect}!TrafficSim::RoadJunction@{TrafficSim::RoadJunction}}
+\doxysubsubsection{\texorpdfstring{connect()}{connect()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{glcorearb_8h_a950fc91edb4504f62f1c577bf4727c29}{void}} Traffic\+Sim\+::\+Road\+Junction\+::connect (\begin{DoxyParamCaption}\item[{std\+::array$<$ \mbox{\hyperlink{class_traffic_sim_1_1_tile}{Tile}} $\ast$, 4 $>$ \&}]{neighbors }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{class_traffic_sim_1_1_road_tile_a72698707ee60d707b68574d94512f7c0}{Traffic\+Sim\+::\+Road\+Tile}}.
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_traffic_sim_1_1_road_junction_a5c4dabeca1dc303712b988b916c835bd_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_traffic_sim_1_1_road_junction_ae734402c1a429907003e0986e7065af2}\label{class_traffic_sim_1_1_road_junction_ae734402c1a429907003e0986e7065af2}} 
+\index{TrafficSim::RoadJunction@{TrafficSim::RoadJunction}!connectableFrom@{connectableFrom}}
+\index{connectableFrom@{connectableFrom}!TrafficSim::RoadJunction@{TrafficSim::RoadJunction}}
+\doxysubsubsection{\texorpdfstring{connectableFrom()}{connectableFrom()}}
+{\footnotesize\ttfamily bool Traffic\+Sim\+::\+Road\+Junction\+::connectable\+From (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{namespace_traffic_sim_a1436ed07fee6136bfb9b45aee271d714}{Neighbor\+Index}}}]{n\+\_\+index }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{class_traffic_sim_1_1_road_tile_abc3e3441e418ad00fbc3b5cf3aeaf577}{Traffic\+Sim\+::\+Road\+Tile}}.
+
+\mbox{\Hypertarget{class_traffic_sim_1_1_road_junction_acb2ba4b05c7cfe04029a780db296986e}\label{class_traffic_sim_1_1_road_junction_acb2ba4b05c7cfe04029a780db296986e}} 
+\index{TrafficSim::RoadJunction@{TrafficSim::RoadJunction}!flip@{flip}}
+\index{flip@{flip}!TrafficSim::RoadJunction@{TrafficSim::RoadJunction}}
+\doxysubsubsection{\texorpdfstring{flip()}{flip()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{glcorearb_8h_a950fc91edb4504f62f1c577bf4727c29}{void}} Traffic\+Sim\+::\+Road\+Junction\+::flip (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Reimplemented from \mbox{\hyperlink{class_traffic_sim_1_1_road_tile_a92cc98ecb2fff268883b827644a73695}{Traffic\+Sim\+::\+Road\+Tile}}.
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_traffic_sim_1_1_road_junction_acb2ba4b05c7cfe04029a780db296986e_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_traffic_sim_1_1_road_junction_ad584218221469ea62ac2a8f40924fd73}\label{class_traffic_sim_1_1_road_junction_ad584218221469ea62ac2a8f40924fd73}} 
+\index{TrafficSim::RoadJunction@{TrafficSim::RoadJunction}!getType@{getType}}
+\index{getType@{getType}!TrafficSim::RoadJunction@{TrafficSim::RoadJunction}}
+\doxysubsubsection{\texorpdfstring{getType()}{getType()}}
+{\footnotesize\ttfamily virtual \mbox{\hyperlink{namespace_traffic_sim_adffe7d61e7ebed8faf807a197ebbf517}{Tile\+Type}} Traffic\+Sim\+::\+Road\+Junction\+::get\+Type (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{class_traffic_sim_1_1_road_tile_a9274e00f73e99aff5714787a30a6fa17}{Traffic\+Sim\+::\+Road\+Tile}}.
+
+\mbox{\Hypertarget{class_traffic_sim_1_1_road_junction_a5405ca649c32c24bc8e9bc4f43611874}\label{class_traffic_sim_1_1_road_junction_a5405ca649c32c24bc8e9bc4f43611874}} 
+\index{TrafficSim::RoadJunction@{TrafficSim::RoadJunction}!SetTextures@{SetTextures}}
+\index{SetTextures@{SetTextures}!TrafficSim::RoadJunction@{TrafficSim::RoadJunction}}
+\doxysubsubsection{\texorpdfstring{SetTextures()}{SetTextures()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{glcorearb_8h_a950fc91edb4504f62f1c577bf4727c29}{void}} Traffic\+Sim\+::\+Road\+Junction\+::\+Set\+Textures (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classsf_1_1_texture}{sf\+::\+Texture}} $\ast$}]{right\+\_\+texture,  }\item[{const \mbox{\hyperlink{classsf_1_1_texture}{sf\+::\+Texture}} $\ast$}]{left\+\_\+texture }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_traffic_sim_1_1_road_junction_a5405ca649c32c24bc8e9bc4f43611874_icgraph}
+\end{center}
+\end{figure}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+src/trafficsim/\mbox{\hyperlink{_road_junction_8hpp}{Road\+Junction.\+hpp}}\item 
+src/trafficsim/\mbox{\hyperlink{_road_junction_8cpp}{Road\+Junction.\+cpp}}\end{DoxyCompactItemize}

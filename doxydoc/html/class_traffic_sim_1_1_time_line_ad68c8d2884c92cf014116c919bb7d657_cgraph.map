@@ -1,0 +1,5 @@
+<map id="TrafficSim::TimeLine::getRealTime" name="TrafficSim::TimeLine::getRealTime">
+<area shape="rect" id="node1" title=" " alt="" coords="5,24,148,63"/>
+<area shape="rect" id="node2" href="$classsf_1_1_time.html#aa3df2f992d0b0041b4eb02258d43f0e3" title="Return the time value as a number of seconds." alt="" coords="213,5,355,31"/>
+<area shape="rect" id="node3" href="$classsf_1_1_clock.html#abe889b42a65bcd8eefc16419645d08a7" title="Get the elapsed time." alt="" coords="196,55,372,80"/>
+</map>

@@ -1,0 +1,96 @@
+\hypertarget{imgui__impl__dx12_8h}{}\doxysection{deps/imgui/examples/imgui\+\_\+impl\+\_\+dx12.h File Reference}
+\label{imgui__impl__dx12_8h}\index{deps/imgui/examples/imgui\_impl\_dx12.h@{deps/imgui/examples/imgui\_impl\_dx12.h}}
+This graph shows which files directly or indirectly include this file\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=346pt]{imgui__impl__dx12_8h__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{imgui_8h_a665f6b404eea9a640b1222a87236fe19}{I\+M\+G\+U\+I\+\_\+\+I\+M\+P\+L\+\_\+\+A\+PI}} bool \mbox{\hyperlink{imgui__impl__dx12_8h_a831f70faa815ecf20d19ef3ea0d31c9d}{Im\+Gui\+\_\+\+Impl\+D\+X12\+\_\+\+Init}} (I\+D3\+D12\+Device $\ast$device, int num\+\_\+frames\+\_\+in\+\_\+flight, D\+X\+G\+I\+\_\+\+F\+O\+R\+M\+AT rtv\+\_\+format, I\+D3\+D12\+Descriptor\+Heap $\ast$cbv\+\_\+srv\+\_\+heap, D3\+D12\+\_\+\+C\+P\+U\+\_\+\+D\+E\+S\+C\+R\+I\+P\+T\+O\+R\+\_\+\+H\+A\+N\+D\+LE font\+\_\+srv\+\_\+cpu\+\_\+desc\+\_\+handle, D3\+D12\+\_\+\+G\+P\+U\+\_\+\+D\+E\+S\+C\+R\+I\+P\+T\+O\+R\+\_\+\+H\+A\+N\+D\+LE font\+\_\+srv\+\_\+gpu\+\_\+desc\+\_\+handle)
+\item 
+\mbox{\hyperlink{imgui_8h_a665f6b404eea9a640b1222a87236fe19}{I\+M\+G\+U\+I\+\_\+\+I\+M\+P\+L\+\_\+\+A\+PI}} \mbox{\hyperlink{glcorearb_8h_a950fc91edb4504f62f1c577bf4727c29}{void}} \mbox{\hyperlink{imgui__impl__dx12_8h_a7aae7738912dbd5dea744193f8d27abc}{Im\+Gui\+\_\+\+Impl\+D\+X12\+\_\+\+Shutdown}} ()
+\item 
+\mbox{\hyperlink{imgui_8h_a665f6b404eea9a640b1222a87236fe19}{I\+M\+G\+U\+I\+\_\+\+I\+M\+P\+L\+\_\+\+A\+PI}} \mbox{\hyperlink{glcorearb_8h_a950fc91edb4504f62f1c577bf4727c29}{void}} \mbox{\hyperlink{imgui__impl__dx12_8h_a2a963ef6f8dfd23858e34f034416c618}{Im\+Gui\+\_\+\+Impl\+D\+X12\+\_\+\+New\+Frame}} ()
+\item 
+\mbox{\hyperlink{imgui_8h_a665f6b404eea9a640b1222a87236fe19}{I\+M\+G\+U\+I\+\_\+\+I\+M\+P\+L\+\_\+\+A\+PI}} \mbox{\hyperlink{glcorearb_8h_a950fc91edb4504f62f1c577bf4727c29}{void}} \mbox{\hyperlink{imgui__impl__dx12_8h_a7e6a26cdbaaeeca9df86e8373c4a8547}{Im\+Gui\+\_\+\+Impl\+D\+X12\+\_\+\+Render\+Draw\+Data}} (\mbox{\hyperlink{struct_im_draw_data}{Im\+Draw\+Data}} $\ast$draw\+\_\+data, I\+D3\+D12\+Graphics\+Command\+List $\ast$graphics\+\_\+command\+\_\+list)
+\item 
+\mbox{\hyperlink{imgui_8h_a665f6b404eea9a640b1222a87236fe19}{I\+M\+G\+U\+I\+\_\+\+I\+M\+P\+L\+\_\+\+A\+PI}} \mbox{\hyperlink{glcorearb_8h_a950fc91edb4504f62f1c577bf4727c29}{void}} \mbox{\hyperlink{imgui__impl__dx12_8h_a02f397b136e8350977a2192c8ddbd9bd}{Im\+Gui\+\_\+\+Impl\+D\+X12\+\_\+\+Invalidate\+Device\+Objects}} ()
+\item 
+\mbox{\hyperlink{imgui_8h_a665f6b404eea9a640b1222a87236fe19}{I\+M\+G\+U\+I\+\_\+\+I\+M\+P\+L\+\_\+\+A\+PI}} bool \mbox{\hyperlink{imgui__impl__dx12_8h_a70a3e717bf7a3903b1f231dfc2516f89}{Im\+Gui\+\_\+\+Impl\+D\+X12\+\_\+\+Create\+Device\+Objects}} ()
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{imgui__impl__dx12_8h_a70a3e717bf7a3903b1f231dfc2516f89}\label{imgui__impl__dx12_8h_a70a3e717bf7a3903b1f231dfc2516f89}} 
+\index{imgui\_impl\_dx12.h@{imgui\_impl\_dx12.h}!ImGui\_ImplDX12\_CreateDeviceObjects@{ImGui\_ImplDX12\_CreateDeviceObjects}}
+\index{ImGui\_ImplDX12\_CreateDeviceObjects@{ImGui\_ImplDX12\_CreateDeviceObjects}!imgui\_impl\_dx12.h@{imgui\_impl\_dx12.h}}
+\doxysubsubsection{\texorpdfstring{ImGui\_ImplDX12\_CreateDeviceObjects()}{ImGui\_ImplDX12\_CreateDeviceObjects()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{imgui_8h_a665f6b404eea9a640b1222a87236fe19}{I\+M\+G\+U\+I\+\_\+\+I\+M\+P\+L\+\_\+\+A\+PI}} bool Im\+Gui\+\_\+\+Impl\+D\+X12\+\_\+\+Create\+Device\+Objects (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{imgui__impl__dx12_8h_a831f70faa815ecf20d19ef3ea0d31c9d}\label{imgui__impl__dx12_8h_a831f70faa815ecf20d19ef3ea0d31c9d}} 
+\index{imgui\_impl\_dx12.h@{imgui\_impl\_dx12.h}!ImGui\_ImplDX12\_Init@{ImGui\_ImplDX12\_Init}}
+\index{ImGui\_ImplDX12\_Init@{ImGui\_ImplDX12\_Init}!imgui\_impl\_dx12.h@{imgui\_impl\_dx12.h}}
+\doxysubsubsection{\texorpdfstring{ImGui\_ImplDX12\_Init()}{ImGui\_ImplDX12\_Init()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{imgui_8h_a665f6b404eea9a640b1222a87236fe19}{I\+M\+G\+U\+I\+\_\+\+I\+M\+P\+L\+\_\+\+A\+PI}} bool Im\+Gui\+\_\+\+Impl\+D\+X12\+\_\+\+Init (\begin{DoxyParamCaption}\item[{I\+D3\+D12\+Device $\ast$}]{device,  }\item[{int}]{num\+\_\+frames\+\_\+in\+\_\+flight,  }\item[{D\+X\+G\+I\+\_\+\+F\+O\+R\+M\+AT}]{rtv\+\_\+format,  }\item[{I\+D3\+D12\+Descriptor\+Heap $\ast$}]{cbv\+\_\+srv\+\_\+heap,  }\item[{D3\+D12\+\_\+\+C\+P\+U\+\_\+\+D\+E\+S\+C\+R\+I\+P\+T\+O\+R\+\_\+\+H\+A\+N\+D\+LE}]{font\+\_\+srv\+\_\+cpu\+\_\+desc\+\_\+handle,  }\item[{D3\+D12\+\_\+\+G\+P\+U\+\_\+\+D\+E\+S\+C\+R\+I\+P\+T\+O\+R\+\_\+\+H\+A\+N\+D\+LE}]{font\+\_\+srv\+\_\+gpu\+\_\+desc\+\_\+handle }\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=302pt]{imgui__impl__dx12_8h_a831f70faa815ecf20d19ef3ea0d31c9d_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=265pt]{imgui__impl__dx12_8h_a831f70faa815ecf20d19ef3ea0d31c9d_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{imgui__impl__dx12_8h_a02f397b136e8350977a2192c8ddbd9bd}\label{imgui__impl__dx12_8h_a02f397b136e8350977a2192c8ddbd9bd}} 
+\index{imgui\_impl\_dx12.h@{imgui\_impl\_dx12.h}!ImGui\_ImplDX12\_InvalidateDeviceObjects@{ImGui\_ImplDX12\_InvalidateDeviceObjects}}
+\index{ImGui\_ImplDX12\_InvalidateDeviceObjects@{ImGui\_ImplDX12\_InvalidateDeviceObjects}!imgui\_impl\_dx12.h@{imgui\_impl\_dx12.h}}
+\doxysubsubsection{\texorpdfstring{ImGui\_ImplDX12\_InvalidateDeviceObjects()}{ImGui\_ImplDX12\_InvalidateDeviceObjects()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{imgui_8h_a665f6b404eea9a640b1222a87236fe19}{I\+M\+G\+U\+I\+\_\+\+I\+M\+P\+L\+\_\+\+A\+PI}} \mbox{\hyperlink{glcorearb_8h_a950fc91edb4504f62f1c577bf4727c29}{void}} Im\+Gui\+\_\+\+Impl\+D\+X12\+\_\+\+Invalidate\+Device\+Objects (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{imgui__impl__dx12_8h_a02f397b136e8350977a2192c8ddbd9bd_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{imgui__impl__dx12_8h_a2a963ef6f8dfd23858e34f034416c618}\label{imgui__impl__dx12_8h_a2a963ef6f8dfd23858e34f034416c618}} 
+\index{imgui\_impl\_dx12.h@{imgui\_impl\_dx12.h}!ImGui\_ImplDX12\_NewFrame@{ImGui\_ImplDX12\_NewFrame}}
+\index{ImGui\_ImplDX12\_NewFrame@{ImGui\_ImplDX12\_NewFrame}!imgui\_impl\_dx12.h@{imgui\_impl\_dx12.h}}
+\doxysubsubsection{\texorpdfstring{ImGui\_ImplDX12\_NewFrame()}{ImGui\_ImplDX12\_NewFrame()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{imgui_8h_a665f6b404eea9a640b1222a87236fe19}{I\+M\+G\+U\+I\+\_\+\+I\+M\+P\+L\+\_\+\+A\+PI}} \mbox{\hyperlink{glcorearb_8h_a950fc91edb4504f62f1c577bf4727c29}{void}} Im\+Gui\+\_\+\+Impl\+D\+X12\+\_\+\+New\+Frame (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{imgui__impl__dx12_8h_a7e6a26cdbaaeeca9df86e8373c4a8547}\label{imgui__impl__dx12_8h_a7e6a26cdbaaeeca9df86e8373c4a8547}} 
+\index{imgui\_impl\_dx12.h@{imgui\_impl\_dx12.h}!ImGui\_ImplDX12\_RenderDrawData@{ImGui\_ImplDX12\_RenderDrawData}}
+\index{ImGui\_ImplDX12\_RenderDrawData@{ImGui\_ImplDX12\_RenderDrawData}!imgui\_impl\_dx12.h@{imgui\_impl\_dx12.h}}
+\doxysubsubsection{\texorpdfstring{ImGui\_ImplDX12\_RenderDrawData()}{ImGui\_ImplDX12\_RenderDrawData()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{imgui_8h_a665f6b404eea9a640b1222a87236fe19}{I\+M\+G\+U\+I\+\_\+\+I\+M\+P\+L\+\_\+\+A\+PI}} \mbox{\hyperlink{glcorearb_8h_a950fc91edb4504f62f1c577bf4727c29}{void}} Im\+Gui\+\_\+\+Impl\+D\+X12\+\_\+\+Render\+Draw\+Data (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_im_draw_data}{Im\+Draw\+Data}} $\ast$}]{draw\+\_\+data,  }\item[{I\+D3\+D12\+Graphics\+Command\+List $\ast$}]{graphics\+\_\+command\+\_\+list }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{imgui__impl__dx12_8h_a7aae7738912dbd5dea744193f8d27abc}\label{imgui__impl__dx12_8h_a7aae7738912dbd5dea744193f8d27abc}} 
+\index{imgui\_impl\_dx12.h@{imgui\_impl\_dx12.h}!ImGui\_ImplDX12\_Shutdown@{ImGui\_ImplDX12\_Shutdown}}
+\index{ImGui\_ImplDX12\_Shutdown@{ImGui\_ImplDX12\_Shutdown}!imgui\_impl\_dx12.h@{imgui\_impl\_dx12.h}}
+\doxysubsubsection{\texorpdfstring{ImGui\_ImplDX12\_Shutdown()}{ImGui\_ImplDX12\_Shutdown()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{imgui_8h_a665f6b404eea9a640b1222a87236fe19}{I\+M\+G\+U\+I\+\_\+\+I\+M\+P\+L\+\_\+\+A\+PI}} \mbox{\hyperlink{glcorearb_8h_a950fc91edb4504f62f1c577bf4727c29}{void}} Im\+Gui\+\_\+\+Impl\+D\+X12\+\_\+\+Shutdown (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{imgui__impl__dx12_8h_a7aae7738912dbd5dea744193f8d27abc_cgraph}
+\end{center}
+\end{figure}

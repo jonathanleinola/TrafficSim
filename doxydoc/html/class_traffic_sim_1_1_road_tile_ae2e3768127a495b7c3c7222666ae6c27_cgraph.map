@@ -1,0 +1,5 @@
+<map id="TrafficSim::RoadTile::RoadTile" name="TrafficSim::RoadTile::RoadTile">
+<area shape="rect" id="node1" title=" " alt="" coords="5,24,146,63"/>
+<area shape="rect" id="node2" href="$classsf_1_1_shape.html#a3506f9b5d916fec14d583d16f23c2485" title="Set the fill color of the shape." alt="" coords="221,5,373,31"/>
+<area shape="rect" id="node3" href="$classsf_1_1_shape.html#a5ad336ad74fc1f567fce3b7e44cf87dc" title="Set the thickness of the shape&#39;s outline." alt="" coords="194,55,400,80"/>
+</map>

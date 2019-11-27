@@ -1,0 +1,14 @@
+<map id="TrafficSim::Window::Window" name="TrafficSim::Window::Window">
+<area shape="rect" id="node1" title=" " alt="" coords="5,172,141,211"/>
+<area shape="rect" id="node2" href="$namespace_im_gui.html#a43cf349576e20fac4a1300269320ad8f" title=" " alt="" coords="239,5,352,31"/>
+<area shape="rect" id="node3" href="$namespace_im_gui_1_1_s_f_m_l.html#a71f35f8a0576879291dd0b13c62b4ea4" title=" " alt="" coords="233,55,358,80"/>
+<area shape="rect" id="node4" href="$namespace_im_gui_1_1_s_f_m_l.html#ae297b71107bcc2d10f567094e83c07fb" title=" " alt="" coords="220,104,371,129"/>
+<area shape="rect" id="node8" href="$classsf_1_1_render_target.html#aac7504990d27dada4bfe3c7866920765" title="Reset the internal OpenGL states so that the target is ready for drawing." alt="" coords="189,153,402,179"/>
+<area shape="rect" id="node9" href="$classsf_1_1_clock.html#a123e2627f2943e5ecaa1db0c7df3231b" title="Restart the clock." alt="" coords="236,203,354,228"/>
+<area shape="rect" id="node10" href="$classsf_1_1_window.html#a59041c4556e0351048f8aff366034f61" title="Enable or disable vertical synchronization." alt="" coords="203,252,388,291"/>
+<area shape="rect" id="node11" href="$classsf_1_1_render_target.html#a063db6dd0a14913504af30e50cb6d946" title="Change the current active view." alt="" coords="208,315,382,340"/>
+<area shape="rect" id="node12" href="$namespace_im_gui_1_1_s_f_m_l.html#a92d53e47eaec3b55728ad29912ad6a6f" title=" " alt="" coords="220,364,370,389"/>
+<area shape="rect" id="node5" href="$namespace_im_gui.html#ab73131dc44b1267dac04f0c2bb0af983" title=" " alt="" coords="606,80,751,105"/>
+<area shape="rect" id="node6" href="$namespace_im_gui.html#ab51a164f547317c16c441f1599e3946d" title=" " alt="" coords="450,141,558,167"/>
+<area shape="rect" id="node7" href="$namespace_im_gui.html#a246c37da45e88a12ade440a0feacb4ee" title=" " alt="" coords="615,141,741,167"/>
+</map>

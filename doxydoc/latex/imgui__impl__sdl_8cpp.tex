@@ -1,0 +1,146 @@
+\hypertarget{imgui__impl__sdl_8cpp}{}\doxysection{deps/imgui/examples/imgui\+\_\+impl\+\_\+sdl.cpp File Reference}
+\label{imgui__impl__sdl_8cpp}\index{deps/imgui/examples/imgui\_impl\_sdl.cpp@{deps/imgui/examples/imgui\_impl\_sdl.cpp}}
+{\ttfamily \#include \char`\"{}imgui.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}imgui\+\_\+impl\+\_\+sdl.\+h\char`\"{}}\newline
+{\ttfamily \#include $<$S\+D\+L.\+h$>$}\newline
+{\ttfamily \#include $<$S\+D\+L\+\_\+syswm.\+h$>$}\newline
+Include dependency graph for imgui\+\_\+impl\+\_\+sdl.\+cpp\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{imgui__impl__sdl_8cpp__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{imgui__impl__sdl_8cpp_a313b5bc58c0de4eb53710ddc720e094d}{S\+D\+L\+\_\+\+H\+A\+S\+\_\+\+C\+A\+P\+T\+U\+R\+E\+\_\+\+A\+N\+D\+\_\+\+G\+L\+O\+B\+A\+L\+\_\+\+M\+O\+U\+SE}}~S\+D\+L\+\_\+\+V\+E\+R\+S\+I\+O\+N\+\_\+\+A\+T\+L\+E\+A\+ST(2,0,4)
+\item 
+\#define \mbox{\hyperlink{imgui__impl__sdl_8cpp_aea2eeaab96a591241a01aa9cda35be47}{S\+D\+L\+\_\+\+H\+A\+S\+\_\+\+V\+U\+L\+K\+AN}}~S\+D\+L\+\_\+\+V\+E\+R\+S\+I\+O\+N\+\_\+\+A\+T\+L\+E\+A\+ST(2,0,6)
+\item 
+\#define \mbox{\hyperlink{imgui__impl__sdl_8cpp_a0720760ecc7d8768f926a5b2ba4af07d}{M\+A\+P\+\_\+\+B\+U\+T\+T\+ON}}(N\+A\+V\+\_\+\+NO,  B\+U\+T\+T\+O\+N\+\_\+\+NO)~\{ io.\+Nav\+Inputs\mbox{[}N\+A\+V\+\_\+\+NO\mbox{]} = (S\+D\+L\+\_\+\+Game\+Controller\+Get\+Button(game\+\_\+controller, B\+U\+T\+T\+O\+N\+\_\+\+NO) != 0) ? 1.\+0f \+: 0.\+0f; \}
+\item 
+\#define \mbox{\hyperlink{imgui__impl__sdl_8cpp_ad181101ed89f4155bbc97eccffea135b}{M\+A\+P\+\_\+\+A\+N\+A\+L\+OG}}(N\+A\+V\+\_\+\+NO,  A\+X\+I\+S\+\_\+\+NO,  V0,  V1)~\{ float vn = (float)(S\+D\+L\+\_\+\+Game\+Controller\+Get\+Axis(game\+\_\+controller, A\+X\+I\+S\+\_\+\+NO) -\/ V0) / (float)(V1 -\/ V0); if (vn $>$ 1.\+0f) vn = 1.\+0f; if (vn $>$ 0.\+0f \&\& io.\+Nav\+Inputs\mbox{[}N\+A\+V\+\_\+\+NO\mbox{]} $<$ vn) io.\+Nav\+Inputs\mbox{[}N\+A\+V\+\_\+\+NO\mbox{]} = vn; \}
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+bool \mbox{\hyperlink{imgui__impl__sdl_8cpp_af02f4ad765d4f65b334eb14a4065f8eb}{Im\+Gui\+\_\+\+Impl\+S\+D\+L2\+\_\+\+Process\+Event}} (const \mbox{\hyperlink{imgui__impl__sdl_8h_a33fcc6aa445cb781bfca881e39e5333e}{S\+D\+L\+\_\+\+Event}} $\ast$\mbox{\hyperlink{glcorearb_8h_a03b04a5a978bad576866339075de01f6}{event}})
+\item 
+bool \mbox{\hyperlink{imgui__impl__sdl_8cpp_a64942ba4101d9d607f601a381ce40d95}{Im\+Gui\+\_\+\+Impl\+S\+D\+L2\+\_\+\+Init\+For\+Open\+GL}} (S\+D\+L\+\_\+\+Window $\ast$window, \mbox{\hyperlink{glcorearb_8h_a950fc91edb4504f62f1c577bf4727c29}{void}} $\ast$sdl\+\_\+gl\+\_\+context)
+\item 
+bool \mbox{\hyperlink{imgui__impl__sdl_8cpp_a37fa767ee8df754bd923b1d1e4de55a7}{Im\+Gui\+\_\+\+Impl\+S\+D\+L2\+\_\+\+Init\+For\+Vulkan}} (S\+D\+L\+\_\+\+Window $\ast$window)
+\item 
+bool \mbox{\hyperlink{imgui__impl__sdl_8cpp_ae7d148dd2c382c50e59d125907530838}{Im\+Gui\+\_\+\+Impl\+S\+D\+L2\+\_\+\+Init\+For\+D3D}} (S\+D\+L\+\_\+\+Window $\ast$window)
+\item 
+\mbox{\hyperlink{glcorearb_8h_a950fc91edb4504f62f1c577bf4727c29}{void}} \mbox{\hyperlink{imgui__impl__sdl_8cpp_af32b62f3df7cef2d1b3a88b8fb96d811}{Im\+Gui\+\_\+\+Impl\+S\+D\+L2\+\_\+\+Shutdown}} ()
+\item 
+\mbox{\hyperlink{glcorearb_8h_a950fc91edb4504f62f1c577bf4727c29}{void}} \mbox{\hyperlink{imgui__impl__sdl_8cpp_ad748d6c7359a64a6df2fdd2c92618323}{Im\+Gui\+\_\+\+Impl\+S\+D\+L2\+\_\+\+New\+Frame}} (S\+D\+L\+\_\+\+Window $\ast$window)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Macro Definition Documentation}
+\mbox{\Hypertarget{imgui__impl__sdl_8cpp_ad181101ed89f4155bbc97eccffea135b}\label{imgui__impl__sdl_8cpp_ad181101ed89f4155bbc97eccffea135b}} 
+\index{imgui\_impl\_sdl.cpp@{imgui\_impl\_sdl.cpp}!MAP\_ANALOG@{MAP\_ANALOG}}
+\index{MAP\_ANALOG@{MAP\_ANALOG}!imgui\_impl\_sdl.cpp@{imgui\_impl\_sdl.cpp}}
+\doxysubsubsection{\texorpdfstring{MAP\_ANALOG}{MAP\_ANALOG}}
+{\footnotesize\ttfamily \#define M\+A\+P\+\_\+\+A\+N\+A\+L\+OG(\begin{DoxyParamCaption}\item[{}]{N\+A\+V\+\_\+\+NO,  }\item[{}]{A\+X\+I\+S\+\_\+\+NO,  }\item[{}]{V0,  }\item[{}]{V1 }\end{DoxyParamCaption})~\{ float vn = (float)(S\+D\+L\+\_\+\+Game\+Controller\+Get\+Axis(game\+\_\+controller, A\+X\+I\+S\+\_\+\+NO) -\/ V0) / (float)(V1 -\/ V0); if (vn $>$ 1.\+0f) vn = 1.\+0f; if (vn $>$ 0.\+0f \&\& io.\+Nav\+Inputs\mbox{[}N\+A\+V\+\_\+\+NO\mbox{]} $<$ vn) io.\+Nav\+Inputs\mbox{[}N\+A\+V\+\_\+\+NO\mbox{]} = vn; \}}
+
+\mbox{\Hypertarget{imgui__impl__sdl_8cpp_a0720760ecc7d8768f926a5b2ba4af07d}\label{imgui__impl__sdl_8cpp_a0720760ecc7d8768f926a5b2ba4af07d}} 
+\index{imgui\_impl\_sdl.cpp@{imgui\_impl\_sdl.cpp}!MAP\_BUTTON@{MAP\_BUTTON}}
+\index{MAP\_BUTTON@{MAP\_BUTTON}!imgui\_impl\_sdl.cpp@{imgui\_impl\_sdl.cpp}}
+\doxysubsubsection{\texorpdfstring{MAP\_BUTTON}{MAP\_BUTTON}}
+{\footnotesize\ttfamily \#define M\+A\+P\+\_\+\+B\+U\+T\+T\+ON(\begin{DoxyParamCaption}\item[{}]{N\+A\+V\+\_\+\+NO,  }\item[{}]{B\+U\+T\+T\+O\+N\+\_\+\+NO }\end{DoxyParamCaption})~\{ io.\+Nav\+Inputs\mbox{[}N\+A\+V\+\_\+\+NO\mbox{]} = (S\+D\+L\+\_\+\+Game\+Controller\+Get\+Button(game\+\_\+controller, B\+U\+T\+T\+O\+N\+\_\+\+NO) != 0) ? 1.\+0f \+: 0.\+0f; \}}
+
+\mbox{\Hypertarget{imgui__impl__sdl_8cpp_a313b5bc58c0de4eb53710ddc720e094d}\label{imgui__impl__sdl_8cpp_a313b5bc58c0de4eb53710ddc720e094d}} 
+\index{imgui\_impl\_sdl.cpp@{imgui\_impl\_sdl.cpp}!SDL\_HAS\_CAPTURE\_AND\_GLOBAL\_MOUSE@{SDL\_HAS\_CAPTURE\_AND\_GLOBAL\_MOUSE}}
+\index{SDL\_HAS\_CAPTURE\_AND\_GLOBAL\_MOUSE@{SDL\_HAS\_CAPTURE\_AND\_GLOBAL\_MOUSE}!imgui\_impl\_sdl.cpp@{imgui\_impl\_sdl.cpp}}
+\doxysubsubsection{\texorpdfstring{SDL\_HAS\_CAPTURE\_AND\_GLOBAL\_MOUSE}{SDL\_HAS\_CAPTURE\_AND\_GLOBAL\_MOUSE}}
+{\footnotesize\ttfamily \#define S\+D\+L\+\_\+\+H\+A\+S\+\_\+\+C\+A\+P\+T\+U\+R\+E\+\_\+\+A\+N\+D\+\_\+\+G\+L\+O\+B\+A\+L\+\_\+\+M\+O\+U\+SE~S\+D\+L\+\_\+\+V\+E\+R\+S\+I\+O\+N\+\_\+\+A\+T\+L\+E\+A\+ST(2,0,4)}
+
+\mbox{\Hypertarget{imgui__impl__sdl_8cpp_aea2eeaab96a591241a01aa9cda35be47}\label{imgui__impl__sdl_8cpp_aea2eeaab96a591241a01aa9cda35be47}} 
+\index{imgui\_impl\_sdl.cpp@{imgui\_impl\_sdl.cpp}!SDL\_HAS\_VULKAN@{SDL\_HAS\_VULKAN}}
+\index{SDL\_HAS\_VULKAN@{SDL\_HAS\_VULKAN}!imgui\_impl\_sdl.cpp@{imgui\_impl\_sdl.cpp}}
+\doxysubsubsection{\texorpdfstring{SDL\_HAS\_VULKAN}{SDL\_HAS\_VULKAN}}
+{\footnotesize\ttfamily \#define S\+D\+L\+\_\+\+H\+A\+S\+\_\+\+V\+U\+L\+K\+AN~S\+D\+L\+\_\+\+V\+E\+R\+S\+I\+O\+N\+\_\+\+A\+T\+L\+E\+A\+ST(2,0,6)}
+
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{imgui__impl__sdl_8cpp_ae7d148dd2c382c50e59d125907530838}\label{imgui__impl__sdl_8cpp_ae7d148dd2c382c50e59d125907530838}} 
+\index{imgui\_impl\_sdl.cpp@{imgui\_impl\_sdl.cpp}!ImGui\_ImplSDL2\_InitForD3D@{ImGui\_ImplSDL2\_InitForD3D}}
+\index{ImGui\_ImplSDL2\_InitForD3D@{ImGui\_ImplSDL2\_InitForD3D}!imgui\_impl\_sdl.cpp@{imgui\_impl\_sdl.cpp}}
+\doxysubsubsection{\texorpdfstring{ImGui\_ImplSDL2\_InitForD3D()}{ImGui\_ImplSDL2\_InitForD3D()}}
+{\footnotesize\ttfamily bool Im\+Gui\+\_\+\+Impl\+S\+D\+L2\+\_\+\+Init\+For\+D3D (\begin{DoxyParamCaption}\item[{S\+D\+L\+\_\+\+Window $\ast$}]{window }\end{DoxyParamCaption})}
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=300pt]{imgui__impl__sdl_8cpp_ae7d148dd2c382c50e59d125907530838_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{imgui__impl__sdl_8cpp_a64942ba4101d9d607f601a381ce40d95}\label{imgui__impl__sdl_8cpp_a64942ba4101d9d607f601a381ce40d95}} 
+\index{imgui\_impl\_sdl.cpp@{imgui\_impl\_sdl.cpp}!ImGui\_ImplSDL2\_InitForOpenGL@{ImGui\_ImplSDL2\_InitForOpenGL}}
+\index{ImGui\_ImplSDL2\_InitForOpenGL@{ImGui\_ImplSDL2\_InitForOpenGL}!imgui\_impl\_sdl.cpp@{imgui\_impl\_sdl.cpp}}
+\doxysubsubsection{\texorpdfstring{ImGui\_ImplSDL2\_InitForOpenGL()}{ImGui\_ImplSDL2\_InitForOpenGL()}}
+{\footnotesize\ttfamily bool Im\+Gui\+\_\+\+Impl\+S\+D\+L2\+\_\+\+Init\+For\+Open\+GL (\begin{DoxyParamCaption}\item[{S\+D\+L\+\_\+\+Window $\ast$}]{window,  }\item[{\mbox{\hyperlink{glcorearb_8h_a950fc91edb4504f62f1c577bf4727c29}{void}} $\ast$}]{sdl\+\_\+gl\+\_\+context }\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=314pt]{imgui__impl__sdl_8cpp_a64942ba4101d9d607f601a381ce40d95_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=318pt]{imgui__impl__sdl_8cpp_a64942ba4101d9d607f601a381ce40d95_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{imgui__impl__sdl_8cpp_a37fa767ee8df754bd923b1d1e4de55a7}\label{imgui__impl__sdl_8cpp_a37fa767ee8df754bd923b1d1e4de55a7}} 
+\index{imgui\_impl\_sdl.cpp@{imgui\_impl\_sdl.cpp}!ImGui\_ImplSDL2\_InitForVulkan@{ImGui\_ImplSDL2\_InitForVulkan}}
+\index{ImGui\_ImplSDL2\_InitForVulkan@{ImGui\_ImplSDL2\_InitForVulkan}!imgui\_impl\_sdl.cpp@{imgui\_impl\_sdl.cpp}}
+\doxysubsubsection{\texorpdfstring{ImGui\_ImplSDL2\_InitForVulkan()}{ImGui\_ImplSDL2\_InitForVulkan()}}
+{\footnotesize\ttfamily bool Im\+Gui\+\_\+\+Impl\+S\+D\+L2\+\_\+\+Init\+For\+Vulkan (\begin{DoxyParamCaption}\item[{S\+D\+L\+\_\+\+Window $\ast$}]{window }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{imgui__impl__sdl_8cpp_ad748d6c7359a64a6df2fdd2c92618323}\label{imgui__impl__sdl_8cpp_ad748d6c7359a64a6df2fdd2c92618323}} 
+\index{imgui\_impl\_sdl.cpp@{imgui\_impl\_sdl.cpp}!ImGui\_ImplSDL2\_NewFrame@{ImGui\_ImplSDL2\_NewFrame}}
+\index{ImGui\_ImplSDL2\_NewFrame@{ImGui\_ImplSDL2\_NewFrame}!imgui\_impl\_sdl.cpp@{imgui\_impl\_sdl.cpp}}
+\doxysubsubsection{\texorpdfstring{ImGui\_ImplSDL2\_NewFrame()}{ImGui\_ImplSDL2\_NewFrame()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{glcorearb_8h_a950fc91edb4504f62f1c577bf4727c29}{void}} Im\+Gui\+\_\+\+Impl\+S\+D\+L2\+\_\+\+New\+Frame (\begin{DoxyParamCaption}\item[{S\+D\+L\+\_\+\+Window $\ast$}]{window }\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{imgui__impl__sdl_8cpp_ad748d6c7359a64a6df2fdd2c92618323_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{imgui__impl__sdl_8cpp_af02f4ad765d4f65b334eb14a4065f8eb}\label{imgui__impl__sdl_8cpp_af02f4ad765d4f65b334eb14a4065f8eb}} 
+\index{imgui\_impl\_sdl.cpp@{imgui\_impl\_sdl.cpp}!ImGui\_ImplSDL2\_ProcessEvent@{ImGui\_ImplSDL2\_ProcessEvent}}
+\index{ImGui\_ImplSDL2\_ProcessEvent@{ImGui\_ImplSDL2\_ProcessEvent}!imgui\_impl\_sdl.cpp@{imgui\_impl\_sdl.cpp}}
+\doxysubsubsection{\texorpdfstring{ImGui\_ImplSDL2\_ProcessEvent()}{ImGui\_ImplSDL2\_ProcessEvent()}}
+{\footnotesize\ttfamily bool Im\+Gui\+\_\+\+Impl\+S\+D\+L2\+\_\+\+Process\+Event (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{imgui__impl__sdl_8h_a33fcc6aa445cb781bfca881e39e5333e}{S\+D\+L\+\_\+\+Event}} $\ast$}]{event }\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{imgui__impl__sdl_8cpp_af02f4ad765d4f65b334eb14a4065f8eb_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{imgui__impl__sdl_8cpp_af32b62f3df7cef2d1b3a88b8fb96d811}\label{imgui__impl__sdl_8cpp_af32b62f3df7cef2d1b3a88b8fb96d811}} 
+\index{imgui\_impl\_sdl.cpp@{imgui\_impl\_sdl.cpp}!ImGui\_ImplSDL2\_Shutdown@{ImGui\_ImplSDL2\_Shutdown}}
+\index{ImGui\_ImplSDL2\_Shutdown@{ImGui\_ImplSDL2\_Shutdown}!imgui\_impl\_sdl.cpp@{imgui\_impl\_sdl.cpp}}
+\doxysubsubsection{\texorpdfstring{ImGui\_ImplSDL2\_Shutdown()}{ImGui\_ImplSDL2\_Shutdown()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{glcorearb_8h_a950fc91edb4504f62f1c577bf4727c29}{void}} Im\+Gui\+\_\+\+Impl\+S\+D\+L2\+\_\+\+Shutdown (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+

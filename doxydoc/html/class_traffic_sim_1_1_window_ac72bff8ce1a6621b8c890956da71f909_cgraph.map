@@ -1,0 +1,4 @@
+<map id="TrafficSim::Window::convert" name="TrafficSim::Window::convert">
+<area shape="rect" id="node1" title=" " alt="" coords="5,5,141,44"/>
+<area shape="rect" id="node2" href="$classsf_1_1_render_target.html#a0103ebebafa43a97e6e6414f8560d5e3" title="Convert a point from target coordinates to world coordinates, using the current view." alt="" coords="189,5,371,44"/>
+</map>

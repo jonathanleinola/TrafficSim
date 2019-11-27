@@ -1,0 +1,6 @@
+<map id="TrafficSim::Grid::init" name="TrafficSim::Grid::init">
+<area shape="rect" id="node1" title=" " alt="" coords="420,40,558,65"/>
+<area shape="rect" id="node2" href="$class_traffic_sim_1_1_map_builder.html#a0cd6025f8d369ad8df6ffaddc6126471" title=" " alt="" coords="216,5,372,44"/>
+<area shape="rect" id="node4" href="$class_traffic_sim_1_1_grid.html#a88fc32b93521a359305101f73d56e17b" title=" " alt="" coords="221,68,367,93"/>
+<area shape="rect" id="node3" href="$class_traffic_sim_1_1_data_handler.html#a8a6f0618ef1e41e9da49976b53521dd1" title=" " alt="" coords="5,5,168,44"/>
+</map>

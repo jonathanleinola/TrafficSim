@@ -1,0 +1,12 @@
+<map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
+<area shape="rect" id="node1" href="$class_m_t_k_view_delegate-p.html" title=" " alt="" coords="19,5,166,31"/>
+<area shape="rect" id="node2" href="$interface_renderer.html" title=" " alt="" coords="282,5,359,31"/>
+<area shape="rect" id="node3" href="$class_n_s_application_delegate-p.html" title=" " alt="" coords="5,67,179,92"/>
+<area shape="rect" id="node4" href="$interface_app_delegate.html" title=" " alt="" coords="271,55,370,80"/>
+<area shape="rect" id="node5" href="$interface_im_gui_example_app_delegate.html" title=" " alt="" coords="227,104,413,129"/>
+<area shape="rect" id="node6" href="$class_n_s_copying-p.html" title=" " alt="" coords="40,252,145,277"/>
+<area shape="rect" id="node7" href="$interface_framebuffer_descriptor.html" title=" " alt="" coords="243,252,398,277"/>
+<area shape="rect" id="node8" href="$class_n_s_object.html" title=" " alt="" coords="53,140,132,165"/>
+<area shape="rect" id="node9" href="$interface_metal_buffer.html" title=" " alt="" coords="276,153,365,179"/>
+<area shape="rect" id="node10" href="$interface_metal_context.html" title=" " alt="" coords="270,203,370,228"/>
+</map>

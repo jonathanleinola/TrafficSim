@@ -1,0 +1,5 @@
+<map id="sf::RenderTexture" name="sf::RenderTexture">
+<area shape="rect" id="node1" title="Target for off&#45;screen 2D rendering into a texture." alt="" coords="5,421,223,668"/>
+<area shape="rect" id="node2" href="$classsf_1_1_render_target.html" title="Base class for all render targets (window, texture, ...)" alt="" coords="38,140,191,373"/>
+<area shape="rect" id="node3" href="$classsf_1_1_non_copyable.html" title="Utility class that makes any derived class non&#45;copyable." alt="" coords="49,5,179,92"/>
+</map>

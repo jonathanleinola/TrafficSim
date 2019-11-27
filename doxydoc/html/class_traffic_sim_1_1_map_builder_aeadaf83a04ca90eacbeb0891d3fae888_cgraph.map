@@ -1,0 +1,8 @@
+<map id="TrafficSim::MapBuilder::addTrafficLight" name="TrafficSim::MapBuilder::addTrafficLight">
+<area shape="rect" id="node1" title=" " alt="" coords="5,117,161,156"/>
+<area shape="rect" id="node2" href="$class_traffic_sim_1_1_map.html#a1499537813dd43ea6850fdbd97b2dffb" title=" " alt="" coords="215,5,388,31"/>
+<area shape="rect" id="node3" href="$class_traffic_sim_1_1_road_tile.html#aa2eb211ed62c4a110a2c9c1c28dda790" title=" " alt="" coords="231,55,372,93"/>
+<area shape="rect" id="node4" href="$class_traffic_sim_1_1_map.html#a895e5011092a79db0eb061de7dc46609" title=" " alt="" coords="209,117,394,156"/>
+<area shape="rect" id="node5" href="$class_traffic_sim_1_1_road_tile.html#a569bc7e4366c2daaa806fe2467065d51" title=" " alt="" coords="231,180,372,219"/>
+<area shape="rect" id="node6" href="$class_traffic_sim_1_1_grid.html#a88f381817f866b60d9f8d7b6ee6d4f3d" title=" " alt="" coords="221,243,382,268"/>
+</map>

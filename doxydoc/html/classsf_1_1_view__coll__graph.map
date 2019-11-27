@@ -1,0 +1,3 @@
+<map id="sf::View" name="sf::View">
+<area shape="rect" id="node1" title="2D camera that defines what region is shown on screen" alt="" coords="5,5,116,212"/>
+</map>

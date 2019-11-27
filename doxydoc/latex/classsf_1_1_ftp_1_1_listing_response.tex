@@ -1,0 +1,85 @@
+\hypertarget{classsf_1_1_ftp_1_1_listing_response}{}\doxysection{sf\+::Ftp\+::Listing\+Response Class Reference}
+\label{classsf_1_1_ftp_1_1_listing_response}\index{sf::Ftp::ListingResponse@{sf::Ftp::ListingResponse}}
+
+
+Specialization of F\+TP response returning a filename listing.  
+
+
+
+
+{\ttfamily \#include $<$Ftp.\+hpp$>$}
+
+
+
+Inheritance diagram for sf\+::Ftp\+::Listing\+Response\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=203pt]{classsf_1_1_ftp_1_1_listing_response__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for sf\+::Ftp\+::Listing\+Response\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=203pt]{classsf_1_1_ftp_1_1_listing_response__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classsf_1_1_ftp_1_1_listing_response_a7e98d0aed70105c71adb52e5b6ce0bb8}{Listing\+Response}} (const \mbox{\hyperlink{classsf_1_1_ftp_1_1_response}{Response}} \&response, const \mbox{\hyperlink{glcorearb_8h_a017088c90211fe05aa35db60cf7b05e3}{std\+::string}} \&\mbox{\hyperlink{glcorearb_8h_a88af890e5088b402709b94ff5be38aee}{data}})
+\begin{DoxyCompactList}\small\item\em Default constructor. \end{DoxyCompactList}\item 
+const std\+::vector$<$ \mbox{\hyperlink{glcorearb_8h_a017088c90211fe05aa35db60cf7b05e3}{std\+::string}} $>$ \& \mbox{\hyperlink{classsf_1_1_ftp_1_1_listing_response_a6cdcdfcc6a9008c7e1eddb48b164793d}{get\+Listing}} () const
+\begin{DoxyCompactList}\small\item\em Return the array of directory/file names. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+
+
+\doxysubsection{Detailed Description}
+Specialization of F\+TP response returning a filename listing. 
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classsf_1_1_ftp_1_1_listing_response_a7e98d0aed70105c71adb52e5b6ce0bb8}\label{classsf_1_1_ftp_1_1_listing_response_a7e98d0aed70105c71adb52e5b6ce0bb8}} 
+\index{sf::Ftp::ListingResponse@{sf::Ftp::ListingResponse}!ListingResponse@{ListingResponse}}
+\index{ListingResponse@{ListingResponse}!sf::Ftp::ListingResponse@{sf::Ftp::ListingResponse}}
+\doxysubsubsection{\texorpdfstring{ListingResponse()}{ListingResponse()}}
+{\footnotesize\ttfamily sf\+::\+Ftp\+::\+Listing\+Response\+::\+Listing\+Response (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classsf_1_1_ftp_1_1_response}{Response}} \&}]{response,  }\item[{const \mbox{\hyperlink{glcorearb_8h_a017088c90211fe05aa35db60cf7b05e3}{std\+::string}} \&}]{data }\end{DoxyParamCaption})}
+
+
+
+Default constructor. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em response} & Source response \\
+\hline
+{\em data} & Data containing the raw listing \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classsf_1_1_ftp_1_1_listing_response_a6cdcdfcc6a9008c7e1eddb48b164793d}\label{classsf_1_1_ftp_1_1_listing_response_a6cdcdfcc6a9008c7e1eddb48b164793d}} 
+\index{sf::Ftp::ListingResponse@{sf::Ftp::ListingResponse}!getListing@{getListing}}
+\index{getListing@{getListing}!sf::Ftp::ListingResponse@{sf::Ftp::ListingResponse}}
+\doxysubsubsection{\texorpdfstring{getListing()}{getListing()}}
+{\footnotesize\ttfamily const std\+::vector$<$\mbox{\hyperlink{glcorearb_8h_a017088c90211fe05aa35db60cf7b05e3}{std\+::string}}$>$\& sf\+::\+Ftp\+::\+Listing\+Response\+::get\+Listing (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Return the array of directory/file names. 
+
+\begin{DoxyReturn}{Returns}
+Array containing the requested listing 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+deps/\+S\+F\+M\+L/include/\+S\+F\+M\+L/\+Network/\mbox{\hyperlink{_ftp_8hpp}{Ftp.\+hpp}}\end{DoxyCompactItemize}

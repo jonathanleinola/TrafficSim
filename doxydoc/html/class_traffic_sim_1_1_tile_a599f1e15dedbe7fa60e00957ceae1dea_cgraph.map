@@ -1,0 +1,5 @@
+<map id="TrafficSim::Tile::unSelectTile" name="TrafficSim::Tile::unSelectTile">
+<area shape="rect" id="node1" title=" " alt="" coords="5,31,195,56"/>
+<area shape="rect" id="node2" href="$classsf_1_1_shape.html#ae3030128824e687f259d18addcf33528" title="Get the fill color of the shape." alt="" coords="243,5,395,31"/>
+<area shape="rect" id="node3" href="$classsf_1_1_shape.html#a3506f9b5d916fec14d583d16f23c2485" title="Set the fill color of the shape." alt="" coords="243,55,395,80"/>
+</map>

@@ -1,0 +1,12 @@
+<map id="TrafficSim::Application::Application" name="TrafficSim::Application::Application">
+<area shape="rect" id="node1" title=" " alt="" coords="5,212,159,251"/>
+<area shape="rect" id="node2" href="$class_traffic_sim_1_1_car.html#a725d019e7fb5109ea23db23e722e3cf8" title=" " alt="" coords="209,5,394,31"/>
+<area shape="rect" id="node3" href="$class_traffic_sim_1_1_data_handler.html#a86dd267c136c7ed166aedbe71a7ef3b9" title=" " alt="" coords="220,55,383,93"/>
+<area shape="rect" id="node4" href="$class_traffic_sim_1_1_data_handler.html#ab4975db0b9bb3fe4075be72f0efb1bf8" title=" " alt="" coords="220,117,383,156"/>
+<area shape="rect" id="node6" href="$class_traffic_sim_1_1_straight_road.html#a16a425dddf061763c29b634a1cb347a7" title=" " alt="" coords="218,180,384,219"/>
+<area shape="rect" id="node7" href="$class_traffic_sim_1_1_road_intersection.html#a7352e6557f7c0eb4be14c181866e2750" title=" " alt="" coords="207,243,396,281"/>
+<area shape="rect" id="node8" href="$class_traffic_sim_1_1_road_turn.html#a269db3b6b4f30281b7ba48861658a287" title=" " alt="" coords="228,305,375,344"/>
+<area shape="rect" id="node9" href="$class_traffic_sim_1_1_road_junction.html#a5405ca649c32c24bc8e9bc4f43611874" title=" " alt="" coords="216,368,386,407"/>
+<area shape="rect" id="node10" href="$class_traffic_sim_1_1_road_trisection.html#ac30a3853f8848f9c43b1816e1ed7c469" title=" " alt="" coords="213,431,390,469"/>
+<area shape="rect" id="node5" href="$class_traffic_sim_1_1_data_handler.html#a15c34346c29dc929afdbc46c5afcc58f" title=" " alt="" coords="444,117,607,156"/>
+</map>

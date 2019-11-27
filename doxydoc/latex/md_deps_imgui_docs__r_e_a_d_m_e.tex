@@ -1,0 +1,207 @@
+\href{https://github.com/ocornut/imgui/actions?workflow=build}{\texttt{ }} \href{https://scan.coverity.com/projects/4720}{\texttt{ }}
+
+\textsubscript{(This library is available under a free and permissive license, but needs financial support to sustain its continued improvements. In addition to maintenance and stability there are many desirable features yet to be added. If your company is using dear imgui, please consider reaching out. If you are an individual using dear imgui, please consider supporting the project via Patreon or Pay\+Pal.)}
+
+Businesses\+: support continued development via invoiced technical support, maintenance, sponsoring contracts\+: ~\newline
+~~{\itshape E-\/mail\+: contact @ dearimgui dot org}
+
+Individuals/hobbyists\+: support continued maintenance and development via the monthly Patreon\+: ~\newline
+~~\href{http://www.patreon.com/imgui}{\texttt{ }}
+
+Individuals/hobbyists\+: support continued maintenance and development via Pay\+Pal\+: ~\newline
+~~\href{https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=WGHNC6MBFLZ2S}{\texttt{ }}
+
+\DoxyHorRuler
+
+
+Dear \mbox{\hyperlink{namespace_im_gui}{Im\+Gui}} is a {\bfseries{bloat-\/free graphical user interface library for C++}}. It outputs optimized vertex buffers that you can render anytime in your 3D-\/pipeline enabled application. It is fast, portable, renderer agnostic and self-\/contained (no external dependencies).
+
+Dear \mbox{\hyperlink{namespace_im_gui}{Im\+Gui}} is designed to {\bfseries{enable fast iterations}} and to {\bfseries{empower programmers}} to create {\bfseries{content creation tools and visualization / debug tools}} (as opposed to UI for the average end-\/user). It favors simplicity and productivity toward this goal, and lacks certain features normally found in more high-\/level libraries.
+
+Dear \mbox{\hyperlink{namespace_im_gui}{Im\+Gui}} is particularly suited to integration in games engine (for tooling), real-\/time 3D applications, fullscreen applications, embedded applications, or any applications on consoles platforms where operating system features are non-\/standard.
+
+$\vert$ \href{\#usage}{\texttt{ Usage}} -\/ \href{\#how-it-works}{\texttt{ How it works}} -\/ \href{\#demo}{\texttt{ Demo}} -\/ \href{\#integration}{\texttt{ Integration}} $\vert$ \+:-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/---\+: $\vert$ $\vert$ \href{\#upcoming-changes}{\texttt{ Upcoming changes}} -\/ \href{\#gallery}{\texttt{ Gallery}} -\/ \href{\#support-frequently-asked-questions-faq}{\texttt{ Support, F\+AQ}} -\/ \href{\#how-to-help}{\texttt{ How to help}} -\/ \href{\#sponsors}{\texttt{ Sponsors}} -\/ \href{\#credits}{\texttt{ Credits}} -\/ \href{\#license}{\texttt{ License}} $\vert$ $\vert$ \href{https://github.com/ocornut/imgui/wiki}{\texttt{ Wiki}} -\/ \href{https://github.com/ocornut/imgui/wiki/Bindings}{\texttt{ Language \& frameworks bindings}} -\/ \href{https://github.com/ocornut/imgui/wiki/Software-using-dear-imgui}{\texttt{ Software using Dear Im\+Gui}} -\/ \href{https://github.com/ocornut/imgui/wiki/Quotes}{\texttt{ User quotes}} $\vert$\hypertarget{md_deps_imgui_docs__r_e_a_d_m_e_autotoc_md48}{}\doxysubsection{Usage}\label{md_deps_imgui_docs__r_e_a_d_m_e_autotoc_md48}
+{\bfseries{The core of Dear \mbox{\hyperlink{namespace_im_gui}{Im\+Gui}} is self-\/contained within a few platform-\/agnostic files}} which you can easily copy and compile into your application/engine. They are all the files in the root folder of the repository (\mbox{\hyperlink{imgui_8cpp}{imgui.\+cpp}}, imgui.\+h, \mbox{\hyperlink{imgui__demo_8cpp}{imgui\+\_\+demo.\+cpp}}, \mbox{\hyperlink{imgui__draw_8cpp}{imgui\+\_\+draw.\+cpp}} etc.).
+
+{\bfseries{No specific build process is required}}. You can add the .cpp files to your existing project.
+
+You will need a backend to integrate Dear \mbox{\hyperlink{namespace_im_gui}{Im\+Gui}} in your app. The backend passes mouse/keyboard/gamepad inputs and variety of settings to Dear \mbox{\hyperlink{namespace_im_gui}{Im\+Gui}}, and is in charge of rendering the resulting vertices.
+
+{\bfseries{Backends for a variety of graphics api and rendering platforms}} are provided in the \href{https://github.com/ocornut/imgui/tree/master/examples}{\texttt{ examples/}} folder, along with example applications. See the \href{\#integration}{\texttt{ Integration}} section of this document for details. You may also create your own backend. Anywhere where you can render textured triangles, you can render Dear \mbox{\hyperlink{namespace_im_gui}{Im\+Gui}}.
+
+After Dear \mbox{\hyperlink{namespace_im_gui}{Im\+Gui}} is setup in your application, you can use it from \+\_\+anywhere\+\_\+ in your program loop\+:
+
+Code\+: 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{ImGui::Text("Hello, world \%d", 123);}
+\DoxyCodeLine{if (ImGui::Button("Save"))}
+\DoxyCodeLine{    MySaveFunction();}
+\DoxyCodeLine{ImGui::InputText("string", buf, IM\_ARRAYSIZE(buf));}
+\DoxyCodeLine{ImGui::SliderFloat("float", \&f, 0.0f, 1.0f);}
+\end{DoxyCode}
+ Result\+: ~\newline
+ ~\newline
+\+\_\+(settings\+: Dark style (left), Light style (right) / Font\+: Roboto-\/\+Medium, 16px / Rounding\+: 5)\+\_\+
+
+Code\+: 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{comment}{// Create a window called "My First Tool", with a menu bar.}}
+\DoxyCodeLine{\mbox{\hyperlink{namespace_im_gui_a581e58db0bc930bafa4a5d23093a2b99}{ImGui::Begin}}(\textcolor{stringliteral}{"My First Tool"}, \&my\_tool\_active, \mbox{\hyperlink{imgui_8h_ad2afd5a59df2ef70ff03f4a851168814a3919a0ae89ef6c3a05e6c6dc683bbd62}{ImGuiWindowFlags\_MenuBar}});}
+\DoxyCodeLine{\textcolor{keywordflow}{if} (\mbox{\hyperlink{namespace_im_gui_a4852dff802922163fc747e2e0df5b88f}{ImGui::BeginMenuBar}}())}
+\DoxyCodeLine{\{}
+\DoxyCodeLine{    \textcolor{keywordflow}{if} (\mbox{\hyperlink{namespace_im_gui_a1e55711a21f97d5dff919d697d3a7201}{ImGui::BeginMenu}}(\textcolor{stringliteral}{"File"}))}
+\DoxyCodeLine{    \{}
+\DoxyCodeLine{        \textcolor{keywordflow}{if} (\mbox{\hyperlink{namespace_im_gui_aa1bae511ca47478998693a9d8c84f2e6}{ImGui::MenuItem}}(\textcolor{stringliteral}{"Open.."}, \textcolor{stringliteral}{"Ctrl+O"})) \{ \textcolor{comment}{/* Do stuff */} \}}
+\DoxyCodeLine{        \textcolor{keywordflow}{if} (\mbox{\hyperlink{namespace_im_gui_aa1bae511ca47478998693a9d8c84f2e6}{ImGui::MenuItem}}(\textcolor{stringliteral}{"Save"}, \textcolor{stringliteral}{"Ctrl+S"}))   \{ \textcolor{comment}{/* Do stuff */} \}}
+\DoxyCodeLine{        \textcolor{keywordflow}{if} (\mbox{\hyperlink{namespace_im_gui_aa1bae511ca47478998693a9d8c84f2e6}{ImGui::MenuItem}}(\textcolor{stringliteral}{"Close"}, \textcolor{stringliteral}{"Ctrl+W"}))  \{ my\_tool\_active = \textcolor{keyword}{false}; \}}
+\DoxyCodeLine{        \mbox{\hyperlink{namespace_im_gui_a1448a5a4e8c431c15f991e9255c0df95}{ImGui::EndMenu}}();}
+\DoxyCodeLine{    \}}
+\DoxyCodeLine{    \mbox{\hyperlink{namespace_im_gui_aa226265c140eb6ee375c5b9abc69c4fc}{ImGui::EndMenuBar}}();}
+\DoxyCodeLine{\}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{comment}{// Edit a color (stored as ~4 floats)}}
+\DoxyCodeLine{\mbox{\hyperlink{namespace_im_gui_ac3f45e2aa0b1d591cc8a2cdf8b566a45}{ImGui::ColorEdit4}}(\textcolor{stringliteral}{"Color"}, my\_color);}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{comment}{// Plot some values}}
+\DoxyCodeLine{\textcolor{keyword}{const} \textcolor{keywordtype}{float} my\_values[] = \{ 0.2f, 0.1f, 1.0f, 0.5f, 0.9f, 2.2f \};}
+\DoxyCodeLine{\mbox{\hyperlink{namespace_im_gui_a2bc21c56e4796855313804086cca114f}{ImGui::PlotLines}}(\textcolor{stringliteral}{"Frame Times"}, my\_values, \mbox{\hyperlink{imgui_8h_aeabe36f60fe45cf64cbc9641bcd58cca}{IM\_ARRAYSIZE}}(my\_values));}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{comment}{// Display contents in a scrolling region}}
+\DoxyCodeLine{\mbox{\hyperlink{namespace_im_gui_a36ab8fcad68b26863d6e910755de04c2}{ImGui::TextColored}}(\mbox{\hyperlink{struct_im_vec4}{ImVec4}}(1,1,0,1), \textcolor{stringliteral}{"Important Stuff"});}
+\DoxyCodeLine{\mbox{\hyperlink{namespace_im_gui_a5db08f552118a1f946e19b5933dce181}{ImGui::BeginChild}}(\textcolor{stringliteral}{"Scrolling"});}
+\DoxyCodeLine{\textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} \mbox{\hyperlink{glcorearb_8h_a532fe4d6eb721f47be89f442cacacbb3}{n}} = 0; \mbox{\hyperlink{glcorearb_8h_a532fe4d6eb721f47be89f442cacacbb3}{n}} < 50; \mbox{\hyperlink{glcorearb_8h_a532fe4d6eb721f47be89f442cacacbb3}{n}}++)}
+\DoxyCodeLine{    \mbox{\hyperlink{namespace_im_gui_a9e7b83611fe441d54fad2effb4bf4965}{ImGui::Text}}(\textcolor{stringliteral}{"\%04d: Some text"}, \mbox{\hyperlink{glcorearb_8h_a532fe4d6eb721f47be89f442cacacbb3}{n}});}
+\DoxyCodeLine{\mbox{\hyperlink{namespace_im_gui_af8de559a88c1442d6df8c1b04c86e997}{ImGui::EndChild}}();}
+\DoxyCodeLine{\mbox{\hyperlink{namespace_im_gui_a5479d93794a004c67ceb6d13f37c8254}{ImGui::End}}();}
+\end{DoxyCode}
+ Result\+: ~\newline
+
+
+Dear \mbox{\hyperlink{namespace_im_gui}{Im\+Gui}} allows you {\bfseries{create elaborate tools}} as well as very short-\/lived ones. On the extreme side of short-\/liveness\+: using the Edit\&Continue (hot code reload) feature of modern compilers you can add a few widgets to tweaks variables while your application is running, and remove the code a minute later! Dear \mbox{\hyperlink{namespace_im_gui}{Im\+Gui}} is not just for tweaking values. You can use it to trace a running algorithm by just emitting text commands. You can use it along with your own reflection data to browse your dataset live. You can use it to expose the internals of a subsystem in your engine, to create a logger, an inspection tool, a profiler, a debugger, an entire game making editor/framework, etc.\hypertarget{md_deps_imgui_docs__r_e_a_d_m_e_autotoc_md49}{}\doxysubsection{How it works}\label{md_deps_imgui_docs__r_e_a_d_m_e_autotoc_md49}
+Check out the Wiki\textquotesingle{}s \href{https://github.com/ocornut/imgui/wiki\#About-the-IMGUI-paradigm}{\texttt{ About the I\+M\+G\+UI paradigm}} section if you want to understand the core principles behind the I\+M\+G\+UI paradigm. An I\+M\+G\+UI tries to minimize superfluous state duplication, state synchronization and state retention from the user\textquotesingle{}s point of view. It is less error prone (less code and less bugs) than traditional retained-\/mode interfaces, and lends itself to create dynamic user interfaces.
+
+Dear \mbox{\hyperlink{namespace_im_gui}{Im\+Gui}} outputs vertex buffers and command lists that you can easily render in your application. The number of draw calls and state changes required to render them is fairly small. Because Dear \mbox{\hyperlink{namespace_im_gui}{Im\+Gui}} doesn\textquotesingle{}t know or touch graphics state directly, you can call its functions anywhere in your code (e.\+g. in the middle of a running algorithm, or in the middle of your own rendering process). Refer to the sample applications in the examples/ folder for instructions on how to integrate dear imgui with your existing codebase.
+
+{\itshape A common misunderstanding is to mistake immediate mode gui for immediate mode rendering, which usually implies hammering your driver/\+G\+PU with a bunch of inefficient draw calls and state changes as the gui functions are called. This is N\+OT what Dear \mbox{\hyperlink{namespace_im_gui}{Im\+Gui}} does. Dear \mbox{\hyperlink{namespace_im_gui}{Im\+Gui}} outputs vertex buffers and a small list of draw calls batches. It never touches your G\+PU directly. The draw call batches are decently optimal and you can render them later, in your app or even remotely.}\hypertarget{md_deps_imgui_docs__r_e_a_d_m_e_autotoc_md50}{}\doxysubsection{Demo}\label{md_deps_imgui_docs__r_e_a_d_m_e_autotoc_md50}
+Calling the {\ttfamily \mbox{\hyperlink{namespace_im_gui_af95643a0ce4893b9e57c12991922fb18}{Im\+Gui\+::\+Show\+Demo\+Window()}}} function will create a demo window showcasing variety of features and examples. The code is always available for reference in {\ttfamily \mbox{\hyperlink{imgui__demo_8cpp}{imgui\+\_\+demo.\+cpp}}}.
+
+
+
+You should be able to build the examples from sources (tested on Windows/\+Mac/\+Linux). If you don\textquotesingle{}t, let me know! If you want to have a quick look at some Dear \mbox{\hyperlink{namespace_im_gui}{Im\+Gui}} features, you can download Windows binaries of the demo app here\+:
+\begin{DoxyItemize}
+\item \href{http://www.dearimgui.org/binaries/imgui-demo-binaries-20190715.zip}{\texttt{ imgui-\/demo-\/binaries-\/20190715.\+zip}} (Windows binaries, 1.\+72 W\+IP, built 2019/07/15, master branch, 5 executables)
+\end{DoxyItemize}
+
+The demo applications are not D\+PI aware so expect some blurriness on a 4K screen. For D\+PI awareness in your application, you can load/reload your font at different scale, and scale your style with {\ttfamily style.\+Scale\+All\+Sizes()}.\hypertarget{md_deps_imgui_docs__r_e_a_d_m_e_autotoc_md51}{}\doxysubsection{Integration}\label{md_deps_imgui_docs__r_e_a_d_m_e_autotoc_md51}
+On most platforms and when using C++, {\bfseries{you should be able to use a combination of the \href{https://github.com/ocornut/imgui/tree/master/examples}{\texttt{ imgui\+\_\+impl\+\_\+xxxx}} files without modification}} (e.\+g. {\ttfamily \mbox{\hyperlink{imgui__impl__win32_8cpp}{imgui\+\_\+impl\+\_\+win32.\+cpp}}} + {\ttfamily \mbox{\hyperlink{imgui__impl__dx11_8cpp}{imgui\+\_\+impl\+\_\+dx11.\+cpp}}}). If your engine supports multiple platforms, consider using more of the imgui\+\_\+impl\+\_\+xxxx files instead of rewriting them\+: this will be less work for you and you can get Dear \mbox{\hyperlink{namespace_im_gui}{Im\+Gui}} running immediately. You can {\itshape later} decide to rewrite a custom binding using your custom engine functions if you wish so.
+
+Integrating Dear \mbox{\hyperlink{namespace_im_gui}{Im\+Gui}} within your custom engine is a matter of 1) wiring mouse/keyboard/gamepad inputs 2) uploading one texture to your G\+P\+U/render engine 3) providing a render function that can bind textures and render textured triangles. The \href{https://github.com/ocornut/imgui/tree/master/examples}{\texttt{ examples/}} folder is populated with applications doing just that. If you are an experienced programmer at ease with those concepts, it should take you less than two hours to integrate Dear \mbox{\hyperlink{namespace_im_gui}{Im\+Gui}} in your custom engine. {\bfseries{Make sure to spend time reading the \href{https://www.dearimgui.org/faq}{\texttt{ F\+AQ}}, comments, and some of the examples/ application!}}
+
+Officially maintained bindings (in repository)\+:
+\begin{DoxyItemize}
+\item Renderers\+: Direct\+X9, Direct\+X10, Direct\+X11, Direct\+X12, Open\+GL (legacy), Open\+G\+L3/\+E\+S/\+E\+S2 (modern), Vulkan, Metal.
+\item Platforms\+: G\+L\+FW, S\+D\+L2, Win32, Glut, O\+SX.
+\item Frameworks\+: Emscripten, Allegro5, Marmalade.
+\end{DoxyItemize}
+
+Third-\/party bindings (see \href{https://github.com/ocornut/imgui/wiki/Bindings/}{\texttt{ Bindings}} page)\+:
+\begin{DoxyItemize}
+\item Languages\+: C, C\#/.Net, Chai\+Script, D, Go, Haxe/hxcpp, Java, Java\+Script, Julia, Lua, Odin, Pascal, Pure\+Basic, Python, Ruby, Rust, Swift...
+\item Frameworks\+: Amethyst, bsf, Cinder, Cocos2d-\/x, Diligent Engine, Flexium, G\+M\+L/\+Game\+Maker\+Studio2, Irrlicht, Ogre, Open\+Frameworks, Open\+Scene\+Graph/\+O\+SG, O\+RX, px\+\_\+render, LÖ\+V\+E+\+Lua, Magnum, Nano\+RT, Qt, Qt\+Direct3D, S\+F\+ML, Software Rasterizers, Unreal Engine 4...
+\item Note that C bindings (\href{https://github.com/cimgui/cimgui}{\texttt{ cimgui}}) are auto-\/generated, you can use its json/lua output to generate bindings for other languages.
+\end{DoxyItemize}
+
+Also see \href{https://github.com/ocornut/imgui/wiki}{\texttt{ Wiki}} for more links and ideas.\hypertarget{md_deps_imgui_docs__r_e_a_d_m_e_autotoc_md52}{}\doxysubsection{Upcoming Changes}\label{md_deps_imgui_docs__r_e_a_d_m_e_autotoc_md52}
+Some of the goals for 2019+ are\+:
+\begin{DoxyItemize}
+\item Finish work on docking, tabs. (see \href{https://github.com/ocornut/imgui/issues/2109}{\texttt{ \#2109}}, in public \href{https://github.com/ocornut/imgui/tree/docking}{\texttt{ docking}} branch looking for feedback)
+\item Finish work on multiple viewports / multiple OS windows. (see \href{https://github.com/ocornut/imgui/issues/1542}{\texttt{ \#1542}}, in public \href{https://github.com/ocornut/imgui/tree/docking}{\texttt{ docking}} branch looking for feedback)
+\item Finish work on gamepad/keyboard controls. (see \href{https://github.com/ocornut/imgui/issues/787}{\texttt{ \#787}})
+\item Add an automation and testing system, both to test the library and end-\/user apps. (see \href{https://github.com/ocornut/imgui/issues/435}{\texttt{ \#435}})
+\item Make Columns better. They are currently pretty terrible! New Tables A\+PI coming Q4 2019!
+\item Make the examples look better, improve styles, improve font support, make the examples hi-\/\+D\+PI and multi-\/\+D\+PI aware.
+\end{DoxyItemize}\hypertarget{md_deps_imgui_docs__r_e_a_d_m_e_autotoc_md53}{}\doxysubsection{Gallery}\label{md_deps_imgui_docs__r_e_a_d_m_e_autotoc_md53}
+For more user-\/submitted screenshots of projects using Dear \mbox{\hyperlink{namespace_im_gui}{Im\+Gui}}, check out the \href{https://github.com/ocornut/imgui/issues/2847}{\texttt{ Gallery Threads}}!
+
+Custom engine \href{https://cloud.githubusercontent.com/assets/8225057/20628927/33e14cac-b329-11e6-80f6-9524e93b048a.png}{\texttt{ }}
+
+Custom engine \href{https://raw.githubusercontent.com/wiki/ocornut/imgui/web/v160/editor_white.png}{\texttt{ }}
+
+\href{https://bitbucket.org/wolfpld/tracy}{\texttt{ Tracy Profiler}} \hypertarget{md_deps_imgui_docs__r_e_a_d_m_e_autotoc_md54}{}\doxysubsection{Support, Frequently Asked Questions (\+F\+A\+Q)}\label{md_deps_imgui_docs__r_e_a_d_m_e_autotoc_md54}
+Most common questions will be answered by the \href{https://github.com/ocornut/imgui/blob/master/docs/FAQ.md}{\texttt{ Frequently Asked Questions (F\+AQ)}} page.
+
+See\+: \href{https://github.com/ocornut/imgui/wiki}{\texttt{ Wiki}} for many links, references, articles.
+
+See\+: \href{https://github.com/ocornut/imgui/wiki\#Articles-about-the-IMGUI-paradigm}{\texttt{ Articles about the I\+M\+G\+UI paradigm}} to read/learn about the Immediate Mode G\+UI paradigm.
+
+If you are new to Dear \mbox{\hyperlink{namespace_im_gui}{Im\+Gui}} and have issues with\+: compiling, linking, adding fonts, wiring inputs, running or displaying Dear \mbox{\hyperlink{namespace_im_gui}{Im\+Gui}}\+: you can use \href{https://discord.gg/NgJ4SEP}{\texttt{ Discord server}} or \href{https://discourse.dearimgui.org}{\texttt{ Discourse forums}}.
+
+Otherwise, for any other questions, bug reports, requests, feedback, you may post on \href{https://github.com/ocornut/imgui/issues}{\texttt{ https\+://github.\+com/ocornut/imgui/issues}}. Please read and fill the New Issue template carefully.
+
+Paid private support is available for business customers (E-\/mail\+: {\itshape contact @ dearimgui dot org}).
+
+{\bfseries{Which version should I get?}}
+
+I occasionally tag \href{https://github.com/ocornut/imgui/releases}{\texttt{ Releases}} but it is generally safe and recommended to sync to master/latest. The library is fairly stable and regressions tend to be fixed fast when reported.
+
+You may also peak at the \href{https://github.com/ocornut/imgui/issues/1542}{\texttt{ Multi-\/\+Viewport}} and \href{https://github.com/ocornut/imgui/issues/2109}{\texttt{ Docking}} features in the {\ttfamily docking} branch. Many projects are using this branch and it is kept in sync with master regularly.
+
+{\bfseries{Who uses Dear \mbox{\hyperlink{namespace_im_gui}{Im\+Gui}}?}}
+
+See the \href{https://github.com/ocornut/imgui/wiki/Quotes}{\texttt{ Quotes}} and \href{https://github.com/ocornut/imgui/wiki/Software-using-dear-imgui}{\texttt{ Software using dear imgui}} Wiki pages for a list of games/software which are publicly known to use dear imgui. Please add yours if you can! Also see the \href{https://github.com/ocornut/imgui/issues/2847}{\texttt{ Gallery Threads}}!\hypertarget{md_deps_imgui_docs__r_e_a_d_m_e_autotoc_md55}{}\doxysection{How to help}\label{md_deps_imgui_docs__r_e_a_d_m_e_autotoc_md55}
+{\bfseries{How can I help?}}
+
+
+\begin{DoxyItemize}
+\item You may participate in the \href{https://discord.gg/NgJ4SEP}{\texttt{ Discord server}}, \href{https://discourse.dearimgui.org}{\texttt{ Discourse forums}}, Git\+Hub \href{https://github.com/ocornut/imgui/issues}{\texttt{ issues tracker}}.
+\item You may help with development and submit pull requests! Please understand that by submitting a PR you are also submitting a request for the maintainer to review your code and then take over its maintenance forever. PR should be crafted both in the interest in the end-\/users and also to ease the maintainer into understanding and accepting it.
+\item See \href{https://github.com/ocornut/imgui/wiki/Help-Wanted}{\texttt{ Help wanted}} on the \href{https://github.com/ocornut/imgui/wiki/}{\texttt{ Wiki}} for some more ideas.
+\item Have your company financially support this project.
+\end{DoxyItemize}
+
+{\bfseries{How can I help financing further development of Dear \mbox{\hyperlink{namespace_im_gui}{Im\+Gui}}?}}
+
+Your contributions are keeping this project alive. The library is available under a free and permissive license, but continued maintenance and development are a full-\/time endeavor and I would like to grow the team. In addition to maintenance and stability there are many desirable features yet to be added. If your company is using dear imgui, please consider reaching out for invoiced technical support and maintenance contracts. If you are an individual using dear imgui, please consider supporting the project via Patreon or Pay\+Pal. Thank you!
+
+Businesses\+: support continued development via invoiced technical support, maintenance, sponsoring contracts\+: ~\newline
+~~{\itshape E-\/mail\+: contact @ dearimgui dot org}
+
+Individuals/hobbyists\+: support continued maintenance and development via the monthly Patreon\+: ~\newline
+~~\href{http://www.patreon.com/imgui}{\texttt{ }}
+
+Individuals/hobbyists\+: support continued maintenance and development via Pay\+Pal\+: ~\newline
+~~\href{https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=WGHNC6MBFLZ2S}{\texttt{ }}\hypertarget{md_deps_imgui_docs__r_e_a_d_m_e_autotoc_md56}{}\doxysubsection{Sponsors}\label{md_deps_imgui_docs__r_e_a_d_m_e_autotoc_md56}
+Ongoing Dear \mbox{\hyperlink{namespace_im_gui}{Im\+Gui}} development is financially supported by users and private sponsors, recently\+:
+
+{\itshape Platinum-\/chocolate sponsors}
+\begin{DoxyItemize}
+\item Blizzard Entertainment
+\item Google
+\end{DoxyItemize}
+
+{\itshape Double-\/chocolate sponsors}
+\begin{DoxyItemize}
+\item Media Molecule, Mobigame, Aras Pranckevičius, Greggman, Dot\+Emu, Nadeo, Supercell, Runner, Aiden Koss, Kylotonn.
+\end{DoxyItemize}
+
+{\itshape Salty caramel supporters}
+\begin{DoxyItemize}
+\item Remedy Entertainment, Next Level Games, Recognition Robotics, ikrima, Geoffrey Evans, Mercury Labs, Singularity Demo Group, Lionel Landwerlin, Ron Gilbert, Brandon Townsend, G3\+D\+Vu, Cort Stratton, drudru, Harfang 3D, Jeff Roberts, Rainway inc, Ondra Voves, Mesh Consultants, Unit 2 Games, Neil Bickford, Bill Six, Graham Manders.
+\end{DoxyItemize}
+
+{\itshape Caramel supporters}
+\begin{DoxyItemize}
+\item Jerome Lanquetot, Daniel Collin, Ctrl Alt Ninja, Neil Henning, Neil Blakey-\/\+Milner, Aleksei, Neilo\+GD, Eric, Game Atelier, Vincent Hamm, Morten Skaaning, Colin Riley, Sergio Gonzales, Andrew Berridge, Roy Eltham, Game Preservation Society, Josh Faust, Martin Donlon, Codecat, Doug Mc\+Nabb, Emmanuel Julien, Guillaume Chereau, Jeffrey Slutter, Jeremiah Deckard, r-\/lyeh, Nekith, Joshua Fisher, Malte Hoffmann, Mustafa Karaalioglu, Merlyn Morgan-\/\+Graham, Per Vognsen, Fabian Giesen, Jan Staubach, Matt Hargett, John Shearer, Jesse Chounard, kingcoopa, Jonas Bernemann, Johan Andersson, Michael Labbe, Tomasz Golebiowski, Louis Schnellbach, Jimmy Andrews, Bojan Endrovski, Robin Berg Pettersen, Rachel Crawford, Andrew Johnson, Sean Hunter, Jordan Mellow, Nefarius Software Solutions, Laura Wieme, Robert Nix, Mick Honey, Steven Kah Hien Wong, Bartosz Bielecki, Oscar Penas, A M, Liam Moynihan, Artometa, Mark Lee, Dimitri Diakopoulos, Pete Goodwin, Johnathan Roatch, nyu lea, Oswald Hurlem, Semyon Smelyanskiy, Le Bach, Jeong Myeong\+Soo, Chris Matthews, Astrofra, Frederik De Bleser, Anticrisis, Matt Reyer.
+\end{DoxyItemize}
+
+And all other past and present supporters; T\+H\+A\+NK Y\+O\+U! (Please contact me if you would like to be added or removed from this list)\hypertarget{md_deps_imgui_docs__r_e_a_d_m_e_autotoc_md57}{}\doxysection{Credits}\label{md_deps_imgui_docs__r_e_a_d_m_e_autotoc_md57}
+Developed by \href{http://www.miracleworld.net}{\texttt{ Omar Cornut}} and every direct or indirect contributors to the Git\+Hub. The early version of this library was developed with the support of \href{http://www.mediamolecule.com}{\texttt{ Media Molecule}} and first used internally on the game \href{http://tearaway.mediamolecule.com}{\texttt{ Tearaway}} (Vita).
+
+I first discovered the I\+M\+G\+UI paradigm at \href{http://www.q-games.com}{\texttt{ Q-\/\+Games}} where Atman Binstock had dropped his own simple implementation in the codebase, which I spent quite some time improving and thinking about. It turned out that Atman was exposed to the concept directly by working with Casey. When I moved to Media Molecule I rewrote a new library trying to overcome the flaws and limitations of the first one I\textquotesingle{}ve worked with. It became this library and since then I have spent an unreasonable amount of time iterating and improving it.
+
+Embeds \href{http://upperbounds.net}{\texttt{ Proggy\+Clean.\+ttf}} font by Tristan Grimmer (M\+IT license).
+
+Embeds \href{https://github.com/nothings/stb/}{\texttt{ stb\+\_\+textedit.\+h, stb\+\_\+truetype.\+h, stb\+\_\+rect\+\_\+pack.\+h}} by Sean Barrett (public domain).
+
+Inspiration, feedback, and testing for early versions\+: Casey Muratori, Atman Binstock, Mikko Mononen, Emmanuel Briney, Stefan Kamoda, Anton Mikhailov, Matt Willis. And everybody posting feedback, questions and patches on the Git\+Hub.\hypertarget{md_deps_imgui_docs__r_e_a_d_m_e_autotoc_md58}{}\doxysection{License}\label{md_deps_imgui_docs__r_e_a_d_m_e_autotoc_md58}
+Dear \mbox{\hyperlink{namespace_im_gui}{Im\+Gui}} is licensed under the M\+IT License, see \href{https://github.com/ocornut/imgui/blob/master/LICENSE.txt}{\texttt{ L\+I\+C\+E\+N\+S\+E.\+txt}} for more information. 

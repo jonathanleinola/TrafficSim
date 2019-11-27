@@ -1,0 +1,10 @@
+
+\begin{DoxyItemize}
+\item You need to install Emscripten from \href{https://emscripten.org/docs/getting_started/downloads.html,}{\texttt{ https\+://emscripten.\+org/docs/getting\+\_\+started/downloads.\+html,}} and have the environment variables set, as described in \href{https://emscripten.org/docs/getting_started/downloads.html\#installation-instructions}{\texttt{ https\+://emscripten.\+org/docs/getting\+\_\+started/downloads.\+html\#installation-\/instructions}}
+\end{DoxyItemize}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{em++ -\/I.. -\/I../.. main.cpp ../imgui\_impl\_sdl.cpp ../imgui\_impl\_opengl3.cpp ../../imgui*.cpp -\/s USE\_SDL=2 -\/s USE\_WEBGL2=1 -\/s WASM=1 -\/s FULL\_ES3=1 -\/s ALLOW\_MEMORY\_GROWTH=1 -\/s BINARYEN\_TRAP\_MODE=clamp -\/-\/shell-\/file shell\_minimal.html -\/o example-\/emscripten.html}
+\end{DoxyCode}
+ 

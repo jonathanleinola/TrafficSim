@@ -1,0 +1,6 @@
+<map id="TrafficSim::Window::clear" name="TrafficSim::Window::clear">
+<area shape="rect" id="node1" title=" " alt="" coords="5,48,141,87"/>
+<area shape="rect" id="node2" href="$classsf_1_1_render_target.html#a6bb6f0ba348f2b1e2f46114aeaf60f26" title="Clear the entire target with a single color." alt="" coords="189,5,345,31"/>
+<area shape="rect" id="node3" href="$classsf_1_1_clock.html#a123e2627f2943e5ecaa1db0c7df3231b" title="Restart the clock." alt="" coords="208,55,326,80"/>
+<area shape="rect" id="node4" href="$namespace_im_gui_1_1_s_f_m_l.html#a92d53e47eaec3b55728ad29912ad6a6f" title=" " alt="" coords="192,104,342,129"/>
+</map>

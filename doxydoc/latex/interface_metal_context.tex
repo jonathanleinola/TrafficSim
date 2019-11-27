@@ -1,0 +1,223 @@
+\hypertarget{interface_metal_context}{}\doxysection{Metal\+Context Class Reference}
+\label{interface_metal_context}\index{MetalContext@{MetalContext}}
+
+
+Inheritance diagram for Metal\+Context\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=253pt]{interface_metal_context__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Metal\+Context\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{interface_metal_context__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Instance Methods}
+\begin{DoxyCompactItemize}
+\item 
+(\mbox{\hyperlink{glcorearb_8h_a950fc91edb4504f62f1c577bf4727c29}{void}}) -\/ \mbox{\hyperlink{interface_metal_context_a4964b16e5c328301e019cfc4ee5a61ea}{make\+Device\+Objects\+With\+Device\+:}}
+\item 
+(\mbox{\hyperlink{glcorearb_8h_a950fc91edb4504f62f1c577bf4727c29}{void}}) -\/ \mbox{\hyperlink{interface_metal_context_a0e2dab4e998e4d7a5ccc9a7ffbb9e66e}{make\+Font\+Texture\+With\+Device\+:}}
+\item 
+(\mbox{\hyperlink{interface_metal_buffer}{Metal\+Buffer}} $\ast$) -\/ \mbox{\hyperlink{interface_metal_context_a0072d0861f0eb6fb3b86f5ef8cdc58a1}{dequeue\+Reusable\+Buffer\+Of\+Length\+:device\+:}}
+\item 
+(\mbox{\hyperlink{glcorearb_8h_a950fc91edb4504f62f1c577bf4727c29}{void}}) -\/ \mbox{\hyperlink{interface_metal_context_a4eca0e836bab9efdd154da634b778c11}{enqueue\+Reusable\+Buffer\+:}}
+\item 
+(\mbox{\hyperlink{glcorearb_8h_a58c2a664503e14ffb8f21012aabff3e9}{id}}$<$ M\+T\+L\+Render\+Pipeline\+State $>$) -\/ \mbox{\hyperlink{interface_metal_context_aefa7a29d86f32dd33c44a08a3ebcf354}{render\+Pipeline\+State\+For\+Frame\+And\+Device\+:}}
+\item 
+(\mbox{\hyperlink{glcorearb_8h_a950fc91edb4504f62f1c577bf4727c29}{void}}) -\/ \mbox{\hyperlink{interface_metal_context_ad1b5f6d2a595c4140c21d889fd1b00c9}{empty\+Render\+Pipeline\+State\+Cache}}
+\item 
+(\mbox{\hyperlink{glcorearb_8h_a950fc91edb4504f62f1c577bf4727c29}{void}}) -\/ \mbox{\hyperlink{interface_metal_context_aa0a4df57ab157b9523b97552b84bd9eb}{setup\+Render\+State\+:command\+Buffer\+:command\+Encoder\+:render\+Pipeline\+State\+:vertex\+Buffer\+:vertex\+Buffer\+Offset\+:}}
+\item 
+(\mbox{\hyperlink{glcorearb_8h_a950fc91edb4504f62f1c577bf4727c29}{void}}) -\/ \mbox{\hyperlink{interface_metal_context_ab2ff7b49b5b16017fda2863b7144a63e}{render\+Draw\+Data\+:command\+Buffer\+:command\+Encoder\+:}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Properties}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{glcorearb_8h_a58c2a664503e14ffb8f21012aabff3e9}{id}}$<$ M\+T\+L\+Depth\+Stencil\+State $>$ \mbox{\hyperlink{interface_metal_context_ad2d5d25ce4205853bd518bb39629a502}{depth\+Stencil\+State}}
+\item 
+\mbox{\hyperlink{interface_framebuffer_descriptor}{Framebuffer\+Descriptor}} $\ast$ \mbox{\hyperlink{interface_metal_context_a785454c99666d12c02a464eef0a13723}{framebuffer\+Descriptor}}
+\item 
+N\+S\+Mutable\+Dictionary $\ast$ \mbox{\hyperlink{interface_metal_context_a2a1300f49244bd0411ab85de8f3cbccd}{render\+Pipeline\+State\+Cache}}
+\item 
+\mbox{\hyperlink{glcorearb_8h_a58c2a664503e14ffb8f21012aabff3e9}{id}}$<$ M\+T\+L\+Texture $>$ \mbox{\hyperlink{interface_metal_context_af3c82aa45895bd93945ab606e9909d89}{font\+Texture}}
+\item 
+N\+S\+Mutable\+Array$<$ \mbox{\hyperlink{interface_metal_buffer}{Metal\+Buffer}} $\ast$ $>$ $\ast$ \mbox{\hyperlink{interface_metal_context_a22293e613cdf536e04f2c9d1e0af2166}{buffer\+Cache}}
+\item 
+N\+S\+Time\+Interval \mbox{\hyperlink{interface_metal_context_aa9e858df03e4ea4e592e96f3f6c43e2a}{last\+Buffer\+Cache\+Purge}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Method Documentation}
+\mbox{\Hypertarget{interface_metal_context_a0072d0861f0eb6fb3b86f5ef8cdc58a1}\label{interface_metal_context_a0072d0861f0eb6fb3b86f5ef8cdc58a1}} 
+\index{MetalContext@{MetalContext}!dequeueReusableBufferOfLength:device:@{dequeueReusableBufferOfLength:device:}}
+\index{dequeueReusableBufferOfLength:device:@{dequeueReusableBufferOfLength:device:}!MetalContext@{MetalContext}}
+\doxysubsubsection{\texorpdfstring{dequeueReusableBufferOfLength:device:()}{dequeueReusableBufferOfLength:device:()}}
+{\footnotesize\ttfamily -\/ (\mbox{\hyperlink{interface_metal_buffer}{Metal\+Buffer}} $\ast$) dequeue\+Reusable\+Buffer\+Of\+Length\+: \begin{DoxyParamCaption}\item[{(N\+S\+U\+Integer)}]{length }\item[{device\+:(\mbox{\hyperlink{glcorearb_8h_a58c2a664503e14ffb8f21012aabff3e9}{id}}$<$M\+T\+L\+Device$>$)}]{device }\end{DoxyParamCaption}}
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{interface_metal_context_a0072d0861f0eb6fb3b86f5ef8cdc58a1_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{interface_metal_context_ad1b5f6d2a595c4140c21d889fd1b00c9}\label{interface_metal_context_ad1b5f6d2a595c4140c21d889fd1b00c9}} 
+\index{MetalContext@{MetalContext}!emptyRenderPipelineStateCache@{emptyRenderPipelineStateCache}}
+\index{emptyRenderPipelineStateCache@{emptyRenderPipelineStateCache}!MetalContext@{MetalContext}}
+\doxysubsubsection{\texorpdfstring{emptyRenderPipelineStateCache()}{emptyRenderPipelineStateCache()}}
+{\footnotesize\ttfamily -\/ (\mbox{\hyperlink{glcorearb_8h_a950fc91edb4504f62f1c577bf4727c29}{void}}) empty\+Render\+Pipeline\+State\+Cache \begin{DoxyParamCaption}{ }\end{DoxyParamCaption}}
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{interface_metal_context_ad1b5f6d2a595c4140c21d889fd1b00c9_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{interface_metal_context_a4eca0e836bab9efdd154da634b778c11}\label{interface_metal_context_a4eca0e836bab9efdd154da634b778c11}} 
+\index{MetalContext@{MetalContext}!enqueueReusableBuffer:@{enqueueReusableBuffer:}}
+\index{enqueueReusableBuffer:@{enqueueReusableBuffer:}!MetalContext@{MetalContext}}
+\doxysubsubsection{\texorpdfstring{enqueueReusableBuffer:()}{enqueueReusableBuffer:()}}
+{\footnotesize\ttfamily -\/ (\mbox{\hyperlink{glcorearb_8h_a950fc91edb4504f62f1c577bf4727c29}{void}}) enqueue\+Reusable\+Buffer\+: \begin{DoxyParamCaption}\item[{(\mbox{\hyperlink{interface_metal_buffer}{Metal\+Buffer}} $\ast$)}]{buffer }\end{DoxyParamCaption}}
+
+\mbox{\Hypertarget{interface_metal_context_a4964b16e5c328301e019cfc4ee5a61ea}\label{interface_metal_context_a4964b16e5c328301e019cfc4ee5a61ea}} 
+\index{MetalContext@{MetalContext}!makeDeviceObjectsWithDevice:@{makeDeviceObjectsWithDevice:}}
+\index{makeDeviceObjectsWithDevice:@{makeDeviceObjectsWithDevice:}!MetalContext@{MetalContext}}
+\doxysubsubsection{\texorpdfstring{makeDeviceObjectsWithDevice:()}{makeDeviceObjectsWithDevice:()}}
+{\footnotesize\ttfamily -\/ (\mbox{\hyperlink{glcorearb_8h_a950fc91edb4504f62f1c577bf4727c29}{void}}) make\+Device\+Objects\+With\+Device\+: \begin{DoxyParamCaption}\item[{(\mbox{\hyperlink{glcorearb_8h_a58c2a664503e14ffb8f21012aabff3e9}{id}}$<$M\+T\+L\+Device$>$)}]{device }\end{DoxyParamCaption}}
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{interface_metal_context_a4964b16e5c328301e019cfc4ee5a61ea_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{interface_metal_context_a0e2dab4e998e4d7a5ccc9a7ffbb9e66e}\label{interface_metal_context_a0e2dab4e998e4d7a5ccc9a7ffbb9e66e}} 
+\index{MetalContext@{MetalContext}!makeFontTextureWithDevice:@{makeFontTextureWithDevice:}}
+\index{makeFontTextureWithDevice:@{makeFontTextureWithDevice:}!MetalContext@{MetalContext}}
+\doxysubsubsection{\texorpdfstring{makeFontTextureWithDevice:()}{makeFontTextureWithDevice:()}}
+{\footnotesize\ttfamily -\/ (\mbox{\hyperlink{glcorearb_8h_a950fc91edb4504f62f1c577bf4727c29}{void}}) make\+Font\+Texture\+With\+Device\+: \begin{DoxyParamCaption}\item[{(\mbox{\hyperlink{glcorearb_8h_a58c2a664503e14ffb8f21012aabff3e9}{id}}$<$M\+T\+L\+Device$>$)}]{device }\end{DoxyParamCaption}}
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{interface_metal_context_a0e2dab4e998e4d7a5ccc9a7ffbb9e66e_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{interface_metal_context_a0e2dab4e998e4d7a5ccc9a7ffbb9e66e_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{interface_metal_context_ab2ff7b49b5b16017fda2863b7144a63e}\label{interface_metal_context_ab2ff7b49b5b16017fda2863b7144a63e}} 
+\index{MetalContext@{MetalContext}!renderDrawData:commandBuffer:commandEncoder:@{renderDrawData:commandBuffer:commandEncoder:}}
+\index{renderDrawData:commandBuffer:commandEncoder:@{renderDrawData:commandBuffer:commandEncoder:}!MetalContext@{MetalContext}}
+\doxysubsubsection{\texorpdfstring{renderDrawData:commandBuffer:commandEncoder:()}{renderDrawData:commandBuffer:commandEncoder:()}}
+{\footnotesize\ttfamily -\/ (\mbox{\hyperlink{glcorearb_8h_a950fc91edb4504f62f1c577bf4727c29}{void}}) render\+Draw\+Data\+: \begin{DoxyParamCaption}\item[{(\mbox{\hyperlink{struct_im_draw_data}{Im\+Draw\+Data}} $\ast$)}]{draw\+Data }\item[{command\+Buffer\+:(\mbox{\hyperlink{glcorearb_8h_a58c2a664503e14ffb8f21012aabff3e9}{id}}$<$M\+T\+L\+Command\+Buffer$>$)}]{command\+Buffer }\item[{command\+Encoder\+:(\mbox{\hyperlink{glcorearb_8h_a58c2a664503e14ffb8f21012aabff3e9}{id}}$<$M\+T\+L\+Render\+Command\+Encoder$>$)}]{command\+Encoder }\end{DoxyParamCaption}}
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{interface_metal_context_ab2ff7b49b5b16017fda2863b7144a63e_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{interface_metal_context_ab2ff7b49b5b16017fda2863b7144a63e_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{interface_metal_context_aefa7a29d86f32dd33c44a08a3ebcf354}\label{interface_metal_context_aefa7a29d86f32dd33c44a08a3ebcf354}} 
+\index{MetalContext@{MetalContext}!renderPipelineStateForFrameAndDevice:@{renderPipelineStateForFrameAndDevice:}}
+\index{renderPipelineStateForFrameAndDevice:@{renderPipelineStateForFrameAndDevice:}!MetalContext@{MetalContext}}
+\doxysubsubsection{\texorpdfstring{renderPipelineStateForFrameAndDevice:()}{renderPipelineStateForFrameAndDevice:()}}
+{\footnotesize\ttfamily -\/ (\+\_\+\+Nullable \mbox{\hyperlink{glcorearb_8h_a58c2a664503e14ffb8f21012aabff3e9}{id}}$<$ M\+T\+L\+Render\+Pipeline\+State $>$) render\+Pipeline\+State\+For\+Frame\+And\+Device\+: \begin{DoxyParamCaption}\item[{(\mbox{\hyperlink{glcorearb_8h_a58c2a664503e14ffb8f21012aabff3e9}{id}}$<$M\+T\+L\+Device$>$)}]{device }\end{DoxyParamCaption}}
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{interface_metal_context_aefa7a29d86f32dd33c44a08a3ebcf354_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{interface_metal_context_aa0a4df57ab157b9523b97552b84bd9eb}\label{interface_metal_context_aa0a4df57ab157b9523b97552b84bd9eb}} 
+\index{MetalContext@{MetalContext}!setupRenderState:commandBuffer:commandEncoder:renderPipelineState:vertexBuffer:vertexBufferOffset:@{setupRenderState:commandBuffer:commandEncoder:renderPipelineState:vertexBuffer:vertexBufferOffset:}}
+\index{setupRenderState:commandBuffer:commandEncoder:renderPipelineState:vertexBuffer:vertexBufferOffset:@{setupRenderState:commandBuffer:commandEncoder:renderPipelineState:vertexBuffer:vertexBufferOffset:}!MetalContext@{MetalContext}}
+\doxysubsubsection{\texorpdfstring{setupRenderState:commandBuffer:commandEncoder:renderPipelineState:vertexBuffer:vertexBufferOffset:()}{setupRenderState:commandBuffer:commandEncoder:renderPipelineState:vertexBuffer:vertexBufferOffset:()}}
+{\footnotesize\ttfamily -\/ (\mbox{\hyperlink{glcorearb_8h_a950fc91edb4504f62f1c577bf4727c29}{void}}) setup\+Render\+State\+: \begin{DoxyParamCaption}\item[{(\mbox{\hyperlink{struct_im_draw_data}{Im\+Draw\+Data}} $\ast$)}]{draw\+Data }\item[{command\+Buffer\+:(\mbox{\hyperlink{glcorearb_8h_a58c2a664503e14ffb8f21012aabff3e9}{id}}$<$M\+T\+L\+Command\+Buffer$>$)}]{command\+Buffer }\item[{command\+Encoder\+:(\mbox{\hyperlink{glcorearb_8h_a58c2a664503e14ffb8f21012aabff3e9}{id}}$<$M\+T\+L\+Render\+Command\+Encoder$>$)}]{command\+Encoder }\item[{render\+Pipeline\+State\+:(\mbox{\hyperlink{glcorearb_8h_a58c2a664503e14ffb8f21012aabff3e9}{id}}$<$M\+T\+L\+Render\+Pipeline\+State$>$)}]{render\+Pipeline\+State }\item[{vertex\+Buffer\+:(\mbox{\hyperlink{interface_metal_buffer}{Metal\+Buffer}} $\ast$)}]{vertex\+Buffer }\item[{vertex\+Buffer\+Offset\+:(size\+\_\+t)}]{vertex\+Buffer\+Offset }\end{DoxyParamCaption}}
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{interface_metal_context_aa0a4df57ab157b9523b97552b84bd9eb_icgraph}
+\end{center}
+\end{figure}
+
+
+\doxysubsection{Property Documentation}
+\mbox{\Hypertarget{interface_metal_context_a22293e613cdf536e04f2c9d1e0af2166}\label{interface_metal_context_a22293e613cdf536e04f2c9d1e0af2166}} 
+\index{MetalContext@{MetalContext}!bufferCache@{bufferCache}}
+\index{bufferCache@{bufferCache}!MetalContext@{MetalContext}}
+\doxysubsubsection{\texorpdfstring{bufferCache}{bufferCache}}
+{\footnotesize\ttfamily -\/ (N\+S\+Mutable\+Array$<$\mbox{\hyperlink{interface_metal_buffer}{Metal\+Buffer}} $\ast$$>$$\ast$) buffer\+Cache\hspace{0.3cm}{\ttfamily [read]}, {\ttfamily [write]}, {\ttfamily [nonatomic]}, {\ttfamily [strong]}}
+
+\mbox{\Hypertarget{interface_metal_context_ad2d5d25ce4205853bd518bb39629a502}\label{interface_metal_context_ad2d5d25ce4205853bd518bb39629a502}} 
+\index{MetalContext@{MetalContext}!depthStencilState@{depthStencilState}}
+\index{depthStencilState@{depthStencilState}!MetalContext@{MetalContext}}
+\doxysubsubsection{\texorpdfstring{depthStencilState}{depthStencilState}}
+{\footnotesize\ttfamily -\/ (\mbox{\hyperlink{glcorearb_8h_a58c2a664503e14ffb8f21012aabff3e9}{id}}$<$M\+T\+L\+Depth\+Stencil\+State$>$) depth\+Stencil\+State\hspace{0.3cm}{\ttfamily [read]}, {\ttfamily [write]}, {\ttfamily [nonatomic]}, {\ttfamily [strong]}}
+
+\mbox{\Hypertarget{interface_metal_context_af3c82aa45895bd93945ab606e9909d89}\label{interface_metal_context_af3c82aa45895bd93945ab606e9909d89}} 
+\index{MetalContext@{MetalContext}!fontTexture@{fontTexture}}
+\index{fontTexture@{fontTexture}!MetalContext@{MetalContext}}
+\doxysubsubsection{\texorpdfstring{fontTexture}{fontTexture}}
+{\footnotesize\ttfamily -\/ (\mbox{\hyperlink{glcorearb_8h_a58c2a664503e14ffb8f21012aabff3e9}{id}}$<$M\+T\+L\+Texture$>$) font\+Texture\hspace{0.3cm}{\ttfamily [read]}, {\ttfamily [write]}, {\ttfamily [nonatomic]}, {\ttfamily [strong]}}
+
+\mbox{\Hypertarget{interface_metal_context_a785454c99666d12c02a464eef0a13723}\label{interface_metal_context_a785454c99666d12c02a464eef0a13723}} 
+\index{MetalContext@{MetalContext}!framebufferDescriptor@{framebufferDescriptor}}
+\index{framebufferDescriptor@{framebufferDescriptor}!MetalContext@{MetalContext}}
+\doxysubsubsection{\texorpdfstring{framebufferDescriptor}{framebufferDescriptor}}
+{\footnotesize\ttfamily -\/ (\mbox{\hyperlink{interface_framebuffer_descriptor}{Framebuffer\+Descriptor}}$\ast$) framebuffer\+Descriptor\hspace{0.3cm}{\ttfamily [read]}, {\ttfamily [write]}, {\ttfamily [nonatomic]}, {\ttfamily [strong]}}
+
+\mbox{\Hypertarget{interface_metal_context_aa9e858df03e4ea4e592e96f3f6c43e2a}\label{interface_metal_context_aa9e858df03e4ea4e592e96f3f6c43e2a}} 
+\index{MetalContext@{MetalContext}!lastBufferCachePurge@{lastBufferCachePurge}}
+\index{lastBufferCachePurge@{lastBufferCachePurge}!MetalContext@{MetalContext}}
+\doxysubsubsection{\texorpdfstring{lastBufferCachePurge}{lastBufferCachePurge}}
+{\footnotesize\ttfamily -\/ (N\+S\+Time\+Interval) last\+Buffer\+Cache\+Purge\hspace{0.3cm}{\ttfamily [read]}, {\ttfamily [write]}, {\ttfamily [nonatomic]}, {\ttfamily [assign]}}
+
+\mbox{\Hypertarget{interface_metal_context_a2a1300f49244bd0411ab85de8f3cbccd}\label{interface_metal_context_a2a1300f49244bd0411ab85de8f3cbccd}} 
+\index{MetalContext@{MetalContext}!renderPipelineStateCache@{renderPipelineStateCache}}
+\index{renderPipelineStateCache@{renderPipelineStateCache}!MetalContext@{MetalContext}}
+\doxysubsubsection{\texorpdfstring{renderPipelineStateCache}{renderPipelineStateCache}}
+{\footnotesize\ttfamily -\/ (N\+S\+Mutable\+Dictionary$\ast$) render\+Pipeline\+State\+Cache\hspace{0.3cm}{\ttfamily [read]}, {\ttfamily [write]}, {\ttfamily [nonatomic]}, {\ttfamily [strong]}}
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+deps/imgui/examples/\mbox{\hyperlink{imgui__impl__metal_8mm}{imgui\+\_\+impl\+\_\+metal.\+mm}}\end{DoxyCompactItemize}

@@ -1,0 +1,6 @@
+<map id="TrafficSim::RoadTile::addLight" name="TrafficSim::RoadTile::addLight">
+<area shape="rect" id="node1" title=" " alt="" coords="614,5,755,44"/>
+<area shape="rect" id="node2" href="$class_traffic_sim_1_1_map_builder.html#aeadaf83a04ca90eacbeb0891d3fae888" title=" " alt="" coords="411,5,566,44"/>
+<area shape="rect" id="node3" href="$class_traffic_sim_1_1_map_builder.html#aad9b4302b46806dfd3f4bea4a6ebddb6" title=" " alt="" coords="207,5,363,44"/>
+<area shape="rect" id="node4" href="$class_traffic_sim_1_1_application.html#a6f64803b6867722060658276988af76c" title=" " alt="" coords="5,5,159,44"/>
+</map>

@@ -1,0 +1,9 @@
+<map id="sf::GlResource" name="sf::GlResource">
+<area shape="rect" id="node1" title="Base class for classes that require an OpenGL context." alt="" coords="339,5,568,105"/>
+<area shape="rect" id="node2" href="$classsf_1_1_context.html" title="Class holding a valid drawing context." alt="" coords="5,187,169,367"/>
+<area shape="rect" id="node3" href="$classsf_1_1_shader.html" title="Shader class (vertex, geometry and fragment)" alt="" coords="193,153,357,400"/>
+<area shape="rect" id="node4" href="$classsf_1_1_texture.html" title="Image living on the graphics card that can be used for drawing." alt="" coords="381,160,527,393"/>
+<area shape="rect" id="node5" href="$classsf_1_1_vertex_buffer.html" title="Vertex buffer storage for one or more 2D primitives." alt="" coords="551,160,685,393"/>
+<area shape="rect" id="node6" href="$classsf_1_1_window.html" title="Window that serves as a target for OpenGL rendering." alt="" coords="709,160,817,393"/>
+<area shape="rect" id="node7" href="$classsf_1_1_render_window.html" title="Window that can serve as a target for 2D drawing." alt="" coords="693,448,834,628"/>
+</map>

@@ -1,0 +1,102 @@
+\hypertarget{u_synergy_8c}{}\doxysection{deps/imgui/examples/libs/usynergy/u\+Synergy.c File Reference}
+\label{u_synergy_8c}\index{deps/imgui/examples/libs/usynergy/uSynergy.c@{deps/imgui/examples/libs/usynergy/uSynergy.c}}
+{\ttfamily \#include \char`\"{}u\+Synergy.\+h\char`\"{}}\newline
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+{\ttfamily \#include $<$string.\+h$>$}\newline
+Include dependency graph for u\+Synergy.\+c\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=276pt]{u_synergy_8c__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{u_synergy_8c_a6c051225d31a7540609f5cbdb4a81b8c}{U\+S\+Y\+N\+E\+R\+G\+Y\+\_\+\+I\+S\+\_\+\+P\+A\+C\+K\+ET}}(pkt\+\_\+id)~memcmp(\mbox{\hyperlink{glcorearb_8h_a7b6161cffb9b8aee272b3b916183d28c}{message}}+4, pkt\+\_\+id, 4)==0
+\begin{DoxyCompactList}\small\item\em Parse a single client message, update state, send callbacks and send replies. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{glcorearb_8h_a950fc91edb4504f62f1c577bf4727c29}{void}} \mbox{\hyperlink{u_synergy_8c_a534546e175412d3e695e6cddfb9c5f89}{u\+Synergy\+Init}} (\mbox{\hyperlink{structu_synergy_context}{u\+Synergy\+Context}} $\ast$context)
+\begin{DoxyCompactList}\small\item\em Initialize u\+Synergy context. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{glcorearb_8h_a950fc91edb4504f62f1c577bf4727c29}{void}} \mbox{\hyperlink{u_synergy_8c_a98851569b00e68b34becffadb0ed9f62}{u\+Synergy\+Update}} (\mbox{\hyperlink{structu_synergy_context}{u\+Synergy\+Context}} $\ast$context)
+\begin{DoxyCompactList}\small\item\em Update u\+Synergy. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{glcorearb_8h_a950fc91edb4504f62f1c577bf4727c29}{void}} \mbox{\hyperlink{u_synergy_8c_a73500659ef90e12ef6f54429998ae582}{u\+Synergy\+Send\+Clipboard}} (\mbox{\hyperlink{structu_synergy_context}{u\+Synergy\+Context}} $\ast$context, const char $\ast$text)
+\begin{DoxyCompactList}\small\item\em Send clipboard data. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Macro Definition Documentation}
+\mbox{\Hypertarget{u_synergy_8c_a6c051225d31a7540609f5cbdb4a81b8c}\label{u_synergy_8c_a6c051225d31a7540609f5cbdb4a81b8c}} 
+\index{uSynergy.c@{uSynergy.c}!USYNERGY\_IS\_PACKET@{USYNERGY\_IS\_PACKET}}
+\index{USYNERGY\_IS\_PACKET@{USYNERGY\_IS\_PACKET}!uSynergy.c@{uSynergy.c}}
+\doxysubsubsection{\texorpdfstring{USYNERGY\_IS\_PACKET}{USYNERGY\_IS\_PACKET}}
+{\footnotesize\ttfamily \#define U\+S\+Y\+N\+E\+R\+G\+Y\+\_\+\+I\+S\+\_\+\+P\+A\+C\+K\+ET(\begin{DoxyParamCaption}\item[{}]{pkt\+\_\+id }\end{DoxyParamCaption})~memcmp(\mbox{\hyperlink{glcorearb_8h_a7b6161cffb9b8aee272b3b916183d28c}{message}}+4, pkt\+\_\+id, 4)==0}
+
+
+
+Parse a single client message, update state, send callbacks and send replies. 
+
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{u_synergy_8c_a534546e175412d3e695e6cddfb9c5f89}\label{u_synergy_8c_a534546e175412d3e695e6cddfb9c5f89}} 
+\index{uSynergy.c@{uSynergy.c}!uSynergyInit@{uSynergyInit}}
+\index{uSynergyInit@{uSynergyInit}!uSynergy.c@{uSynergy.c}}
+\doxysubsubsection{\texorpdfstring{uSynergyInit()}{uSynergyInit()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{glcorearb_8h_a950fc91edb4504f62f1c577bf4727c29}{void}} u\+Synergy\+Init (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structu_synergy_context}{u\+Synergy\+Context}} $\ast$}]{context }\end{DoxyParamCaption})}
+
+
+
+Initialize u\+Synergy context. 
+
+This function initializes {\itshape context} for use. Call this function directly after creating the context, before filling in any configuration data in it. Not calling this function will cause undefined behavior.
+
+
+\begin{DoxyParams}{Parameters}
+{\em context} & Context to be initialized \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{u_synergy_8c_a73500659ef90e12ef6f54429998ae582}\label{u_synergy_8c_a73500659ef90e12ef6f54429998ae582}} 
+\index{uSynergy.c@{uSynergy.c}!uSynergySendClipboard@{uSynergySendClipboard}}
+\index{uSynergySendClipboard@{uSynergySendClipboard}!uSynergy.c@{uSynergy.c}}
+\doxysubsubsection{\texorpdfstring{uSynergySendClipboard()}{uSynergySendClipboard()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{glcorearb_8h_a950fc91edb4504f62f1c577bf4727c29}{void}} u\+Synergy\+Send\+Clipboard (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structu_synergy_context}{u\+Synergy\+Context}} $\ast$}]{context,  }\item[{const char $\ast$}]{text }\end{DoxyParamCaption})}
+
+
+
+Send clipboard data. 
+
+This function sets new clipboard data and sends it to the server. Use this function if your client cuts or copies data onto the clipboard that it needs to share with the server.
+
+Currently there is only support for plaintext, but H\+T\+ML and image data could be supported with some effort.
+
+
+\begin{DoxyParams}{Parameters}
+{\em context} & Context to send clipboard data to \\
+\hline
+{\em text} & Text to set to the clipboard \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{u_synergy_8c_a98851569b00e68b34becffadb0ed9f62}\label{u_synergy_8c_a98851569b00e68b34becffadb0ed9f62}} 
+\index{uSynergy.c@{uSynergy.c}!uSynergyUpdate@{uSynergyUpdate}}
+\index{uSynergyUpdate@{uSynergyUpdate}!uSynergy.c@{uSynergy.c}}
+\doxysubsubsection{\texorpdfstring{uSynergyUpdate()}{uSynergyUpdate()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{glcorearb_8h_a950fc91edb4504f62f1c577bf4727c29}{void}} u\+Synergy\+Update (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structu_synergy_context}{u\+Synergy\+Context}} $\ast$}]{context }\end{DoxyParamCaption})}
+
+
+
+Update u\+Synergy. 
+
+This function updates u\+Synergy and does the bulk of the work. It does connection management, receiving data, reconnecting after errors or timeouts and so on. It assumes that networking operations are blocking and it can suspend the current thread if it needs to wait. It is best practice to call u\+Synergy\+Update from a background thread so it is responsive.
+
+Because u\+Synergy relies mostly on blocking calls it will mostly stay in thread sleep state waiting for system mutexes and won\textquotesingle{}t eat much memory.
+
+u\+Synergy\+Update doesn\textquotesingle{}t do any memory allocations or have any side effects beyond those of the callbacks it calls.
+
+
+\begin{DoxyParams}{Parameters}
+{\em context} & Context to be updated \\
+\hline
+\end{DoxyParams}

@@ -1,0 +1,8 @@
+<map id="Input reference" name="Input reference">
+<area shape="rect" id="node1" href="$group__keys.html" title="See key input for how these are used." alt="" coords="191,5,301,29"/>
+<area shape="rect" id="node2" href="$group__mods.html" title="See key input for how these are used." alt="" coords="183,53,308,77"/>
+<area shape="rect" id="node3" href="$group__buttons.html" title="See mouse button input for how these are used." alt="" coords="191,101,300,125"/>
+<area shape="rect" id="node4" href="$group__shapes.html" title="See standard cursor creation for how these are used." alt="" coords="164,149,327,173"/>
+<area shape="rect" id="node5" href="$group__joysticks.html" title="See joystick input for how these are used." alt="" coords="208,197,284,221"/>
+<area shape="rect" id="node6" title="This is the reference documentation for input related functions and types. For more task&#45;oriented inf..." alt="" coords="5,101,116,125"/>
+</map>

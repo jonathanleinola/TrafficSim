@@ -1,0 +1,7 @@
+<map id="TrafficSim::Grid::getNeigborTiles" name="TrafficSim::Grid::getNeigborTiles">
+<area shape="rect" id="node1" title=" " alt="" coords="5,100,191,139"/>
+<area shape="rect" id="node2" href="$class_traffic_sim_1_1_grid.html#a81016be49e45ca4968cb56e4effd37cf" title=" " alt="" coords="258,5,431,44"/>
+<area shape="rect" id="node3" href="$class_traffic_sim_1_1_grid.html#a2b37db4214fe5bd41d203fd8a19573d1" title=" " alt="" coords="264,68,425,107"/>
+<area shape="rect" id="node4" href="$class_traffic_sim_1_1_grid.html#a157fd873d4ceb7400e32691033ebb45e" title=" " alt="" coords="259,131,430,169"/>
+<area shape="rect" id="node5" href="$class_traffic_sim_1_1_grid.html#a356fb0313bd38ac43fdd914df5096aab" title=" " alt="" coords="239,193,450,219"/>
+</map>

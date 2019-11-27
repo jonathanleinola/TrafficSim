@@ -1,0 +1,6 @@
+<map id="TrafficSim::Node::Node" name="TrafficSim::Node::Node">
+<area shape="rect" id="node1" title=" " alt="" coords="5,61,165,87"/>
+<area shape="rect" id="node2" href="$classsf_1_1_shape.html#a3506f9b5d916fec14d583d16f23c2485" title="Set the fill color of the shape." alt="" coords="213,5,365,31"/>
+<area shape="rect" id="node3" href="$classsf_1_1_transformable.html#a56c67bd80aae8418d13fb96c034d25ec" title="set the local origin of the object" alt="" coords="223,55,355,93"/>
+<area shape="rect" id="node4" href="$classsf_1_1_transformable.html#a4dbfb1a7c80688b0b4c477d706550208" title="set the position of the object" alt="" coords="223,117,355,156"/>
+</map>

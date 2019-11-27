@@ -1,0 +1,217 @@
+\hypertarget{class_traffic_sim_1_1_traffic_light}{}\doxysection{Traffic\+Sim\+::Traffic\+Light Class Reference}
+\label{class_traffic_sim_1_1_traffic_light}\index{TrafficSim::TrafficLight@{TrafficSim::TrafficLight}}
+
+
+{\ttfamily \#include $<$Traffic\+Light.\+hpp$>$}
+
+
+
+Inheritance diagram for Traffic\+Sim\+::Traffic\+Light\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=195pt]{class_traffic_sim_1_1_traffic_light__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Traffic\+Sim\+::Traffic\+Light\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=246pt]{class_traffic_sim_1_1_traffic_light__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_traffic_sim_1_1_traffic_light_acfce3eaf5ea170246d86ddfcaa743301}{Traffic\+Light}} (const \mbox{\hyperlink{namespacesf_acf03098c2577b869e2fa6836cc48f1a0}{sf\+::\+Vector2f}} \&pos, const \mbox{\hyperlink{namespacesf_acf03098c2577b869e2fa6836cc48f1a0}{sf\+::\+Vector2f}} \&dir, float tile\+\_\+size, unsigned int handler\+\_\+id)
+\item 
+bool \mbox{\hyperlink{class_traffic_sim_1_1_traffic_light_aeebe840c2537e5b4dab048420e28900d}{is\+Activated}} () const
+\item 
+bool \mbox{\hyperlink{class_traffic_sim_1_1_traffic_light_ae935a99b4ba38b2b15f01e43cf3cd002}{can\+Drive}} () const
+\item 
+unsigned int \mbox{\hyperlink{class_traffic_sim_1_1_traffic_light_a0e1ec02ab2bd62e26a51c835decb447e}{get\+Handler\+Id}} () const
+\item 
+const \mbox{\hyperlink{classsf_1_1_rectangle_shape}{sf\+::\+Rectangle\+Shape}} \& \mbox{\hyperlink{class_traffic_sim_1_1_traffic_light_a9730022ed2d38630ba24a300762fc1f9}{get\+Blocker}} () const
+\item 
+const \mbox{\hyperlink{namespacesf_acf03098c2577b869e2fa6836cc48f1a0}{sf\+::\+Vector2f}} \& \mbox{\hyperlink{class_traffic_sim_1_1_traffic_light_a9aee9e0039c1d527a6d352c1a2b7f039}{get\+Pos}} () const
+\item 
+\mbox{\hyperlink{glcorearb_8h_a950fc91edb4504f62f1c577bf4727c29}{void}} \mbox{\hyperlink{class_traffic_sim_1_1_traffic_light_acb37d46878d5be583d55e82709395dd3}{update}} (float delta\+\_\+time)
+\item 
+\mbox{\hyperlink{glcorearb_8h_a950fc91edb4504f62f1c577bf4727c29}{void}} \mbox{\hyperlink{class_traffic_sim_1_1_traffic_light_a69ae6c562dfe68c6a8687570e030bc4d}{set\+Handler\+Id}} (unsigned int \mbox{\hyperlink{glcorearb_8h_a58c2a664503e14ffb8f21012aabff3e9}{id}})
+\item 
+\mbox{\hyperlink{glcorearb_8h_a950fc91edb4504f62f1c577bf4727c29}{void}} \mbox{\hyperlink{class_traffic_sim_1_1_traffic_light_afed8bedf77e7b962e56159d156af2ac4}{init\+Pos}} (const \mbox{\hyperlink{namespacesf_acf03098c2577b869e2fa6836cc48f1a0}{sf\+::\+Vector2f}} \&pos, const \mbox{\hyperlink{namespacesf_acf03098c2577b869e2fa6836cc48f1a0}{sf\+::\+Vector2f}} \&dir, float tile\+\_\+size)
+\item 
+\mbox{\hyperlink{glcorearb_8h_a950fc91edb4504f62f1c577bf4727c29}{void}} \mbox{\hyperlink{class_traffic_sim_1_1_traffic_light_a8c04ad93c8ff8a0d18873db3c628a4c0}{activate}} ()
+\item 
+virtual \mbox{\hyperlink{glcorearb_8h_a950fc91edb4504f62f1c577bf4727c29}{void}} \mbox{\hyperlink{class_traffic_sim_1_1_traffic_light_addc4746d5900c7b091d39424ecdae2ac}{draw}} (\mbox{\hyperlink{classsf_1_1_render_target}{sf\+::\+Render\+Target}} \&\mbox{\hyperlink{glcorearb_8h_af9d0cbbbeb7414e786c41899e5a856d7}{target}}, \mbox{\hyperlink{classsf_1_1_render_states}{sf\+::\+Render\+States}} states) const
+\begin{DoxyCompactList}\small\item\em Draw the object to a render target. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+float \mbox{\hyperlink{class_traffic_sim_1_1_traffic_light_a855327c2db499ad5f5b82a1cc471fd54}{green\+\_\+time\+\_\+}} = 5
+\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_traffic_sim_1_1_traffic_light_acfce3eaf5ea170246d86ddfcaa743301}\label{class_traffic_sim_1_1_traffic_light_acfce3eaf5ea170246d86ddfcaa743301}} 
+\index{TrafficSim::TrafficLight@{TrafficSim::TrafficLight}!TrafficLight@{TrafficLight}}
+\index{TrafficLight@{TrafficLight}!TrafficSim::TrafficLight@{TrafficSim::TrafficLight}}
+\doxysubsubsection{\texorpdfstring{TrafficLight()}{TrafficLight()}}
+{\footnotesize\ttfamily Traffic\+Sim\+::\+Traffic\+Light\+::\+Traffic\+Light (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{namespacesf_acf03098c2577b869e2fa6836cc48f1a0}{sf\+::\+Vector2f}} \&}]{pos,  }\item[{const \mbox{\hyperlink{namespacesf_acf03098c2577b869e2fa6836cc48f1a0}{sf\+::\+Vector2f}} \&}]{dir,  }\item[{float}]{tile\+\_\+size,  }\item[{unsigned int}]{handler\+\_\+id }\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_traffic_sim_1_1_traffic_light_acfce3eaf5ea170246d86ddfcaa743301_cgraph}
+\end{center}
+\end{figure}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_traffic_sim_1_1_traffic_light_a8c04ad93c8ff8a0d18873db3c628a4c0}\label{class_traffic_sim_1_1_traffic_light_a8c04ad93c8ff8a0d18873db3c628a4c0}} 
+\index{TrafficSim::TrafficLight@{TrafficSim::TrafficLight}!activate@{activate}}
+\index{activate@{activate}!TrafficSim::TrafficLight@{TrafficSim::TrafficLight}}
+\doxysubsubsection{\texorpdfstring{activate()}{activate()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{glcorearb_8h_a950fc91edb4504f62f1c577bf4727c29}{void}} Traffic\+Sim\+::\+Traffic\+Light\+::activate (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_traffic_sim_1_1_traffic_light_ae935a99b4ba38b2b15f01e43cf3cd002}\label{class_traffic_sim_1_1_traffic_light_ae935a99b4ba38b2b15f01e43cf3cd002}} 
+\index{TrafficSim::TrafficLight@{TrafficSim::TrafficLight}!canDrive@{canDrive}}
+\index{canDrive@{canDrive}!TrafficSim::TrafficLight@{TrafficSim::TrafficLight}}
+\doxysubsubsection{\texorpdfstring{canDrive()}{canDrive()}}
+{\footnotesize\ttfamily bool Traffic\+Sim\+::\+Traffic\+Light\+::can\+Drive (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{class_traffic_sim_1_1_traffic_light_addc4746d5900c7b091d39424ecdae2ac}\label{class_traffic_sim_1_1_traffic_light_addc4746d5900c7b091d39424ecdae2ac}} 
+\index{TrafficSim::TrafficLight@{TrafficSim::TrafficLight}!draw@{draw}}
+\index{draw@{draw}!TrafficSim::TrafficLight@{TrafficSim::TrafficLight}}
+\doxysubsubsection{\texorpdfstring{draw()}{draw()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{glcorearb_8h_a950fc91edb4504f62f1c577bf4727c29}{void}} Traffic\+Sim\+::\+Traffic\+Light\+::draw (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classsf_1_1_render_target}{sf\+::\+Render\+Target}} \&}]{target,  }\item[{\mbox{\hyperlink{classsf_1_1_render_states}{sf\+::\+Render\+States}}}]{states }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Draw the object to a render target. 
+
+This is a pure virtual function that has to be implemented by the derived class to define how the drawable should be drawn.
+
+
+\begin{DoxyParams}{Parameters}
+{\em target} & Render target to draw to \\
+\hline
+{\em states} & Current render states \\
+\hline
+\end{DoxyParams}
+
+
+Implements \mbox{\hyperlink{classsf_1_1_drawable_a90d2c88bba9b035a0844eccb380ef631}{sf\+::\+Drawable}}.
+
+\mbox{\Hypertarget{class_traffic_sim_1_1_traffic_light_a9730022ed2d38630ba24a300762fc1f9}\label{class_traffic_sim_1_1_traffic_light_a9730022ed2d38630ba24a300762fc1f9}} 
+\index{TrafficSim::TrafficLight@{TrafficSim::TrafficLight}!getBlocker@{getBlocker}}
+\index{getBlocker@{getBlocker}!TrafficSim::TrafficLight@{TrafficSim::TrafficLight}}
+\doxysubsubsection{\texorpdfstring{getBlocker()}{getBlocker()}}
+{\footnotesize\ttfamily const \mbox{\hyperlink{classsf_1_1_rectangle_shape}{sf\+::\+Rectangle\+Shape}}\& Traffic\+Sim\+::\+Traffic\+Light\+::get\+Blocker (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{class_traffic_sim_1_1_traffic_light_a0e1ec02ab2bd62e26a51c835decb447e}\label{class_traffic_sim_1_1_traffic_light_a0e1ec02ab2bd62e26a51c835decb447e}} 
+\index{TrafficSim::TrafficLight@{TrafficSim::TrafficLight}!getHandlerId@{getHandlerId}}
+\index{getHandlerId@{getHandlerId}!TrafficSim::TrafficLight@{TrafficSim::TrafficLight}}
+\doxysubsubsection{\texorpdfstring{getHandlerId()}{getHandlerId()}}
+{\footnotesize\ttfamily unsigned int Traffic\+Sim\+::\+Traffic\+Light\+::get\+Handler\+Id (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_traffic_sim_1_1_traffic_light_a0e1ec02ab2bd62e26a51c835decb447e_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_traffic_sim_1_1_traffic_light_a9aee9e0039c1d527a6d352c1a2b7f039}\label{class_traffic_sim_1_1_traffic_light_a9aee9e0039c1d527a6d352c1a2b7f039}} 
+\index{TrafficSim::TrafficLight@{TrafficSim::TrafficLight}!getPos@{getPos}}
+\index{getPos@{getPos}!TrafficSim::TrafficLight@{TrafficSim::TrafficLight}}
+\doxysubsubsection{\texorpdfstring{getPos()}{getPos()}}
+{\footnotesize\ttfamily const \mbox{\hyperlink{namespacesf_acf03098c2577b869e2fa6836cc48f1a0}{sf\+::\+Vector2f}}\& Traffic\+Sim\+::\+Traffic\+Light\+::get\+Pos (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=330pt]{class_traffic_sim_1_1_traffic_light_a9aee9e0039c1d527a6d352c1a2b7f039_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_traffic_sim_1_1_traffic_light_a9aee9e0039c1d527a6d352c1a2b7f039_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_traffic_sim_1_1_traffic_light_afed8bedf77e7b962e56159d156af2ac4}\label{class_traffic_sim_1_1_traffic_light_afed8bedf77e7b962e56159d156af2ac4}} 
+\index{TrafficSim::TrafficLight@{TrafficSim::TrafficLight}!initPos@{initPos}}
+\index{initPos@{initPos}!TrafficSim::TrafficLight@{TrafficSim::TrafficLight}}
+\doxysubsubsection{\texorpdfstring{initPos()}{initPos()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{glcorearb_8h_a950fc91edb4504f62f1c577bf4727c29}{void}} Traffic\+Sim\+::\+Traffic\+Light\+::init\+Pos (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{namespacesf_acf03098c2577b869e2fa6836cc48f1a0}{sf\+::\+Vector2f}} \&}]{pos,  }\item[{const \mbox{\hyperlink{namespacesf_acf03098c2577b869e2fa6836cc48f1a0}{sf\+::\+Vector2f}} \&}]{dir,  }\item[{float}]{tile\+\_\+size }\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=335pt]{class_traffic_sim_1_1_traffic_light_afed8bedf77e7b962e56159d156af2ac4_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=347pt]{class_traffic_sim_1_1_traffic_light_afed8bedf77e7b962e56159d156af2ac4_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_traffic_sim_1_1_traffic_light_aeebe840c2537e5b4dab048420e28900d}\label{class_traffic_sim_1_1_traffic_light_aeebe840c2537e5b4dab048420e28900d}} 
+\index{TrafficSim::TrafficLight@{TrafficSim::TrafficLight}!isActivated@{isActivated}}
+\index{isActivated@{isActivated}!TrafficSim::TrafficLight@{TrafficSim::TrafficLight}}
+\doxysubsubsection{\texorpdfstring{isActivated()}{isActivated()}}
+{\footnotesize\ttfamily bool Traffic\+Sim\+::\+Traffic\+Light\+::is\+Activated (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{class_traffic_sim_1_1_traffic_light_a69ae6c562dfe68c6a8687570e030bc4d}\label{class_traffic_sim_1_1_traffic_light_a69ae6c562dfe68c6a8687570e030bc4d}} 
+\index{TrafficSim::TrafficLight@{TrafficSim::TrafficLight}!setHandlerId@{setHandlerId}}
+\index{setHandlerId@{setHandlerId}!TrafficSim::TrafficLight@{TrafficSim::TrafficLight}}
+\doxysubsubsection{\texorpdfstring{setHandlerId()}{setHandlerId()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{glcorearb_8h_a950fc91edb4504f62f1c577bf4727c29}{void}} Traffic\+Sim\+::\+Traffic\+Light\+::set\+Handler\+Id (\begin{DoxyParamCaption}\item[{unsigned int}]{id }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_traffic_sim_1_1_traffic_light_a69ae6c562dfe68c6a8687570e030bc4d_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_traffic_sim_1_1_traffic_light_acb37d46878d5be583d55e82709395dd3}\label{class_traffic_sim_1_1_traffic_light_acb37d46878d5be583d55e82709395dd3}} 
+\index{TrafficSim::TrafficLight@{TrafficSim::TrafficLight}!update@{update}}
+\index{update@{update}!TrafficSim::TrafficLight@{TrafficSim::TrafficLight}}
+\doxysubsubsection{\texorpdfstring{update()}{update()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{glcorearb_8h_a950fc91edb4504f62f1c577bf4727c29}{void}} Traffic\+Sim\+::\+Traffic\+Light\+::update (\begin{DoxyParamCaption}\item[{float}]{delta\+\_\+time }\end{DoxyParamCaption})}
+
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{class_traffic_sim_1_1_traffic_light_a855327c2db499ad5f5b82a1cc471fd54}\label{class_traffic_sim_1_1_traffic_light_a855327c2db499ad5f5b82a1cc471fd54}} 
+\index{TrafficSim::TrafficLight@{TrafficSim::TrafficLight}!green\_time\_@{green\_time\_}}
+\index{green\_time\_@{green\_time\_}!TrafficSim::TrafficLight@{TrafficSim::TrafficLight}}
+\doxysubsubsection{\texorpdfstring{green\_time\_}{green\_time\_}}
+{\footnotesize\ttfamily float Traffic\+Sim\+::\+Traffic\+Light\+::green\+\_\+time\+\_\+ = 5}
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+src/trafficsim/\mbox{\hyperlink{_traffic_light_8hpp}{Traffic\+Light.\+hpp}}\item 
+src/trafficsim/\mbox{\hyperlink{_traffic_light_8cpp}{Traffic\+Light.\+cpp}}\end{DoxyCompactItemize}

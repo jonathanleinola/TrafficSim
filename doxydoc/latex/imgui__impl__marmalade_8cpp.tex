@@ -1,0 +1,151 @@
+\hypertarget{imgui__impl__marmalade_8cpp}{}\doxysection{deps/imgui/examples/imgui\+\_\+impl\+\_\+marmalade.cpp File Reference}
+\label{imgui__impl__marmalade_8cpp}\index{deps/imgui/examples/imgui\_impl\_marmalade.cpp@{deps/imgui/examples/imgui\_impl\_marmalade.cpp}}
+{\ttfamily \#include \char`\"{}imgui.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}imgui\+\_\+impl\+\_\+marmalade.\+h\char`\"{}}\newline
+{\ttfamily \#include $<$s3e\+Clipboard.\+h$>$}\newline
+{\ttfamily \#include $<$s3e\+Pointer.\+h$>$}\newline
+{\ttfamily \#include $<$s3e\+Keyboard.\+h$>$}\newline
+{\ttfamily \#include $<$Iw\+Texture.\+h$>$}\newline
+{\ttfamily \#include $<$Iw\+Gx.\+h$>$}\newline
+Include dependency graph for imgui\+\_\+impl\+\_\+marmalade.\+cpp\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{imgui__impl__marmalade_8cpp__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{glcorearb_8h_a950fc91edb4504f62f1c577bf4727c29}{void}} \mbox{\hyperlink{imgui__impl__marmalade_8cpp_a789090c86d9e6a947bae61edd401b5c3}{Im\+Gui\+\_\+\+Marmalade\+\_\+\+Render\+Draw\+Data}} (\mbox{\hyperlink{struct_im_draw_data}{Im\+Draw\+Data}} $\ast$draw\+\_\+data)
+\item 
+int32 \mbox{\hyperlink{imgui__impl__marmalade_8cpp_a75e2d446a4fb34b7c356a5ab2dc66e86}{Im\+Gui\+\_\+\+Marmalade\+\_\+\+Pointer\+Button\+Event\+Callback}} (\mbox{\hyperlink{glcorearb_8h_a950fc91edb4504f62f1c577bf4727c29}{void}} $\ast$system\+\_\+data, \mbox{\hyperlink{glcorearb_8h_a950fc91edb4504f62f1c577bf4727c29}{void}} $\ast$user\+\_\+data)
+\item 
+int32 \mbox{\hyperlink{imgui__impl__marmalade_8cpp_a122b759adda4877eb8712e756e55569c}{Im\+Gui\+\_\+\+Marmalade\+\_\+\+Key\+Callback}} (\mbox{\hyperlink{glcorearb_8h_a950fc91edb4504f62f1c577bf4727c29}{void}} $\ast$system\+\_\+data, \mbox{\hyperlink{glcorearb_8h_a950fc91edb4504f62f1c577bf4727c29}{void}} $\ast$user\+\_\+data)
+\item 
+int32 \mbox{\hyperlink{imgui__impl__marmalade_8cpp_abfef8a74099f38a72bcc1a181ccf4a6a}{Im\+Gui\+\_\+\+Marmalade\+\_\+\+Char\+Callback}} (\mbox{\hyperlink{glcorearb_8h_a950fc91edb4504f62f1c577bf4727c29}{void}} $\ast$system\+\_\+data, \mbox{\hyperlink{glcorearb_8h_a950fc91edb4504f62f1c577bf4727c29}{void}} $\ast$user\+\_\+data)
+\item 
+bool \mbox{\hyperlink{imgui__impl__marmalade_8cpp_a6eae7e87d7106ca92150d562d10d91a8}{Im\+Gui\+\_\+\+Marmalade\+\_\+\+Create\+Device\+Objects}} ()
+\item 
+\mbox{\hyperlink{glcorearb_8h_a950fc91edb4504f62f1c577bf4727c29}{void}} \mbox{\hyperlink{imgui__impl__marmalade_8cpp_a03f6b710fc897c606c0f7a5e679e23d2}{Im\+Gui\+\_\+\+Marmalade\+\_\+\+Invalidate\+Device\+Objects}} ()
+\item 
+bool \mbox{\hyperlink{imgui__impl__marmalade_8cpp_affd291c7ac5daa577844cd4a6190ebc6}{Im\+Gui\+\_\+\+Marmalade\+\_\+\+Init}} (bool install\+\_\+callbacks)
+\item 
+\mbox{\hyperlink{glcorearb_8h_a950fc91edb4504f62f1c577bf4727c29}{void}} \mbox{\hyperlink{imgui__impl__marmalade_8cpp_a3da691c4a4a813c8b5403a95358c9fd1}{Im\+Gui\+\_\+\+Marmalade\+\_\+\+Shutdown}} ()
+\item 
+\mbox{\hyperlink{glcorearb_8h_a950fc91edb4504f62f1c577bf4727c29}{void}} \mbox{\hyperlink{imgui__impl__marmalade_8cpp_ad7867499848e5e5b7a8a10fa85259fbb}{Im\+Gui\+\_\+\+Marmalade\+\_\+\+New\+Frame}} ()
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{imgui__impl__marmalade_8cpp_abfef8a74099f38a72bcc1a181ccf4a6a}\label{imgui__impl__marmalade_8cpp_abfef8a74099f38a72bcc1a181ccf4a6a}} 
+\index{imgui\_impl\_marmalade.cpp@{imgui\_impl\_marmalade.cpp}!ImGui\_Marmalade\_CharCallback@{ImGui\_Marmalade\_CharCallback}}
+\index{ImGui\_Marmalade\_CharCallback@{ImGui\_Marmalade\_CharCallback}!imgui\_impl\_marmalade.cpp@{imgui\_impl\_marmalade.cpp}}
+\doxysubsubsection{\texorpdfstring{ImGui\_Marmalade\_CharCallback()}{ImGui\_Marmalade\_CharCallback()}}
+{\footnotesize\ttfamily int32 Im\+Gui\+\_\+\+Marmalade\+\_\+\+Char\+Callback (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{glcorearb_8h_a950fc91edb4504f62f1c577bf4727c29}{void}} $\ast$}]{system\+\_\+data,  }\item[{\mbox{\hyperlink{glcorearb_8h_a950fc91edb4504f62f1c577bf4727c29}{void}} $\ast$}]{user\+\_\+data }\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{imgui__impl__marmalade_8cpp_abfef8a74099f38a72bcc1a181ccf4a6a_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{imgui__impl__marmalade_8cpp_a6eae7e87d7106ca92150d562d10d91a8}\label{imgui__impl__marmalade_8cpp_a6eae7e87d7106ca92150d562d10d91a8}} 
+\index{imgui\_impl\_marmalade.cpp@{imgui\_impl\_marmalade.cpp}!ImGui\_Marmalade\_CreateDeviceObjects@{ImGui\_Marmalade\_CreateDeviceObjects}}
+\index{ImGui\_Marmalade\_CreateDeviceObjects@{ImGui\_Marmalade\_CreateDeviceObjects}!imgui\_impl\_marmalade.cpp@{imgui\_impl\_marmalade.cpp}}
+\doxysubsubsection{\texorpdfstring{ImGui\_Marmalade\_CreateDeviceObjects()}{ImGui\_Marmalade\_CreateDeviceObjects()}}
+{\footnotesize\ttfamily bool Im\+Gui\+\_\+\+Marmalade\+\_\+\+Create\+Device\+Objects (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{imgui__impl__marmalade_8cpp_a6eae7e87d7106ca92150d562d10d91a8_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{imgui__impl__marmalade_8cpp_affd291c7ac5daa577844cd4a6190ebc6}\label{imgui__impl__marmalade_8cpp_affd291c7ac5daa577844cd4a6190ebc6}} 
+\index{imgui\_impl\_marmalade.cpp@{imgui\_impl\_marmalade.cpp}!ImGui\_Marmalade\_Init@{ImGui\_Marmalade\_Init}}
+\index{ImGui\_Marmalade\_Init@{ImGui\_Marmalade\_Init}!imgui\_impl\_marmalade.cpp@{imgui\_impl\_marmalade.cpp}}
+\doxysubsubsection{\texorpdfstring{ImGui\_Marmalade\_Init()}{ImGui\_Marmalade\_Init()}}
+{\footnotesize\ttfamily bool Im\+Gui\+\_\+\+Marmalade\+\_\+\+Init (\begin{DoxyParamCaption}\item[{bool}]{install\+\_\+callbacks }\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=308pt]{imgui__impl__marmalade_8cpp_affd291c7ac5daa577844cd4a6190ebc6_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=271pt]{imgui__impl__marmalade_8cpp_affd291c7ac5daa577844cd4a6190ebc6_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{imgui__impl__marmalade_8cpp_a03f6b710fc897c606c0f7a5e679e23d2}\label{imgui__impl__marmalade_8cpp_a03f6b710fc897c606c0f7a5e679e23d2}} 
+\index{imgui\_impl\_marmalade.cpp@{imgui\_impl\_marmalade.cpp}!ImGui\_Marmalade\_InvalidateDeviceObjects@{ImGui\_Marmalade\_InvalidateDeviceObjects}}
+\index{ImGui\_Marmalade\_InvalidateDeviceObjects@{ImGui\_Marmalade\_InvalidateDeviceObjects}!imgui\_impl\_marmalade.cpp@{imgui\_impl\_marmalade.cpp}}
+\doxysubsubsection{\texorpdfstring{ImGui\_Marmalade\_InvalidateDeviceObjects()}{ImGui\_Marmalade\_InvalidateDeviceObjects()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{glcorearb_8h_a950fc91edb4504f62f1c577bf4727c29}{void}} Im\+Gui\+\_\+\+Marmalade\+\_\+\+Invalidate\+Device\+Objects (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{imgui__impl__marmalade_8cpp_a03f6b710fc897c606c0f7a5e679e23d2_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{imgui__impl__marmalade_8cpp_a122b759adda4877eb8712e756e55569c}\label{imgui__impl__marmalade_8cpp_a122b759adda4877eb8712e756e55569c}} 
+\index{imgui\_impl\_marmalade.cpp@{imgui\_impl\_marmalade.cpp}!ImGui\_Marmalade\_KeyCallback@{ImGui\_Marmalade\_KeyCallback}}
+\index{ImGui\_Marmalade\_KeyCallback@{ImGui\_Marmalade\_KeyCallback}!imgui\_impl\_marmalade.cpp@{imgui\_impl\_marmalade.cpp}}
+\doxysubsubsection{\texorpdfstring{ImGui\_Marmalade\_KeyCallback()}{ImGui\_Marmalade\_KeyCallback()}}
+{\footnotesize\ttfamily int32 Im\+Gui\+\_\+\+Marmalade\+\_\+\+Key\+Callback (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{glcorearb_8h_a950fc91edb4504f62f1c577bf4727c29}{void}} $\ast$}]{system\+\_\+data,  }\item[{\mbox{\hyperlink{glcorearb_8h_a950fc91edb4504f62f1c577bf4727c29}{void}} $\ast$}]{user\+\_\+data }\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{imgui__impl__marmalade_8cpp_a122b759adda4877eb8712e756e55569c_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{imgui__impl__marmalade_8cpp_ad7867499848e5e5b7a8a10fa85259fbb}\label{imgui__impl__marmalade_8cpp_ad7867499848e5e5b7a8a10fa85259fbb}} 
+\index{imgui\_impl\_marmalade.cpp@{imgui\_impl\_marmalade.cpp}!ImGui\_Marmalade\_NewFrame@{ImGui\_Marmalade\_NewFrame}}
+\index{ImGui\_Marmalade\_NewFrame@{ImGui\_Marmalade\_NewFrame}!imgui\_impl\_marmalade.cpp@{imgui\_impl\_marmalade.cpp}}
+\doxysubsubsection{\texorpdfstring{ImGui\_Marmalade\_NewFrame()}{ImGui\_Marmalade\_NewFrame()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{glcorearb_8h_a950fc91edb4504f62f1c577bf4727c29}{void}} Im\+Gui\+\_\+\+Marmalade\+\_\+\+New\+Frame (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{imgui__impl__marmalade_8cpp_a75e2d446a4fb34b7c356a5ab2dc66e86}\label{imgui__impl__marmalade_8cpp_a75e2d446a4fb34b7c356a5ab2dc66e86}} 
+\index{imgui\_impl\_marmalade.cpp@{imgui\_impl\_marmalade.cpp}!ImGui\_Marmalade\_PointerButtonEventCallback@{ImGui\_Marmalade\_PointerButtonEventCallback}}
+\index{ImGui\_Marmalade\_PointerButtonEventCallback@{ImGui\_Marmalade\_PointerButtonEventCallback}!imgui\_impl\_marmalade.cpp@{imgui\_impl\_marmalade.cpp}}
+\doxysubsubsection{\texorpdfstring{ImGui\_Marmalade\_PointerButtonEventCallback()}{ImGui\_Marmalade\_PointerButtonEventCallback()}}
+{\footnotesize\ttfamily int32 Im\+Gui\+\_\+\+Marmalade\+\_\+\+Pointer\+Button\+Event\+Callback (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{glcorearb_8h_a950fc91edb4504f62f1c577bf4727c29}{void}} $\ast$}]{system\+\_\+data,  }\item[{\mbox{\hyperlink{glcorearb_8h_a950fc91edb4504f62f1c577bf4727c29}{void}} $\ast$}]{user\+\_\+data }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{imgui__impl__marmalade_8cpp_a789090c86d9e6a947bae61edd401b5c3}\label{imgui__impl__marmalade_8cpp_a789090c86d9e6a947bae61edd401b5c3}} 
+\index{imgui\_impl\_marmalade.cpp@{imgui\_impl\_marmalade.cpp}!ImGui\_Marmalade\_RenderDrawData@{ImGui\_Marmalade\_RenderDrawData}}
+\index{ImGui\_Marmalade\_RenderDrawData@{ImGui\_Marmalade\_RenderDrawData}!imgui\_impl\_marmalade.cpp@{imgui\_impl\_marmalade.cpp}}
+\doxysubsubsection{\texorpdfstring{ImGui\_Marmalade\_RenderDrawData()}{ImGui\_Marmalade\_RenderDrawData()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{glcorearb_8h_a950fc91edb4504f62f1c577bf4727c29}{void}} Im\+Gui\+\_\+\+Marmalade\+\_\+\+Render\+Draw\+Data (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_im_draw_data}{Im\+Draw\+Data}} $\ast$}]{draw\+\_\+data }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{imgui__impl__marmalade_8cpp_a3da691c4a4a813c8b5403a95358c9fd1}\label{imgui__impl__marmalade_8cpp_a3da691c4a4a813c8b5403a95358c9fd1}} 
+\index{imgui\_impl\_marmalade.cpp@{imgui\_impl\_marmalade.cpp}!ImGui\_Marmalade\_Shutdown@{ImGui\_Marmalade\_Shutdown}}
+\index{ImGui\_Marmalade\_Shutdown@{ImGui\_Marmalade\_Shutdown}!imgui\_impl\_marmalade.cpp@{imgui\_impl\_marmalade.cpp}}
+\doxysubsubsection{\texorpdfstring{ImGui\_Marmalade\_Shutdown()}{ImGui\_Marmalade\_Shutdown()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{glcorearb_8h_a950fc91edb4504f62f1c577bf4727c29}{void}} Im\+Gui\+\_\+\+Marmalade\+\_\+\+Shutdown (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{imgui__impl__marmalade_8cpp_a3da691c4a4a813c8b5403a95358c9fd1_cgraph}
+\end{center}
+\end{figure}

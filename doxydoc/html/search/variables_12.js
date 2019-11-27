@@ -1,0 +1,28 @@
+var searchData=
+[
+  ['r_10807',['r',['../classsf_1_1_color.html#a6a5256ca24a4f9f0e0808f6fc23e01e1',1,'sf::Color']]],
+  ['rasterizerflags_10808',['RasterizerFlags',['../struct_im_font_config.html#a80d05eea7733731a3e9ac1d9e905e5b3',1,'ImFontConfig']]],
+  ['rasterizermultiply_10809',['RasterizerMultiply',['../struct_im_font_config.html#a9365265cc52098a8ecf89ff47f6106f2',1,'ImFontConfig']]],
+  ['readlinefn_10810',['ReadLineFn',['../struct_im_gui_settings_handler.html#a0a02bad8569c2d9f22e1a532d1e2de60',1,'ImGuiSettingsHandler']]],
+  ['readopenfn_10811',['ReadOpenFn',['../struct_im_gui_settings_handler.html#accadc3cc1599382b55b58dac53df0b24',1,'ImGuiSettingsHandler']]],
+  ['rect_5f_10812',['rect_',['../class_traffic_sim_1_1_tile.html#a56ff20fc27c0269adcd72d9db8a8cc34',1,'TrafficSim::Tile']]],
+  ['rectrel_10813',['RectRel',['../struct_im_gui_nav_move_result.html#ae1be85fdcad1fc7c2bfa367862da2ccf',1,'ImGuiNavMoveResult']]],
+  ['rects_10814',['Rects',['../struct_im_font_build_src_data.html#a918baffa45001ec6ba866ad18a338969',1,'ImFontBuildSrcData::Rects()'],['../struct_im_font_build_src_data_f_t.html#a4314160d65dc17fbc243d3a01d3b7d10',1,'ImFontBuildSrcDataFT::Rects()']]],
+  ['red_10815',['Red',['../classsf_1_1_color.html#a127dbf55db9c07d0fa8f4bfcbb97594a',1,'sf::Color::Red()'],['../struct_g_l_f_wgammaramp.html#a2cce5d968734b685623eef913e635138',1,'GLFWgammaramp::red()']]],
+  ['redbits_10816',['redBits',['../struct_g_l_f_wvidmode.html#a6066c4ecd251098700062d3b735dba1b',1,'GLFWvidmode']]],
+  ['redo_5fchar_5fpoint_10817',['redo_char_point',['../struct_stb_undo_state.html#aab6e5eeb964882e6d9f5d2952b7352e3',1,'StbUndoState']]],
+  ['redo_5fpoint_10818',['redo_point',['../struct_stb_undo_state.html#a719ba014b2db8a8ea55739664b445af0',1,'StbUndoState']]],
+  ['refframe_10819',['RefFrame',['../struct_im_gui_once_upon_a_frame.html#a2d44776b8e7bdeec217f88be9f832e08',1,'ImGuiOnceUponAFrame']]],
+  ['refreshrate_10820',['refreshRate',['../struct_g_l_f_wvidmode.html#a791bdd6c7697b09f7e9c97054bf05649',1,'GLFWvidmode']]],
+  ['rendercompletesemaphore_10821',['RenderCompleteSemaphore',['../struct_im_gui___impl_vulkan_h___frame_semaphores.html#aa5dad94e9e02ef1cfd2ef171bb72f3e8',1,'ImGui_ImplVulkanH_FrameSemaphores']]],
+  ['renderdrawlistsfn_10822',['RenderDrawListsFn',['../struct_im_gui_i_o.html#ae16a9f25f36fe9706d8a33fb128e538a',1,'ImGuiIO']]],
+  ['renderpass_10823',['RenderPass',['../struct_im_gui___impl_vulkan_h___window.html#ac3eff232378a4a334617a8fba3953b03',1,'ImGui_ImplVulkanH_Window']]],
+  ['reorderrequestdir_10824',['ReorderRequestDir',['../struct_im_gui_tab_bar.html#adb5c5e4dd8c0331a229dd9e38042677f',1,'ImGuiTabBar']]],
+  ['reorderrequesttabid_10825',['ReorderRequestTabId',['../struct_im_gui_tab_bar.html#a63b10062043a569efbb55462602d7b27',1,'ImGuiTabBar']]],
+  ['requires_10826',['requires',['../classconanfile_1_1_imgui_sfml_conan.html#a514a90aaaf75cf41f000e7163229532a',1,'conanfile::ImguiSfmlConan']]],
+  ['resizeborderheld_10827',['ResizeBorderHeld',['../struct_im_gui_window.html#a2f7c042fc7e8359d4736cab69fff8490',1,'ImGuiWindow']]],
+  ['right_5fturn_5f_10828',['right_turn_',['../class_traffic_sim_1_1_road_tile.html#a3ab4a5174ba93776d85e376a0bebc5e0',1,'TrafficSim::RoadTile']]],
+  ['rootwindow_10829',['RootWindow',['../struct_im_gui_window.html#aef9281297b0993c8f1b7c1ff7987cb61',1,'ImGuiWindow']]],
+  ['rootwindowfornav_10830',['RootWindowForNav',['../struct_im_gui_window.html#a949a4aa260a21e8a8d2f65ffbe789712',1,'ImGuiWindow']]],
+  ['rootwindowfortitlebarhighlight_10831',['RootWindowForTitleBarHighlight',['../struct_im_gui_window.html#ae5d5c6637b63f35edc415162a5674c1e',1,'ImGuiWindow']]]
+];

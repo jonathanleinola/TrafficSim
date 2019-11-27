@@ -1,0 +1,6 @@
+<map id="TrafficSim::Map::removeLight" name="TrafficSim::Map::removeLight">
+<area shape="rect" id="node1" title=" " alt="" coords="5,44,200,69"/>
+<area shape="rect" id="node2" href="$class_traffic_sim_1_1_traffic_light.html#a0e1ec02ab2bd62e26a51c835decb447e" title=" " alt="" coords="248,5,402,44"/>
+<area shape="rect" id="node3" href="$class_traffic_sim_1_1_traffic_light.html#a9aee9e0039c1d527a6d352c1a2b7f039" title=" " alt="" coords="248,68,402,107"/>
+<area shape="rect" id="node4" href="$classsf_1_1_transformable.html#a73f9739bc6e74db2cea154bc8e94ec46" title="get the position of the object" alt="" coords="450,68,582,107"/>
+</map>

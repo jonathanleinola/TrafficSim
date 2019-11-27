@@ -1,0 +1,4 @@
+<map id="TrafficSim::RoadTurn::flip" name="TrafficSim::RoadTurn::flip">
+<area shape="rect" id="node1" title=" " alt="" coords="5,5,152,44"/>
+<area shape="rect" id="node2" href="$classsf_1_1_shape.html#af8fb22bab1956325be5d62282711e3b6" title="Change the source texture of the shape." alt="" coords="200,12,347,37"/>
+</map>

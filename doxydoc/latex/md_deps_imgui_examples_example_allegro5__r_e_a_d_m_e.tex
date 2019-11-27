@@ -1,0 +1,25 @@
+Dear \mbox{\hyperlink{namespace_im_gui}{Im\+Gui}} outputs 16-\/bit vertex indices by default. Allegro doesn\textquotesingle{}t support them natively, so we have two solutions\+: convert the indices manually in \mbox{\hyperlink{imgui__impl__allegro5_8cpp}{imgui\+\_\+impl\+\_\+allegro5.\+cpp}}, or compile dear imgui with 32-\/bit indices. You can either modify imconfig.\+h that comes with Dear \mbox{\hyperlink{namespace_im_gui}{Im\+Gui}} (easier), or set a C++ preprocessor option I\+M\+G\+U\+I\+\_\+\+U\+S\+E\+R\+\_\+\+C\+O\+N\+F\+IG to find to a filename. We are providing {\ttfamily imconfig\+\_\+allegro5.\+h} that enables 32-\/bit indices. Note that the back-\/end supports {\itshape B\+O\+TH} 16-\/bit and 32-\/bit indices, but 32-\/bit indices will be slightly faster as they won\textquotesingle{}t require a manual conversion.\hypertarget{md_deps_imgui_examples_example_allegro5__r_e_a_d_m_e_autotoc_md60}{}\doxysection{How to Build}\label{md_deps_imgui_examples_example_allegro5__r_e_a_d_m_e_autotoc_md60}
+\hypertarget{md_deps_imgui_examples_example_allegro5__r_e_a_d_m_e_autotoc_md61}{}\doxysubsubsection{On Ubuntu 14.\+04+ and mac\+OS}\label{md_deps_imgui_examples_example_allegro5__r_e_a_d_m_e_autotoc_md61}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{g++ -\/DIMGUI\_USER\_CONFIG=\(\backslash\)"examples/example\_allegro5/imconfig\_allegro5.h\(\backslash\)" -\/I .. -\/I ../.. main.cpp ../imgui\_impl\_allegro5.cpp ../../imgui*.cpp -\/lallegro -\/lallegro\_main -\/lallegro\_primitives -\/o allegro5\_example}
+\end{DoxyCode}
+
+
+On mac\+OS, install Allegro with homebrew\+: {\ttfamily brew install allegro}.\hypertarget{md_deps_imgui_examples_example_allegro5__r_e_a_d_m_e_autotoc_md62}{}\doxysubsubsection{On Windows with Visual Studio\textquotesingle{}s C\+LI}\label{md_deps_imgui_examples_example_allegro5__r_e_a_d_m_e_autotoc_md62}
+You may install Allegro using vcpkg\+: 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{git clone https://github.com/Microsoft/vcpkg}
+\DoxyCodeLine{cd vcpkg}
+\DoxyCodeLine{.\(\backslash\)bootstrap-\/vcpkg.bat}
+\DoxyCodeLine{.\(\backslash\)vcpkg install allegro5}
+\DoxyCodeLine{.\(\backslash\)vcpkg integrate install    ; optional, automatically register include/libs in Visual Studio}
+\end{DoxyCode}
+
+
+Build\+: 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{set ALLEGRODIR=path\_to\_your\_allegro5\_folder}
+\DoxyCodeLine{cl /Zi /MD /I \%ALLEGRODIR\%\(\backslash\)include /DIMGUI\_USER\_CONFIG=\(\backslash\)"examples/example\_allegro5/imconfig\_allegro5.h\(\backslash\)" /I .. /I ..\(\backslash\).. main.cpp ..\(\backslash\)imgui\_impl\_allegro5.cpp ..\(\backslash\)..\(\backslash\)imgui*.cpp /link /LIBPATH:\%ALLEGRODIR\%\(\backslash\)lib allegro-\/5.0.10-\/monolith-\/md.lib user32.lib}
+\end{DoxyCode}
+ 

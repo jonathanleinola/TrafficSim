@@ -1,0 +1,10 @@
+<map id="ImGui::PopColumnsBackground" name="ImGui::PopColumnsBackground">
+<area shape="rect" id="node1" title=" " alt="" coords="5,64,217,89"/>
+<area shape="rect" id="node2" href="$struct_im_draw_list.html#aba9e93d0bf1c3884beb726e96360d2e2" title=" " alt="" coords="265,13,481,39"/>
+<area shape="rect" id="node4" href="$namespace_im_gui.html#a408f9ddac92f8629a7e273ced5f8c3aa" title=" " alt="" coords="268,64,478,89"/>
+<area shape="rect" id="node5" href="$namespace_im_gui.html#aef1c8a6e5a3c70cb10d03d2a2a66dfd8" title=" " alt="" coords="304,115,442,140"/>
+<area shape="rect" id="node3" href="$struct_im_draw_list_splitter.html#ad3797b0755caa07f3d69a9e3566eb0e5" title=" " alt="" coords="547,5,690,44"/>
+<area shape="rect" id="node6" href="$struct_im_vector.html#a6da15f3c402099ed57078835ab942f8e" title=" " alt="" coords="563,68,673,93"/>
+<area shape="rect" id="node7" href="$namespace_im_gui.html#a7ceba68eca2b09fb6bf1ad88037e6203" title=" " alt="" coords="529,117,707,143"/>
+<area shape="rect" id="node8" href="$struct_im_draw_list.html#a44f40c59ca755f559020f5a7fa81103a" title=" " alt="" coords="533,167,703,192"/>
+</map>

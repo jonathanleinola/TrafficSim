@@ -1,0 +1,7 @@
+<map id="TrafficSim::Car::Car" name="TrafficSim::Car::Car">
+<area shape="rect" id="node1" title=" " alt="" coords="5,107,144,132"/>
+<area shape="rect" id="node2" href="$classsf_1_1_rectangle_shape.html#ae54a07ff5537bf76de6748f592b34896" title="Get the size of the rectangle." alt="" coords="196,5,334,44"/>
+<area shape="rect" id="node3" href="$classsf_1_1_transformable.html#a56c67bd80aae8418d13fb96c034d25ec" title="set the local origin of the object" alt="" coords="199,68,331,107"/>
+<area shape="rect" id="node4" href="$classsf_1_1_transformable.html#a4dbfb1a7c80688b0b4c477d706550208" title="set the position of the object" alt="" coords="199,131,331,169"/>
+<area shape="rect" id="node5" href="$classsf_1_1_shape.html#af8fb22bab1956325be5d62282711e3b6" title="Change the source texture of the shape." alt="" coords="192,193,339,219"/>
+</map>

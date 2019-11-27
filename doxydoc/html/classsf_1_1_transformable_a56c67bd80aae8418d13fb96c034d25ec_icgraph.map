@@ -1,0 +1,7 @@
+<map id="sf::Transformable::setOrigin" name="sf::Transformable::setOrigin">
+<area shape="rect" id="node1" title="set the local origin of the object" alt="" coords="213,73,345,112"/>
+<area shape="rect" id="node2" href="$class_traffic_sim_1_1_car.html#a56f52f1c5775483c8edbee97cb1da592" title=" " alt="" coords="16,5,154,31"/>
+<area shape="rect" id="node3" href="$class_traffic_sim_1_1_node.html#a4482ff1ccb52cdbfe9f6622859613a67" title=" " alt="" coords="5,55,165,80"/>
+<area shape="rect" id="node4" href="$class_traffic_sim_1_1_tile.html#abef0fa8694417b5f2d15e215b9c84ef5" title=" " alt="" coords="16,104,154,129"/>
+<area shape="rect" id="node5" href="$class_traffic_sim_1_1_traffic_light.html#acfce3eaf5ea170246d86ddfcaa743301" title=" " alt="" coords="8,153,162,192"/>
+</map>

@@ -1,0 +1,13 @@
+<map id="ImGui::Image" name="ImGui::Image">
+<area shape="rect" id="node1" title=" " alt="" coords="5,80,107,105"/>
+<area shape="rect" id="node2" href="$classsf_1_1_sprite.html#a1a76155146c8ff37c4eb5a306b4e9ebe" title="Get the source texture of the sprite." alt="" coords="168,31,312,56"/>
+<area shape="rect" id="node3" href="$classsf_1_1_sprite.html#a3492896fe7b63f58ae022c5b8bec5c98" title="Get the sub&#45;rectangle of the texture displayed by the sprite." alt="" coords="155,80,326,105"/>
+<area shape="rect" id="node4" href="$namespace_im_gui.html#ad8705ac3b718c1b2e84e7b8c34f90249" title=" " alt="" coords="190,129,291,155"/>
+<area shape="rect" id="node5" href="$struct_im_draw_list.html#ac1f529d53d7ba118484e47e49218c603" title=" " alt="" coords="384,5,541,31"/>
+<area shape="rect" id="node6" href="$struct_im_draw_list.html#a766b752a701b00a7769b13c4c93cab06" title=" " alt="" coords="389,55,536,80"/>
+<area shape="rect" id="node7" href="$namespace_im_gui.html#a0de2d9bd347d9866511eb8d014e62556" title=" " alt="" coords="392,104,534,129"/>
+<area shape="rect" id="node9" href="$namespace_im_gui.html#a7ceba68eca2b09fb6bf1ad88037e6203" title=" " alt="" coords="374,153,551,179"/>
+<area shape="rect" id="node10" href="$namespace_im_gui.html#aa6e503009550f5e42d6eb4c146090929" title=" " alt="" coords="406,203,520,228"/>
+<area shape="rect" id="node11" href="$namespace_im_gui.html#aeeb1ec6ae6548173dbf813e7df538c48" title=" " alt="" coords="404,252,521,277"/>
+<area shape="rect" id="node8" href="$namespace_im_gui.html#abe2691de0b1a71c774ab24cc91564a94" title=" " alt="" coords="599,97,779,136"/>
+</map>

@@ -1,0 +1,4 @@
+<map id="sf::Mutex" name="sf::Mutex">
+<area shape="rect" id="node1" title="Blocks concurrent access to shared resources from multiple threads." alt="" coords="27,140,113,253"/>
+<area shape="rect" id="node2" href="$classsf_1_1_non_copyable.html" title="Utility class that makes any derived class non&#45;copyable." alt="" coords="5,5,135,92"/>
+</map>

@@ -1,0 +1,781 @@
+\hypertarget{struct_im_draw_list}{}\doxysection{Im\+Draw\+List Struct Reference}
+\label{struct_im_draw_list}\index{ImDrawList@{ImDrawList}}
+
+
+{\ttfamily \#include $<$imgui.\+h$>$}
+
+
+
+Collaboration diagram for Im\+Draw\+List\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{struct_im_draw_list__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{struct_im_draw_list_a7c2af665f2c3e3bb5fc8aa34ef6dac91}{Im\+Draw\+List}} (const \mbox{\hyperlink{struct_im_draw_list_shared_data}{Im\+Draw\+List\+Shared\+Data}} $\ast$shared\+\_\+data)
+\item 
+\mbox{\hyperlink{struct_im_draw_list_a19fd8d920c202cf8ba5f5c55c43d1d2a}{$\sim$\+Im\+Draw\+List}} ()
+\item 
+\mbox{\hyperlink{imgui-_s_f_m_l__export_8h_a43829975e84e45d1149597467a14bbf5}{I\+M\+G\+U\+I\+\_\+\+A\+PI}} \mbox{\hyperlink{glcorearb_8h_a950fc91edb4504f62f1c577bf4727c29}{void}} \mbox{\hyperlink{struct_im_draw_list_acb34e2d3708616cae4567f3b4af06962}{Push\+Clip\+Rect}} (\mbox{\hyperlink{struct_im_vec2}{Im\+Vec2}} clip\+\_\+rect\+\_\+min, \mbox{\hyperlink{struct_im_vec2}{Im\+Vec2}} clip\+\_\+rect\+\_\+max, bool intersect\+\_\+with\+\_\+current\+\_\+clip\+\_\+rect=false)
+\item 
+\mbox{\hyperlink{imgui-_s_f_m_l__export_8h_a43829975e84e45d1149597467a14bbf5}{I\+M\+G\+U\+I\+\_\+\+A\+PI}} \mbox{\hyperlink{glcorearb_8h_a950fc91edb4504f62f1c577bf4727c29}{void}} \mbox{\hyperlink{struct_im_draw_list_a0ab1ab409f0e269755e50a77901bae39}{Push\+Clip\+Rect\+Full\+Screen}} ()
+\item 
+\mbox{\hyperlink{imgui-_s_f_m_l__export_8h_a43829975e84e45d1149597467a14bbf5}{I\+M\+G\+U\+I\+\_\+\+A\+PI}} \mbox{\hyperlink{glcorearb_8h_a950fc91edb4504f62f1c577bf4727c29}{void}} \mbox{\hyperlink{struct_im_draw_list_a44f40c59ca755f559020f5a7fa81103a}{Pop\+Clip\+Rect}} ()
+\item 
+\mbox{\hyperlink{imgui-_s_f_m_l__export_8h_a43829975e84e45d1149597467a14bbf5}{I\+M\+G\+U\+I\+\_\+\+A\+PI}} \mbox{\hyperlink{glcorearb_8h_a950fc91edb4504f62f1c577bf4727c29}{void}} \mbox{\hyperlink{struct_im_draw_list_a7ac41e329a9df911b4823ef0150cee16}{Push\+Texture\+ID}} (\mbox{\hyperlink{imconfig-_s_f_m_l_8h_a6238766e2c636eeb1799b88ab32bb8d5}{Im\+Texture\+ID}} texture\+\_\+id)
+\item 
+\mbox{\hyperlink{imgui-_s_f_m_l__export_8h_a43829975e84e45d1149597467a14bbf5}{I\+M\+G\+U\+I\+\_\+\+A\+PI}} \mbox{\hyperlink{glcorearb_8h_a950fc91edb4504f62f1c577bf4727c29}{void}} \mbox{\hyperlink{struct_im_draw_list_ade9286c5ca58753f7bd571b30e2ff76c}{Pop\+Texture\+ID}} ()
+\item 
+\mbox{\hyperlink{struct_im_vec2}{Im\+Vec2}} \mbox{\hyperlink{struct_im_draw_list_a9d83896d3eb434a9e1072d56523a2754}{Get\+Clip\+Rect\+Min}} () const
+\item 
+\mbox{\hyperlink{struct_im_vec2}{Im\+Vec2}} \mbox{\hyperlink{struct_im_draw_list_a8e484a61eab501c1c1c416a8b45bb08e}{Get\+Clip\+Rect\+Max}} () const
+\item 
+\mbox{\hyperlink{imgui-_s_f_m_l__export_8h_a43829975e84e45d1149597467a14bbf5}{I\+M\+G\+U\+I\+\_\+\+A\+PI}} \mbox{\hyperlink{glcorearb_8h_a950fc91edb4504f62f1c577bf4727c29}{void}} \mbox{\hyperlink{struct_im_draw_list_aa21e5a1c6e00239581f97d344fc0db61}{Add\+Line}} (const \mbox{\hyperlink{struct_im_vec2}{Im\+Vec2}} \&p1, const \mbox{\hyperlink{struct_im_vec2}{Im\+Vec2}} \&p2, \mbox{\hyperlink{imgui_8h_a118cff4eeb8d00e7d07ce3d6460eed36}{Im\+U32}} col, float thickness=1.\+0f)
+\item 
+\mbox{\hyperlink{imgui-_s_f_m_l__export_8h_a43829975e84e45d1149597467a14bbf5}{I\+M\+G\+U\+I\+\_\+\+A\+PI}} \mbox{\hyperlink{glcorearb_8h_a950fc91edb4504f62f1c577bf4727c29}{void}} \mbox{\hyperlink{struct_im_draw_list_a766b752a701b00a7769b13c4c93cab06}{Add\+Rect}} (const \mbox{\hyperlink{struct_im_vec2}{Im\+Vec2}} \&p\+\_\+min, const \mbox{\hyperlink{struct_im_vec2}{Im\+Vec2}} \&p\+\_\+max, \mbox{\hyperlink{imgui_8h_a118cff4eeb8d00e7d07ce3d6460eed36}{Im\+U32}} col, float rounding=0.\+0f, \mbox{\hyperlink{imgui_8h_a26153397274507dd2866f180728081fb}{Im\+Draw\+Corner\+Flags}} rounding\+\_\+corners=\mbox{\hyperlink{imgui_8h_ad3b7317312a7b22064ff6b6d00a54258a4e075323857172f48c44c3953f5b03df}{Im\+Draw\+Corner\+Flags\+\_\+\+All}}, float thickness=1.\+0f)
+\item 
+\mbox{\hyperlink{imgui-_s_f_m_l__export_8h_a43829975e84e45d1149597467a14bbf5}{I\+M\+G\+U\+I\+\_\+\+A\+PI}} \mbox{\hyperlink{glcorearb_8h_a950fc91edb4504f62f1c577bf4727c29}{void}} \mbox{\hyperlink{struct_im_draw_list_af80a64eefee86b0f1b0876d3f753935d}{Add\+Rect\+Filled}} (const \mbox{\hyperlink{struct_im_vec2}{Im\+Vec2}} \&p\+\_\+min, const \mbox{\hyperlink{struct_im_vec2}{Im\+Vec2}} \&p\+\_\+max, \mbox{\hyperlink{imgui_8h_a118cff4eeb8d00e7d07ce3d6460eed36}{Im\+U32}} col, float rounding=0.\+0f, \mbox{\hyperlink{imgui_8h_a26153397274507dd2866f180728081fb}{Im\+Draw\+Corner\+Flags}} rounding\+\_\+corners=\mbox{\hyperlink{imgui_8h_ad3b7317312a7b22064ff6b6d00a54258a4e075323857172f48c44c3953f5b03df}{Im\+Draw\+Corner\+Flags\+\_\+\+All}})
+\item 
+\mbox{\hyperlink{imgui-_s_f_m_l__export_8h_a43829975e84e45d1149597467a14bbf5}{I\+M\+G\+U\+I\+\_\+\+A\+PI}} \mbox{\hyperlink{glcorearb_8h_a950fc91edb4504f62f1c577bf4727c29}{void}} \mbox{\hyperlink{struct_im_draw_list_a6282e85ad78b01ebb74832336e9a2a55}{Add\+Rect\+Filled\+Multi\+Color}} (const \mbox{\hyperlink{struct_im_vec2}{Im\+Vec2}} \&p\+\_\+min, const \mbox{\hyperlink{struct_im_vec2}{Im\+Vec2}} \&p\+\_\+max, \mbox{\hyperlink{imgui_8h_a118cff4eeb8d00e7d07ce3d6460eed36}{Im\+U32}} col\+\_\+upr\+\_\+left, \mbox{\hyperlink{imgui_8h_a118cff4eeb8d00e7d07ce3d6460eed36}{Im\+U32}} col\+\_\+upr\+\_\+right, \mbox{\hyperlink{imgui_8h_a118cff4eeb8d00e7d07ce3d6460eed36}{Im\+U32}} col\+\_\+bot\+\_\+right, \mbox{\hyperlink{imgui_8h_a118cff4eeb8d00e7d07ce3d6460eed36}{Im\+U32}} col\+\_\+bot\+\_\+left)
+\item 
+\mbox{\hyperlink{imgui-_s_f_m_l__export_8h_a43829975e84e45d1149597467a14bbf5}{I\+M\+G\+U\+I\+\_\+\+A\+PI}} \mbox{\hyperlink{glcorearb_8h_a950fc91edb4504f62f1c577bf4727c29}{void}} \mbox{\hyperlink{struct_im_draw_list_a57b014138de51397db0570d88c770d9f}{Add\+Quad}} (const \mbox{\hyperlink{struct_im_vec2}{Im\+Vec2}} \&p1, const \mbox{\hyperlink{struct_im_vec2}{Im\+Vec2}} \&p2, const \mbox{\hyperlink{struct_im_vec2}{Im\+Vec2}} \&p3, const \mbox{\hyperlink{struct_im_vec2}{Im\+Vec2}} \&p4, \mbox{\hyperlink{imgui_8h_a118cff4eeb8d00e7d07ce3d6460eed36}{Im\+U32}} col, float thickness=1.\+0f)
+\item 
+\mbox{\hyperlink{imgui-_s_f_m_l__export_8h_a43829975e84e45d1149597467a14bbf5}{I\+M\+G\+U\+I\+\_\+\+A\+PI}} \mbox{\hyperlink{glcorearb_8h_a950fc91edb4504f62f1c577bf4727c29}{void}} \mbox{\hyperlink{struct_im_draw_list_a2b982fbad35f8736fdfc9d6e7db2ca94}{Add\+Quad\+Filled}} (const \mbox{\hyperlink{struct_im_vec2}{Im\+Vec2}} \&p1, const \mbox{\hyperlink{struct_im_vec2}{Im\+Vec2}} \&p2, const \mbox{\hyperlink{struct_im_vec2}{Im\+Vec2}} \&p3, const \mbox{\hyperlink{struct_im_vec2}{Im\+Vec2}} \&p4, \mbox{\hyperlink{imgui_8h_a118cff4eeb8d00e7d07ce3d6460eed36}{Im\+U32}} col)
+\item 
+\mbox{\hyperlink{imgui-_s_f_m_l__export_8h_a43829975e84e45d1149597467a14bbf5}{I\+M\+G\+U\+I\+\_\+\+A\+PI}} \mbox{\hyperlink{glcorearb_8h_a950fc91edb4504f62f1c577bf4727c29}{void}} \mbox{\hyperlink{struct_im_draw_list_a04bde432891d0392e7d98d957c1fd9b3}{Add\+Triangle}} (const \mbox{\hyperlink{struct_im_vec2}{Im\+Vec2}} \&p1, const \mbox{\hyperlink{struct_im_vec2}{Im\+Vec2}} \&p2, const \mbox{\hyperlink{struct_im_vec2}{Im\+Vec2}} \&p3, \mbox{\hyperlink{imgui_8h_a118cff4eeb8d00e7d07ce3d6460eed36}{Im\+U32}} col, float thickness=1.\+0f)
+\item 
+\mbox{\hyperlink{imgui-_s_f_m_l__export_8h_a43829975e84e45d1149597467a14bbf5}{I\+M\+G\+U\+I\+\_\+\+A\+PI}} \mbox{\hyperlink{glcorearb_8h_a950fc91edb4504f62f1c577bf4727c29}{void}} \mbox{\hyperlink{struct_im_draw_list_af1dd4a3888034c5f71b66a38e44edf31}{Add\+Triangle\+Filled}} (const \mbox{\hyperlink{struct_im_vec2}{Im\+Vec2}} \&p1, const \mbox{\hyperlink{struct_im_vec2}{Im\+Vec2}} \&p2, const \mbox{\hyperlink{struct_im_vec2}{Im\+Vec2}} \&p3, \mbox{\hyperlink{imgui_8h_a118cff4eeb8d00e7d07ce3d6460eed36}{Im\+U32}} col)
+\item 
+\mbox{\hyperlink{imgui-_s_f_m_l__export_8h_a43829975e84e45d1149597467a14bbf5}{I\+M\+G\+U\+I\+\_\+\+A\+PI}} \mbox{\hyperlink{glcorearb_8h_a950fc91edb4504f62f1c577bf4727c29}{void}} \mbox{\hyperlink{struct_im_draw_list_a489b7a51215c71bc949428b2979df72f}{Add\+Circle}} (const \mbox{\hyperlink{struct_im_vec2}{Im\+Vec2}} \&center, float radius, \mbox{\hyperlink{imgui_8h_a118cff4eeb8d00e7d07ce3d6460eed36}{Im\+U32}} col, int num\+\_\+segments=12, float thickness=1.\+0f)
+\item 
+\mbox{\hyperlink{imgui-_s_f_m_l__export_8h_a43829975e84e45d1149597467a14bbf5}{I\+M\+G\+U\+I\+\_\+\+A\+PI}} \mbox{\hyperlink{glcorearb_8h_a950fc91edb4504f62f1c577bf4727c29}{void}} \mbox{\hyperlink{struct_im_draw_list_aa0deb7afb981f8984e504460eb1dc7d0}{Add\+Circle\+Filled}} (const \mbox{\hyperlink{struct_im_vec2}{Im\+Vec2}} \&center, float radius, \mbox{\hyperlink{imgui_8h_a118cff4eeb8d00e7d07ce3d6460eed36}{Im\+U32}} col, int num\+\_\+segments=12)
+\item 
+\mbox{\hyperlink{imgui-_s_f_m_l__export_8h_a43829975e84e45d1149597467a14bbf5}{I\+M\+G\+U\+I\+\_\+\+A\+PI}} \mbox{\hyperlink{glcorearb_8h_a950fc91edb4504f62f1c577bf4727c29}{void}} \mbox{\hyperlink{struct_im_draw_list_ac5221bd86b3429f6d5b6e6ffe454942d}{Add\+Text}} (const \mbox{\hyperlink{struct_im_vec2}{Im\+Vec2}} \&pos, \mbox{\hyperlink{imgui_8h_a118cff4eeb8d00e7d07ce3d6460eed36}{Im\+U32}} col, const char $\ast$text\+\_\+begin, const char $\ast$text\+\_\+end=N\+U\+LL)
+\item 
+\mbox{\hyperlink{imgui-_s_f_m_l__export_8h_a43829975e84e45d1149597467a14bbf5}{I\+M\+G\+U\+I\+\_\+\+A\+PI}} \mbox{\hyperlink{glcorearb_8h_a950fc91edb4504f62f1c577bf4727c29}{void}} \mbox{\hyperlink{struct_im_draw_list_a0a226cbe9bb1480428e145d8535cda26}{Add\+Text}} (const \mbox{\hyperlink{struct_im_font}{Im\+Font}} $\ast$font, float font\+\_\+size, const \mbox{\hyperlink{struct_im_vec2}{Im\+Vec2}} \&pos, \mbox{\hyperlink{imgui_8h_a118cff4eeb8d00e7d07ce3d6460eed36}{Im\+U32}} col, const char $\ast$text\+\_\+begin, const char $\ast$text\+\_\+end=N\+U\+LL, float wrap\+\_\+width=0.\+0f, const \mbox{\hyperlink{struct_im_vec4}{Im\+Vec4}} $\ast$cpu\+\_\+fine\+\_\+clip\+\_\+rect=N\+U\+LL)
+\item 
+\mbox{\hyperlink{imgui-_s_f_m_l__export_8h_a43829975e84e45d1149597467a14bbf5}{I\+M\+G\+U\+I\+\_\+\+A\+PI}} \mbox{\hyperlink{glcorearb_8h_a950fc91edb4504f62f1c577bf4727c29}{void}} \mbox{\hyperlink{struct_im_draw_list_aff952cdd83c6f0440dd00af0d653ca02}{Add\+Polyline}} (const \mbox{\hyperlink{struct_im_vec2}{Im\+Vec2}} $\ast$points, int num\+\_\+points, \mbox{\hyperlink{imgui_8h_a118cff4eeb8d00e7d07ce3d6460eed36}{Im\+U32}} col, bool closed, float thickness)
+\item 
+\mbox{\hyperlink{imgui-_s_f_m_l__export_8h_a43829975e84e45d1149597467a14bbf5}{I\+M\+G\+U\+I\+\_\+\+A\+PI}} \mbox{\hyperlink{glcorearb_8h_a950fc91edb4504f62f1c577bf4727c29}{void}} \mbox{\hyperlink{struct_im_draw_list_ad2accc0a74845b08bd0e6fae6183d6d0}{Add\+Convex\+Poly\+Filled}} (const \mbox{\hyperlink{struct_im_vec2}{Im\+Vec2}} $\ast$points, int num\+\_\+points, \mbox{\hyperlink{imgui_8h_a118cff4eeb8d00e7d07ce3d6460eed36}{Im\+U32}} col)
+\item 
+\mbox{\hyperlink{imgui-_s_f_m_l__export_8h_a43829975e84e45d1149597467a14bbf5}{I\+M\+G\+U\+I\+\_\+\+A\+PI}} \mbox{\hyperlink{glcorearb_8h_a950fc91edb4504f62f1c577bf4727c29}{void}} \mbox{\hyperlink{struct_im_draw_list_afd2eeeb8ed23b6222513953b03620101}{Add\+Bezier\+Curve}} (const \mbox{\hyperlink{struct_im_vec2}{Im\+Vec2}} \&pos0, const \mbox{\hyperlink{struct_im_vec2}{Im\+Vec2}} \&cp0, const \mbox{\hyperlink{struct_im_vec2}{Im\+Vec2}} \&cp1, const \mbox{\hyperlink{struct_im_vec2}{Im\+Vec2}} \&pos1, \mbox{\hyperlink{imgui_8h_a118cff4eeb8d00e7d07ce3d6460eed36}{Im\+U32}} col, float thickness, int num\+\_\+segments=0)
+\item 
+\mbox{\hyperlink{imgui-_s_f_m_l__export_8h_a43829975e84e45d1149597467a14bbf5}{I\+M\+G\+U\+I\+\_\+\+A\+PI}} \mbox{\hyperlink{glcorearb_8h_a950fc91edb4504f62f1c577bf4727c29}{void}} \mbox{\hyperlink{struct_im_draw_list_ac1f529d53d7ba118484e47e49218c603}{Add\+Image}} (\mbox{\hyperlink{imconfig-_s_f_m_l_8h_a6238766e2c636eeb1799b88ab32bb8d5}{Im\+Texture\+ID}} user\+\_\+texture\+\_\+id, const \mbox{\hyperlink{struct_im_vec2}{Im\+Vec2}} \&p\+\_\+min, const \mbox{\hyperlink{struct_im_vec2}{Im\+Vec2}} \&p\+\_\+max, const \mbox{\hyperlink{struct_im_vec2}{Im\+Vec2}} \&uv\+\_\+min=\mbox{\hyperlink{struct_im_vec2}{Im\+Vec2}}(0, 0), const \mbox{\hyperlink{struct_im_vec2}{Im\+Vec2}} \&uv\+\_\+max=\mbox{\hyperlink{struct_im_vec2}{Im\+Vec2}}(1, 1), \mbox{\hyperlink{imgui_8h_a118cff4eeb8d00e7d07ce3d6460eed36}{Im\+U32}} col=\mbox{\hyperlink{imgui_8h_a08fc9855cd3e3fcbb7fcd93b38bd7057}{I\+M\+\_\+\+C\+O\+L32\+\_\+\+W\+H\+I\+TE}})
+\item 
+\mbox{\hyperlink{imgui-_s_f_m_l__export_8h_a43829975e84e45d1149597467a14bbf5}{I\+M\+G\+U\+I\+\_\+\+A\+PI}} \mbox{\hyperlink{glcorearb_8h_a950fc91edb4504f62f1c577bf4727c29}{void}} \mbox{\hyperlink{struct_im_draw_list_abf9199e08d17fd33736fd67598485341}{Add\+Image\+Quad}} (\mbox{\hyperlink{imconfig-_s_f_m_l_8h_a6238766e2c636eeb1799b88ab32bb8d5}{Im\+Texture\+ID}} user\+\_\+texture\+\_\+id, const \mbox{\hyperlink{struct_im_vec2}{Im\+Vec2}} \&p1, const \mbox{\hyperlink{struct_im_vec2}{Im\+Vec2}} \&p2, const \mbox{\hyperlink{struct_im_vec2}{Im\+Vec2}} \&p3, const \mbox{\hyperlink{struct_im_vec2}{Im\+Vec2}} \&p4, const \mbox{\hyperlink{struct_im_vec2}{Im\+Vec2}} \&uv1=\mbox{\hyperlink{struct_im_vec2}{Im\+Vec2}}(0, 0), const \mbox{\hyperlink{struct_im_vec2}{Im\+Vec2}} \&uv2=\mbox{\hyperlink{struct_im_vec2}{Im\+Vec2}}(1, 0), const \mbox{\hyperlink{struct_im_vec2}{Im\+Vec2}} \&uv3=\mbox{\hyperlink{struct_im_vec2}{Im\+Vec2}}(1, 1), const \mbox{\hyperlink{struct_im_vec2}{Im\+Vec2}} \&uv4=\mbox{\hyperlink{struct_im_vec2}{Im\+Vec2}}(0, 1), \mbox{\hyperlink{imgui_8h_a118cff4eeb8d00e7d07ce3d6460eed36}{Im\+U32}} col=\mbox{\hyperlink{imgui_8h_a08fc9855cd3e3fcbb7fcd93b38bd7057}{I\+M\+\_\+\+C\+O\+L32\+\_\+\+W\+H\+I\+TE}})
+\item 
+\mbox{\hyperlink{imgui-_s_f_m_l__export_8h_a43829975e84e45d1149597467a14bbf5}{I\+M\+G\+U\+I\+\_\+\+A\+PI}} \mbox{\hyperlink{glcorearb_8h_a950fc91edb4504f62f1c577bf4727c29}{void}} \mbox{\hyperlink{struct_im_draw_list_a6e4e419cf8997ea8e1f83d31c533ec91}{Add\+Image\+Rounded}} (\mbox{\hyperlink{imconfig-_s_f_m_l_8h_a6238766e2c636eeb1799b88ab32bb8d5}{Im\+Texture\+ID}} user\+\_\+texture\+\_\+id, const \mbox{\hyperlink{struct_im_vec2}{Im\+Vec2}} \&p\+\_\+min, const \mbox{\hyperlink{struct_im_vec2}{Im\+Vec2}} \&p\+\_\+max, const \mbox{\hyperlink{struct_im_vec2}{Im\+Vec2}} \&uv\+\_\+min, const \mbox{\hyperlink{struct_im_vec2}{Im\+Vec2}} \&uv\+\_\+max, \mbox{\hyperlink{imgui_8h_a118cff4eeb8d00e7d07ce3d6460eed36}{Im\+U32}} col, float rounding, \mbox{\hyperlink{imgui_8h_a26153397274507dd2866f180728081fb}{Im\+Draw\+Corner\+Flags}} rounding\+\_\+corners=\mbox{\hyperlink{imgui_8h_ad3b7317312a7b22064ff6b6d00a54258a4e075323857172f48c44c3953f5b03df}{Im\+Draw\+Corner\+Flags\+\_\+\+All}})
+\item 
+\mbox{\hyperlink{glcorearb_8h_a950fc91edb4504f62f1c577bf4727c29}{void}} \mbox{\hyperlink{struct_im_draw_list_ae9ad5f4d638b1bfd9383618dc60e3f18}{Path\+Clear}} ()
+\item 
+\mbox{\hyperlink{glcorearb_8h_a950fc91edb4504f62f1c577bf4727c29}{void}} \mbox{\hyperlink{struct_im_draw_list_a828d944325ed58d8b57abd3647bffaaf}{Path\+Line\+To}} (const \mbox{\hyperlink{struct_im_vec2}{Im\+Vec2}} \&pos)
+\item 
+\mbox{\hyperlink{glcorearb_8h_a950fc91edb4504f62f1c577bf4727c29}{void}} \mbox{\hyperlink{struct_im_draw_list_aa3dd11945fb62495f8b9e1392ed724e3}{Path\+Line\+To\+Merge\+Duplicate}} (const \mbox{\hyperlink{struct_im_vec2}{Im\+Vec2}} \&pos)
+\item 
+\mbox{\hyperlink{glcorearb_8h_a950fc91edb4504f62f1c577bf4727c29}{void}} \mbox{\hyperlink{struct_im_draw_list_aea9301cb99ebf4b27f5d3959017567c9}{Path\+Fill\+Convex}} (\mbox{\hyperlink{imgui_8h_a118cff4eeb8d00e7d07ce3d6460eed36}{Im\+U32}} col)
+\item 
+\mbox{\hyperlink{glcorearb_8h_a950fc91edb4504f62f1c577bf4727c29}{void}} \mbox{\hyperlink{struct_im_draw_list_ac3172e376a4b77915bb22b6d8092b8b2}{Path\+Stroke}} (\mbox{\hyperlink{imgui_8h_a118cff4eeb8d00e7d07ce3d6460eed36}{Im\+U32}} col, bool closed, float thickness=1.\+0f)
+\item 
+\mbox{\hyperlink{imgui-_s_f_m_l__export_8h_a43829975e84e45d1149597467a14bbf5}{I\+M\+G\+U\+I\+\_\+\+A\+PI}} \mbox{\hyperlink{glcorearb_8h_a950fc91edb4504f62f1c577bf4727c29}{void}} \mbox{\hyperlink{struct_im_draw_list_a6b954e6ec99e7a2ed05aca870655b2e0}{Path\+Arc\+To}} (const \mbox{\hyperlink{struct_im_vec2}{Im\+Vec2}} \&center, float radius, float a\+\_\+min, float a\+\_\+max, int num\+\_\+segments=10)
+\item 
+\mbox{\hyperlink{imgui-_s_f_m_l__export_8h_a43829975e84e45d1149597467a14bbf5}{I\+M\+G\+U\+I\+\_\+\+A\+PI}} \mbox{\hyperlink{glcorearb_8h_a950fc91edb4504f62f1c577bf4727c29}{void}} \mbox{\hyperlink{struct_im_draw_list_a6d307c6de1a6522e76fa410e8fe96fcc}{Path\+Arc\+To\+Fast}} (const \mbox{\hyperlink{struct_im_vec2}{Im\+Vec2}} \&center, float radius, int a\+\_\+min\+\_\+of\+\_\+12, int a\+\_\+max\+\_\+of\+\_\+12)
+\item 
+\mbox{\hyperlink{imgui-_s_f_m_l__export_8h_a43829975e84e45d1149597467a14bbf5}{I\+M\+G\+U\+I\+\_\+\+A\+PI}} \mbox{\hyperlink{glcorearb_8h_a950fc91edb4504f62f1c577bf4727c29}{void}} \mbox{\hyperlink{struct_im_draw_list_a495ca7dd4fd5a898e2414658321f4b18}{Path\+Bezier\+Curve\+To}} (const \mbox{\hyperlink{struct_im_vec2}{Im\+Vec2}} \&p1, const \mbox{\hyperlink{struct_im_vec2}{Im\+Vec2}} \&p2, const \mbox{\hyperlink{struct_im_vec2}{Im\+Vec2}} \&p3, int num\+\_\+segments=0)
+\item 
+\mbox{\hyperlink{imgui-_s_f_m_l__export_8h_a43829975e84e45d1149597467a14bbf5}{I\+M\+G\+U\+I\+\_\+\+A\+PI}} \mbox{\hyperlink{glcorearb_8h_a950fc91edb4504f62f1c577bf4727c29}{void}} \mbox{\hyperlink{struct_im_draw_list_ad6ad022baf347834fed05b1fe739fbf1}{Path\+Rect}} (const \mbox{\hyperlink{struct_im_vec2}{Im\+Vec2}} \&rect\+\_\+min, const \mbox{\hyperlink{struct_im_vec2}{Im\+Vec2}} \&rect\+\_\+max, float rounding=0.\+0f, \mbox{\hyperlink{imgui_8h_a26153397274507dd2866f180728081fb}{Im\+Draw\+Corner\+Flags}} rounding\+\_\+corners=\mbox{\hyperlink{imgui_8h_ad3b7317312a7b22064ff6b6d00a54258a4e075323857172f48c44c3953f5b03df}{Im\+Draw\+Corner\+Flags\+\_\+\+All}})
+\item 
+\mbox{\hyperlink{imgui-_s_f_m_l__export_8h_a43829975e84e45d1149597467a14bbf5}{I\+M\+G\+U\+I\+\_\+\+A\+PI}} \mbox{\hyperlink{glcorearb_8h_a950fc91edb4504f62f1c577bf4727c29}{void}} \mbox{\hyperlink{struct_im_draw_list_a14073d60ef9db9dc663dc7717a4893a5}{Add\+Callback}} (\mbox{\hyperlink{imgui_8h_a232a477233f9e3ab7640720bf94674de}{Im\+Draw\+Callback}} callback, \mbox{\hyperlink{glcorearb_8h_a950fc91edb4504f62f1c577bf4727c29}{void}} $\ast$callback\+\_\+data)
+\item 
+\mbox{\hyperlink{imgui-_s_f_m_l__export_8h_a43829975e84e45d1149597467a14bbf5}{I\+M\+G\+U\+I\+\_\+\+A\+PI}} \mbox{\hyperlink{glcorearb_8h_a950fc91edb4504f62f1c577bf4727c29}{void}} \mbox{\hyperlink{struct_im_draw_list_a846714bb0321c6f1f908767abc8559e6}{Add\+Draw\+Cmd}} ()
+\item 
+\mbox{\hyperlink{imgui-_s_f_m_l__export_8h_a43829975e84e45d1149597467a14bbf5}{I\+M\+G\+U\+I\+\_\+\+A\+PI}} \mbox{\hyperlink{struct_im_draw_list}{Im\+Draw\+List}} $\ast$ \mbox{\hyperlink{struct_im_draw_list_a24c853c3976c77e7b361fab39adde686}{Clone\+Output}} () const
+\item 
+\mbox{\hyperlink{glcorearb_8h_a950fc91edb4504f62f1c577bf4727c29}{void}} \mbox{\hyperlink{struct_im_draw_list_acd7bcb6c4c5043876cfc169a98abc24a}{Channels\+Split}} (int \mbox{\hyperlink{glcorearb_8h_a998ca2a6432cbe613ccb8e84eb8a532f}{count}})
+\item 
+\mbox{\hyperlink{glcorearb_8h_a950fc91edb4504f62f1c577bf4727c29}{void}} \mbox{\hyperlink{struct_im_draw_list_a2ed82c3f663cda520c90c55b94196274}{Channels\+Merge}} ()
+\item 
+\mbox{\hyperlink{glcorearb_8h_a950fc91edb4504f62f1c577bf4727c29}{void}} \mbox{\hyperlink{struct_im_draw_list_aba9e93d0bf1c3884beb726e96360d2e2}{Channels\+Set\+Current}} (int \mbox{\hyperlink{glcorearb_8h_a532fe4d6eb721f47be89f442cacacbb3}{n}})
+\item 
+\mbox{\hyperlink{imgui-_s_f_m_l__export_8h_a43829975e84e45d1149597467a14bbf5}{I\+M\+G\+U\+I\+\_\+\+A\+PI}} \mbox{\hyperlink{glcorearb_8h_a950fc91edb4504f62f1c577bf4727c29}{void}} \mbox{\hyperlink{struct_im_draw_list_ac422590c71dc5593aea52f65793aee81}{Clear}} ()
+\item 
+\mbox{\hyperlink{imgui-_s_f_m_l__export_8h_a43829975e84e45d1149597467a14bbf5}{I\+M\+G\+U\+I\+\_\+\+A\+PI}} \mbox{\hyperlink{glcorearb_8h_a950fc91edb4504f62f1c577bf4727c29}{void}} \mbox{\hyperlink{struct_im_draw_list_a8b2686e006f57c554b709dfc47e2ad63}{Clear\+Free\+Memory}} ()
+\item 
+\mbox{\hyperlink{imgui-_s_f_m_l__export_8h_a43829975e84e45d1149597467a14bbf5}{I\+M\+G\+U\+I\+\_\+\+A\+PI}} \mbox{\hyperlink{glcorearb_8h_a950fc91edb4504f62f1c577bf4727c29}{void}} \mbox{\hyperlink{struct_im_draw_list_a879aa38dbfb0344e3e023d65c002c7d7}{Prim\+Reserve}} (int idx\+\_\+count, int vtx\+\_\+count)
+\item 
+\mbox{\hyperlink{imgui-_s_f_m_l__export_8h_a43829975e84e45d1149597467a14bbf5}{I\+M\+G\+U\+I\+\_\+\+A\+PI}} \mbox{\hyperlink{glcorearb_8h_a950fc91edb4504f62f1c577bf4727c29}{void}} \mbox{\hyperlink{struct_im_draw_list_ae2be093563f1d20b8190b7c423113925}{Prim\+Rect}} (const \mbox{\hyperlink{struct_im_vec2}{Im\+Vec2}} \&\mbox{\hyperlink{glcorearb_8h_ac8729153468b5dcf13f971b21d84d4e5}{a}}, const \mbox{\hyperlink{struct_im_vec2}{Im\+Vec2}} \&\mbox{\hyperlink{glcorearb_8h_a6eba317e3cf44d6d26c04a5a8f197dcb}{b}}, \mbox{\hyperlink{imgui_8h_a118cff4eeb8d00e7d07ce3d6460eed36}{Im\+U32}} col)
+\item 
+\mbox{\hyperlink{imgui-_s_f_m_l__export_8h_a43829975e84e45d1149597467a14bbf5}{I\+M\+G\+U\+I\+\_\+\+A\+PI}} \mbox{\hyperlink{glcorearb_8h_a950fc91edb4504f62f1c577bf4727c29}{void}} \mbox{\hyperlink{struct_im_draw_list_a77d48ed5b33ccdd908824c0a3bebfff8}{Prim\+Rect\+UV}} (const \mbox{\hyperlink{struct_im_vec2}{Im\+Vec2}} \&\mbox{\hyperlink{glcorearb_8h_ac8729153468b5dcf13f971b21d84d4e5}{a}}, const \mbox{\hyperlink{struct_im_vec2}{Im\+Vec2}} \&\mbox{\hyperlink{glcorearb_8h_a6eba317e3cf44d6d26c04a5a8f197dcb}{b}}, const \mbox{\hyperlink{struct_im_vec2}{Im\+Vec2}} \&uv\+\_\+a, const \mbox{\hyperlink{struct_im_vec2}{Im\+Vec2}} \&uv\+\_\+b, \mbox{\hyperlink{imgui_8h_a118cff4eeb8d00e7d07ce3d6460eed36}{Im\+U32}} col)
+\item 
+\mbox{\hyperlink{imgui-_s_f_m_l__export_8h_a43829975e84e45d1149597467a14bbf5}{I\+M\+G\+U\+I\+\_\+\+A\+PI}} \mbox{\hyperlink{glcorearb_8h_a950fc91edb4504f62f1c577bf4727c29}{void}} \mbox{\hyperlink{struct_im_draw_list_a9df27414aaca5f34ac3664a8b82582b5}{Prim\+Quad\+UV}} (const \mbox{\hyperlink{struct_im_vec2}{Im\+Vec2}} \&\mbox{\hyperlink{glcorearb_8h_ac8729153468b5dcf13f971b21d84d4e5}{a}}, const \mbox{\hyperlink{struct_im_vec2}{Im\+Vec2}} \&\mbox{\hyperlink{glcorearb_8h_a6eba317e3cf44d6d26c04a5a8f197dcb}{b}}, const \mbox{\hyperlink{struct_im_vec2}{Im\+Vec2}} \&c, const \mbox{\hyperlink{struct_im_vec2}{Im\+Vec2}} \&d, const \mbox{\hyperlink{struct_im_vec2}{Im\+Vec2}} \&uv\+\_\+a, const \mbox{\hyperlink{struct_im_vec2}{Im\+Vec2}} \&uv\+\_\+b, const \mbox{\hyperlink{struct_im_vec2}{Im\+Vec2}} \&uv\+\_\+c, const \mbox{\hyperlink{struct_im_vec2}{Im\+Vec2}} \&uv\+\_\+d, \mbox{\hyperlink{imgui_8h_a118cff4eeb8d00e7d07ce3d6460eed36}{Im\+U32}} col)
+\item 
+\mbox{\hyperlink{glcorearb_8h_a950fc91edb4504f62f1c577bf4727c29}{void}} \mbox{\hyperlink{struct_im_draw_list_af86de4faf6c8e978fb712ea14c5d0c5f}{Prim\+Write\+Vtx}} (const \mbox{\hyperlink{struct_im_vec2}{Im\+Vec2}} \&pos, const \mbox{\hyperlink{struct_im_vec2}{Im\+Vec2}} \&uv, \mbox{\hyperlink{imgui_8h_a118cff4eeb8d00e7d07ce3d6460eed36}{Im\+U32}} col)
+\item 
+\mbox{\hyperlink{glcorearb_8h_a950fc91edb4504f62f1c577bf4727c29}{void}} \mbox{\hyperlink{struct_im_draw_list_a42b72f87a0084c02f11dcd1560c8bbc7}{Prim\+Write\+Idx}} (\mbox{\hyperlink{imgui_8h_afdc8744a5ac1a968b1ddfa47e13b2fa1}{Im\+Draw\+Idx}} idx)
+\item 
+\mbox{\hyperlink{glcorearb_8h_a950fc91edb4504f62f1c577bf4727c29}{void}} \mbox{\hyperlink{struct_im_draw_list_a405377158f0028ad8b4fb6509eef4532}{Prim\+Vtx}} (const \mbox{\hyperlink{struct_im_vec2}{Im\+Vec2}} \&pos, const \mbox{\hyperlink{struct_im_vec2}{Im\+Vec2}} \&uv, \mbox{\hyperlink{imgui_8h_a118cff4eeb8d00e7d07ce3d6460eed36}{Im\+U32}} col)
+\item 
+\mbox{\hyperlink{imgui-_s_f_m_l__export_8h_a43829975e84e45d1149597467a14bbf5}{I\+M\+G\+U\+I\+\_\+\+A\+PI}} \mbox{\hyperlink{glcorearb_8h_a950fc91edb4504f62f1c577bf4727c29}{void}} \mbox{\hyperlink{struct_im_draw_list_a5978db1fc49be781978699e85c6a3251}{Update\+Clip\+Rect}} ()
+\item 
+\mbox{\hyperlink{imgui-_s_f_m_l__export_8h_a43829975e84e45d1149597467a14bbf5}{I\+M\+G\+U\+I\+\_\+\+A\+PI}} \mbox{\hyperlink{glcorearb_8h_a950fc91edb4504f62f1c577bf4727c29}{void}} \mbox{\hyperlink{struct_im_draw_list_a58998853ed37538ae5a638da032b0005}{Update\+Texture\+ID}} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{struct_im_vector}{Im\+Vector}}$<$ \mbox{\hyperlink{struct_im_draw_cmd}{Im\+Draw\+Cmd}} $>$ \mbox{\hyperlink{struct_im_draw_list_a67a4b5cc4c83bc3b81d96c46cbd38a07}{Cmd\+Buffer}}
+\item 
+\mbox{\hyperlink{struct_im_vector}{Im\+Vector}}$<$ \mbox{\hyperlink{imgui_8h_afdc8744a5ac1a968b1ddfa47e13b2fa1}{Im\+Draw\+Idx}} $>$ \mbox{\hyperlink{struct_im_draw_list_adf292ff70a954d82daf061c609e75dfc}{Idx\+Buffer}}
+\item 
+\mbox{\hyperlink{struct_im_vector}{Im\+Vector}}$<$ \mbox{\hyperlink{struct_im_draw_vert}{Im\+Draw\+Vert}} $>$ \mbox{\hyperlink{struct_im_draw_list_aa8ff4aee39cf3c3791b7e29a7b4264be}{Vtx\+Buffer}}
+\item 
+\mbox{\hyperlink{imgui_8h_a1adb61806505bf501bb0fbcdf4414360}{Im\+Draw\+List\+Flags}} \mbox{\hyperlink{struct_im_draw_list_ada2c004661663ef875f4d4c7ec0b4557}{Flags}}
+\item 
+const \mbox{\hyperlink{struct_im_draw_list_shared_data}{Im\+Draw\+List\+Shared\+Data}} $\ast$ \mbox{\hyperlink{struct_im_draw_list_a606bbd354211fe6f84cc11ebe53e7903}{\+\_\+\+Data}}
+\item 
+const char $\ast$ \mbox{\hyperlink{struct_im_draw_list_a643f385fb9d5fc35a431e72a10a212f5}{\+\_\+\+Owner\+Name}}
+\item 
+unsigned int \mbox{\hyperlink{struct_im_draw_list_ac151456d4f253ac71d257db77d4a50e7}{\+\_\+\+Vtx\+Current\+Offset}}
+\item 
+unsigned int \mbox{\hyperlink{struct_im_draw_list_a2228793183665bc3d8612795555fe505}{\+\_\+\+Vtx\+Current\+Idx}}
+\item 
+\mbox{\hyperlink{struct_im_draw_vert}{Im\+Draw\+Vert}} $\ast$ \mbox{\hyperlink{struct_im_draw_list_a67f870f5140bf1cab14b8515b7386073}{\+\_\+\+Vtx\+Write\+Ptr}}
+\item 
+\mbox{\hyperlink{imgui_8h_afdc8744a5ac1a968b1ddfa47e13b2fa1}{Im\+Draw\+Idx}} $\ast$ \mbox{\hyperlink{struct_im_draw_list_a771f4c7f71873852fe030c3e498e5843}{\+\_\+\+Idx\+Write\+Ptr}}
+\item 
+\mbox{\hyperlink{struct_im_vector}{Im\+Vector}}$<$ \mbox{\hyperlink{struct_im_vec4}{Im\+Vec4}} $>$ \mbox{\hyperlink{struct_im_draw_list_ae950024f053f3c94dc2c763d20be609d}{\+\_\+\+Clip\+Rect\+Stack}}
+\item 
+\mbox{\hyperlink{struct_im_vector}{Im\+Vector}}$<$ \mbox{\hyperlink{imconfig-_s_f_m_l_8h_a6238766e2c636eeb1799b88ab32bb8d5}{Im\+Texture\+ID}} $>$ \mbox{\hyperlink{struct_im_draw_list_a848faddd121da050214b8d8159e5e704}{\+\_\+\+Texture\+Id\+Stack}}
+\item 
+\mbox{\hyperlink{struct_im_vector}{Im\+Vector}}$<$ \mbox{\hyperlink{struct_im_vec2}{Im\+Vec2}} $>$ \mbox{\hyperlink{struct_im_draw_list_a5bdc39abf351360500048628b8dc1b07}{\+\_\+\+Path}}
+\item 
+\mbox{\hyperlink{struct_im_draw_list_splitter}{Im\+Draw\+List\+Splitter}} \mbox{\hyperlink{struct_im_draw_list_a2893207705100e8a5da8122da56bd162}{\+\_\+\+Splitter}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{struct_im_draw_list_a7c2af665f2c3e3bb5fc8aa34ef6dac91}\label{struct_im_draw_list_a7c2af665f2c3e3bb5fc8aa34ef6dac91}} 
+\index{ImDrawList@{ImDrawList}!ImDrawList@{ImDrawList}}
+\index{ImDrawList@{ImDrawList}!ImDrawList@{ImDrawList}}
+\doxysubsubsection{\texorpdfstring{ImDrawList()}{ImDrawList()}}
+{\footnotesize\ttfamily Im\+Draw\+List\+::\+Im\+Draw\+List (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{struct_im_draw_list_shared_data}{Im\+Draw\+List\+Shared\+Data}} $\ast$}]{shared\+\_\+data }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{struct_im_draw_list_a19fd8d920c202cf8ba5f5c55c43d1d2a}\label{struct_im_draw_list_a19fd8d920c202cf8ba5f5c55c43d1d2a}} 
+\index{ImDrawList@{ImDrawList}!````~ImDrawList@{$\sim$ImDrawList}}
+\index{````~ImDrawList@{$\sim$ImDrawList}!ImDrawList@{ImDrawList}}
+\doxysubsubsection{\texorpdfstring{$\sim$ImDrawList()}{~ImDrawList()}}
+{\footnotesize\ttfamily Im\+Draw\+List\+::$\sim$\+Im\+Draw\+List (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{struct_im_draw_list_afd2eeeb8ed23b6222513953b03620101}\label{struct_im_draw_list_afd2eeeb8ed23b6222513953b03620101}} 
+\index{ImDrawList@{ImDrawList}!AddBezierCurve@{AddBezierCurve}}
+\index{AddBezierCurve@{AddBezierCurve}!ImDrawList@{ImDrawList}}
+\doxysubsubsection{\texorpdfstring{AddBezierCurve()}{AddBezierCurve()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{glcorearb_8h_a950fc91edb4504f62f1c577bf4727c29}{void}} Im\+Draw\+List\+::\+Add\+Bezier\+Curve (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{struct_im_vec2}{Im\+Vec2}} \&}]{pos0,  }\item[{const \mbox{\hyperlink{struct_im_vec2}{Im\+Vec2}} \&}]{cp0,  }\item[{const \mbox{\hyperlink{struct_im_vec2}{Im\+Vec2}} \&}]{cp1,  }\item[{const \mbox{\hyperlink{struct_im_vec2}{Im\+Vec2}} \&}]{pos1,  }\item[{\mbox{\hyperlink{imgui_8h_a118cff4eeb8d00e7d07ce3d6460eed36}{Im\+U32}}}]{col,  }\item[{float}]{thickness,  }\item[{int}]{num\+\_\+segments = {\ttfamily 0} }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{struct_im_draw_list_a14073d60ef9db9dc663dc7717a4893a5}\label{struct_im_draw_list_a14073d60ef9db9dc663dc7717a4893a5}} 
+\index{ImDrawList@{ImDrawList}!AddCallback@{AddCallback}}
+\index{AddCallback@{AddCallback}!ImDrawList@{ImDrawList}}
+\doxysubsubsection{\texorpdfstring{AddCallback()}{AddCallback()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{glcorearb_8h_a950fc91edb4504f62f1c577bf4727c29}{void}} Im\+Draw\+List\+::\+Add\+Callback (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{imgui_8h_a232a477233f9e3ab7640720bf94674de}{Im\+Draw\+Callback}}}]{callback,  }\item[{\mbox{\hyperlink{glcorearb_8h_a950fc91edb4504f62f1c577bf4727c29}{void}} $\ast$}]{callback\+\_\+data }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{struct_im_draw_list_a489b7a51215c71bc949428b2979df72f}\label{struct_im_draw_list_a489b7a51215c71bc949428b2979df72f}} 
+\index{ImDrawList@{ImDrawList}!AddCircle@{AddCircle}}
+\index{AddCircle@{AddCircle}!ImDrawList@{ImDrawList}}
+\doxysubsubsection{\texorpdfstring{AddCircle()}{AddCircle()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{glcorearb_8h_a950fc91edb4504f62f1c577bf4727c29}{void}} Im\+Draw\+List\+::\+Add\+Circle (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{struct_im_vec2}{Im\+Vec2}} \&}]{center,  }\item[{float}]{radius,  }\item[{\mbox{\hyperlink{imgui_8h_a118cff4eeb8d00e7d07ce3d6460eed36}{Im\+U32}}}]{col,  }\item[{int}]{num\+\_\+segments = {\ttfamily 12},  }\item[{float}]{thickness = {\ttfamily 1.0f} }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{struct_im_draw_list_aa0deb7afb981f8984e504460eb1dc7d0}\label{struct_im_draw_list_aa0deb7afb981f8984e504460eb1dc7d0}} 
+\index{ImDrawList@{ImDrawList}!AddCircleFilled@{AddCircleFilled}}
+\index{AddCircleFilled@{AddCircleFilled}!ImDrawList@{ImDrawList}}
+\doxysubsubsection{\texorpdfstring{AddCircleFilled()}{AddCircleFilled()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{glcorearb_8h_a950fc91edb4504f62f1c577bf4727c29}{void}} Im\+Draw\+List\+::\+Add\+Circle\+Filled (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{struct_im_vec2}{Im\+Vec2}} \&}]{center,  }\item[{float}]{radius,  }\item[{\mbox{\hyperlink{imgui_8h_a118cff4eeb8d00e7d07ce3d6460eed36}{Im\+U32}}}]{col,  }\item[{int}]{num\+\_\+segments = {\ttfamily 12} }\end{DoxyParamCaption})}
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{struct_im_draw_list_aa0deb7afb981f8984e504460eb1dc7d0_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{struct_im_draw_list_ad2accc0a74845b08bd0e6fae6183d6d0}\label{struct_im_draw_list_ad2accc0a74845b08bd0e6fae6183d6d0}} 
+\index{ImDrawList@{ImDrawList}!AddConvexPolyFilled@{AddConvexPolyFilled}}
+\index{AddConvexPolyFilled@{AddConvexPolyFilled}!ImDrawList@{ImDrawList}}
+\doxysubsubsection{\texorpdfstring{AddConvexPolyFilled()}{AddConvexPolyFilled()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{glcorearb_8h_a950fc91edb4504f62f1c577bf4727c29}{void}} Im\+Draw\+List\+::\+Add\+Convex\+Poly\+Filled (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{struct_im_vec2}{Im\+Vec2}} $\ast$}]{points,  }\item[{int}]{num\+\_\+points,  }\item[{\mbox{\hyperlink{imgui_8h_a118cff4eeb8d00e7d07ce3d6460eed36}{Im\+U32}}}]{col }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{struct_im_draw_list_a846714bb0321c6f1f908767abc8559e6}\label{struct_im_draw_list_a846714bb0321c6f1f908767abc8559e6}} 
+\index{ImDrawList@{ImDrawList}!AddDrawCmd@{AddDrawCmd}}
+\index{AddDrawCmd@{AddDrawCmd}!ImDrawList@{ImDrawList}}
+\doxysubsubsection{\texorpdfstring{AddDrawCmd()}{AddDrawCmd()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{glcorearb_8h_a950fc91edb4504f62f1c577bf4727c29}{void}} Im\+Draw\+List\+::\+Add\+Draw\+Cmd (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{struct_im_draw_list_ac1f529d53d7ba118484e47e49218c603}\label{struct_im_draw_list_ac1f529d53d7ba118484e47e49218c603}} 
+\index{ImDrawList@{ImDrawList}!AddImage@{AddImage}}
+\index{AddImage@{AddImage}!ImDrawList@{ImDrawList}}
+\doxysubsubsection{\texorpdfstring{AddImage()}{AddImage()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{glcorearb_8h_a950fc91edb4504f62f1c577bf4727c29}{void}} Im\+Draw\+List\+::\+Add\+Image (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{imconfig-_s_f_m_l_8h_a6238766e2c636eeb1799b88ab32bb8d5}{Im\+Texture\+ID}}}]{user\+\_\+texture\+\_\+id,  }\item[{const \mbox{\hyperlink{struct_im_vec2}{Im\+Vec2}} \&}]{p\+\_\+min,  }\item[{const \mbox{\hyperlink{struct_im_vec2}{Im\+Vec2}} \&}]{p\+\_\+max,  }\item[{const \mbox{\hyperlink{struct_im_vec2}{Im\+Vec2}} \&}]{uv\+\_\+min = {\ttfamily \mbox{\hyperlink{struct_im_vec2}{Im\+Vec2}}(0,~0)},  }\item[{const \mbox{\hyperlink{struct_im_vec2}{Im\+Vec2}} \&}]{uv\+\_\+max = {\ttfamily \mbox{\hyperlink{struct_im_vec2}{Im\+Vec2}}(1,~1)},  }\item[{\mbox{\hyperlink{imgui_8h_a118cff4eeb8d00e7d07ce3d6460eed36}{Im\+U32}}}]{col = {\ttfamily \mbox{\hyperlink{imgui_8h_a08fc9855cd3e3fcbb7fcd93b38bd7057}{I\+M\+\_\+\+C\+O\+L32\+\_\+\+W\+H\+I\+TE}}} }\end{DoxyParamCaption})}
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{struct_im_draw_list_ac1f529d53d7ba118484e47e49218c603_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{struct_im_draw_list_abf9199e08d17fd33736fd67598485341}\label{struct_im_draw_list_abf9199e08d17fd33736fd67598485341}} 
+\index{ImDrawList@{ImDrawList}!AddImageQuad@{AddImageQuad}}
+\index{AddImageQuad@{AddImageQuad}!ImDrawList@{ImDrawList}}
+\doxysubsubsection{\texorpdfstring{AddImageQuad()}{AddImageQuad()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{glcorearb_8h_a950fc91edb4504f62f1c577bf4727c29}{void}} Im\+Draw\+List\+::\+Add\+Image\+Quad (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{imconfig-_s_f_m_l_8h_a6238766e2c636eeb1799b88ab32bb8d5}{Im\+Texture\+ID}}}]{user\+\_\+texture\+\_\+id,  }\item[{const \mbox{\hyperlink{struct_im_vec2}{Im\+Vec2}} \&}]{p1,  }\item[{const \mbox{\hyperlink{struct_im_vec2}{Im\+Vec2}} \&}]{p2,  }\item[{const \mbox{\hyperlink{struct_im_vec2}{Im\+Vec2}} \&}]{p3,  }\item[{const \mbox{\hyperlink{struct_im_vec2}{Im\+Vec2}} \&}]{p4,  }\item[{const \mbox{\hyperlink{struct_im_vec2}{Im\+Vec2}} \&}]{uv1 = {\ttfamily \mbox{\hyperlink{struct_im_vec2}{Im\+Vec2}}(0,~0)},  }\item[{const \mbox{\hyperlink{struct_im_vec2}{Im\+Vec2}} \&}]{uv2 = {\ttfamily \mbox{\hyperlink{struct_im_vec2}{Im\+Vec2}}(1,~0)},  }\item[{const \mbox{\hyperlink{struct_im_vec2}{Im\+Vec2}} \&}]{uv3 = {\ttfamily \mbox{\hyperlink{struct_im_vec2}{Im\+Vec2}}(1,~1)},  }\item[{const \mbox{\hyperlink{struct_im_vec2}{Im\+Vec2}} \&}]{uv4 = {\ttfamily \mbox{\hyperlink{struct_im_vec2}{Im\+Vec2}}(0,~1)},  }\item[{\mbox{\hyperlink{imgui_8h_a118cff4eeb8d00e7d07ce3d6460eed36}{Im\+U32}}}]{col = {\ttfamily \mbox{\hyperlink{imgui_8h_a08fc9855cd3e3fcbb7fcd93b38bd7057}{I\+M\+\_\+\+C\+O\+L32\+\_\+\+W\+H\+I\+TE}}} }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{struct_im_draw_list_a6e4e419cf8997ea8e1f83d31c533ec91}\label{struct_im_draw_list_a6e4e419cf8997ea8e1f83d31c533ec91}} 
+\index{ImDrawList@{ImDrawList}!AddImageRounded@{AddImageRounded}}
+\index{AddImageRounded@{AddImageRounded}!ImDrawList@{ImDrawList}}
+\doxysubsubsection{\texorpdfstring{AddImageRounded()}{AddImageRounded()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{glcorearb_8h_a950fc91edb4504f62f1c577bf4727c29}{void}} Im\+Draw\+List\+::\+Add\+Image\+Rounded (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{imconfig-_s_f_m_l_8h_a6238766e2c636eeb1799b88ab32bb8d5}{Im\+Texture\+ID}}}]{user\+\_\+texture\+\_\+id,  }\item[{const \mbox{\hyperlink{struct_im_vec2}{Im\+Vec2}} \&}]{p\+\_\+min,  }\item[{const \mbox{\hyperlink{struct_im_vec2}{Im\+Vec2}} \&}]{p\+\_\+max,  }\item[{const \mbox{\hyperlink{struct_im_vec2}{Im\+Vec2}} \&}]{uv\+\_\+min,  }\item[{const \mbox{\hyperlink{struct_im_vec2}{Im\+Vec2}} \&}]{uv\+\_\+max,  }\item[{\mbox{\hyperlink{imgui_8h_a118cff4eeb8d00e7d07ce3d6460eed36}{Im\+U32}}}]{col,  }\item[{float}]{rounding,  }\item[{\mbox{\hyperlink{imgui_8h_a26153397274507dd2866f180728081fb}{Im\+Draw\+Corner\+Flags}}}]{rounding\+\_\+corners = {\ttfamily \mbox{\hyperlink{imgui_8h_ad3b7317312a7b22064ff6b6d00a54258a4e075323857172f48c44c3953f5b03df}{Im\+Draw\+Corner\+Flags\+\_\+\+All}}} }\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{struct_im_draw_list_a6e4e419cf8997ea8e1f83d31c533ec91_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{struct_im_draw_list_aa21e5a1c6e00239581f97d344fc0db61}\label{struct_im_draw_list_aa21e5a1c6e00239581f97d344fc0db61}} 
+\index{ImDrawList@{ImDrawList}!AddLine@{AddLine}}
+\index{AddLine@{AddLine}!ImDrawList@{ImDrawList}}
+\doxysubsubsection{\texorpdfstring{AddLine()}{AddLine()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{glcorearb_8h_a950fc91edb4504f62f1c577bf4727c29}{void}} Im\+Draw\+List\+::\+Add\+Line (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{struct_im_vec2}{Im\+Vec2}} \&}]{p1,  }\item[{const \mbox{\hyperlink{struct_im_vec2}{Im\+Vec2}} \&}]{p2,  }\item[{\mbox{\hyperlink{imgui_8h_a118cff4eeb8d00e7d07ce3d6460eed36}{Im\+U32}}}]{col,  }\item[{float}]{thickness = {\ttfamily 1.0f} }\end{DoxyParamCaption})}
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=315pt]{struct_im_draw_list_aa21e5a1c6e00239581f97d344fc0db61_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{struct_im_draw_list_aff952cdd83c6f0440dd00af0d653ca02}\label{struct_im_draw_list_aff952cdd83c6f0440dd00af0d653ca02}} 
+\index{ImDrawList@{ImDrawList}!AddPolyline@{AddPolyline}}
+\index{AddPolyline@{AddPolyline}!ImDrawList@{ImDrawList}}
+\doxysubsubsection{\texorpdfstring{AddPolyline()}{AddPolyline()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{glcorearb_8h_a950fc91edb4504f62f1c577bf4727c29}{void}} Im\+Draw\+List\+::\+Add\+Polyline (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{struct_im_vec2}{Im\+Vec2}} $\ast$}]{points,  }\item[{int}]{num\+\_\+points,  }\item[{\mbox{\hyperlink{imgui_8h_a118cff4eeb8d00e7d07ce3d6460eed36}{Im\+U32}}}]{col,  }\item[{bool}]{closed,  }\item[{float}]{thickness }\end{DoxyParamCaption})}
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{struct_im_draw_list_aff952cdd83c6f0440dd00af0d653ca02_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{struct_im_draw_list_a57b014138de51397db0570d88c770d9f}\label{struct_im_draw_list_a57b014138de51397db0570d88c770d9f}} 
+\index{ImDrawList@{ImDrawList}!AddQuad@{AddQuad}}
+\index{AddQuad@{AddQuad}!ImDrawList@{ImDrawList}}
+\doxysubsubsection{\texorpdfstring{AddQuad()}{AddQuad()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{glcorearb_8h_a950fc91edb4504f62f1c577bf4727c29}{void}} Im\+Draw\+List\+::\+Add\+Quad (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{struct_im_vec2}{Im\+Vec2}} \&}]{p1,  }\item[{const \mbox{\hyperlink{struct_im_vec2}{Im\+Vec2}} \&}]{p2,  }\item[{const \mbox{\hyperlink{struct_im_vec2}{Im\+Vec2}} \&}]{p3,  }\item[{const \mbox{\hyperlink{struct_im_vec2}{Im\+Vec2}} \&}]{p4,  }\item[{\mbox{\hyperlink{imgui_8h_a118cff4eeb8d00e7d07ce3d6460eed36}{Im\+U32}}}]{col,  }\item[{float}]{thickness = {\ttfamily 1.0f} }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{struct_im_draw_list_a2b982fbad35f8736fdfc9d6e7db2ca94}\label{struct_im_draw_list_a2b982fbad35f8736fdfc9d6e7db2ca94}} 
+\index{ImDrawList@{ImDrawList}!AddQuadFilled@{AddQuadFilled}}
+\index{AddQuadFilled@{AddQuadFilled}!ImDrawList@{ImDrawList}}
+\doxysubsubsection{\texorpdfstring{AddQuadFilled()}{AddQuadFilled()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{glcorearb_8h_a950fc91edb4504f62f1c577bf4727c29}{void}} Im\+Draw\+List\+::\+Add\+Quad\+Filled (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{struct_im_vec2}{Im\+Vec2}} \&}]{p1,  }\item[{const \mbox{\hyperlink{struct_im_vec2}{Im\+Vec2}} \&}]{p2,  }\item[{const \mbox{\hyperlink{struct_im_vec2}{Im\+Vec2}} \&}]{p3,  }\item[{const \mbox{\hyperlink{struct_im_vec2}{Im\+Vec2}} \&}]{p4,  }\item[{\mbox{\hyperlink{imgui_8h_a118cff4eeb8d00e7d07ce3d6460eed36}{Im\+U32}}}]{col }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{struct_im_draw_list_a766b752a701b00a7769b13c4c93cab06}\label{struct_im_draw_list_a766b752a701b00a7769b13c4c93cab06}} 
+\index{ImDrawList@{ImDrawList}!AddRect@{AddRect}}
+\index{AddRect@{AddRect}!ImDrawList@{ImDrawList}}
+\doxysubsubsection{\texorpdfstring{AddRect()}{AddRect()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{glcorearb_8h_a950fc91edb4504f62f1c577bf4727c29}{void}} Im\+Draw\+List\+::\+Add\+Rect (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{struct_im_vec2}{Im\+Vec2}} \&}]{p\+\_\+min,  }\item[{const \mbox{\hyperlink{struct_im_vec2}{Im\+Vec2}} \&}]{p\+\_\+max,  }\item[{\mbox{\hyperlink{imgui_8h_a118cff4eeb8d00e7d07ce3d6460eed36}{Im\+U32}}}]{col,  }\item[{float}]{rounding = {\ttfamily 0.0f},  }\item[{\mbox{\hyperlink{imgui_8h_a26153397274507dd2866f180728081fb}{Im\+Draw\+Corner\+Flags}}}]{rounding\+\_\+corners = {\ttfamily \mbox{\hyperlink{imgui_8h_ad3b7317312a7b22064ff6b6d00a54258a4e075323857172f48c44c3953f5b03df}{Im\+Draw\+Corner\+Flags\+\_\+\+All}}},  }\item[{float}]{thickness = {\ttfamily 1.0f} }\end{DoxyParamCaption})}
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{struct_im_draw_list_a766b752a701b00a7769b13c4c93cab06_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{struct_im_draw_list_af80a64eefee86b0f1b0876d3f753935d}\label{struct_im_draw_list_af80a64eefee86b0f1b0876d3f753935d}} 
+\index{ImDrawList@{ImDrawList}!AddRectFilled@{AddRectFilled}}
+\index{AddRectFilled@{AddRectFilled}!ImDrawList@{ImDrawList}}
+\doxysubsubsection{\texorpdfstring{AddRectFilled()}{AddRectFilled()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{glcorearb_8h_a950fc91edb4504f62f1c577bf4727c29}{void}} Im\+Draw\+List\+::\+Add\+Rect\+Filled (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{struct_im_vec2}{Im\+Vec2}} \&}]{p\+\_\+min,  }\item[{const \mbox{\hyperlink{struct_im_vec2}{Im\+Vec2}} \&}]{p\+\_\+max,  }\item[{\mbox{\hyperlink{imgui_8h_a118cff4eeb8d00e7d07ce3d6460eed36}{Im\+U32}}}]{col,  }\item[{float}]{rounding = {\ttfamily 0.0f},  }\item[{\mbox{\hyperlink{imgui_8h_a26153397274507dd2866f180728081fb}{Im\+Draw\+Corner\+Flags}}}]{rounding\+\_\+corners = {\ttfamily \mbox{\hyperlink{imgui_8h_ad3b7317312a7b22064ff6b6d00a54258a4e075323857172f48c44c3953f5b03df}{Im\+Draw\+Corner\+Flags\+\_\+\+All}}} }\end{DoxyParamCaption})}
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{struct_im_draw_list_af80a64eefee86b0f1b0876d3f753935d_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{struct_im_draw_list_a6282e85ad78b01ebb74832336e9a2a55}\label{struct_im_draw_list_a6282e85ad78b01ebb74832336e9a2a55}} 
+\index{ImDrawList@{ImDrawList}!AddRectFilledMultiColor@{AddRectFilledMultiColor}}
+\index{AddRectFilledMultiColor@{AddRectFilledMultiColor}!ImDrawList@{ImDrawList}}
+\doxysubsubsection{\texorpdfstring{AddRectFilledMultiColor()}{AddRectFilledMultiColor()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{glcorearb_8h_a950fc91edb4504f62f1c577bf4727c29}{void}} Im\+Draw\+List\+::\+Add\+Rect\+Filled\+Multi\+Color (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{struct_im_vec2}{Im\+Vec2}} \&}]{p\+\_\+min,  }\item[{const \mbox{\hyperlink{struct_im_vec2}{Im\+Vec2}} \&}]{p\+\_\+max,  }\item[{\mbox{\hyperlink{imgui_8h_a118cff4eeb8d00e7d07ce3d6460eed36}{Im\+U32}}}]{col\+\_\+upr\+\_\+left,  }\item[{\mbox{\hyperlink{imgui_8h_a118cff4eeb8d00e7d07ce3d6460eed36}{Im\+U32}}}]{col\+\_\+upr\+\_\+right,  }\item[{\mbox{\hyperlink{imgui_8h_a118cff4eeb8d00e7d07ce3d6460eed36}{Im\+U32}}}]{col\+\_\+bot\+\_\+right,  }\item[{\mbox{\hyperlink{imgui_8h_a118cff4eeb8d00e7d07ce3d6460eed36}{Im\+U32}}}]{col\+\_\+bot\+\_\+left }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{struct_im_draw_list_a0a226cbe9bb1480428e145d8535cda26}\label{struct_im_draw_list_a0a226cbe9bb1480428e145d8535cda26}} 
+\index{ImDrawList@{ImDrawList}!AddText@{AddText}}
+\index{AddText@{AddText}!ImDrawList@{ImDrawList}}
+\doxysubsubsection{\texorpdfstring{AddText()}{AddText()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{glcorearb_8h_a950fc91edb4504f62f1c577bf4727c29}{void}} Im\+Draw\+List\+::\+Add\+Text (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{struct_im_font}{Im\+Font}} $\ast$}]{font,  }\item[{float}]{font\+\_\+size,  }\item[{const \mbox{\hyperlink{struct_im_vec2}{Im\+Vec2}} \&}]{pos,  }\item[{\mbox{\hyperlink{imgui_8h_a118cff4eeb8d00e7d07ce3d6460eed36}{Im\+U32}}}]{col,  }\item[{const char $\ast$}]{text\+\_\+begin,  }\item[{const char $\ast$}]{text\+\_\+end = {\ttfamily NULL},  }\item[{float}]{wrap\+\_\+width = {\ttfamily 0.0f},  }\item[{const \mbox{\hyperlink{struct_im_vec4}{Im\+Vec4}} $\ast$}]{cpu\+\_\+fine\+\_\+clip\+\_\+rect = {\ttfamily NULL} }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{struct_im_draw_list_ac5221bd86b3429f6d5b6e6ffe454942d}\label{struct_im_draw_list_ac5221bd86b3429f6d5b6e6ffe454942d}} 
+\index{ImDrawList@{ImDrawList}!AddText@{AddText}}
+\index{AddText@{AddText}!ImDrawList@{ImDrawList}}
+\doxysubsubsection{\texorpdfstring{AddText()}{AddText()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{glcorearb_8h_a950fc91edb4504f62f1c577bf4727c29}{void}} Im\+Draw\+List\+::\+Add\+Text (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{struct_im_vec2}{Im\+Vec2}} \&}]{pos,  }\item[{\mbox{\hyperlink{imgui_8h_a118cff4eeb8d00e7d07ce3d6460eed36}{Im\+U32}}}]{col,  }\item[{const char $\ast$}]{text\+\_\+begin,  }\item[{const char $\ast$}]{text\+\_\+end = {\ttfamily NULL} }\end{DoxyParamCaption})}
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{struct_im_draw_list_ac5221bd86b3429f6d5b6e6ffe454942d_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{struct_im_draw_list_a04bde432891d0392e7d98d957c1fd9b3}\label{struct_im_draw_list_a04bde432891d0392e7d98d957c1fd9b3}} 
+\index{ImDrawList@{ImDrawList}!AddTriangle@{AddTriangle}}
+\index{AddTriangle@{AddTriangle}!ImDrawList@{ImDrawList}}
+\doxysubsubsection{\texorpdfstring{AddTriangle()}{AddTriangle()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{glcorearb_8h_a950fc91edb4504f62f1c577bf4727c29}{void}} Im\+Draw\+List\+::\+Add\+Triangle (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{struct_im_vec2}{Im\+Vec2}} \&}]{p1,  }\item[{const \mbox{\hyperlink{struct_im_vec2}{Im\+Vec2}} \&}]{p2,  }\item[{const \mbox{\hyperlink{struct_im_vec2}{Im\+Vec2}} \&}]{p3,  }\item[{\mbox{\hyperlink{imgui_8h_a118cff4eeb8d00e7d07ce3d6460eed36}{Im\+U32}}}]{col,  }\item[{float}]{thickness = {\ttfamily 1.0f} }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{struct_im_draw_list_af1dd4a3888034c5f71b66a38e44edf31}\label{struct_im_draw_list_af1dd4a3888034c5f71b66a38e44edf31}} 
+\index{ImDrawList@{ImDrawList}!AddTriangleFilled@{AddTriangleFilled}}
+\index{AddTriangleFilled@{AddTriangleFilled}!ImDrawList@{ImDrawList}}
+\doxysubsubsection{\texorpdfstring{AddTriangleFilled()}{AddTriangleFilled()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{glcorearb_8h_a950fc91edb4504f62f1c577bf4727c29}{void}} Im\+Draw\+List\+::\+Add\+Triangle\+Filled (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{struct_im_vec2}{Im\+Vec2}} \&}]{p1,  }\item[{const \mbox{\hyperlink{struct_im_vec2}{Im\+Vec2}} \&}]{p2,  }\item[{const \mbox{\hyperlink{struct_im_vec2}{Im\+Vec2}} \&}]{p3,  }\item[{\mbox{\hyperlink{imgui_8h_a118cff4eeb8d00e7d07ce3d6460eed36}{Im\+U32}}}]{col }\end{DoxyParamCaption})}
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{struct_im_draw_list_af1dd4a3888034c5f71b66a38e44edf31_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{struct_im_draw_list_a2ed82c3f663cda520c90c55b94196274}\label{struct_im_draw_list_a2ed82c3f663cda520c90c55b94196274}} 
+\index{ImDrawList@{ImDrawList}!ChannelsMerge@{ChannelsMerge}}
+\index{ChannelsMerge@{ChannelsMerge}!ImDrawList@{ImDrawList}}
+\doxysubsubsection{\texorpdfstring{ChannelsMerge()}{ChannelsMerge()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{glcorearb_8h_a950fc91edb4504f62f1c577bf4727c29}{void}} Im\+Draw\+List\+::\+Channels\+Merge (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{struct_im_draw_list_a2ed82c3f663cda520c90c55b94196274_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{struct_im_draw_list_a2ed82c3f663cda520c90c55b94196274_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{struct_im_draw_list_aba9e93d0bf1c3884beb726e96360d2e2}\label{struct_im_draw_list_aba9e93d0bf1c3884beb726e96360d2e2}} 
+\index{ImDrawList@{ImDrawList}!ChannelsSetCurrent@{ChannelsSetCurrent}}
+\index{ChannelsSetCurrent@{ChannelsSetCurrent}!ImDrawList@{ImDrawList}}
+\doxysubsubsection{\texorpdfstring{ChannelsSetCurrent()}{ChannelsSetCurrent()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{glcorearb_8h_a950fc91edb4504f62f1c577bf4727c29}{void}} Im\+Draw\+List\+::\+Channels\+Set\+Current (\begin{DoxyParamCaption}\item[{int}]{n }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{struct_im_draw_list_aba9e93d0bf1c3884beb726e96360d2e2_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{struct_im_draw_list_aba9e93d0bf1c3884beb726e96360d2e2_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{struct_im_draw_list_acd7bcb6c4c5043876cfc169a98abc24a}\label{struct_im_draw_list_acd7bcb6c4c5043876cfc169a98abc24a}} 
+\index{ImDrawList@{ImDrawList}!ChannelsSplit@{ChannelsSplit}}
+\index{ChannelsSplit@{ChannelsSplit}!ImDrawList@{ImDrawList}}
+\doxysubsubsection{\texorpdfstring{ChannelsSplit()}{ChannelsSplit()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{glcorearb_8h_a950fc91edb4504f62f1c577bf4727c29}{void}} Im\+Draw\+List\+::\+Channels\+Split (\begin{DoxyParamCaption}\item[{int}]{count }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{struct_im_draw_list_acd7bcb6c4c5043876cfc169a98abc24a_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{struct_im_draw_list_ac422590c71dc5593aea52f65793aee81}\label{struct_im_draw_list_ac422590c71dc5593aea52f65793aee81}} 
+\index{ImDrawList@{ImDrawList}!Clear@{Clear}}
+\index{Clear@{Clear}!ImDrawList@{ImDrawList}}
+\doxysubsubsection{\texorpdfstring{Clear()}{Clear()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{glcorearb_8h_a950fc91edb4504f62f1c577bf4727c29}{void}} Im\+Draw\+List\+::\+Clear (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{struct_im_draw_list_a8b2686e006f57c554b709dfc47e2ad63}\label{struct_im_draw_list_a8b2686e006f57c554b709dfc47e2ad63}} 
+\index{ImDrawList@{ImDrawList}!ClearFreeMemory@{ClearFreeMemory}}
+\index{ClearFreeMemory@{ClearFreeMemory}!ImDrawList@{ImDrawList}}
+\doxysubsubsection{\texorpdfstring{ClearFreeMemory()}{ClearFreeMemory()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{glcorearb_8h_a950fc91edb4504f62f1c577bf4727c29}{void}} Im\+Draw\+List\+::\+Clear\+Free\+Memory (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{struct_im_draw_list_a8b2686e006f57c554b709dfc47e2ad63_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{struct_im_draw_list_a24c853c3976c77e7b361fab39adde686}\label{struct_im_draw_list_a24c853c3976c77e7b361fab39adde686}} 
+\index{ImDrawList@{ImDrawList}!CloneOutput@{CloneOutput}}
+\index{CloneOutput@{CloneOutput}!ImDrawList@{ImDrawList}}
+\doxysubsubsection{\texorpdfstring{CloneOutput()}{CloneOutput()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_im_draw_list}{Im\+Draw\+List}} $\ast$ Im\+Draw\+List\+::\+Clone\+Output (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+\mbox{\Hypertarget{struct_im_draw_list_a8e484a61eab501c1c1c416a8b45bb08e}\label{struct_im_draw_list_a8e484a61eab501c1c1c416a8b45bb08e}} 
+\index{ImDrawList@{ImDrawList}!GetClipRectMax@{GetClipRectMax}}
+\index{GetClipRectMax@{GetClipRectMax}!ImDrawList@{ImDrawList}}
+\doxysubsubsection{\texorpdfstring{GetClipRectMax()}{GetClipRectMax()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_im_vec2}{Im\+Vec2}} Im\+Draw\+List\+::\+Get\+Clip\+Rect\+Max (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=343pt]{struct_im_draw_list_a8e484a61eab501c1c1c416a8b45bb08e_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{struct_im_draw_list_a9d83896d3eb434a9e1072d56523a2754}\label{struct_im_draw_list_a9d83896d3eb434a9e1072d56523a2754}} 
+\index{ImDrawList@{ImDrawList}!GetClipRectMin@{GetClipRectMin}}
+\index{GetClipRectMin@{GetClipRectMin}!ImDrawList@{ImDrawList}}
+\doxysubsubsection{\texorpdfstring{GetClipRectMin()}{GetClipRectMin()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_im_vec2}{Im\+Vec2}} Im\+Draw\+List\+::\+Get\+Clip\+Rect\+Min (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=340pt]{struct_im_draw_list_a9d83896d3eb434a9e1072d56523a2754_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{struct_im_draw_list_a6b954e6ec99e7a2ed05aca870655b2e0}\label{struct_im_draw_list_a6b954e6ec99e7a2ed05aca870655b2e0}} 
+\index{ImDrawList@{ImDrawList}!PathArcTo@{PathArcTo}}
+\index{PathArcTo@{PathArcTo}!ImDrawList@{ImDrawList}}
+\doxysubsubsection{\texorpdfstring{PathArcTo()}{PathArcTo()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{glcorearb_8h_a950fc91edb4504f62f1c577bf4727c29}{void}} Im\+Draw\+List\+::\+Path\+Arc\+To (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{struct_im_vec2}{Im\+Vec2}} \&}]{center,  }\item[{float}]{radius,  }\item[{float}]{a\+\_\+min,  }\item[{float}]{a\+\_\+max,  }\item[{int}]{num\+\_\+segments = {\ttfamily 10} }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{struct_im_draw_list_a6d307c6de1a6522e76fa410e8fe96fcc}\label{struct_im_draw_list_a6d307c6de1a6522e76fa410e8fe96fcc}} 
+\index{ImDrawList@{ImDrawList}!PathArcToFast@{PathArcToFast}}
+\index{PathArcToFast@{PathArcToFast}!ImDrawList@{ImDrawList}}
+\doxysubsubsection{\texorpdfstring{PathArcToFast()}{PathArcToFast()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{glcorearb_8h_a950fc91edb4504f62f1c577bf4727c29}{void}} Im\+Draw\+List\+::\+Path\+Arc\+To\+Fast (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{struct_im_vec2}{Im\+Vec2}} \&}]{center,  }\item[{float}]{radius,  }\item[{int}]{a\+\_\+min\+\_\+of\+\_\+12,  }\item[{int}]{a\+\_\+max\+\_\+of\+\_\+12 }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{struct_im_draw_list_a495ca7dd4fd5a898e2414658321f4b18}\label{struct_im_draw_list_a495ca7dd4fd5a898e2414658321f4b18}} 
+\index{ImDrawList@{ImDrawList}!PathBezierCurveTo@{PathBezierCurveTo}}
+\index{PathBezierCurveTo@{PathBezierCurveTo}!ImDrawList@{ImDrawList}}
+\doxysubsubsection{\texorpdfstring{PathBezierCurveTo()}{PathBezierCurveTo()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{glcorearb_8h_a950fc91edb4504f62f1c577bf4727c29}{void}} Im\+Draw\+List\+::\+Path\+Bezier\+Curve\+To (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{struct_im_vec2}{Im\+Vec2}} \&}]{p1,  }\item[{const \mbox{\hyperlink{struct_im_vec2}{Im\+Vec2}} \&}]{p2,  }\item[{const \mbox{\hyperlink{struct_im_vec2}{Im\+Vec2}} \&}]{p3,  }\item[{int}]{num\+\_\+segments = {\ttfamily 0} }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{struct_im_draw_list_ae9ad5f4d638b1bfd9383618dc60e3f18}\label{struct_im_draw_list_ae9ad5f4d638b1bfd9383618dc60e3f18}} 
+\index{ImDrawList@{ImDrawList}!PathClear@{PathClear}}
+\index{PathClear@{PathClear}!ImDrawList@{ImDrawList}}
+\doxysubsubsection{\texorpdfstring{PathClear()}{PathClear()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{glcorearb_8h_a950fc91edb4504f62f1c577bf4727c29}{void}} Im\+Draw\+List\+::\+Path\+Clear (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{struct_im_draw_list_aea9301cb99ebf4b27f5d3959017567c9}\label{struct_im_draw_list_aea9301cb99ebf4b27f5d3959017567c9}} 
+\index{ImDrawList@{ImDrawList}!PathFillConvex@{PathFillConvex}}
+\index{PathFillConvex@{PathFillConvex}!ImDrawList@{ImDrawList}}
+\doxysubsubsection{\texorpdfstring{PathFillConvex()}{PathFillConvex()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{glcorearb_8h_a950fc91edb4504f62f1c577bf4727c29}{void}} Im\+Draw\+List\+::\+Path\+Fill\+Convex (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{imgui_8h_a118cff4eeb8d00e7d07ce3d6460eed36}{Im\+U32}}}]{col }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{struct_im_draw_list_a828d944325ed58d8b57abd3647bffaaf}\label{struct_im_draw_list_a828d944325ed58d8b57abd3647bffaaf}} 
+\index{ImDrawList@{ImDrawList}!PathLineTo@{PathLineTo}}
+\index{PathLineTo@{PathLineTo}!ImDrawList@{ImDrawList}}
+\doxysubsubsection{\texorpdfstring{PathLineTo()}{PathLineTo()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{glcorearb_8h_a950fc91edb4504f62f1c577bf4727c29}{void}} Im\+Draw\+List\+::\+Path\+Line\+To (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{struct_im_vec2}{Im\+Vec2}} \&}]{pos }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=347pt]{struct_im_draw_list_a828d944325ed58d8b57abd3647bffaaf_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{struct_im_draw_list_aa3dd11945fb62495f8b9e1392ed724e3}\label{struct_im_draw_list_aa3dd11945fb62495f8b9e1392ed724e3}} 
+\index{ImDrawList@{ImDrawList}!PathLineToMergeDuplicate@{PathLineToMergeDuplicate}}
+\index{PathLineToMergeDuplicate@{PathLineToMergeDuplicate}!ImDrawList@{ImDrawList}}
+\doxysubsubsection{\texorpdfstring{PathLineToMergeDuplicate()}{PathLineToMergeDuplicate()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{glcorearb_8h_a950fc91edb4504f62f1c577bf4727c29}{void}} Im\+Draw\+List\+::\+Path\+Line\+To\+Merge\+Duplicate (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{struct_im_vec2}{Im\+Vec2}} \&}]{pos }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{struct_im_draw_list_aa3dd11945fb62495f8b9e1392ed724e3_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{struct_im_draw_list_ad6ad022baf347834fed05b1fe739fbf1}\label{struct_im_draw_list_ad6ad022baf347834fed05b1fe739fbf1}} 
+\index{ImDrawList@{ImDrawList}!PathRect@{PathRect}}
+\index{PathRect@{PathRect}!ImDrawList@{ImDrawList}}
+\doxysubsubsection{\texorpdfstring{PathRect()}{PathRect()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{glcorearb_8h_a950fc91edb4504f62f1c577bf4727c29}{void}} Im\+Draw\+List\+::\+Path\+Rect (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{struct_im_vec2}{Im\+Vec2}} \&}]{rect\+\_\+min,  }\item[{const \mbox{\hyperlink{struct_im_vec2}{Im\+Vec2}} \&}]{rect\+\_\+max,  }\item[{float}]{rounding = {\ttfamily 0.0f},  }\item[{\mbox{\hyperlink{imgui_8h_a26153397274507dd2866f180728081fb}{Im\+Draw\+Corner\+Flags}}}]{rounding\+\_\+corners = {\ttfamily \mbox{\hyperlink{imgui_8h_ad3b7317312a7b22064ff6b6d00a54258a4e075323857172f48c44c3953f5b03df}{Im\+Draw\+Corner\+Flags\+\_\+\+All}}} }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{struct_im_draw_list_ac3172e376a4b77915bb22b6d8092b8b2}\label{struct_im_draw_list_ac3172e376a4b77915bb22b6d8092b8b2}} 
+\index{ImDrawList@{ImDrawList}!PathStroke@{PathStroke}}
+\index{PathStroke@{PathStroke}!ImDrawList@{ImDrawList}}
+\doxysubsubsection{\texorpdfstring{PathStroke()}{PathStroke()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{glcorearb_8h_a950fc91edb4504f62f1c577bf4727c29}{void}} Im\+Draw\+List\+::\+Path\+Stroke (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{imgui_8h_a118cff4eeb8d00e7d07ce3d6460eed36}{Im\+U32}}}]{col,  }\item[{bool}]{closed,  }\item[{float}]{thickness = {\ttfamily 1.0f} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{struct_im_draw_list_a44f40c59ca755f559020f5a7fa81103a}\label{struct_im_draw_list_a44f40c59ca755f559020f5a7fa81103a}} 
+\index{ImDrawList@{ImDrawList}!PopClipRect@{PopClipRect}}
+\index{PopClipRect@{PopClipRect}!ImDrawList@{ImDrawList}}
+\doxysubsubsection{\texorpdfstring{PopClipRect()}{PopClipRect()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{glcorearb_8h_a950fc91edb4504f62f1c577bf4727c29}{void}} Im\+Draw\+List\+::\+Pop\+Clip\+Rect (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{struct_im_draw_list_a44f40c59ca755f559020f5a7fa81103a_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{struct_im_draw_list_ade9286c5ca58753f7bd571b30e2ff76c}\label{struct_im_draw_list_ade9286c5ca58753f7bd571b30e2ff76c}} 
+\index{ImDrawList@{ImDrawList}!PopTextureID@{PopTextureID}}
+\index{PopTextureID@{PopTextureID}!ImDrawList@{ImDrawList}}
+\doxysubsubsection{\texorpdfstring{PopTextureID()}{PopTextureID()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{glcorearb_8h_a950fc91edb4504f62f1c577bf4727c29}{void}} Im\+Draw\+List\+::\+Pop\+Texture\+ID (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{struct_im_draw_list_ade9286c5ca58753f7bd571b30e2ff76c_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{struct_im_draw_list_a9df27414aaca5f34ac3664a8b82582b5}\label{struct_im_draw_list_a9df27414aaca5f34ac3664a8b82582b5}} 
+\index{ImDrawList@{ImDrawList}!PrimQuadUV@{PrimQuadUV}}
+\index{PrimQuadUV@{PrimQuadUV}!ImDrawList@{ImDrawList}}
+\doxysubsubsection{\texorpdfstring{PrimQuadUV()}{PrimQuadUV()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{glcorearb_8h_a950fc91edb4504f62f1c577bf4727c29}{void}} Im\+Draw\+List\+::\+Prim\+Quad\+UV (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{struct_im_vec2}{Im\+Vec2}} \&}]{a,  }\item[{const \mbox{\hyperlink{struct_im_vec2}{Im\+Vec2}} \&}]{b,  }\item[{const \mbox{\hyperlink{struct_im_vec2}{Im\+Vec2}} \&}]{c,  }\item[{const \mbox{\hyperlink{struct_im_vec2}{Im\+Vec2}} \&}]{d,  }\item[{const \mbox{\hyperlink{struct_im_vec2}{Im\+Vec2}} \&}]{uv\+\_\+a,  }\item[{const \mbox{\hyperlink{struct_im_vec2}{Im\+Vec2}} \&}]{uv\+\_\+b,  }\item[{const \mbox{\hyperlink{struct_im_vec2}{Im\+Vec2}} \&}]{uv\+\_\+c,  }\item[{const \mbox{\hyperlink{struct_im_vec2}{Im\+Vec2}} \&}]{uv\+\_\+d,  }\item[{\mbox{\hyperlink{imgui_8h_a118cff4eeb8d00e7d07ce3d6460eed36}{Im\+U32}}}]{col }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{struct_im_draw_list_ae2be093563f1d20b8190b7c423113925}\label{struct_im_draw_list_ae2be093563f1d20b8190b7c423113925}} 
+\index{ImDrawList@{ImDrawList}!PrimRect@{PrimRect}}
+\index{PrimRect@{PrimRect}!ImDrawList@{ImDrawList}}
+\doxysubsubsection{\texorpdfstring{PrimRect()}{PrimRect()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{glcorearb_8h_a950fc91edb4504f62f1c577bf4727c29}{void}} Im\+Draw\+List\+::\+Prim\+Rect (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{struct_im_vec2}{Im\+Vec2}} \&}]{a,  }\item[{const \mbox{\hyperlink{struct_im_vec2}{Im\+Vec2}} \&}]{b,  }\item[{\mbox{\hyperlink{imgui_8h_a118cff4eeb8d00e7d07ce3d6460eed36}{Im\+U32}}}]{col }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{struct_im_draw_list_a77d48ed5b33ccdd908824c0a3bebfff8}\label{struct_im_draw_list_a77d48ed5b33ccdd908824c0a3bebfff8}} 
+\index{ImDrawList@{ImDrawList}!PrimRectUV@{PrimRectUV}}
+\index{PrimRectUV@{PrimRectUV}!ImDrawList@{ImDrawList}}
+\doxysubsubsection{\texorpdfstring{PrimRectUV()}{PrimRectUV()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{glcorearb_8h_a950fc91edb4504f62f1c577bf4727c29}{void}} Im\+Draw\+List\+::\+Prim\+Rect\+UV (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{struct_im_vec2}{Im\+Vec2}} \&}]{a,  }\item[{const \mbox{\hyperlink{struct_im_vec2}{Im\+Vec2}} \&}]{b,  }\item[{const \mbox{\hyperlink{struct_im_vec2}{Im\+Vec2}} \&}]{uv\+\_\+a,  }\item[{const \mbox{\hyperlink{struct_im_vec2}{Im\+Vec2}} \&}]{uv\+\_\+b,  }\item[{\mbox{\hyperlink{imgui_8h_a118cff4eeb8d00e7d07ce3d6460eed36}{Im\+U32}}}]{col }\end{DoxyParamCaption})}
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{struct_im_draw_list_a77d48ed5b33ccdd908824c0a3bebfff8_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{struct_im_draw_list_a879aa38dbfb0344e3e023d65c002c7d7}\label{struct_im_draw_list_a879aa38dbfb0344e3e023d65c002c7d7}} 
+\index{ImDrawList@{ImDrawList}!PrimReserve@{PrimReserve}}
+\index{PrimReserve@{PrimReserve}!ImDrawList@{ImDrawList}}
+\doxysubsubsection{\texorpdfstring{PrimReserve()}{PrimReserve()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{glcorearb_8h_a950fc91edb4504f62f1c577bf4727c29}{void}} Im\+Draw\+List\+::\+Prim\+Reserve (\begin{DoxyParamCaption}\item[{int}]{idx\+\_\+count,  }\item[{int}]{vtx\+\_\+count }\end{DoxyParamCaption})}
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{struct_im_draw_list_a879aa38dbfb0344e3e023d65c002c7d7_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{struct_im_draw_list_a405377158f0028ad8b4fb6509eef4532}\label{struct_im_draw_list_a405377158f0028ad8b4fb6509eef4532}} 
+\index{ImDrawList@{ImDrawList}!PrimVtx@{PrimVtx}}
+\index{PrimVtx@{PrimVtx}!ImDrawList@{ImDrawList}}
+\doxysubsubsection{\texorpdfstring{PrimVtx()}{PrimVtx()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{glcorearb_8h_a950fc91edb4504f62f1c577bf4727c29}{void}} Im\+Draw\+List\+::\+Prim\+Vtx (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{struct_im_vec2}{Im\+Vec2}} \&}]{pos,  }\item[{const \mbox{\hyperlink{struct_im_vec2}{Im\+Vec2}} \&}]{uv,  }\item[{\mbox{\hyperlink{imgui_8h_a118cff4eeb8d00e7d07ce3d6460eed36}{Im\+U32}}}]{col }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{struct_im_draw_list_a42b72f87a0084c02f11dcd1560c8bbc7}\label{struct_im_draw_list_a42b72f87a0084c02f11dcd1560c8bbc7}} 
+\index{ImDrawList@{ImDrawList}!PrimWriteIdx@{PrimWriteIdx}}
+\index{PrimWriteIdx@{PrimWriteIdx}!ImDrawList@{ImDrawList}}
+\doxysubsubsection{\texorpdfstring{PrimWriteIdx()}{PrimWriteIdx()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{glcorearb_8h_a950fc91edb4504f62f1c577bf4727c29}{void}} Im\+Draw\+List\+::\+Prim\+Write\+Idx (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{imgui_8h_afdc8744a5ac1a968b1ddfa47e13b2fa1}{Im\+Draw\+Idx}}}]{idx }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{struct_im_draw_list_af86de4faf6c8e978fb712ea14c5d0c5f}\label{struct_im_draw_list_af86de4faf6c8e978fb712ea14c5d0c5f}} 
+\index{ImDrawList@{ImDrawList}!PrimWriteVtx@{PrimWriteVtx}}
+\index{PrimWriteVtx@{PrimWriteVtx}!ImDrawList@{ImDrawList}}
+\doxysubsubsection{\texorpdfstring{PrimWriteVtx()}{PrimWriteVtx()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{glcorearb_8h_a950fc91edb4504f62f1c577bf4727c29}{void}} Im\+Draw\+List\+::\+Prim\+Write\+Vtx (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{struct_im_vec2}{Im\+Vec2}} \&}]{pos,  }\item[{const \mbox{\hyperlink{struct_im_vec2}{Im\+Vec2}} \&}]{uv,  }\item[{\mbox{\hyperlink{imgui_8h_a118cff4eeb8d00e7d07ce3d6460eed36}{Im\+U32}}}]{col }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{struct_im_draw_list_acb34e2d3708616cae4567f3b4af06962}\label{struct_im_draw_list_acb34e2d3708616cae4567f3b4af06962}} 
+\index{ImDrawList@{ImDrawList}!PushClipRect@{PushClipRect}}
+\index{PushClipRect@{PushClipRect}!ImDrawList@{ImDrawList}}
+\doxysubsubsection{\texorpdfstring{PushClipRect()}{PushClipRect()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{glcorearb_8h_a950fc91edb4504f62f1c577bf4727c29}{void}} Im\+Draw\+List\+::\+Push\+Clip\+Rect (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_im_vec2}{Im\+Vec2}}}]{clip\+\_\+rect\+\_\+min,  }\item[{\mbox{\hyperlink{struct_im_vec2}{Im\+Vec2}}}]{clip\+\_\+rect\+\_\+max,  }\item[{bool}]{intersect\+\_\+with\+\_\+current\+\_\+clip\+\_\+rect = {\ttfamily false} }\end{DoxyParamCaption})}
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{struct_im_draw_list_acb34e2d3708616cae4567f3b4af06962_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{struct_im_draw_list_a0ab1ab409f0e269755e50a77901bae39}\label{struct_im_draw_list_a0ab1ab409f0e269755e50a77901bae39}} 
+\index{ImDrawList@{ImDrawList}!PushClipRectFullScreen@{PushClipRectFullScreen}}
+\index{PushClipRectFullScreen@{PushClipRectFullScreen}!ImDrawList@{ImDrawList}}
+\doxysubsubsection{\texorpdfstring{PushClipRectFullScreen()}{PushClipRectFullScreen()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{glcorearb_8h_a950fc91edb4504f62f1c577bf4727c29}{void}} Im\+Draw\+List\+::\+Push\+Clip\+Rect\+Full\+Screen (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{struct_im_draw_list_a0ab1ab409f0e269755e50a77901bae39_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{struct_im_draw_list_a7ac41e329a9df911b4823ef0150cee16}\label{struct_im_draw_list_a7ac41e329a9df911b4823ef0150cee16}} 
+\index{ImDrawList@{ImDrawList}!PushTextureID@{PushTextureID}}
+\index{PushTextureID@{PushTextureID}!ImDrawList@{ImDrawList}}
+\doxysubsubsection{\texorpdfstring{PushTextureID()}{PushTextureID()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{glcorearb_8h_a950fc91edb4504f62f1c577bf4727c29}{void}} Im\+Draw\+List\+::\+Push\+Texture\+ID (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{imconfig-_s_f_m_l_8h_a6238766e2c636eeb1799b88ab32bb8d5}{Im\+Texture\+ID}}}]{texture\+\_\+id }\end{DoxyParamCaption})}
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{struct_im_draw_list_a7ac41e329a9df911b4823ef0150cee16_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{struct_im_draw_list_a5978db1fc49be781978699e85c6a3251}\label{struct_im_draw_list_a5978db1fc49be781978699e85c6a3251}} 
+\index{ImDrawList@{ImDrawList}!UpdateClipRect@{UpdateClipRect}}
+\index{UpdateClipRect@{UpdateClipRect}!ImDrawList@{ImDrawList}}
+\doxysubsubsection{\texorpdfstring{UpdateClipRect()}{UpdateClipRect()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{glcorearb_8h_a950fc91edb4504f62f1c577bf4727c29}{void}} Im\+Draw\+List\+::\+Update\+Clip\+Rect (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{struct_im_draw_list_a58998853ed37538ae5a638da032b0005}\label{struct_im_draw_list_a58998853ed37538ae5a638da032b0005}} 
+\index{ImDrawList@{ImDrawList}!UpdateTextureID@{UpdateTextureID}}
+\index{UpdateTextureID@{UpdateTextureID}!ImDrawList@{ImDrawList}}
+\doxysubsubsection{\texorpdfstring{UpdateTextureID()}{UpdateTextureID()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{glcorearb_8h_a950fc91edb4504f62f1c577bf4727c29}{void}} Im\+Draw\+List\+::\+Update\+Texture\+ID (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{struct_im_draw_list_ae950024f053f3c94dc2c763d20be609d}\label{struct_im_draw_list_ae950024f053f3c94dc2c763d20be609d}} 
+\index{ImDrawList@{ImDrawList}!\_ClipRectStack@{\_ClipRectStack}}
+\index{\_ClipRectStack@{\_ClipRectStack}!ImDrawList@{ImDrawList}}
+\doxysubsubsection{\texorpdfstring{\_ClipRectStack}{\_ClipRectStack}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_im_vector}{Im\+Vector}}$<$\mbox{\hyperlink{struct_im_vec4}{Im\+Vec4}}$>$ Im\+Draw\+List\+::\+\_\+\+Clip\+Rect\+Stack}
+
+\mbox{\Hypertarget{struct_im_draw_list_a606bbd354211fe6f84cc11ebe53e7903}\label{struct_im_draw_list_a606bbd354211fe6f84cc11ebe53e7903}} 
+\index{ImDrawList@{ImDrawList}!\_Data@{\_Data}}
+\index{\_Data@{\_Data}!ImDrawList@{ImDrawList}}
+\doxysubsubsection{\texorpdfstring{\_Data}{\_Data}}
+{\footnotesize\ttfamily const \mbox{\hyperlink{struct_im_draw_list_shared_data}{Im\+Draw\+List\+Shared\+Data}}$\ast$ Im\+Draw\+List\+::\+\_\+\+Data}
+
+\mbox{\Hypertarget{struct_im_draw_list_a771f4c7f71873852fe030c3e498e5843}\label{struct_im_draw_list_a771f4c7f71873852fe030c3e498e5843}} 
+\index{ImDrawList@{ImDrawList}!\_IdxWritePtr@{\_IdxWritePtr}}
+\index{\_IdxWritePtr@{\_IdxWritePtr}!ImDrawList@{ImDrawList}}
+\doxysubsubsection{\texorpdfstring{\_IdxWritePtr}{\_IdxWritePtr}}
+{\footnotesize\ttfamily \mbox{\hyperlink{imgui_8h_afdc8744a5ac1a968b1ddfa47e13b2fa1}{Im\+Draw\+Idx}}$\ast$ Im\+Draw\+List\+::\+\_\+\+Idx\+Write\+Ptr}
+
+\mbox{\Hypertarget{struct_im_draw_list_a643f385fb9d5fc35a431e72a10a212f5}\label{struct_im_draw_list_a643f385fb9d5fc35a431e72a10a212f5}} 
+\index{ImDrawList@{ImDrawList}!\_OwnerName@{\_OwnerName}}
+\index{\_OwnerName@{\_OwnerName}!ImDrawList@{ImDrawList}}
+\doxysubsubsection{\texorpdfstring{\_OwnerName}{\_OwnerName}}
+{\footnotesize\ttfamily const char$\ast$ Im\+Draw\+List\+::\+\_\+\+Owner\+Name}
+
+\mbox{\Hypertarget{struct_im_draw_list_a5bdc39abf351360500048628b8dc1b07}\label{struct_im_draw_list_a5bdc39abf351360500048628b8dc1b07}} 
+\index{ImDrawList@{ImDrawList}!\_Path@{\_Path}}
+\index{\_Path@{\_Path}!ImDrawList@{ImDrawList}}
+\doxysubsubsection{\texorpdfstring{\_Path}{\_Path}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_im_vector}{Im\+Vector}}$<$\mbox{\hyperlink{struct_im_vec2}{Im\+Vec2}}$>$ Im\+Draw\+List\+::\+\_\+\+Path}
+
+\mbox{\Hypertarget{struct_im_draw_list_a2893207705100e8a5da8122da56bd162}\label{struct_im_draw_list_a2893207705100e8a5da8122da56bd162}} 
+\index{ImDrawList@{ImDrawList}!\_Splitter@{\_Splitter}}
+\index{\_Splitter@{\_Splitter}!ImDrawList@{ImDrawList}}
+\doxysubsubsection{\texorpdfstring{\_Splitter}{\_Splitter}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_im_draw_list_splitter}{Im\+Draw\+List\+Splitter}} Im\+Draw\+List\+::\+\_\+\+Splitter}
+
+\mbox{\Hypertarget{struct_im_draw_list_a848faddd121da050214b8d8159e5e704}\label{struct_im_draw_list_a848faddd121da050214b8d8159e5e704}} 
+\index{ImDrawList@{ImDrawList}!\_TextureIdStack@{\_TextureIdStack}}
+\index{\_TextureIdStack@{\_TextureIdStack}!ImDrawList@{ImDrawList}}
+\doxysubsubsection{\texorpdfstring{\_TextureIdStack}{\_TextureIdStack}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_im_vector}{Im\+Vector}}$<$\mbox{\hyperlink{imconfig-_s_f_m_l_8h_a6238766e2c636eeb1799b88ab32bb8d5}{Im\+Texture\+ID}}$>$ Im\+Draw\+List\+::\+\_\+\+Texture\+Id\+Stack}
+
+\mbox{\Hypertarget{struct_im_draw_list_a2228793183665bc3d8612795555fe505}\label{struct_im_draw_list_a2228793183665bc3d8612795555fe505}} 
+\index{ImDrawList@{ImDrawList}!\_VtxCurrentIdx@{\_VtxCurrentIdx}}
+\index{\_VtxCurrentIdx@{\_VtxCurrentIdx}!ImDrawList@{ImDrawList}}
+\doxysubsubsection{\texorpdfstring{\_VtxCurrentIdx}{\_VtxCurrentIdx}}
+{\footnotesize\ttfamily unsigned int Im\+Draw\+List\+::\+\_\+\+Vtx\+Current\+Idx}
+
+\mbox{\Hypertarget{struct_im_draw_list_ac151456d4f253ac71d257db77d4a50e7}\label{struct_im_draw_list_ac151456d4f253ac71d257db77d4a50e7}} 
+\index{ImDrawList@{ImDrawList}!\_VtxCurrentOffset@{\_VtxCurrentOffset}}
+\index{\_VtxCurrentOffset@{\_VtxCurrentOffset}!ImDrawList@{ImDrawList}}
+\doxysubsubsection{\texorpdfstring{\_VtxCurrentOffset}{\_VtxCurrentOffset}}
+{\footnotesize\ttfamily unsigned int Im\+Draw\+List\+::\+\_\+\+Vtx\+Current\+Offset}
+
+\mbox{\Hypertarget{struct_im_draw_list_a67f870f5140bf1cab14b8515b7386073}\label{struct_im_draw_list_a67f870f5140bf1cab14b8515b7386073}} 
+\index{ImDrawList@{ImDrawList}!\_VtxWritePtr@{\_VtxWritePtr}}
+\index{\_VtxWritePtr@{\_VtxWritePtr}!ImDrawList@{ImDrawList}}
+\doxysubsubsection{\texorpdfstring{\_VtxWritePtr}{\_VtxWritePtr}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_im_draw_vert}{Im\+Draw\+Vert}}$\ast$ Im\+Draw\+List\+::\+\_\+\+Vtx\+Write\+Ptr}
+
+\mbox{\Hypertarget{struct_im_draw_list_a67a4b5cc4c83bc3b81d96c46cbd38a07}\label{struct_im_draw_list_a67a4b5cc4c83bc3b81d96c46cbd38a07}} 
+\index{ImDrawList@{ImDrawList}!CmdBuffer@{CmdBuffer}}
+\index{CmdBuffer@{CmdBuffer}!ImDrawList@{ImDrawList}}
+\doxysubsubsection{\texorpdfstring{CmdBuffer}{CmdBuffer}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_im_vector}{Im\+Vector}}$<$\mbox{\hyperlink{struct_im_draw_cmd}{Im\+Draw\+Cmd}}$>$ Im\+Draw\+List\+::\+Cmd\+Buffer}
+
+\mbox{\Hypertarget{struct_im_draw_list_ada2c004661663ef875f4d4c7ec0b4557}\label{struct_im_draw_list_ada2c004661663ef875f4d4c7ec0b4557}} 
+\index{ImDrawList@{ImDrawList}!Flags@{Flags}}
+\index{Flags@{Flags}!ImDrawList@{ImDrawList}}
+\doxysubsubsection{\texorpdfstring{Flags}{Flags}}
+{\footnotesize\ttfamily \mbox{\hyperlink{imgui_8h_a1adb61806505bf501bb0fbcdf4414360}{Im\+Draw\+List\+Flags}} Im\+Draw\+List\+::\+Flags}
+
+\mbox{\Hypertarget{struct_im_draw_list_adf292ff70a954d82daf061c609e75dfc}\label{struct_im_draw_list_adf292ff70a954d82daf061c609e75dfc}} 
+\index{ImDrawList@{ImDrawList}!IdxBuffer@{IdxBuffer}}
+\index{IdxBuffer@{IdxBuffer}!ImDrawList@{ImDrawList}}
+\doxysubsubsection{\texorpdfstring{IdxBuffer}{IdxBuffer}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_im_vector}{Im\+Vector}}$<$\mbox{\hyperlink{imgui_8h_afdc8744a5ac1a968b1ddfa47e13b2fa1}{Im\+Draw\+Idx}}$>$ Im\+Draw\+List\+::\+Idx\+Buffer}
+
+\mbox{\Hypertarget{struct_im_draw_list_aa8ff4aee39cf3c3791b7e29a7b4264be}\label{struct_im_draw_list_aa8ff4aee39cf3c3791b7e29a7b4264be}} 
+\index{ImDrawList@{ImDrawList}!VtxBuffer@{VtxBuffer}}
+\index{VtxBuffer@{VtxBuffer}!ImDrawList@{ImDrawList}}
+\doxysubsubsection{\texorpdfstring{VtxBuffer}{VtxBuffer}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_im_vector}{Im\+Vector}}$<$\mbox{\hyperlink{struct_im_draw_vert}{Im\+Draw\+Vert}}$>$ Im\+Draw\+List\+::\+Vtx\+Buffer}
+
+
+
+The documentation for this struct was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+deps/imgui/\mbox{\hyperlink{imgui_8h}{imgui.\+h}}\item 
+deps/imgui/\mbox{\hyperlink{imgui__draw_8cpp}{imgui\+\_\+draw.\+cpp}}\end{DoxyCompactItemize}

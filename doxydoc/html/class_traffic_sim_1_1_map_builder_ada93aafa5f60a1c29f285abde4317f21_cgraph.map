@@ -1,0 +1,7 @@
+<map id="TrafficSim::MapBuilder::flipRoad" name="TrafficSim::MapBuilder::flipRoad">
+<area shape="rect" id="node1" title=" " alt="" coords="5,33,161,72"/>
+<area shape="rect" id="node2" href="$class_traffic_sim_1_1_road_tile.html#a92cc98ecb2fff268883b827644a73695" title=" " alt="" coords="219,5,360,44"/>
+<area shape="rect" id="node5" href="$class_traffic_sim_1_1_grid.html#a88f381817f866b60d9f8d7b6ee6d4f3d" title=" " alt="" coords="209,68,369,93"/>
+<area shape="rect" id="node3" href="$class_traffic_sim_1_1_road_tile.html#a42a3bd6227b9a66a9cac0fc9918176bd" title=" " alt="" coords="417,5,559,44"/>
+<area shape="rect" id="node4" href="$classsf_1_1_transformable.html#af8a5ffddc0d93f238fee3bf8efe1ebda" title="Rotate the object." alt="" coords="607,5,739,44"/>
+</map>

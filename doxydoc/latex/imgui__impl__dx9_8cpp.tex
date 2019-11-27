@@ -1,0 +1,127 @@
+\hypertarget{imgui__impl__dx9_8cpp}{}\doxysection{deps/imgui/examples/imgui\+\_\+impl\+\_\+dx9.cpp File Reference}
+\label{imgui__impl__dx9_8cpp}\index{deps/imgui/examples/imgui\_impl\_dx9.cpp@{deps/imgui/examples/imgui\_impl\_dx9.cpp}}
+{\ttfamily \#include \char`\"{}imgui.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}imgui\+\_\+impl\+\_\+dx9.\+h\char`\"{}}\newline
+{\ttfamily \#include $<$d3d9.\+h$>$}\newline
+{\ttfamily \#include $<$dinput.\+h$>$}\newline
+Include dependency graph for imgui\+\_\+impl\+\_\+dx9.\+cpp\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{imgui__impl__dx9_8cpp__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{struct_c_u_s_t_o_m_v_e_r_t_e_x}{C\+U\+S\+T\+O\+M\+V\+E\+R\+T\+EX}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{imgui__impl__dx9_8cpp_a1d7ab29fdefabdb4e7e7cd27ac4c9934}{D\+I\+R\+E\+C\+T\+I\+N\+P\+U\+T\+\_\+\+V\+E\+R\+S\+I\+ON}}~0x0800
+\item 
+\#define \mbox{\hyperlink{imgui__impl__dx9_8cpp_a6bd9a594223c54eab984d8abd6a4cf63}{D3\+D\+F\+V\+F\+\_\+\+C\+U\+S\+T\+O\+M\+V\+E\+R\+T\+EX}}~(D3\+D\+F\+V\+F\+\_\+\+X\+YZ$\vert$D3\+D\+F\+V\+F\+\_\+\+D\+I\+F\+F\+U\+SE$\vert$D3\+D\+F\+V\+F\+\_\+\+T\+E\+X1)
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{glcorearb_8h_a950fc91edb4504f62f1c577bf4727c29}{void}} \mbox{\hyperlink{imgui__impl__dx9_8cpp_add0a144ea811488449d56a3317f20017}{Im\+Gui\+\_\+\+Impl\+D\+X9\+\_\+\+Render\+Draw\+Data}} (\mbox{\hyperlink{struct_im_draw_data}{Im\+Draw\+Data}} $\ast$draw\+\_\+data)
+\item 
+bool \mbox{\hyperlink{imgui__impl__dx9_8cpp_a0413f4dbb5cbe0c394bd7a06275ede50}{Im\+Gui\+\_\+\+Impl\+D\+X9\+\_\+\+Init}} (I\+Direct3\+D\+Device9 $\ast$device)
+\item 
+\mbox{\hyperlink{glcorearb_8h_a950fc91edb4504f62f1c577bf4727c29}{void}} \mbox{\hyperlink{imgui__impl__dx9_8cpp_a5e30073c13a72eb3d578541e796cf646}{Im\+Gui\+\_\+\+Impl\+D\+X9\+\_\+\+Shutdown}} ()
+\item 
+bool \mbox{\hyperlink{imgui__impl__dx9_8cpp_aecce01ad4b6c159c2556e58829d6cdfd}{Im\+Gui\+\_\+\+Impl\+D\+X9\+\_\+\+Create\+Device\+Objects}} ()
+\item 
+\mbox{\hyperlink{glcorearb_8h_a950fc91edb4504f62f1c577bf4727c29}{void}} \mbox{\hyperlink{imgui__impl__dx9_8cpp_a804e9baf417a8919403b887f2a53d1ff}{Im\+Gui\+\_\+\+Impl\+D\+X9\+\_\+\+Invalidate\+Device\+Objects}} ()
+\item 
+\mbox{\hyperlink{glcorearb_8h_a950fc91edb4504f62f1c577bf4727c29}{void}} \mbox{\hyperlink{imgui__impl__dx9_8cpp_a3a0dcb8a903e9924d3e0ab2c5c37b060}{Im\+Gui\+\_\+\+Impl\+D\+X9\+\_\+\+New\+Frame}} ()
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Macro Definition Documentation}
+\mbox{\Hypertarget{imgui__impl__dx9_8cpp_a6bd9a594223c54eab984d8abd6a4cf63}\label{imgui__impl__dx9_8cpp_a6bd9a594223c54eab984d8abd6a4cf63}} 
+\index{imgui\_impl\_dx9.cpp@{imgui\_impl\_dx9.cpp}!D3DFVF\_CUSTOMVERTEX@{D3DFVF\_CUSTOMVERTEX}}
+\index{D3DFVF\_CUSTOMVERTEX@{D3DFVF\_CUSTOMVERTEX}!imgui\_impl\_dx9.cpp@{imgui\_impl\_dx9.cpp}}
+\doxysubsubsection{\texorpdfstring{D3DFVF\_CUSTOMVERTEX}{D3DFVF\_CUSTOMVERTEX}}
+{\footnotesize\ttfamily \#define D3\+D\+F\+V\+F\+\_\+\+C\+U\+S\+T\+O\+M\+V\+E\+R\+T\+EX~(D3\+D\+F\+V\+F\+\_\+\+X\+YZ$\vert$D3\+D\+F\+V\+F\+\_\+\+D\+I\+F\+F\+U\+SE$\vert$D3\+D\+F\+V\+F\+\_\+\+T\+E\+X1)}
+
+\mbox{\Hypertarget{imgui__impl__dx9_8cpp_a1d7ab29fdefabdb4e7e7cd27ac4c9934}\label{imgui__impl__dx9_8cpp_a1d7ab29fdefabdb4e7e7cd27ac4c9934}} 
+\index{imgui\_impl\_dx9.cpp@{imgui\_impl\_dx9.cpp}!DIRECTINPUT\_VERSION@{DIRECTINPUT\_VERSION}}
+\index{DIRECTINPUT\_VERSION@{DIRECTINPUT\_VERSION}!imgui\_impl\_dx9.cpp@{imgui\_impl\_dx9.cpp}}
+\doxysubsubsection{\texorpdfstring{DIRECTINPUT\_VERSION}{DIRECTINPUT\_VERSION}}
+{\footnotesize\ttfamily \#define D\+I\+R\+E\+C\+T\+I\+N\+P\+U\+T\+\_\+\+V\+E\+R\+S\+I\+ON~0x0800}
+
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{imgui__impl__dx9_8cpp_aecce01ad4b6c159c2556e58829d6cdfd}\label{imgui__impl__dx9_8cpp_aecce01ad4b6c159c2556e58829d6cdfd}} 
+\index{imgui\_impl\_dx9.cpp@{imgui\_impl\_dx9.cpp}!ImGui\_ImplDX9\_CreateDeviceObjects@{ImGui\_ImplDX9\_CreateDeviceObjects}}
+\index{ImGui\_ImplDX9\_CreateDeviceObjects@{ImGui\_ImplDX9\_CreateDeviceObjects}!imgui\_impl\_dx9.cpp@{imgui\_impl\_dx9.cpp}}
+\doxysubsubsection{\texorpdfstring{ImGui\_ImplDX9\_CreateDeviceObjects()}{ImGui\_ImplDX9\_CreateDeviceObjects()}}
+{\footnotesize\ttfamily bool Im\+Gui\+\_\+\+Impl\+D\+X9\+\_\+\+Create\+Device\+Objects (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{imgui__impl__dx9_8cpp_a0413f4dbb5cbe0c394bd7a06275ede50}\label{imgui__impl__dx9_8cpp_a0413f4dbb5cbe0c394bd7a06275ede50}} 
+\index{imgui\_impl\_dx9.cpp@{imgui\_impl\_dx9.cpp}!ImGui\_ImplDX9\_Init@{ImGui\_ImplDX9\_Init}}
+\index{ImGui\_ImplDX9\_Init@{ImGui\_ImplDX9\_Init}!imgui\_impl\_dx9.cpp@{imgui\_impl\_dx9.cpp}}
+\doxysubsubsection{\texorpdfstring{ImGui\_ImplDX9\_Init()}{ImGui\_ImplDX9\_Init()}}
+{\footnotesize\ttfamily bool Im\+Gui\+\_\+\+Impl\+D\+X9\+\_\+\+Init (\begin{DoxyParamCaption}\item[{I\+Direct3\+D\+Device9 $\ast$}]{device }\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=296pt]{imgui__impl__dx9_8cpp_a0413f4dbb5cbe0c394bd7a06275ede50_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=259pt]{imgui__impl__dx9_8cpp_a0413f4dbb5cbe0c394bd7a06275ede50_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{imgui__impl__dx9_8cpp_a804e9baf417a8919403b887f2a53d1ff}\label{imgui__impl__dx9_8cpp_a804e9baf417a8919403b887f2a53d1ff}} 
+\index{imgui\_impl\_dx9.cpp@{imgui\_impl\_dx9.cpp}!ImGui\_ImplDX9\_InvalidateDeviceObjects@{ImGui\_ImplDX9\_InvalidateDeviceObjects}}
+\index{ImGui\_ImplDX9\_InvalidateDeviceObjects@{ImGui\_ImplDX9\_InvalidateDeviceObjects}!imgui\_impl\_dx9.cpp@{imgui\_impl\_dx9.cpp}}
+\doxysubsubsection{\texorpdfstring{ImGui\_ImplDX9\_InvalidateDeviceObjects()}{ImGui\_ImplDX9\_InvalidateDeviceObjects()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{glcorearb_8h_a950fc91edb4504f62f1c577bf4727c29}{void}} Im\+Gui\+\_\+\+Impl\+D\+X9\+\_\+\+Invalidate\+Device\+Objects (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{imgui__impl__dx9_8cpp_a804e9baf417a8919403b887f2a53d1ff_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{imgui__impl__dx9_8cpp_a3a0dcb8a903e9924d3e0ab2c5c37b060}\label{imgui__impl__dx9_8cpp_a3a0dcb8a903e9924d3e0ab2c5c37b060}} 
+\index{imgui\_impl\_dx9.cpp@{imgui\_impl\_dx9.cpp}!ImGui\_ImplDX9\_NewFrame@{ImGui\_ImplDX9\_NewFrame}}
+\index{ImGui\_ImplDX9\_NewFrame@{ImGui\_ImplDX9\_NewFrame}!imgui\_impl\_dx9.cpp@{imgui\_impl\_dx9.cpp}}
+\doxysubsubsection{\texorpdfstring{ImGui\_ImplDX9\_NewFrame()}{ImGui\_ImplDX9\_NewFrame()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{glcorearb_8h_a950fc91edb4504f62f1c577bf4727c29}{void}} Im\+Gui\+\_\+\+Impl\+D\+X9\+\_\+\+New\+Frame (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{imgui__impl__dx9_8cpp_add0a144ea811488449d56a3317f20017}\label{imgui__impl__dx9_8cpp_add0a144ea811488449d56a3317f20017}} 
+\index{imgui\_impl\_dx9.cpp@{imgui\_impl\_dx9.cpp}!ImGui\_ImplDX9\_RenderDrawData@{ImGui\_ImplDX9\_RenderDrawData}}
+\index{ImGui\_ImplDX9\_RenderDrawData@{ImGui\_ImplDX9\_RenderDrawData}!imgui\_impl\_dx9.cpp@{imgui\_impl\_dx9.cpp}}
+\doxysubsubsection{\texorpdfstring{ImGui\_ImplDX9\_RenderDrawData()}{ImGui\_ImplDX9\_RenderDrawData()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{glcorearb_8h_a950fc91edb4504f62f1c577bf4727c29}{void}} Im\+Gui\+\_\+\+Impl\+D\+X9\+\_\+\+Render\+Draw\+Data (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_im_draw_data}{Im\+Draw\+Data}} $\ast$}]{draw\+\_\+data }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{imgui__impl__dx9_8cpp_a5e30073c13a72eb3d578541e796cf646}\label{imgui__impl__dx9_8cpp_a5e30073c13a72eb3d578541e796cf646}} 
+\index{imgui\_impl\_dx9.cpp@{imgui\_impl\_dx9.cpp}!ImGui\_ImplDX9\_Shutdown@{ImGui\_ImplDX9\_Shutdown}}
+\index{ImGui\_ImplDX9\_Shutdown@{ImGui\_ImplDX9\_Shutdown}!imgui\_impl\_dx9.cpp@{imgui\_impl\_dx9.cpp}}
+\doxysubsubsection{\texorpdfstring{ImGui\_ImplDX9\_Shutdown()}{ImGui\_ImplDX9\_Shutdown()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{glcorearb_8h_a950fc91edb4504f62f1c577bf4727c29}{void}} Im\+Gui\+\_\+\+Impl\+D\+X9\+\_\+\+Shutdown (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{imgui__impl__dx9_8cpp_a5e30073c13a72eb3d578541e796cf646_cgraph}
+\end{center}
+\end{figure}

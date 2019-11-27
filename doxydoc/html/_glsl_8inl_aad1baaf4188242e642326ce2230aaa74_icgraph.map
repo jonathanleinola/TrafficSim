@@ -1,0 +1,4 @@
+<map id="copyMatrix" name="copyMatrix">
+<area shape="rect" id="node1" title="Helper functions to copy sf::Transform to sf::Glsl::Mat3/4." alt="" coords="155,5,240,31"/>
+<area shape="rect" id="node2" href="$struct_matrix.html#ad40da72f526bcd6854d83496d2f62e01" title="Construct from raw data." alt="" coords="5,5,107,31"/>
+</map>

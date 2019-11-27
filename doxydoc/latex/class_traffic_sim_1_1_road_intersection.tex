@@ -1,0 +1,153 @@
+\hypertarget{class_traffic_sim_1_1_road_intersection}{}\doxysection{Traffic\+Sim\+::Road\+Intersection Class Reference}
+\label{class_traffic_sim_1_1_road_intersection}\index{TrafficSim::RoadIntersection@{TrafficSim::RoadIntersection}}
+
+
+{\ttfamily \#include $<$Road\+Intersection.\+hpp$>$}
+
+
+
+Inheritance diagram for Traffic\+Sim\+::Road\+Intersection\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=550pt]{class_traffic_sim_1_1_road_intersection__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Traffic\+Sim\+::Road\+Intersection\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=550pt]{class_traffic_sim_1_1_road_intersection__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_traffic_sim_1_1_road_intersection_a705abe73d0c42de2e2606b5ea53e93b2}{Road\+Intersection}} (const \mbox{\hyperlink{class_traffic_sim_1_1_tile}{Tile}} \&tile)
+\item 
+virtual \mbox{\hyperlink{glcorearb_8h_a950fc91edb4504f62f1c577bf4727c29}{void}} \mbox{\hyperlink{class_traffic_sim_1_1_road_intersection_a8e04a19844bf48354835b545fe9f9f32}{flip}} ()
+\item 
+virtual \mbox{\hyperlink{namespace_traffic_sim_adffe7d61e7ebed8faf807a197ebbf517}{Tile\+Type}} \mbox{\hyperlink{class_traffic_sim_1_1_road_intersection_aa0a763c326a0eace2ea3c315ca2b074d}{get\+Type}} () const
+\item 
+virtual \mbox{\hyperlink{glcorearb_8h_a950fc91edb4504f62f1c577bf4727c29}{void}} \mbox{\hyperlink{class_traffic_sim_1_1_road_intersection_af2dace232555ad1e222c7abdf5470554}{connect}} (std\+::array$<$ \mbox{\hyperlink{class_traffic_sim_1_1_tile}{Tile}} $\ast$, 4 $>$ \&neighbors)
+\item 
+virtual bool \mbox{\hyperlink{class_traffic_sim_1_1_road_intersection_aa80c7a32ec5354fa64021e033120befb}{connectable\+From}} (\mbox{\hyperlink{namespace_traffic_sim_a1436ed07fee6136bfb9b45aee271d714}{Neighbor\+Index}} n\+\_\+index) const
+\item 
+virtual bool \mbox{\hyperlink{class_traffic_sim_1_1_road_intersection_aaa1718d77fbb5cccb044223907147728}{can\+Connect\+To}} (\mbox{\hyperlink{namespace_traffic_sim_a1436ed07fee6136bfb9b45aee271d714}{Neighbor\+Index}} n\+\_\+index) const
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static \mbox{\hyperlink{glcorearb_8h_a950fc91edb4504f62f1c577bf4727c29}{void}} \mbox{\hyperlink{class_traffic_sim_1_1_road_intersection_a7352e6557f7c0eb4be14c181866e2750}{Set\+Textures}} (const \mbox{\hyperlink{classsf_1_1_texture}{sf\+::\+Texture}} $\ast$right\+\_\+texture, const \mbox{\hyperlink{classsf_1_1_texture}{sf\+::\+Texture}} $\ast$left\+\_\+texture)
+\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_traffic_sim_1_1_road_intersection_a705abe73d0c42de2e2606b5ea53e93b2}\label{class_traffic_sim_1_1_road_intersection_a705abe73d0c42de2e2606b5ea53e93b2}} 
+\index{TrafficSim::RoadIntersection@{TrafficSim::RoadIntersection}!RoadIntersection@{RoadIntersection}}
+\index{RoadIntersection@{RoadIntersection}!TrafficSim::RoadIntersection@{TrafficSim::RoadIntersection}}
+\doxysubsubsection{\texorpdfstring{RoadIntersection()}{RoadIntersection()}}
+{\footnotesize\ttfamily Traffic\+Sim\+::\+Road\+Intersection\+::\+Road\+Intersection (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_traffic_sim_1_1_tile}{Tile}} \&}]{tile }\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_traffic_sim_1_1_road_intersection_a705abe73d0c42de2e2606b5ea53e93b2_cgraph}
+\end{center}
+\end{figure}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_traffic_sim_1_1_road_intersection_aaa1718d77fbb5cccb044223907147728}\label{class_traffic_sim_1_1_road_intersection_aaa1718d77fbb5cccb044223907147728}} 
+\index{TrafficSim::RoadIntersection@{TrafficSim::RoadIntersection}!canConnectTo@{canConnectTo}}
+\index{canConnectTo@{canConnectTo}!TrafficSim::RoadIntersection@{TrafficSim::RoadIntersection}}
+\doxysubsubsection{\texorpdfstring{canConnectTo()}{canConnectTo()}}
+{\footnotesize\ttfamily bool Traffic\+Sim\+::\+Road\+Intersection\+::can\+Connect\+To (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{namespace_traffic_sim_a1436ed07fee6136bfb9b45aee271d714}{Neighbor\+Index}}}]{n\+\_\+index }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{class_traffic_sim_1_1_road_tile_a14c0b9fae3d5f6b90a5aabe9f062c144}{Traffic\+Sim\+::\+Road\+Tile}}.
+
+\mbox{\Hypertarget{class_traffic_sim_1_1_road_intersection_af2dace232555ad1e222c7abdf5470554}\label{class_traffic_sim_1_1_road_intersection_af2dace232555ad1e222c7abdf5470554}} 
+\index{TrafficSim::RoadIntersection@{TrafficSim::RoadIntersection}!connect@{connect}}
+\index{connect@{connect}!TrafficSim::RoadIntersection@{TrafficSim::RoadIntersection}}
+\doxysubsubsection{\texorpdfstring{connect()}{connect()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{glcorearb_8h_a950fc91edb4504f62f1c577bf4727c29}{void}} Traffic\+Sim\+::\+Road\+Intersection\+::connect (\begin{DoxyParamCaption}\item[{std\+::array$<$ \mbox{\hyperlink{class_traffic_sim_1_1_tile}{Tile}} $\ast$, 4 $>$ \&}]{neighbors }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{class_traffic_sim_1_1_road_tile_a72698707ee60d707b68574d94512f7c0}{Traffic\+Sim\+::\+Road\+Tile}}.
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_traffic_sim_1_1_road_intersection_af2dace232555ad1e222c7abdf5470554_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_traffic_sim_1_1_road_intersection_aa80c7a32ec5354fa64021e033120befb}\label{class_traffic_sim_1_1_road_intersection_aa80c7a32ec5354fa64021e033120befb}} 
+\index{TrafficSim::RoadIntersection@{TrafficSim::RoadIntersection}!connectableFrom@{connectableFrom}}
+\index{connectableFrom@{connectableFrom}!TrafficSim::RoadIntersection@{TrafficSim::RoadIntersection}}
+\doxysubsubsection{\texorpdfstring{connectableFrom()}{connectableFrom()}}
+{\footnotesize\ttfamily bool Traffic\+Sim\+::\+Road\+Intersection\+::connectable\+From (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{namespace_traffic_sim_a1436ed07fee6136bfb9b45aee271d714}{Neighbor\+Index}}}]{n\+\_\+index }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{class_traffic_sim_1_1_road_tile_abc3e3441e418ad00fbc3b5cf3aeaf577}{Traffic\+Sim\+::\+Road\+Tile}}.
+
+\mbox{\Hypertarget{class_traffic_sim_1_1_road_intersection_a8e04a19844bf48354835b545fe9f9f32}\label{class_traffic_sim_1_1_road_intersection_a8e04a19844bf48354835b545fe9f9f32}} 
+\index{TrafficSim::RoadIntersection@{TrafficSim::RoadIntersection}!flip@{flip}}
+\index{flip@{flip}!TrafficSim::RoadIntersection@{TrafficSim::RoadIntersection}}
+\doxysubsubsection{\texorpdfstring{flip()}{flip()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{glcorearb_8h_a950fc91edb4504f62f1c577bf4727c29}{void}} Traffic\+Sim\+::\+Road\+Intersection\+::flip (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Reimplemented from \mbox{\hyperlink{class_traffic_sim_1_1_road_tile_a92cc98ecb2fff268883b827644a73695}{Traffic\+Sim\+::\+Road\+Tile}}.
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_traffic_sim_1_1_road_intersection_a8e04a19844bf48354835b545fe9f9f32_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_traffic_sim_1_1_road_intersection_aa0a763c326a0eace2ea3c315ca2b074d}\label{class_traffic_sim_1_1_road_intersection_aa0a763c326a0eace2ea3c315ca2b074d}} 
+\index{TrafficSim::RoadIntersection@{TrafficSim::RoadIntersection}!getType@{getType}}
+\index{getType@{getType}!TrafficSim::RoadIntersection@{TrafficSim::RoadIntersection}}
+\doxysubsubsection{\texorpdfstring{getType()}{getType()}}
+{\footnotesize\ttfamily virtual \mbox{\hyperlink{namespace_traffic_sim_adffe7d61e7ebed8faf807a197ebbf517}{Tile\+Type}} Traffic\+Sim\+::\+Road\+Intersection\+::get\+Type (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{class_traffic_sim_1_1_road_tile_a9274e00f73e99aff5714787a30a6fa17}{Traffic\+Sim\+::\+Road\+Tile}}.
+
+\mbox{\Hypertarget{class_traffic_sim_1_1_road_intersection_a7352e6557f7c0eb4be14c181866e2750}\label{class_traffic_sim_1_1_road_intersection_a7352e6557f7c0eb4be14c181866e2750}} 
+\index{TrafficSim::RoadIntersection@{TrafficSim::RoadIntersection}!SetTextures@{SetTextures}}
+\index{SetTextures@{SetTextures}!TrafficSim::RoadIntersection@{TrafficSim::RoadIntersection}}
+\doxysubsubsection{\texorpdfstring{SetTextures()}{SetTextures()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{glcorearb_8h_a950fc91edb4504f62f1c577bf4727c29}{void}} Traffic\+Sim\+::\+Road\+Intersection\+::\+Set\+Textures (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classsf_1_1_texture}{sf\+::\+Texture}} $\ast$}]{right\+\_\+texture,  }\item[{const \mbox{\hyperlink{classsf_1_1_texture}{sf\+::\+Texture}} $\ast$}]{left\+\_\+texture }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_traffic_sim_1_1_road_intersection_a7352e6557f7c0eb4be14c181866e2750_icgraph}
+\end{center}
+\end{figure}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+src/trafficsim/\mbox{\hyperlink{_road_intersection_8hpp}{Road\+Intersection.\+hpp}}\item 
+src/trafficsim/\mbox{\hyperlink{_road_intersection_8cpp}{Road\+Intersection.\+cpp}}\end{DoxyCompactItemize}

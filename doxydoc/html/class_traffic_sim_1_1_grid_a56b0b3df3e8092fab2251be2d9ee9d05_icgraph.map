@@ -1,0 +1,9 @@
+<map id="TrafficSim::Grid::getSideCount" name="TrafficSim::Grid::getSideCount">
+<area shape="rect" id="node1" title=" " alt="" coords="744,37,910,76"/>
+<area shape="rect" id="node2" href="$class_traffic_sim_1_1_data_handler.html#ae90e0fef300a53540cec160097a51372" title=" " alt="" coords="533,5,696,44"/>
+<area shape="rect" id="node6" href="$class_traffic_sim_1_1_map_builder.html#a6804d8ff07a86da3cc5873a4dc73ce7b" title=" " alt="" coords="537,68,693,107"/>
+<area shape="rect" id="node3" href="$class_traffic_sim_1_1_application.html#a3ed14f7ab32ac834d56751c763d76001" title=" " alt="" coords="332,5,485,44"/>
+<area shape="rect" id="node4" href="$class_traffic_sim_1_1_application.html#a4aaf993e1907d3a8bc6ba4013ab7d802" title=" " alt="" coords="104,44,284,69"/>
+<area shape="rect" id="node5" href="$src_2core_2main_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4" title=" " alt="" coords="5,44,56,69"/>
+<area shape="rect" id="node7" href="$class_traffic_sim_1_1_application.html#a843549d09c4b6f92d54be532135d5f66" title=" " alt="" coords="332,68,485,107"/>
+</map>

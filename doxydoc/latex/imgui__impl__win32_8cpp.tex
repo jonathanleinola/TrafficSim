@@ -1,0 +1,131 @@
+\hypertarget{imgui__impl__win32_8cpp}{}\doxysection{deps/imgui/examples/imgui\+\_\+impl\+\_\+win32.cpp File Reference}
+\label{imgui__impl__win32_8cpp}\index{deps/imgui/examples/imgui\_impl\_win32.cpp@{deps/imgui/examples/imgui\_impl\_win32.cpp}}
+{\ttfamily \#include \char`\"{}imgui.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}imgui\+\_\+impl\+\_\+win32.\+h\char`\"{}}\newline
+{\ttfamily \#include $<$windows.\+h$>$}\newline
+{\ttfamily \#include $<$X\+Input.\+h$>$}\newline
+{\ttfamily \#include $<$tchar.\+h$>$}\newline
+Include dependency graph for imgui\+\_\+impl\+\_\+win32.\+cpp\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{imgui__impl__win32_8cpp__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{imgui__impl__win32_8cpp_ac7bef5d85e3dcd73eef56ad39ffc84a9}{W\+I\+N32\+\_\+\+L\+E\+A\+N\+\_\+\+A\+N\+D\+\_\+\+M\+E\+AN}}
+\item 
+\#define \mbox{\hyperlink{imgui__impl__win32_8cpp_ac0e4756c36e2ab0b0b13061a722d7dd1}{M\+A\+P\+\_\+\+B\+U\+T\+T\+ON}}(N\+A\+V\+\_\+\+NO,  B\+U\+T\+T\+O\+N\+\_\+\+E\+N\+UM)~\{ io.\+Nav\+Inputs\mbox{[}N\+A\+V\+\_\+\+NO\mbox{]} = (gamepad.\+w\+Buttons \& B\+U\+T\+T\+O\+N\+\_\+\+E\+N\+UM) ? 1.\+0f \+: 0.\+0f; \}
+\item 
+\#define \mbox{\hyperlink{imgui__impl__win32_8cpp_adb5084b87f1cecae595f6a70b5da263a}{M\+A\+P\+\_\+\+A\+N\+A\+L\+OG}}(N\+A\+V\+\_\+\+NO,  V\+A\+L\+UE,  V0,  V1)~\{ float vn = (float)(V\+A\+L\+UE -\/ V0) / (float)(V1 -\/ V0); if (vn $>$ 1.\+0f) vn = 1.\+0f; if (vn $>$ 0.\+0f \&\& io.\+Nav\+Inputs\mbox{[}N\+A\+V\+\_\+\+NO\mbox{]} $<$ vn) io.\+Nav\+Inputs\mbox{[}N\+A\+V\+\_\+\+NO\mbox{]} = vn; \}
+\item 
+\#define \mbox{\hyperlink{imgui__impl__win32_8cpp_a7b2918d422b3a1fe86a641f74818bb55}{W\+M\+\_\+\+M\+O\+U\+S\+E\+H\+W\+H\+E\+EL}}~0x020E
+\item 
+\#define \mbox{\hyperlink{imgui__impl__win32_8cpp_a454522b0cfb3a366cc14230e62be3e94}{D\+B\+T\+\_\+\+D\+E\+V\+N\+O\+D\+E\+S\+\_\+\+C\+H\+A\+N\+G\+ED}}~0x0007
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+bool \mbox{\hyperlink{imgui__impl__win32_8cpp_a4221d0dc7d4977eb30970e1f5c2cca98}{Im\+Gui\+\_\+\+Impl\+Win32\+\_\+\+Init}} (\mbox{\hyperlink{glcorearb_8h_a950fc91edb4504f62f1c577bf4727c29}{void}} $\ast$hwnd)
+\item 
+\mbox{\hyperlink{glcorearb_8h_a950fc91edb4504f62f1c577bf4727c29}{void}} \mbox{\hyperlink{imgui__impl__win32_8cpp_a4eddd1969cc460312197f2df3dbc992a}{Im\+Gui\+\_\+\+Impl\+Win32\+\_\+\+Shutdown}} ()
+\item 
+\mbox{\hyperlink{glcorearb_8h_a950fc91edb4504f62f1c577bf4727c29}{void}} \mbox{\hyperlink{imgui__impl__win32_8cpp_ade4f55b90fdbd75a562d894d33f1909e}{Im\+Gui\+\_\+\+Impl\+Win32\+\_\+\+New\+Frame}} ()
+\item 
+\mbox{\hyperlink{imgui_8h_a665f6b404eea9a640b1222a87236fe19}{I\+M\+G\+U\+I\+\_\+\+I\+M\+P\+L\+\_\+\+A\+PI}} L\+R\+E\+S\+U\+LT \mbox{\hyperlink{imgui__impl__win32_8cpp_a25447e4d5d2cabecf54cb9a5c84e7cde}{Im\+Gui\+\_\+\+Impl\+Win32\+\_\+\+Wnd\+Proc\+Handler}} (H\+W\+ND hwnd, U\+I\+NT msg, W\+P\+A\+R\+AM w\+Param, L\+P\+A\+R\+AM l\+Param)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Macro Definition Documentation}
+\mbox{\Hypertarget{imgui__impl__win32_8cpp_a454522b0cfb3a366cc14230e62be3e94}\label{imgui__impl__win32_8cpp_a454522b0cfb3a366cc14230e62be3e94}} 
+\index{imgui\_impl\_win32.cpp@{imgui\_impl\_win32.cpp}!DBT\_DEVNODES\_CHANGED@{DBT\_DEVNODES\_CHANGED}}
+\index{DBT\_DEVNODES\_CHANGED@{DBT\_DEVNODES\_CHANGED}!imgui\_impl\_win32.cpp@{imgui\_impl\_win32.cpp}}
+\doxysubsubsection{\texorpdfstring{DBT\_DEVNODES\_CHANGED}{DBT\_DEVNODES\_CHANGED}}
+{\footnotesize\ttfamily \#define D\+B\+T\+\_\+\+D\+E\+V\+N\+O\+D\+E\+S\+\_\+\+C\+H\+A\+N\+G\+ED~0x0007}
+
+\mbox{\Hypertarget{imgui__impl__win32_8cpp_adb5084b87f1cecae595f6a70b5da263a}\label{imgui__impl__win32_8cpp_adb5084b87f1cecae595f6a70b5da263a}} 
+\index{imgui\_impl\_win32.cpp@{imgui\_impl\_win32.cpp}!MAP\_ANALOG@{MAP\_ANALOG}}
+\index{MAP\_ANALOG@{MAP\_ANALOG}!imgui\_impl\_win32.cpp@{imgui\_impl\_win32.cpp}}
+\doxysubsubsection{\texorpdfstring{MAP\_ANALOG}{MAP\_ANALOG}}
+{\footnotesize\ttfamily \#define M\+A\+P\+\_\+\+A\+N\+A\+L\+OG(\begin{DoxyParamCaption}\item[{}]{N\+A\+V\+\_\+\+NO,  }\item[{}]{V\+A\+L\+UE,  }\item[{}]{V0,  }\item[{}]{V1 }\end{DoxyParamCaption})~\{ float vn = (float)(V\+A\+L\+UE -\/ V0) / (float)(V1 -\/ V0); if (vn $>$ 1.\+0f) vn = 1.\+0f; if (vn $>$ 0.\+0f \&\& io.\+Nav\+Inputs\mbox{[}N\+A\+V\+\_\+\+NO\mbox{]} $<$ vn) io.\+Nav\+Inputs\mbox{[}N\+A\+V\+\_\+\+NO\mbox{]} = vn; \}}
+
+\mbox{\Hypertarget{imgui__impl__win32_8cpp_ac0e4756c36e2ab0b0b13061a722d7dd1}\label{imgui__impl__win32_8cpp_ac0e4756c36e2ab0b0b13061a722d7dd1}} 
+\index{imgui\_impl\_win32.cpp@{imgui\_impl\_win32.cpp}!MAP\_BUTTON@{MAP\_BUTTON}}
+\index{MAP\_BUTTON@{MAP\_BUTTON}!imgui\_impl\_win32.cpp@{imgui\_impl\_win32.cpp}}
+\doxysubsubsection{\texorpdfstring{MAP\_BUTTON}{MAP\_BUTTON}}
+{\footnotesize\ttfamily \#define M\+A\+P\+\_\+\+B\+U\+T\+T\+ON(\begin{DoxyParamCaption}\item[{}]{N\+A\+V\+\_\+\+NO,  }\item[{}]{B\+U\+T\+T\+O\+N\+\_\+\+E\+N\+UM }\end{DoxyParamCaption})~\{ io.\+Nav\+Inputs\mbox{[}N\+A\+V\+\_\+\+NO\mbox{]} = (gamepad.\+w\+Buttons \& B\+U\+T\+T\+O\+N\+\_\+\+E\+N\+UM) ? 1.\+0f \+: 0.\+0f; \}}
+
+\mbox{\Hypertarget{imgui__impl__win32_8cpp_ac7bef5d85e3dcd73eef56ad39ffc84a9}\label{imgui__impl__win32_8cpp_ac7bef5d85e3dcd73eef56ad39ffc84a9}} 
+\index{imgui\_impl\_win32.cpp@{imgui\_impl\_win32.cpp}!WIN32\_LEAN\_AND\_MEAN@{WIN32\_LEAN\_AND\_MEAN}}
+\index{WIN32\_LEAN\_AND\_MEAN@{WIN32\_LEAN\_AND\_MEAN}!imgui\_impl\_win32.cpp@{imgui\_impl\_win32.cpp}}
+\doxysubsubsection{\texorpdfstring{WIN32\_LEAN\_AND\_MEAN}{WIN32\_LEAN\_AND\_MEAN}}
+{\footnotesize\ttfamily \#define W\+I\+N32\+\_\+\+L\+E\+A\+N\+\_\+\+A\+N\+D\+\_\+\+M\+E\+AN}
+
+\mbox{\Hypertarget{imgui__impl__win32_8cpp_a7b2918d422b3a1fe86a641f74818bb55}\label{imgui__impl__win32_8cpp_a7b2918d422b3a1fe86a641f74818bb55}} 
+\index{imgui\_impl\_win32.cpp@{imgui\_impl\_win32.cpp}!WM\_MOUSEHWHEEL@{WM\_MOUSEHWHEEL}}
+\index{WM\_MOUSEHWHEEL@{WM\_MOUSEHWHEEL}!imgui\_impl\_win32.cpp@{imgui\_impl\_win32.cpp}}
+\doxysubsubsection{\texorpdfstring{WM\_MOUSEHWHEEL}{WM\_MOUSEHWHEEL}}
+{\footnotesize\ttfamily \#define W\+M\+\_\+\+M\+O\+U\+S\+E\+H\+W\+H\+E\+EL~0x020E}
+
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{imgui__impl__win32_8cpp_a4221d0dc7d4977eb30970e1f5c2cca98}\label{imgui__impl__win32_8cpp_a4221d0dc7d4977eb30970e1f5c2cca98}} 
+\index{imgui\_impl\_win32.cpp@{imgui\_impl\_win32.cpp}!ImGui\_ImplWin32\_Init@{ImGui\_ImplWin32\_Init}}
+\index{ImGui\_ImplWin32\_Init@{ImGui\_ImplWin32\_Init}!imgui\_impl\_win32.cpp@{imgui\_impl\_win32.cpp}}
+\doxysubsubsection{\texorpdfstring{ImGui\_ImplWin32\_Init()}{ImGui\_ImplWin32\_Init()}}
+{\footnotesize\ttfamily bool Im\+Gui\+\_\+\+Impl\+Win32\+\_\+\+Init (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{glcorearb_8h_a950fc91edb4504f62f1c577bf4727c29}{void}} $\ast$}]{hwnd }\end{DoxyParamCaption})}
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=268pt]{imgui__impl__win32_8cpp_a4221d0dc7d4977eb30970e1f5c2cca98_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{imgui__impl__win32_8cpp_ade4f55b90fdbd75a562d894d33f1909e}\label{imgui__impl__win32_8cpp_ade4f55b90fdbd75a562d894d33f1909e}} 
+\index{imgui\_impl\_win32.cpp@{imgui\_impl\_win32.cpp}!ImGui\_ImplWin32\_NewFrame@{ImGui\_ImplWin32\_NewFrame}}
+\index{ImGui\_ImplWin32\_NewFrame@{ImGui\_ImplWin32\_NewFrame}!imgui\_impl\_win32.cpp@{imgui\_impl\_win32.cpp}}
+\doxysubsubsection{\texorpdfstring{ImGui\_ImplWin32\_NewFrame()}{ImGui\_ImplWin32\_NewFrame()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{glcorearb_8h_a950fc91edb4504f62f1c577bf4727c29}{void}} Im\+Gui\+\_\+\+Impl\+Win32\+\_\+\+New\+Frame (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{imgui__impl__win32_8cpp_ade4f55b90fdbd75a562d894d33f1909e_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{imgui__impl__win32_8cpp_a4eddd1969cc460312197f2df3dbc992a}\label{imgui__impl__win32_8cpp_a4eddd1969cc460312197f2df3dbc992a}} 
+\index{imgui\_impl\_win32.cpp@{imgui\_impl\_win32.cpp}!ImGui\_ImplWin32\_Shutdown@{ImGui\_ImplWin32\_Shutdown}}
+\index{ImGui\_ImplWin32\_Shutdown@{ImGui\_ImplWin32\_Shutdown}!imgui\_impl\_win32.cpp@{imgui\_impl\_win32.cpp}}
+\doxysubsubsection{\texorpdfstring{ImGui\_ImplWin32\_Shutdown()}{ImGui\_ImplWin32\_Shutdown()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{glcorearb_8h_a950fc91edb4504f62f1c577bf4727c29}{void}} Im\+Gui\+\_\+\+Impl\+Win32\+\_\+\+Shutdown (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{imgui__impl__win32_8cpp_a25447e4d5d2cabecf54cb9a5c84e7cde}\label{imgui__impl__win32_8cpp_a25447e4d5d2cabecf54cb9a5c84e7cde}} 
+\index{imgui\_impl\_win32.cpp@{imgui\_impl\_win32.cpp}!ImGui\_ImplWin32\_WndProcHandler@{ImGui\_ImplWin32\_WndProcHandler}}
+\index{ImGui\_ImplWin32\_WndProcHandler@{ImGui\_ImplWin32\_WndProcHandler}!imgui\_impl\_win32.cpp@{imgui\_impl\_win32.cpp}}
+\doxysubsubsection{\texorpdfstring{ImGui\_ImplWin32\_WndProcHandler()}{ImGui\_ImplWin32\_WndProcHandler()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{imgui_8h_a665f6b404eea9a640b1222a87236fe19}{I\+M\+G\+U\+I\+\_\+\+I\+M\+P\+L\+\_\+\+A\+PI}} L\+R\+E\+S\+U\+LT Im\+Gui\+\_\+\+Impl\+Win32\+\_\+\+Wnd\+Proc\+Handler (\begin{DoxyParamCaption}\item[{H\+W\+ND}]{hwnd,  }\item[{U\+I\+NT}]{msg,  }\item[{W\+P\+A\+R\+AM}]{w\+Param,  }\item[{L\+P\+A\+R\+AM}]{l\+Param }\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{imgui__impl__win32_8cpp_a25447e4d5d2cabecf54cb9a5c84e7cde_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{imgui__impl__win32_8cpp_a25447e4d5d2cabecf54cb9a5c84e7cde_icgraph}
+\end{center}
+\end{figure}

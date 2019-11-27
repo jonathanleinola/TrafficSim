@@ -1,0 +1,251 @@
+\hypertarget{class_traffic_sim_1_1_grid}{}\doxysection{Traffic\+Sim\+::Grid Class Reference}
+\label{class_traffic_sim_1_1_grid}\index{TrafficSim::Grid@{TrafficSim::Grid}}
+
+
+{\ttfamily \#include $<$Grid.\+hpp$>$}
+
+
+
+Inheritance diagram for Traffic\+Sim\+::Grid\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=191pt]{class_traffic_sim_1_1_grid__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Traffic\+Sim\+::Grid\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=191pt]{class_traffic_sim_1_1_grid__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_traffic_sim_1_1_grid_a88fc32b93521a359305101f73d56e17b}{Grid}} (float tile\+\_\+size)
+\item 
+\mbox{\hyperlink{glcorearb_8h_a950fc91edb4504f62f1c577bf4727c29}{void}} \mbox{\hyperlink{class_traffic_sim_1_1_grid_afcfe2ca1ab9ca0188bb75e13b7aaf464}{init}} ()
+\item 
+\mbox{\hyperlink{class_traffic_sim_1_1_tile}{Tile}} $\ast$ \mbox{\hyperlink{class_traffic_sim_1_1_grid_a88f381817f866b60d9f8d7b6ee6d4f3d}{get\+Tile}} (unsigned int \mbox{\hyperlink{glcorearb_8h_ab47dd9958bcadea08866b42bf358e95e}{index}})
+\item 
+\mbox{\hyperlink{class_traffic_sim_1_1_tile}{Tile}} $\ast$ \mbox{\hyperlink{class_traffic_sim_1_1_grid_a8cd0e31cdf735ea18e63bc3dfdc1959e}{get\+Tile}} (const \mbox{\hyperlink{namespacesf_acf03098c2577b869e2fa6836cc48f1a0}{sf\+::\+Vector2f}} \&pos)
+\item 
+\mbox{\hyperlink{class_traffic_sim_1_1_tile}{Tile}} $\ast$ \mbox{\hyperlink{class_traffic_sim_1_1_grid_a356fb0313bd38ac43fdd914df5096aab}{get\+Up\+Neighbor}} (unsigned int \mbox{\hyperlink{glcorearb_8h_ab47dd9958bcadea08866b42bf358e95e}{index}})
+\item 
+\mbox{\hyperlink{class_traffic_sim_1_1_tile}{Tile}} $\ast$ \mbox{\hyperlink{class_traffic_sim_1_1_grid_a157fd873d4ceb7400e32691033ebb45e}{get\+Right\+Neighbor}} (unsigned int \mbox{\hyperlink{glcorearb_8h_ab47dd9958bcadea08866b42bf358e95e}{index}})
+\item 
+\mbox{\hyperlink{class_traffic_sim_1_1_tile}{Tile}} $\ast$ \mbox{\hyperlink{class_traffic_sim_1_1_grid_a81016be49e45ca4968cb56e4effd37cf}{get\+Down\+Neighbor}} (unsigned int \mbox{\hyperlink{glcorearb_8h_ab47dd9958bcadea08866b42bf358e95e}{index}})
+\item 
+\mbox{\hyperlink{class_traffic_sim_1_1_tile}{Tile}} $\ast$ \mbox{\hyperlink{class_traffic_sim_1_1_grid_a2b37db4214fe5bd41d203fd8a19573d1}{get\+Left\+Neighbor}} (unsigned int \mbox{\hyperlink{glcorearb_8h_ab47dd9958bcadea08866b42bf358e95e}{index}})
+\item 
+std\+::array$<$ \mbox{\hyperlink{class_traffic_sim_1_1_tile}{Tile}} $\ast$, 4 $>$ \mbox{\hyperlink{class_traffic_sim_1_1_grid_a229b887898b89dbd61ba63dde8b1a271}{get\+Neigbor\+Tiles}} (unsigned int \mbox{\hyperlink{glcorearb_8h_ab47dd9958bcadea08866b42bf358e95e}{index}})
+\item 
+unsigned int \mbox{\hyperlink{class_traffic_sim_1_1_grid_a56b0b3df3e8092fab2251be2d9ee9d05}{get\+Side\+Count}} () const
+\item 
+unsigned int \mbox{\hyperlink{class_traffic_sim_1_1_grid_afec14472b850decd800e39de60f08fc9}{get\+Total\+Tile\+Count}} () const
+\item 
+\mbox{\hyperlink{glcorearb_8h_a950fc91edb4504f62f1c577bf4727c29}{void}} \mbox{\hyperlink{class_traffic_sim_1_1_grid_a0ba4fc7e29a3e9a172063fa9b23bed07}{swap\+Tile}} (std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{class_traffic_sim_1_1_tile}{Tile}} $>$ \&tile)
+\item 
+virtual \mbox{\hyperlink{glcorearb_8h_a950fc91edb4504f62f1c577bf4727c29}{void}} \mbox{\hyperlink{class_traffic_sim_1_1_grid_a3d81045fe5230caeb6f72d2b986a544a}{draw}} (\mbox{\hyperlink{classsf_1_1_render_target}{sf\+::\+Render\+Target}} \&\mbox{\hyperlink{glcorearb_8h_af9d0cbbbeb7414e786c41899e5a856d7}{target}}, \mbox{\hyperlink{classsf_1_1_render_states}{sf\+::\+Render\+States}} states) const
+\begin{DoxyCompactList}\small\item\em Draw the object to a render target. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_traffic_sim_1_1_grid_a88fc32b93521a359305101f73d56e17b}\label{class_traffic_sim_1_1_grid_a88fc32b93521a359305101f73d56e17b}} 
+\index{TrafficSim::Grid@{TrafficSim::Grid}!Grid@{Grid}}
+\index{Grid@{Grid}!TrafficSim::Grid@{TrafficSim::Grid}}
+\doxysubsubsection{\texorpdfstring{Grid()}{Grid()}}
+{\footnotesize\ttfamily Traffic\+Sim\+::\+Grid\+::\+Grid (\begin{DoxyParamCaption}\item[{float}]{tile\+\_\+size }\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=329pt]{class_traffic_sim_1_1_grid_a88fc32b93521a359305101f73d56e17b_cgraph}
+\end{center}
+\end{figure}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_traffic_sim_1_1_grid_a3d81045fe5230caeb6f72d2b986a544a}\label{class_traffic_sim_1_1_grid_a3d81045fe5230caeb6f72d2b986a544a}} 
+\index{TrafficSim::Grid@{TrafficSim::Grid}!draw@{draw}}
+\index{draw@{draw}!TrafficSim::Grid@{TrafficSim::Grid}}
+\doxysubsubsection{\texorpdfstring{draw()}{draw()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{glcorearb_8h_a950fc91edb4504f62f1c577bf4727c29}{void}} Traffic\+Sim\+::\+Grid\+::draw (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classsf_1_1_render_target}{sf\+::\+Render\+Target}} \&}]{target,  }\item[{\mbox{\hyperlink{classsf_1_1_render_states}{sf\+::\+Render\+States}}}]{states }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Draw the object to a render target. 
+
+This is a pure virtual function that has to be implemented by the derived class to define how the drawable should be drawn.
+
+
+\begin{DoxyParams}{Parameters}
+{\em target} & Render target to draw to \\
+\hline
+{\em states} & Current render states \\
+\hline
+\end{DoxyParams}
+
+
+Implements \mbox{\hyperlink{classsf_1_1_drawable_a90d2c88bba9b035a0844eccb380ef631}{sf\+::\+Drawable}}.
+
+\mbox{\Hypertarget{class_traffic_sim_1_1_grid_a81016be49e45ca4968cb56e4effd37cf}\label{class_traffic_sim_1_1_grid_a81016be49e45ca4968cb56e4effd37cf}} 
+\index{TrafficSim::Grid@{TrafficSim::Grid}!getDownNeighbor@{getDownNeighbor}}
+\index{getDownNeighbor@{getDownNeighbor}!TrafficSim::Grid@{TrafficSim::Grid}}
+\doxysubsubsection{\texorpdfstring{getDownNeighbor()}{getDownNeighbor()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_traffic_sim_1_1_tile}{Tile}} $\ast$ Traffic\+Sim\+::\+Grid\+::get\+Down\+Neighbor (\begin{DoxyParamCaption}\item[{unsigned int}]{index }\end{DoxyParamCaption})}
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_traffic_sim_1_1_grid_a81016be49e45ca4968cb56e4effd37cf_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_traffic_sim_1_1_grid_a2b37db4214fe5bd41d203fd8a19573d1}\label{class_traffic_sim_1_1_grid_a2b37db4214fe5bd41d203fd8a19573d1}} 
+\index{TrafficSim::Grid@{TrafficSim::Grid}!getLeftNeighbor@{getLeftNeighbor}}
+\index{getLeftNeighbor@{getLeftNeighbor}!TrafficSim::Grid@{TrafficSim::Grid}}
+\doxysubsubsection{\texorpdfstring{getLeftNeighbor()}{getLeftNeighbor()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_traffic_sim_1_1_tile}{Tile}} $\ast$ Traffic\+Sim\+::\+Grid\+::get\+Left\+Neighbor (\begin{DoxyParamCaption}\item[{unsigned int}]{index }\end{DoxyParamCaption})}
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_traffic_sim_1_1_grid_a2b37db4214fe5bd41d203fd8a19573d1_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_traffic_sim_1_1_grid_a229b887898b89dbd61ba63dde8b1a271}\label{class_traffic_sim_1_1_grid_a229b887898b89dbd61ba63dde8b1a271}} 
+\index{TrafficSim::Grid@{TrafficSim::Grid}!getNeigborTiles@{getNeigborTiles}}
+\index{getNeigborTiles@{getNeigborTiles}!TrafficSim::Grid@{TrafficSim::Grid}}
+\doxysubsubsection{\texorpdfstring{getNeigborTiles()}{getNeigborTiles()}}
+{\footnotesize\ttfamily std\+::array$<$ \mbox{\hyperlink{class_traffic_sim_1_1_tile}{Tile}} $\ast$, 4 $>$ Traffic\+Sim\+::\+Grid\+::get\+Neigbor\+Tiles (\begin{DoxyParamCaption}\item[{unsigned int}]{index }\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_traffic_sim_1_1_grid_a229b887898b89dbd61ba63dde8b1a271_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_traffic_sim_1_1_grid_a229b887898b89dbd61ba63dde8b1a271_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_traffic_sim_1_1_grid_a157fd873d4ceb7400e32691033ebb45e}\label{class_traffic_sim_1_1_grid_a157fd873d4ceb7400e32691033ebb45e}} 
+\index{TrafficSim::Grid@{TrafficSim::Grid}!getRightNeighbor@{getRightNeighbor}}
+\index{getRightNeighbor@{getRightNeighbor}!TrafficSim::Grid@{TrafficSim::Grid}}
+\doxysubsubsection{\texorpdfstring{getRightNeighbor()}{getRightNeighbor()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_traffic_sim_1_1_tile}{Tile}} $\ast$ Traffic\+Sim\+::\+Grid\+::get\+Right\+Neighbor (\begin{DoxyParamCaption}\item[{unsigned int}]{index }\end{DoxyParamCaption})}
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_traffic_sim_1_1_grid_a157fd873d4ceb7400e32691033ebb45e_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_traffic_sim_1_1_grid_a56b0b3df3e8092fab2251be2d9ee9d05}\label{class_traffic_sim_1_1_grid_a56b0b3df3e8092fab2251be2d9ee9d05}} 
+\index{TrafficSim::Grid@{TrafficSim::Grid}!getSideCount@{getSideCount}}
+\index{getSideCount@{getSideCount}!TrafficSim::Grid@{TrafficSim::Grid}}
+\doxysubsubsection{\texorpdfstring{getSideCount()}{getSideCount()}}
+{\footnotesize\ttfamily unsigned int Traffic\+Sim\+::\+Grid\+::get\+Side\+Count (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_traffic_sim_1_1_grid_a56b0b3df3e8092fab2251be2d9ee9d05_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_traffic_sim_1_1_grid_a8cd0e31cdf735ea18e63bc3dfdc1959e}\label{class_traffic_sim_1_1_grid_a8cd0e31cdf735ea18e63bc3dfdc1959e}} 
+\index{TrafficSim::Grid@{TrafficSim::Grid}!getTile@{getTile}}
+\index{getTile@{getTile}!TrafficSim::Grid@{TrafficSim::Grid}}
+\doxysubsubsection{\texorpdfstring{getTile()}{getTile()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_traffic_sim_1_1_tile}{Tile}} $\ast$ Traffic\+Sim\+::\+Grid\+::get\+Tile (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{namespacesf_acf03098c2577b869e2fa6836cc48f1a0}{sf\+::\+Vector2f}} \&}]{pos }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_traffic_sim_1_1_grid_a88f381817f866b60d9f8d7b6ee6d4f3d}\label{class_traffic_sim_1_1_grid_a88f381817f866b60d9f8d7b6ee6d4f3d}} 
+\index{TrafficSim::Grid@{TrafficSim::Grid}!getTile@{getTile}}
+\index{getTile@{getTile}!TrafficSim::Grid@{TrafficSim::Grid}}
+\doxysubsubsection{\texorpdfstring{getTile()}{getTile()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_traffic_sim_1_1_tile}{Tile}} $\ast$ Traffic\+Sim\+::\+Grid\+::get\+Tile (\begin{DoxyParamCaption}\item[{unsigned int}]{index }\end{DoxyParamCaption})}
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_traffic_sim_1_1_grid_a88f381817f866b60d9f8d7b6ee6d4f3d_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_traffic_sim_1_1_grid_afec14472b850decd800e39de60f08fc9}\label{class_traffic_sim_1_1_grid_afec14472b850decd800e39de60f08fc9}} 
+\index{TrafficSim::Grid@{TrafficSim::Grid}!getTotalTileCount@{getTotalTileCount}}
+\index{getTotalTileCount@{getTotalTileCount}!TrafficSim::Grid@{TrafficSim::Grid}}
+\doxysubsubsection{\texorpdfstring{getTotalTileCount()}{getTotalTileCount()}}
+{\footnotesize\ttfamily unsigned int Traffic\+Sim\+::\+Grid\+::get\+Total\+Tile\+Count (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{class_traffic_sim_1_1_grid_a356fb0313bd38ac43fdd914df5096aab}\label{class_traffic_sim_1_1_grid_a356fb0313bd38ac43fdd914df5096aab}} 
+\index{TrafficSim::Grid@{TrafficSim::Grid}!getUpNeighbor@{getUpNeighbor}}
+\index{getUpNeighbor@{getUpNeighbor}!TrafficSim::Grid@{TrafficSim::Grid}}
+\doxysubsubsection{\texorpdfstring{getUpNeighbor()}{getUpNeighbor()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_traffic_sim_1_1_tile}{Tile}} $\ast$ Traffic\+Sim\+::\+Grid\+::get\+Up\+Neighbor (\begin{DoxyParamCaption}\item[{unsigned int}]{index }\end{DoxyParamCaption})}
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_traffic_sim_1_1_grid_a356fb0313bd38ac43fdd914df5096aab_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_traffic_sim_1_1_grid_afcfe2ca1ab9ca0188bb75e13b7aaf464}\label{class_traffic_sim_1_1_grid_afcfe2ca1ab9ca0188bb75e13b7aaf464}} 
+\index{TrafficSim::Grid@{TrafficSim::Grid}!init@{init}}
+\index{init@{init}!TrafficSim::Grid@{TrafficSim::Grid}}
+\doxysubsubsection{\texorpdfstring{init()}{init()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{glcorearb_8h_a950fc91edb4504f62f1c577bf4727c29}{void}} Traffic\+Sim\+::\+Grid\+::init (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_traffic_sim_1_1_grid_afcfe2ca1ab9ca0188bb75e13b7aaf464_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_traffic_sim_1_1_grid_a0ba4fc7e29a3e9a172063fa9b23bed07}\label{class_traffic_sim_1_1_grid_a0ba4fc7e29a3e9a172063fa9b23bed07}} 
+\index{TrafficSim::Grid@{TrafficSim::Grid}!swapTile@{swapTile}}
+\index{swapTile@{swapTile}!TrafficSim::Grid@{TrafficSim::Grid}}
+\doxysubsubsection{\texorpdfstring{swapTile()}{swapTile()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{glcorearb_8h_a950fc91edb4504f62f1c577bf4727c29}{void}} Traffic\+Sim\+::\+Grid\+::swap\+Tile (\begin{DoxyParamCaption}\item[{std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{class_traffic_sim_1_1_tile}{Tile}} $>$ \&}]{tile }\end{DoxyParamCaption})}
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_traffic_sim_1_1_grid_a0ba4fc7e29a3e9a172063fa9b23bed07_icgraph}
+\end{center}
+\end{figure}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+src/trafficsim/\mbox{\hyperlink{_grid_8hpp}{Grid.\+hpp}}\item 
+src/trafficsim/\mbox{\hyperlink{_grid_8cpp}{Grid.\+cpp}}\end{DoxyCompactItemize}

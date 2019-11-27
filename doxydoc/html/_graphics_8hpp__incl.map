@@ -1,0 +1,52 @@
+<map id="deps/SFML/include/SFML/Graphics.hpp" name="deps/SFML/include/SFML/Graphics.hpp">
+<area shape="rect" id="node1" title=" " alt="" coords="3877,5,4052,44"/>
+<area shape="rect" id="node2" href="$deps_2_s_f_m_l_2include_2_s_f_m_l_2_window_8hpp.html" title=" " alt="" coords="1114,239,1247,264"/>
+<area shape="rect" id="node22" href="$_blend_mode_8hpp.html" title=" " alt="" coords="4050,459,4261,484"/>
+<area shape="rect" id="node24" href="$_circle_shape_8hpp.html" title=" " alt="" coords="4598,92,4814,117"/>
+<area shape="rect" id="node25" href="$_shape_8hpp.html" title=" " alt="" coords="4615,165,4797,191"/>
+<area shape="rect" id="node26" href="$_drawable_8hpp.html" title=" " alt="" coords="4554,312,4754,337"/>
+<area shape="rect" id="node27" href="$_render_states_8hpp.html" title=" " alt="" coords="4052,385,4277,411"/>
+<area shape="rect" id="node28" href="$_transform_8hpp.html" title=" " alt="" coords="3822,459,4025,484"/>
+<area shape="rect" id="node29" href="$_rect_8hpp.html" title=" " alt="" coords="4963,532,5134,557"/>
+<area shape="rect" id="node31" href="$_transformable_8hpp.html" title=" " alt="" coords="3445,312,3674,337"/>
+<area shape="rect" id="node32" href="$_vertex_array_8hpp.html" title=" " alt="" coords="4461,239,4674,264"/>
+<area shape="rect" id="node33" href="$_vertex_8hpp.html" title=" " alt="" coords="3645,385,3826,411"/>
+<area shape="rect" id="node34" href="$_color_8hpp.html" title=" " alt="" coords="3392,459,3567,484"/>
+<area shape="rect" id="node35" href="$_primitive_type_8hpp.html" title=" " alt="" coords="5104,385,5327,411"/>
+<area shape="rect" id="node36" href="$_convex_shape_8hpp.html" title=" " alt="" coords="3244,92,3472,117"/>
+<area shape="rect" id="node37" href="$_font_8hpp.html" title=" " alt="" coords="2782,239,2953,264"/>
+<area shape="rect" id="node38" href="$_glyph_8hpp.html" title=" " alt="" coords="4960,459,5138,484"/>
+<area shape="rect" id="node39" href="$_texture_8hpp.html" title=" " alt="" coords="3082,312,3269,337"/>
+<area shape="rect" id="node40" href="$_image_8hpp.html" title=" " alt="" coords="2981,385,3162,411"/>
+<area shape="rect" id="node42" href="$_rectangle_shape_8hpp.html" title=" " alt="" coords="5133,92,5375,117"/>
+<area shape="rect" id="node43" href="$_render_target_8hpp.html" title=" " alt="" coords="4103,312,4328,337"/>
+<area shape="rect" id="node44" href="$_view_8hpp.html" title=" " alt="" coords="4655,385,4827,411"/>
+<area shape="rect" id="node45" href="$_render_texture_8hpp.html" title=" " alt="" coords="4053,239,4284,264"/>
+<area shape="rect" id="node46" href="$_render_window_8hpp.html" title=" " alt="" coords="2524,239,2758,264"/>
+<area shape="rect" id="node47" href="$_shader_8hpp.html" title=" " alt="" coords="2416,459,2602,484"/>
+<area shape="rect" id="node48" href="$_sprite_8hpp.html" title=" " alt="" coords="3648,239,3826,264"/>
+<area shape="rect" id="node49" href="$_text_8hpp.html" title=" " alt="" coords="3017,165,3185,191"/>
+<area shape="rect" id="node50" href="$_vertex_buffer_8hpp.html" title=" " alt="" coords="5089,239,5305,264"/>
+<area shape="rect" id="node3" href="$_system_8hpp.html" title=" " alt="" coords="881,385,1012,411"/>
+<area shape="rect" id="node7" href="$_clipboard_8hpp.html" title=" " alt="" coords="1970,312,2165,337"/>
+<area shape="rect" id="node8" href="$_context_8hpp.html" title=" " alt="" coords="1153,312,1337,337"/>
+<area shape="rect" id="node9" href="$_context_settings_8hpp.html" title=" " alt="" coords="1245,385,1477,411"/>
+<area shape="rect" id="node10" href="$_cursor_8hpp.html" title=" " alt="" coords="680,385,857,411"/>
+<area shape="rect" id="node11" href="$_event_8hpp.html" title=" " alt="" coords="480,312,652,337"/>
+<area shape="rect" id="node12" href="$_joystick_8hpp.html" title=" " alt="" coords="1036,385,1221,411"/>
+<area shape="rect" id="node13" href="$_keyboard_8hpp.html" title=" " alt="" coords="258,385,453,411"/>
+<area shape="rect" id="node14" href="$_mouse_8hpp.html" title=" " alt="" coords="5,385,183,411"/>
+<area shape="rect" id="node15" href="$_sensor_8hpp.html" title=" " alt="" coords="477,385,656,411"/>
+<area shape="rect" id="node16" href="$_touch_8hpp.html" title=" " alt="" coords="620,532,793,557"/>
+<area shape="rect" id="node17" href="$_video_mode_8hpp.html" title=" " alt="" coords="2144,385,2349,411"/>
+<area shape="rect" id="node19" href="$deps_2_s_f_m_l_2include_2_s_f_m_l_2_window_2_window_8hpp.html" title=" " alt="" coords="1673,312,1857,337"/>
+<area shape="rect" id="node20" href="$_window_handle_8hpp.html" title=" " alt="" coords="1501,385,1728,411"/>
+<area shape="rect" id="node21" href="$_window_style_8hpp.html" title=" " alt="" coords="1853,385,2068,411"/>
+<area shape="rect" id="node4" href="$_string_8hpp.html" title=" " alt="" coords="2021,459,2191,484"/>
+<area shape="rect" id="node6" href="$_vector2_8hpp.html" title=" " alt="" coords="2328,605,2508,631"/>
+<area shape="rect" id="node5" title=" " alt="" coords="2638,532,2692,557"/>
+<area shape="rect" id="node18" title=" " alt="" coords="3139,459,3196,484"/>
+<area shape="rect" id="node23" href="$_graphics_2_export_8hpp.html" title=" " alt="" coords="3948,532,4131,557"/>
+<area shape="rect" id="node30" title=" " alt="" coords="5011,605,5087,631"/>
+<area shape="rect" id="node41" title=" " alt="" coords="2395,532,2442,557"/>
+</map>

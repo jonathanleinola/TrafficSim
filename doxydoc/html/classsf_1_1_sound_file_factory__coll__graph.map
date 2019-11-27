@@ -1,0 +1,3 @@
+<map id="sf::SoundFileFactory" name="sf::SoundFileFactory">
+<area shape="rect" id="node1" title="Manages and instantiates sound file readers and writers." alt="" coords="5,5,214,172"/>
+</map>

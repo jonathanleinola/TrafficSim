@@ -1,0 +1,7 @@
+<map id="TrafficSim::RoadJunction::connect" name="TrafficSim::RoadJunction::connect">
+<area shape="rect" id="node1" title=" " alt="" coords="5,61,175,100"/>
+<area shape="rect" id="node2" href="$class_traffic_sim_1_1_road_tile.html#a3d4ba4044f7a32476b3d6c07d27e16d3" title=" " alt="" coords="223,61,364,100"/>
+<area shape="rect" id="node3" href="$class_traffic_sim_1_1_road_tile.html#abc3e3441e418ad00fbc3b5cf3aeaf577" title=" " alt="" coords="425,5,566,44"/>
+<area shape="rect" id="node4" href="$class_traffic_sim_1_1_tile.html#a70bac43bd8195adb6925b23bce01c472" title=" " alt="" coords="412,68,579,93"/>
+<area shape="rect" id="node5" href="$class_traffic_sim_1_1_tile.html#a62307fcc5fc51b30424e6ad1ecd47488" title=" " alt="" coords="414,117,578,143"/>
+</map>

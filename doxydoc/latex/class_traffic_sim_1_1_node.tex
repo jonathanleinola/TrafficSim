@@ -1,0 +1,187 @@
+\hypertarget{class_traffic_sim_1_1_node}{}\doxysection{Traffic\+Sim\+::Node Class Reference}
+\label{class_traffic_sim_1_1_node}\index{TrafficSim::Node@{TrafficSim::Node}}
+
+
+{\ttfamily \#include $<$Node.\+hpp$>$}
+
+
+
+Inheritance diagram for Traffic\+Sim\+::Node\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=191pt]{class_traffic_sim_1_1_node__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Traffic\+Sim\+::Node\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=191pt]{class_traffic_sim_1_1_node__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_traffic_sim_1_1_node_a4482ff1ccb52cdbfe9f6622859613a67}{Node}} (const \mbox{\hyperlink{namespacesf_acf03098c2577b869e2fa6836cc48f1a0}{sf\+::\+Vector2f}} \&position)
+\item 
+\mbox{\hyperlink{glcorearb_8h_a950fc91edb4504f62f1c577bf4727c29}{void}} \mbox{\hyperlink{class_traffic_sim_1_1_node_ab1c7f429de2bb4359d2cd5235d684c07}{connect}} (const std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_traffic_sim_1_1_node}{Node}} $>$ \&another)
+\item 
+\mbox{\hyperlink{glcorearb_8h_a950fc91edb4504f62f1c577bf4727c29}{void}} \mbox{\hyperlink{class_traffic_sim_1_1_node_ae4fc73a71251fcb5c2a185c1ade8bc21}{disconnect}} (const std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_traffic_sim_1_1_node}{Node}} $>$ \&node)
+\item 
+\mbox{\hyperlink{glcorearb_8h_a950fc91edb4504f62f1c577bf4727c29}{void}} \mbox{\hyperlink{class_traffic_sim_1_1_node_a8f1a74ce1d2c0e891f4b896b71ef5666}{disconnect\+All}} ()
+\item 
+\mbox{\hyperlink{glcorearb_8h_a950fc91edb4504f62f1c577bf4727c29}{void}} \mbox{\hyperlink{class_traffic_sim_1_1_node_af795af05faaa1da0436129015dd8517f}{search\+\_\+\+D\+FS}} (const std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_traffic_sim_1_1_node}{Node}} $>$ \&cur, const std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_traffic_sim_1_1_node}{Node}} $>$ \&dest, std\+::map$<$ std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_traffic_sim_1_1_node}{Node}} $>$, bool $>$ \&visited, std\+::list$<$ std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_traffic_sim_1_1_node}{Node}} $>$$>$ \&\mbox{\hyperlink{glcorearb_8h_a23ffbd2c127adf1c57bc2667fdedb1c9}{path}}) const
+\item 
+const \mbox{\hyperlink{namespacesf_acf03098c2577b869e2fa6836cc48f1a0}{sf\+::\+Vector2f}} \& \mbox{\hyperlink{class_traffic_sim_1_1_node_ae9c703463a37bc8816a947d5126f026e}{get\+Pos}} () const
+\item 
+const std\+::vector$<$ std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_traffic_sim_1_1_node}{Node}} $>$ $>$ \& \mbox{\hyperlink{class_traffic_sim_1_1_node_a609efab1a28aad3e6435c9deb98e6575}{get\+Neighbors}} () const
+\item 
+float \mbox{\hyperlink{class_traffic_sim_1_1_node_aeb1b3e0558d644b074018d90c05c922c}{path\+Distance}} (const std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_traffic_sim_1_1_node}{Node}} $>$ \&node) const
+\item 
+\mbox{\hyperlink{glcorearb_8h_a950fc91edb4504f62f1c577bf4727c29}{void}} \mbox{\hyperlink{class_traffic_sim_1_1_node_a86a023c4214c6090b3ed0eeac53b43c4}{increment\+Counter}} (const \mbox{\hyperlink{classsf_1_1_time}{sf\+::\+Time}} \&game\+\_\+time) const
+\item 
+const std\+::vector$<$ std\+::uint8\+\_\+t $>$ \& \mbox{\hyperlink{class_traffic_sim_1_1_node_a76ad95b326d5e6d964acd6611f1fef3a}{get\+Cars\+Passed}} () const
+\item 
+\mbox{\hyperlink{glcorearb_8h_a950fc91edb4504f62f1c577bf4727c29}{void}} \mbox{\hyperlink{class_traffic_sim_1_1_node_a267951d08ff40767fd41da491b2f06c9}{reset\+Counter}} () const
+\item 
+virtual \mbox{\hyperlink{glcorearb_8h_a950fc91edb4504f62f1c577bf4727c29}{void}} \mbox{\hyperlink{class_traffic_sim_1_1_node_a9b1150de8a82281e84e103e3ee5434e3}{draw}} (\mbox{\hyperlink{classsf_1_1_render_target}{sf\+::\+Render\+Target}} \&\mbox{\hyperlink{glcorearb_8h_af9d0cbbbeb7414e786c41899e5a856d7}{target}}, \mbox{\hyperlink{classsf_1_1_render_states}{sf\+::\+Render\+States}} states) const
+\begin{DoxyCompactList}\small\item\em Draw the object to a render target. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_traffic_sim_1_1_node_a4482ff1ccb52cdbfe9f6622859613a67}\label{class_traffic_sim_1_1_node_a4482ff1ccb52cdbfe9f6622859613a67}} 
+\index{TrafficSim::Node@{TrafficSim::Node}!Node@{Node}}
+\index{Node@{Node}!TrafficSim::Node@{TrafficSim::Node}}
+\doxysubsubsection{\texorpdfstring{Node()}{Node()}}
+{\footnotesize\ttfamily Traffic\+Sim\+::\+Node\+::\+Node (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{namespacesf_acf03098c2577b869e2fa6836cc48f1a0}{sf\+::\+Vector2f}} \&}]{position }\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=349pt]{class_traffic_sim_1_1_node_a4482ff1ccb52cdbfe9f6622859613a67_cgraph}
+\end{center}
+\end{figure}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_traffic_sim_1_1_node_ab1c7f429de2bb4359d2cd5235d684c07}\label{class_traffic_sim_1_1_node_ab1c7f429de2bb4359d2cd5235d684c07}} 
+\index{TrafficSim::Node@{TrafficSim::Node}!connect@{connect}}
+\index{connect@{connect}!TrafficSim::Node@{TrafficSim::Node}}
+\doxysubsubsection{\texorpdfstring{connect()}{connect()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{glcorearb_8h_a950fc91edb4504f62f1c577bf4727c29}{void}} Traffic\+Sim\+::\+Node\+::connect (\begin{DoxyParamCaption}\item[{const std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_traffic_sim_1_1_node}{Node}} $>$ \&}]{another }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_traffic_sim_1_1_node_ae4fc73a71251fcb5c2a185c1ade8bc21}\label{class_traffic_sim_1_1_node_ae4fc73a71251fcb5c2a185c1ade8bc21}} 
+\index{TrafficSim::Node@{TrafficSim::Node}!disconnect@{disconnect}}
+\index{disconnect@{disconnect}!TrafficSim::Node@{TrafficSim::Node}}
+\doxysubsubsection{\texorpdfstring{disconnect()}{disconnect()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{glcorearb_8h_a950fc91edb4504f62f1c577bf4727c29}{void}} Traffic\+Sim\+::\+Node\+::disconnect (\begin{DoxyParamCaption}\item[{const std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_traffic_sim_1_1_node}{Node}} $>$ \&}]{node }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_traffic_sim_1_1_node_a8f1a74ce1d2c0e891f4b896b71ef5666}\label{class_traffic_sim_1_1_node_a8f1a74ce1d2c0e891f4b896b71ef5666}} 
+\index{TrafficSim::Node@{TrafficSim::Node}!disconnectAll@{disconnectAll}}
+\index{disconnectAll@{disconnectAll}!TrafficSim::Node@{TrafficSim::Node}}
+\doxysubsubsection{\texorpdfstring{disconnectAll()}{disconnectAll()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{glcorearb_8h_a950fc91edb4504f62f1c577bf4727c29}{void}} Traffic\+Sim\+::\+Node\+::disconnect\+All (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_traffic_sim_1_1_node_a9b1150de8a82281e84e103e3ee5434e3}\label{class_traffic_sim_1_1_node_a9b1150de8a82281e84e103e3ee5434e3}} 
+\index{TrafficSim::Node@{TrafficSim::Node}!draw@{draw}}
+\index{draw@{draw}!TrafficSim::Node@{TrafficSim::Node}}
+\doxysubsubsection{\texorpdfstring{draw()}{draw()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{glcorearb_8h_a950fc91edb4504f62f1c577bf4727c29}{void}} Traffic\+Sim\+::\+Node\+::draw (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classsf_1_1_render_target}{sf\+::\+Render\+Target}} \&}]{target,  }\item[{\mbox{\hyperlink{classsf_1_1_render_states}{sf\+::\+Render\+States}}}]{states }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Draw the object to a render target. 
+
+This is a pure virtual function that has to be implemented by the derived class to define how the drawable should be drawn.
+
+
+\begin{DoxyParams}{Parameters}
+{\em target} & Render target to draw to \\
+\hline
+{\em states} & Current render states \\
+\hline
+\end{DoxyParams}
+
+
+Implements \mbox{\hyperlink{classsf_1_1_drawable_a90d2c88bba9b035a0844eccb380ef631}{sf\+::\+Drawable}}.
+
+\mbox{\Hypertarget{class_traffic_sim_1_1_node_a76ad95b326d5e6d964acd6611f1fef3a}\label{class_traffic_sim_1_1_node_a76ad95b326d5e6d964acd6611f1fef3a}} 
+\index{TrafficSim::Node@{TrafficSim::Node}!getCarsPassed@{getCarsPassed}}
+\index{getCarsPassed@{getCarsPassed}!TrafficSim::Node@{TrafficSim::Node}}
+\doxysubsubsection{\texorpdfstring{getCarsPassed()}{getCarsPassed()}}
+{\footnotesize\ttfamily const std\+::vector$<$std\+::uint8\+\_\+t$>$\& Traffic\+Sim\+::\+Node\+::get\+Cars\+Passed (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{class_traffic_sim_1_1_node_a609efab1a28aad3e6435c9deb98e6575}\label{class_traffic_sim_1_1_node_a609efab1a28aad3e6435c9deb98e6575}} 
+\index{TrafficSim::Node@{TrafficSim::Node}!getNeighbors@{getNeighbors}}
+\index{getNeighbors@{getNeighbors}!TrafficSim::Node@{TrafficSim::Node}}
+\doxysubsubsection{\texorpdfstring{getNeighbors()}{getNeighbors()}}
+{\footnotesize\ttfamily const std\+::vector$<$std\+::shared\+\_\+ptr$<$\mbox{\hyperlink{class_traffic_sim_1_1_node}{Node}}$>$ $>$\& Traffic\+Sim\+::\+Node\+::get\+Neighbors (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_traffic_sim_1_1_node_a609efab1a28aad3e6435c9deb98e6575_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_traffic_sim_1_1_node_ae9c703463a37bc8816a947d5126f026e}\label{class_traffic_sim_1_1_node_ae9c703463a37bc8816a947d5126f026e}} 
+\index{TrafficSim::Node@{TrafficSim::Node}!getPos@{getPos}}
+\index{getPos@{getPos}!TrafficSim::Node@{TrafficSim::Node}}
+\doxysubsubsection{\texorpdfstring{getPos()}{getPos()}}
+{\footnotesize\ttfamily const \mbox{\hyperlink{namespacesf_acf03098c2577b869e2fa6836cc48f1a0}{sf\+::\+Vector2f}}\& Traffic\+Sim\+::\+Node\+::get\+Pos (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_traffic_sim_1_1_node_ae9c703463a37bc8816a947d5126f026e_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_traffic_sim_1_1_node_a86a023c4214c6090b3ed0eeac53b43c4}\label{class_traffic_sim_1_1_node_a86a023c4214c6090b3ed0eeac53b43c4}} 
+\index{TrafficSim::Node@{TrafficSim::Node}!incrementCounter@{incrementCounter}}
+\index{incrementCounter@{incrementCounter}!TrafficSim::Node@{TrafficSim::Node}}
+\doxysubsubsection{\texorpdfstring{incrementCounter()}{incrementCounter()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{glcorearb_8h_a950fc91edb4504f62f1c577bf4727c29}{void}} Traffic\+Sim\+::\+Node\+::increment\+Counter (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classsf_1_1_time}{sf\+::\+Time}} \&}]{game\+\_\+time }\end{DoxyParamCaption}) const}
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_traffic_sim_1_1_node_a86a023c4214c6090b3ed0eeac53b43c4_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_traffic_sim_1_1_node_aeb1b3e0558d644b074018d90c05c922c}\label{class_traffic_sim_1_1_node_aeb1b3e0558d644b074018d90c05c922c}} 
+\index{TrafficSim::Node@{TrafficSim::Node}!pathDistance@{pathDistance}}
+\index{pathDistance@{pathDistance}!TrafficSim::Node@{TrafficSim::Node}}
+\doxysubsubsection{\texorpdfstring{pathDistance()}{pathDistance()}}
+{\footnotesize\ttfamily float Traffic\+Sim\+::\+Node\+::path\+Distance (\begin{DoxyParamCaption}\item[{const std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_traffic_sim_1_1_node}{Node}} $>$ \&}]{node }\end{DoxyParamCaption}) const}
+
+\mbox{\Hypertarget{class_traffic_sim_1_1_node_a267951d08ff40767fd41da491b2f06c9}\label{class_traffic_sim_1_1_node_a267951d08ff40767fd41da491b2f06c9}} 
+\index{TrafficSim::Node@{TrafficSim::Node}!resetCounter@{resetCounter}}
+\index{resetCounter@{resetCounter}!TrafficSim::Node@{TrafficSim::Node}}
+\doxysubsubsection{\texorpdfstring{resetCounter()}{resetCounter()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{glcorearb_8h_a950fc91edb4504f62f1c577bf4727c29}{void}} Traffic\+Sim\+::\+Node\+::reset\+Counter (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+\mbox{\Hypertarget{class_traffic_sim_1_1_node_af795af05faaa1da0436129015dd8517f}\label{class_traffic_sim_1_1_node_af795af05faaa1da0436129015dd8517f}} 
+\index{TrafficSim::Node@{TrafficSim::Node}!search\_DFS@{search\_DFS}}
+\index{search\_DFS@{search\_DFS}!TrafficSim::Node@{TrafficSim::Node}}
+\doxysubsubsection{\texorpdfstring{search\_DFS()}{search\_DFS()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{glcorearb_8h_a950fc91edb4504f62f1c577bf4727c29}{void}} Traffic\+Sim\+::\+Node\+::search\+\_\+\+D\+FS (\begin{DoxyParamCaption}\item[{const std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_traffic_sim_1_1_node}{Node}} $>$ \&}]{cur,  }\item[{const std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_traffic_sim_1_1_node}{Node}} $>$ \&}]{dest,  }\item[{std\+::map$<$ std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_traffic_sim_1_1_node}{Node}} $>$, bool $>$ \&}]{visited,  }\item[{std\+::list$<$ std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_traffic_sim_1_1_node}{Node}} $>$$>$ \&}]{path }\end{DoxyParamCaption}) const}
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+src/trafficsim/\mbox{\hyperlink{_node_8hpp}{Node.\+hpp}}\item 
+src/trafficsim/\mbox{\hyperlink{_node_8cpp}{Node.\+cpp}}\end{DoxyCompactItemize}

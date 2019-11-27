@@ -1,0 +1,10 @@
+<map id="deps/SFML/include/SFML/Network/SocketHandle.hpp" name="deps/SFML/include/SFML/Network/SocketHandle.hpp">
+<area shape="rect" id="node1" title=" " alt="" coords="562,5,749,44"/>
+<area shape="rect" id="node2" href="$_socket_8hpp.html" title=" " alt="" coords="307,92,481,131"/>
+<area shape="rect" id="node4" href="$_network_8hpp.html" title=" " alt="" coords="307,352,481,391"/>
+<area shape="rect" id="node3" href="$_tcp_listener_8hpp.html" title=" " alt="" coords="5,179,180,217"/>
+<area shape="rect" id="node5" href="$_tcp_socket_8hpp.html" title=" " alt="" coords="307,179,481,217"/>
+<area shape="rect" id="node8" href="$_udp_socket_8hpp.html" title=" " alt="" coords="704,265,879,304"/>
+<area shape="rect" id="node6" href="$_ftp_8hpp.html" title=" " alt="" coords="307,265,481,304"/>
+<area shape="rect" id="node7" href="$_http_8hpp.html" title=" " alt="" coords="505,265,680,304"/>
+</map>

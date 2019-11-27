@@ -1,0 +1,4 @@
+<map id="sf::SoundRecorder" name="sf::SoundRecorder">
+<area shape="rect" id="node1" title="Abstract base class for capturing sound data." alt="" coords="5,140,174,413"/>
+<area shape="rect" id="node2" href="$classsf_1_1_al_resource.html" title="Base class for classes that require an OpenAL context." alt="" coords="31,5,149,92"/>
+</map>

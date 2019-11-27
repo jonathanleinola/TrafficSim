@@ -1,0 +1,133 @@
+\hypertarget{class_traffic_sim_1_1_straight_road}{}\doxysection{Traffic\+Sim\+::Straight\+Road Class Reference}
+\label{class_traffic_sim_1_1_straight_road}\index{TrafficSim::StraightRoad@{TrafficSim::StraightRoad}}
+
+
+{\ttfamily \#include $<$Straight\+Road.\+hpp$>$}
+
+
+
+Inheritance diagram for Traffic\+Sim\+::Straight\+Road\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=550pt]{class_traffic_sim_1_1_straight_road__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Traffic\+Sim\+::Straight\+Road\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=550pt]{class_traffic_sim_1_1_straight_road__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_traffic_sim_1_1_straight_road_a611bc944b2d544f9f9bd1148bc9a8c35}{Straight\+Road}} (const \mbox{\hyperlink{class_traffic_sim_1_1_tile}{Tile}} \&tile)
+\item 
+virtual \mbox{\hyperlink{namespace_traffic_sim_adffe7d61e7ebed8faf807a197ebbf517}{Tile\+Type}} \mbox{\hyperlink{class_traffic_sim_1_1_straight_road_a63e5eb7ee9fad7b02cafa9cf4f59dc29}{get\+Type}} () const
+\item 
+virtual \mbox{\hyperlink{glcorearb_8h_a950fc91edb4504f62f1c577bf4727c29}{void}} \mbox{\hyperlink{class_traffic_sim_1_1_straight_road_a1814954401f086e87130b141715df66f}{connect}} (std\+::array$<$ \mbox{\hyperlink{class_traffic_sim_1_1_tile}{Tile}} $\ast$, 4 $>$ \&neighbors)
+\item 
+virtual bool \mbox{\hyperlink{class_traffic_sim_1_1_straight_road_a12ad77407c8206a955fc29a3381f68cd}{connectable\+From}} (\mbox{\hyperlink{namespace_traffic_sim_a1436ed07fee6136bfb9b45aee271d714}{Neighbor\+Index}} n\+\_\+index) const
+\item 
+virtual bool \mbox{\hyperlink{class_traffic_sim_1_1_straight_road_a48da16e359ec82fc3962ca7d63a8ba3f}{can\+Connect\+To}} (\mbox{\hyperlink{namespace_traffic_sim_a1436ed07fee6136bfb9b45aee271d714}{Neighbor\+Index}} n\+\_\+index) const
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static \mbox{\hyperlink{glcorearb_8h_a950fc91edb4504f62f1c577bf4727c29}{void}} \mbox{\hyperlink{class_traffic_sim_1_1_straight_road_a16a425dddf061763c29b634a1cb347a7}{Set\+Texture}} (const \mbox{\hyperlink{classsf_1_1_texture}{sf\+::\+Texture}} $\ast$\mbox{\hyperlink{glcorearb_8h_a0b57774cb59b667df4a205ae0b1a50e2}{texture}})
+\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_traffic_sim_1_1_straight_road_a611bc944b2d544f9f9bd1148bc9a8c35}\label{class_traffic_sim_1_1_straight_road_a611bc944b2d544f9f9bd1148bc9a8c35}} 
+\index{TrafficSim::StraightRoad@{TrafficSim::StraightRoad}!StraightRoad@{StraightRoad}}
+\index{StraightRoad@{StraightRoad}!TrafficSim::StraightRoad@{TrafficSim::StraightRoad}}
+\doxysubsubsection{\texorpdfstring{StraightRoad()}{StraightRoad()}}
+{\footnotesize\ttfamily Traffic\+Sim\+::\+Straight\+Road\+::\+Straight\+Road (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_traffic_sim_1_1_tile}{Tile}} \&}]{tile }\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_traffic_sim_1_1_straight_road_a611bc944b2d544f9f9bd1148bc9a8c35_cgraph}
+\end{center}
+\end{figure}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_traffic_sim_1_1_straight_road_a48da16e359ec82fc3962ca7d63a8ba3f}\label{class_traffic_sim_1_1_straight_road_a48da16e359ec82fc3962ca7d63a8ba3f}} 
+\index{TrafficSim::StraightRoad@{TrafficSim::StraightRoad}!canConnectTo@{canConnectTo}}
+\index{canConnectTo@{canConnectTo}!TrafficSim::StraightRoad@{TrafficSim::StraightRoad}}
+\doxysubsubsection{\texorpdfstring{canConnectTo()}{canConnectTo()}}
+{\footnotesize\ttfamily bool Traffic\+Sim\+::\+Straight\+Road\+::can\+Connect\+To (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{namespace_traffic_sim_a1436ed07fee6136bfb9b45aee271d714}{Neighbor\+Index}}}]{n\+\_\+index }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{class_traffic_sim_1_1_road_tile_a14c0b9fae3d5f6b90a5aabe9f062c144}{Traffic\+Sim\+::\+Road\+Tile}}.
+
+\mbox{\Hypertarget{class_traffic_sim_1_1_straight_road_a1814954401f086e87130b141715df66f}\label{class_traffic_sim_1_1_straight_road_a1814954401f086e87130b141715df66f}} 
+\index{TrafficSim::StraightRoad@{TrafficSim::StraightRoad}!connect@{connect}}
+\index{connect@{connect}!TrafficSim::StraightRoad@{TrafficSim::StraightRoad}}
+\doxysubsubsection{\texorpdfstring{connect()}{connect()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{glcorearb_8h_a950fc91edb4504f62f1c577bf4727c29}{void}} Traffic\+Sim\+::\+Straight\+Road\+::connect (\begin{DoxyParamCaption}\item[{std\+::array$<$ \mbox{\hyperlink{class_traffic_sim_1_1_tile}{Tile}} $\ast$, 4 $>$ \&}]{neighbors }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{class_traffic_sim_1_1_road_tile_a72698707ee60d707b68574d94512f7c0}{Traffic\+Sim\+::\+Road\+Tile}}.
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_traffic_sim_1_1_straight_road_a1814954401f086e87130b141715df66f_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_traffic_sim_1_1_straight_road_a12ad77407c8206a955fc29a3381f68cd}\label{class_traffic_sim_1_1_straight_road_a12ad77407c8206a955fc29a3381f68cd}} 
+\index{TrafficSim::StraightRoad@{TrafficSim::StraightRoad}!connectableFrom@{connectableFrom}}
+\index{connectableFrom@{connectableFrom}!TrafficSim::StraightRoad@{TrafficSim::StraightRoad}}
+\doxysubsubsection{\texorpdfstring{connectableFrom()}{connectableFrom()}}
+{\footnotesize\ttfamily bool Traffic\+Sim\+::\+Straight\+Road\+::connectable\+From (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{namespace_traffic_sim_a1436ed07fee6136bfb9b45aee271d714}{Neighbor\+Index}}}]{n\+\_\+index }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{class_traffic_sim_1_1_road_tile_abc3e3441e418ad00fbc3b5cf3aeaf577}{Traffic\+Sim\+::\+Road\+Tile}}.
+
+\mbox{\Hypertarget{class_traffic_sim_1_1_straight_road_a63e5eb7ee9fad7b02cafa9cf4f59dc29}\label{class_traffic_sim_1_1_straight_road_a63e5eb7ee9fad7b02cafa9cf4f59dc29}} 
+\index{TrafficSim::StraightRoad@{TrafficSim::StraightRoad}!getType@{getType}}
+\index{getType@{getType}!TrafficSim::StraightRoad@{TrafficSim::StraightRoad}}
+\doxysubsubsection{\texorpdfstring{getType()}{getType()}}
+{\footnotesize\ttfamily virtual \mbox{\hyperlink{namespace_traffic_sim_adffe7d61e7ebed8faf807a197ebbf517}{Tile\+Type}} Traffic\+Sim\+::\+Straight\+Road\+::get\+Type (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{class_traffic_sim_1_1_road_tile_a9274e00f73e99aff5714787a30a6fa17}{Traffic\+Sim\+::\+Road\+Tile}}.
+
+\mbox{\Hypertarget{class_traffic_sim_1_1_straight_road_a16a425dddf061763c29b634a1cb347a7}\label{class_traffic_sim_1_1_straight_road_a16a425dddf061763c29b634a1cb347a7}} 
+\index{TrafficSim::StraightRoad@{TrafficSim::StraightRoad}!SetTexture@{SetTexture}}
+\index{SetTexture@{SetTexture}!TrafficSim::StraightRoad@{TrafficSim::StraightRoad}}
+\doxysubsubsection{\texorpdfstring{SetTexture()}{SetTexture()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{glcorearb_8h_a950fc91edb4504f62f1c577bf4727c29}{void}} Traffic\+Sim\+::\+Straight\+Road\+::\+Set\+Texture (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classsf_1_1_texture}{sf\+::\+Texture}} $\ast$}]{texture }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_traffic_sim_1_1_straight_road_a16a425dddf061763c29b634a1cb347a7_icgraph}
+\end{center}
+\end{figure}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+src/trafficsim/\mbox{\hyperlink{_straight_road_8hpp}{Straight\+Road.\+hpp}}\item 
+src/trafficsim/\mbox{\hyperlink{_straight_road_8cpp}{Straight\+Road.\+cpp}}\end{DoxyCompactItemize}

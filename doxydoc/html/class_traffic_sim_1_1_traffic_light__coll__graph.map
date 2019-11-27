@@ -1,0 +1,5 @@
+<map id="TrafficSim::TrafficLight" name="TrafficSim::TrafficLight">
+<area shape="rect" id="node1" title=" " alt="" coords="31,153,184,360"/>
+<area shape="rect" id="node2" href="$classsf_1_1_drawable.html" title="Abstract base class for objects that can be drawn to a render target." alt="" coords="5,5,111,92"/>
+<area shape="rect" id="node3" title=" " alt="" coords="135,12,182,85"/>
+</map>

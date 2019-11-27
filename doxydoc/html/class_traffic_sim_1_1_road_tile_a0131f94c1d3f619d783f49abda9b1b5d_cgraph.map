@@ -1,0 +1,7 @@
+<map id="TrafficSim::RoadTile::autoRotate" name="TrafficSim::RoadTile::autoRotate">
+<area shape="rect" id="node1" title=" " alt="" coords="5,63,146,101"/>
+<area shape="rect" id="node2" href="$class_traffic_sim_1_1_road_tile.html#a92cc98ecb2fff268883b827644a73695" title=" " alt="" coords="194,5,336,44"/>
+<area shape="rect" id="node3" href="$class_traffic_sim_1_1_road_tile.html#a42a3bd6227b9a66a9cac0fc9918176bd" title=" " alt="" coords="384,35,525,73"/>
+<area shape="rect" id="node5" href="$class_traffic_sim_1_1_road_tile.html#a9274e00f73e99aff5714787a30a6fa17" title=" " alt="" coords="194,120,336,159"/>
+<area shape="rect" id="node4" href="$classsf_1_1_transformable.html#af8a5ffddc0d93f238fee3bf8efe1ebda" title="Rotate the object." alt="" coords="573,35,705,73"/>
+</map>

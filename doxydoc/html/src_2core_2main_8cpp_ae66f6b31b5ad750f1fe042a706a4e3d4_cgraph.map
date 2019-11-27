@@ -1,0 +1,52 @@
+<map id="main" name="main">
+<area shape="rect" id="node1" title=" " alt="" coords="5,1131,56,1156"/>
+<area shape="rect" id="node2" href="$class_traffic_sim_1_1_application.html#a4aaf993e1907d3a8bc6ba4013ab7d802" title=" " alt="" coords="104,1131,284,1156"/>
+<area shape="rect" id="node3" href="$class_traffic_sim_1_1_map.html#a9d03b506d0a4075a7e1415865dbf4871" title=" " alt="" coords="332,48,497,73"/>
+<area shape="rect" id="node4" href="$class_traffic_sim_1_1_window.html#a80563d5d6eb72a3f747866c95f43245e" title=" " alt="" coords="347,97,482,136"/>
+<area shape="rect" id="node8" href="$class_traffic_sim_1_1_window.html#ad2e044cc7fb44f85baa032401cf3da1a" title=" " alt="" coords="347,999,482,1037"/>
+<area shape="rect" id="node12" href="$class_traffic_sim_1_1_window.html#a7b4eab49c89f8b593bd7077fa5117d6f" title=" " alt="" coords="347,1061,482,1100"/>
+<area shape="rect" id="node14" href="$class_traffic_sim_1_1_application.html#a3ed14f7ab32ac834d56751c763d76001" title=" " alt="" coords="338,432,491,471"/>
+<area shape="rect" id="node27" href="$class_traffic_sim_1_1_time_line.html#a80191e709351eb790c0b57666aac09f8" title=" " alt="" coords="343,936,486,975"/>
+<area shape="rect" id="node29" href="$class_traffic_sim_1_1_time_line.html#a0812a0397d3ac6bd73512185c3ced09b" title=" " alt="" coords="343,1124,486,1163"/>
+<area shape="rect" id="node30" href="$class_traffic_sim_1_1_window.html#a837c07c181e3370d8b88ecbe6adafba7" title=" " alt="" coords="347,1187,482,1225"/>
+<area shape="rect" id="node32" href="$class_traffic_sim_1_1_time_line.html#a6647ac0d44f29983c1e8907433c35ba3" title=" " alt="" coords="343,1312,486,1351"/>
+<area shape="rect" id="node33" href="$classsf_1_1_mouse.html#ac368680f797b7f6e4f50b5b7928c1387" title="Get the current position of the mouse in desktop coordinates." alt="" coords="564,1252,716,1277"/>
+<area shape="rect" id="node34" href="$class_traffic_sim_1_1_time_line.html#ad68c8d2884c92cf014116c919bb7d657" title=" " alt="" coords="343,873,486,912"/>
+<area shape="rect" id="node35" href="$class_traffic_sim_1_1_window.html#a4d9e8cd3bffab80cef95d81778c82978" title=" " alt="" coords="347,1249,482,1288"/>
+<area shape="rect" id="node36" href="$class_traffic_sim_1_1_application.html#a843549d09c4b6f92d54be532135d5f66" title=" " alt="" coords="338,1427,491,1465"/>
+<area shape="rect" id="node41" href="$class_traffic_sim_1_1_window.html#abf3f73cd3a2e52305d69e0596b84179a" title=" " alt="" coords="347,1513,482,1552"/>
+<area shape="rect" id="node43" href="$class_traffic_sim_1_1_window.html#ac10de8696dd403fe2afb873758142562" title=" " alt="" coords="347,1629,482,1668"/>
+<area shape="rect" id="node48" href="$class_traffic_sim_1_1_map.html#a19b2e48ff10b45c909925149f12892d2" title=" " alt="" coords="333,1692,496,1717"/>
+<area shape="rect" id="node49" href="$class_traffic_sim_1_1_time_line.html#ae5759d9ae35da3295ef8bb646e331738" title=" " alt="" coords="343,811,486,849"/>
+<area shape="rect" id="node5" href="$classsf_1_1_render_target.html#a6bb6f0ba348f2b1e2f46114aeaf60f26" title="Clear the entire target with a single color." alt="" coords="562,55,718,80"/>
+<area shape="rect" id="node6" href="$classsf_1_1_clock.html#a123e2627f2943e5ecaa1db0c7df3231b" title="Restart the clock." alt="" coords="581,104,699,129"/>
+<area shape="rect" id="node7" href="$namespace_im_gui_1_1_s_f_m_l.html#a92d53e47eaec3b55728ad29912ad6a6f" title=" " alt="" coords="565,5,715,31"/>
+<area shape="rect" id="node9" href="$classsf_1_1_window.html#adabf839cb103ac96cfc82f781638772a" title="Display on screen what has been rendered to the window so far." alt="" coords="572,1079,708,1104"/>
+<area shape="rect" id="node10" href="$namespace_im_gui_1_1_s_f_m_l.html#ae297b71107bcc2d10f567094e83c07fb" title=" " alt="" coords="564,1029,715,1055"/>
+<area shape="rect" id="node11" href="$namespace_im_gui.html#ab73131dc44b1267dac04f0c2bb0af983" title=" " alt="" coords="783,1029,928,1055"/>
+<area shape="rect" id="node13" href="$classsf_1_1_render_target.html#a12417a3bcc245c41d957b29583556f39" title="Draw a drawable object to the render target." alt="" coords="562,1128,718,1153"/>
+<area shape="rect" id="node15" href="$namespace_im_gui.html#a55cb9cfb9865204ac6fb21c965784f78" title=" " alt="" coords="549,413,731,439"/>
+<area shape="rect" id="node16" href="$namespace_im_gui.html#a1e55711a21f97d5dff919d697d3a7201" title=" " alt="" coords="574,463,706,488"/>
+<area shape="rect" id="node17" href="$class_traffic_sim_1_1_application.html#a9a046b55072b6319ca8336cd974d7e5d" title=" " alt="" coords="563,575,717,613"/>
+<area shape="rect" id="node18" href="$class_traffic_sim_1_1_statistics.html#adcd5a43e1838842bd02782c1e4a88e86" title=" " alt="" coords="569,637,711,676"/>
+<area shape="rect" id="node19" href="$class_traffic_sim_1_1_time_line.html#a1308774b21b1318676830c169147347f" title=" " alt="" coords="569,512,711,551"/>
+<area shape="rect" id="node21" href="$class_traffic_sim_1_1_map_builder.html#a2197e8494ae6b8bddbf56dcd0da91d3e" title=" " alt="" coords="562,700,718,739"/>
+<area shape="rect" id="node22" href="$namespace_im_gui.html#ab92f330c808546b340eb7bdf7e5f7c95" title=" " alt="" coords="554,153,725,179"/>
+<area shape="rect" id="node23" href="$namespace_im_gui.html#a1448a5a4e8c431c15f991e9255c0df95" title=" " alt="" coords="579,203,701,228"/>
+<area shape="rect" id="node24" href="$namespace_im_gui.html#aa1bae511ca47478998693a9d8c84f2e6" title=" " alt="" coords="578,252,702,277"/>
+<area shape="rect" id="node25" href="$class_traffic_sim_1_1_data_handler.html#ae90e0fef300a53540cec160097a51372" title=" " alt="" coords="558,301,721,340"/>
+<area shape="rect" id="node26" href="$namespace_traffic_sim.html#a62a3a47418a3afc678f0235b598d403d" title=" " alt="" coords="561,364,719,389"/>
+<area shape="rect" id="node20" href="$classsf_1_1_time.html#aa3df2f992d0b0041b4eb02258d43f0e3" title="Return the time value as a number of seconds." alt="" coords="784,847,926,872"/>
+<area shape="rect" id="node28" href="$classsf_1_1_clock.html#abe889b42a65bcd8eefc16419645d08a7" title="Get the elapsed time." alt="" coords="552,877,728,903"/>
+<area shape="rect" id="node31" href="$classsf_1_1_render_window.html#ae3eacf93661c8068fca7a78d57dc7e14" title="Get the size of the rendering region of the window." alt="" coords="549,1197,731,1223"/>
+<area shape="rect" id="node37" href="$class_traffic_sim_1_1_window.html#ab916cd1bff0047e780b85f30d2193a53" title=" " alt="" coords="572,1489,708,1528"/>
+<area shape="rect" id="node38" href="$class_traffic_sim_1_1_window.html#ac9880e5b3ce77d9420c80bb57ccd9c6b" title=" " alt="" coords="572,1301,708,1340"/>
+<area shape="rect" id="node39" href="$class_traffic_sim_1_1_window.html#a0b658870be478abcd8dd46f132c7affd" title=" " alt="" coords="572,1364,708,1403"/>
+<area shape="rect" id="node40" href="$class_traffic_sim_1_1_map_builder.html#a6804d8ff07a86da3cc5873a4dc73ce7b" title=" " alt="" coords="562,1427,718,1465"/>
+<area shape="rect" id="node42" href="$classsf_1_1_window.html#ae873503db7d48157bb9cbf6129562bce" title="Tell whether or not the window is open." alt="" coords="572,1552,708,1577"/>
+<area shape="rect" id="node44" href="$classsf_1_1_window.html#a99d1e030387b0c26f5995670504fe7b5" title="Close the window and destroy all the attached resources." alt="" coords="577,1763,702,1788"/>
+<area shape="rect" id="node45" href="$class_traffic_sim_1_1_application.html#afda6b8ce424f14aa45bde956e7bc9cef" title=" " alt="" coords="563,1601,717,1640"/>
+<area shape="rect" id="node46" href="$classsf_1_1_window.html#a338e996585faf82e93069858e3b531b7" title="Pop the event on top of the event queue, if any, and return it." alt="" coords="565,1664,714,1689"/>
+<area shape="rect" id="node47" href="$namespace_im_gui_1_1_s_f_m_l.html#aa86b89d3510491a6ee0df05ebc54c1d5" title=" " alt="" coords="545,1713,735,1739"/>
+<area shape="rect" id="node50" href="$class_traffic_sim_1_1_time_line.html#a6982071b850eace3b3499aacd6944b9a" title=" " alt="" coords="569,815,711,853"/>
+</map>

@@ -1,0 +1,306 @@
+\hypertarget{imgui__impl__vulkan_8cpp}{}\doxysection{deps/imgui/examples/imgui\+\_\+impl\+\_\+vulkan.cpp File Reference}
+\label{imgui__impl__vulkan_8cpp}\index{deps/imgui/examples/imgui\_impl\_vulkan.cpp@{deps/imgui/examples/imgui\_impl\_vulkan.cpp}}
+{\ttfamily \#include \char`\"{}imgui.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}imgui\+\_\+impl\+\_\+vulkan.\+h\char`\"{}}\newline
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+Include dependency graph for imgui\+\_\+impl\+\_\+vulkan.\+cpp\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{imgui__impl__vulkan_8cpp__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{struct_im_gui___impl_vulkan_h___frame_render_buffers}{Im\+Gui\+\_\+\+Impl\+Vulkan\+H\+\_\+\+Frame\+Render\+Buffers}}
+\item 
+struct \mbox{\hyperlink{struct_im_gui___impl_vulkan_h___window_render_buffers}{Im\+Gui\+\_\+\+Impl\+Vulkan\+H\+\_\+\+Window\+Render\+Buffers}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+bool \mbox{\hyperlink{imgui__impl__vulkan_8cpp_ae04f471c6a6dab69bc2992843a91ad75}{Im\+Gui\+\_\+\+Impl\+Vulkan\+\_\+\+Create\+Device\+Objects}} ()
+\item 
+\mbox{\hyperlink{glcorearb_8h_a950fc91edb4504f62f1c577bf4727c29}{void}} \mbox{\hyperlink{imgui__impl__vulkan_8cpp_a74aab8119e9e91d8932f955546dcd973}{Im\+Gui\+\_\+\+Impl\+Vulkan\+\_\+\+Destroy\+Device\+Objects}} ()
+\item 
+\mbox{\hyperlink{glcorearb_8h_a950fc91edb4504f62f1c577bf4727c29}{void}} \mbox{\hyperlink{imgui__impl__vulkan_8cpp_a7bdbd122b66063f3df95a0eafa5bb7dd}{Im\+Gui\+\_\+\+Impl\+Vulkan\+H\+\_\+\+Destroy\+Frame}} (Vk\+Device device, \mbox{\hyperlink{struct_im_gui___impl_vulkan_h___frame}{Im\+Gui\+\_\+\+Impl\+Vulkan\+H\+\_\+\+Frame}} $\ast$fd, const Vk\+Allocation\+Callbacks $\ast$allocator)
+\item 
+\mbox{\hyperlink{glcorearb_8h_a950fc91edb4504f62f1c577bf4727c29}{void}} \mbox{\hyperlink{imgui__impl__vulkan_8cpp_ae5ddca6b231ca2e88b968af9440ac206}{Im\+Gui\+\_\+\+Impl\+Vulkan\+H\+\_\+\+Destroy\+Frame\+Semaphores}} (Vk\+Device device, \mbox{\hyperlink{struct_im_gui___impl_vulkan_h___frame_semaphores}{Im\+Gui\+\_\+\+Impl\+Vulkan\+H\+\_\+\+Frame\+Semaphores}} $\ast$fsd, const Vk\+Allocation\+Callbacks $\ast$allocator)
+\item 
+\mbox{\hyperlink{glcorearb_8h_a950fc91edb4504f62f1c577bf4727c29}{void}} \mbox{\hyperlink{imgui__impl__vulkan_8cpp_acfc14877276e7856e05d37d8f6f3eab8}{Im\+Gui\+\_\+\+Impl\+Vulkan\+H\+\_\+\+Destroy\+Frame\+Render\+Buffers}} (Vk\+Device device, \mbox{\hyperlink{struct_im_gui___impl_vulkan_h___frame_render_buffers}{Im\+Gui\+\_\+\+Impl\+Vulkan\+H\+\_\+\+Frame\+Render\+Buffers}} $\ast$\mbox{\hyperlink{glcorearb_8h_acaf3212fc88caa23745613e709a3e869}{buffers}}, const Vk\+Allocation\+Callbacks $\ast$allocator)
+\item 
+\mbox{\hyperlink{glcorearb_8h_a950fc91edb4504f62f1c577bf4727c29}{void}} \mbox{\hyperlink{imgui__impl__vulkan_8cpp_a1642edbcc3ebf28bd24366aed2696c72}{Im\+Gui\+\_\+\+Impl\+Vulkan\+H\+\_\+\+Destroy\+Window\+Render\+Buffers}} (Vk\+Device device, \mbox{\hyperlink{struct_im_gui___impl_vulkan_h___window_render_buffers}{Im\+Gui\+\_\+\+Impl\+Vulkan\+H\+\_\+\+Window\+Render\+Buffers}} $\ast$\mbox{\hyperlink{glcorearb_8h_acaf3212fc88caa23745613e709a3e869}{buffers}}, const Vk\+Allocation\+Callbacks $\ast$allocator)
+\item 
+\mbox{\hyperlink{glcorearb_8h_a950fc91edb4504f62f1c577bf4727c29}{void}} \mbox{\hyperlink{imgui__impl__vulkan_8cpp_a56298dda09626af25de54d568b31830e}{Im\+Gui\+\_\+\+Impl\+Vulkan\+H\+\_\+\+Create\+Window\+Swap\+Chain}} (Vk\+Physical\+Device physical\+\_\+device, Vk\+Device device, \mbox{\hyperlink{struct_im_gui___impl_vulkan_h___window}{Im\+Gui\+\_\+\+Impl\+Vulkan\+H\+\_\+\+Window}} $\ast$wd, const Vk\+Allocation\+Callbacks $\ast$allocator, int \mbox{\hyperlink{glcorearb_8h_afb1b07e1b25035d41d60fb2c03d507e6}{w}}, int \mbox{\hyperlink{glcorearb_8h_afa0fb1b5e976920c0abeff2dca3ed774}{h}}, uint32\+\_\+t min\+\_\+image\+\_\+count)
+\item 
+\mbox{\hyperlink{glcorearb_8h_a950fc91edb4504f62f1c577bf4727c29}{void}} \mbox{\hyperlink{imgui__impl__vulkan_8cpp_a03fa20709ac538ff16a162e426240338}{Im\+Gui\+\_\+\+Impl\+Vulkan\+H\+\_\+\+Create\+Window\+Command\+Buffers}} (Vk\+Physical\+Device physical\+\_\+device, Vk\+Device device, \mbox{\hyperlink{struct_im_gui___impl_vulkan_h___window}{Im\+Gui\+\_\+\+Impl\+Vulkan\+H\+\_\+\+Window}} $\ast$wd, uint32\+\_\+t queue\+\_\+family, const Vk\+Allocation\+Callbacks $\ast$allocator)
+\item 
+\mbox{\hyperlink{glcorearb_8h_a950fc91edb4504f62f1c577bf4727c29}{void}} \mbox{\hyperlink{imgui__impl__vulkan_8cpp_af0971a5d1f96143e36ffd633d4039874}{Im\+Gui\+\_\+\+Impl\+Vulkan\+\_\+\+Render\+Draw\+Data}} (\mbox{\hyperlink{struct_im_draw_data}{Im\+Draw\+Data}} $\ast$draw\+\_\+data, Vk\+Command\+Buffer command\+\_\+buffer)
+\item 
+bool \mbox{\hyperlink{imgui__impl__vulkan_8cpp_a9e23e28665a8b9a1672a9ce58c5ce908}{Im\+Gui\+\_\+\+Impl\+Vulkan\+\_\+\+Create\+Fonts\+Texture}} (Vk\+Command\+Buffer command\+\_\+buffer)
+\item 
+\mbox{\hyperlink{glcorearb_8h_a950fc91edb4504f62f1c577bf4727c29}{void}} \mbox{\hyperlink{imgui__impl__vulkan_8cpp_a691e5e749ff5bcde29d2b9672598b776}{Im\+Gui\+\_\+\+Impl\+Vulkan\+\_\+\+Destroy\+Font\+Upload\+Objects}} ()
+\item 
+bool \mbox{\hyperlink{imgui__impl__vulkan_8cpp_a40db68872309c40d06827e5e5dc36741}{Im\+Gui\+\_\+\+Impl\+Vulkan\+\_\+\+Init}} (\mbox{\hyperlink{struct_im_gui___impl_vulkan___init_info}{Im\+Gui\+\_\+\+Impl\+Vulkan\+\_\+\+Init\+Info}} $\ast$info, Vk\+Render\+Pass render\+\_\+pass)
+\item 
+\mbox{\hyperlink{glcorearb_8h_a950fc91edb4504f62f1c577bf4727c29}{void}} \mbox{\hyperlink{imgui__impl__vulkan_8cpp_a5d24b6d00ffdc460712b1966199c28a2}{Im\+Gui\+\_\+\+Impl\+Vulkan\+\_\+\+Shutdown}} ()
+\item 
+\mbox{\hyperlink{glcorearb_8h_a950fc91edb4504f62f1c577bf4727c29}{void}} \mbox{\hyperlink{imgui__impl__vulkan_8cpp_a4c03e9375aa038eb0745c802af07fb21}{Im\+Gui\+\_\+\+Impl\+Vulkan\+\_\+\+New\+Frame}} ()
+\item 
+\mbox{\hyperlink{glcorearb_8h_a950fc91edb4504f62f1c577bf4727c29}{void}} \mbox{\hyperlink{imgui__impl__vulkan_8cpp_ae028fe3e0796e9960d9aa5119df87f4f}{Im\+Gui\+\_\+\+Impl\+Vulkan\+\_\+\+Set\+Min\+Image\+Count}} (uint32\+\_\+t min\+\_\+image\+\_\+count)
+\item 
+Vk\+Surface\+Format\+K\+HR \mbox{\hyperlink{imgui__impl__vulkan_8cpp_af5466b601034ad87d0478d37ac8b9e4e}{Im\+Gui\+\_\+\+Impl\+Vulkan\+H\+\_\+\+Select\+Surface\+Format}} (Vk\+Physical\+Device physical\+\_\+device, Vk\+Surface\+K\+HR surface, const Vk\+Format $\ast$request\+\_\+formats, int request\+\_\+formats\+\_\+count, Vk\+Color\+Space\+K\+HR request\+\_\+color\+\_\+space)
+\item 
+Vk\+Present\+Mode\+K\+HR \mbox{\hyperlink{imgui__impl__vulkan_8cpp_a7224bb4a6e72a8d5de8f57a5464aadac}{Im\+Gui\+\_\+\+Impl\+Vulkan\+H\+\_\+\+Select\+Present\+Mode}} (Vk\+Physical\+Device physical\+\_\+device, Vk\+Surface\+K\+HR surface, const Vk\+Present\+Mode\+K\+HR $\ast$request\+\_\+modes, int request\+\_\+modes\+\_\+count)
+\item 
+int \mbox{\hyperlink{imgui__impl__vulkan_8cpp_a766ea9561cdaf481638ee07f44801449}{Im\+Gui\+\_\+\+Impl\+Vulkan\+H\+\_\+\+Get\+Min\+Image\+Count\+From\+Present\+Mode}} (Vk\+Present\+Mode\+K\+HR present\+\_\+mode)
+\item 
+\mbox{\hyperlink{glcorearb_8h_a950fc91edb4504f62f1c577bf4727c29}{void}} \mbox{\hyperlink{imgui__impl__vulkan_8cpp_a2e0cbd37d4213651bfca9bd69f6512ae}{Im\+Gui\+\_\+\+Impl\+Vulkan\+H\+\_\+\+Create\+Window}} (Vk\+Instance instance, Vk\+Physical\+Device physical\+\_\+device, Vk\+Device device, \mbox{\hyperlink{struct_im_gui___impl_vulkan_h___window}{Im\+Gui\+\_\+\+Impl\+Vulkan\+H\+\_\+\+Window}} $\ast$wd, uint32\+\_\+t queue\+\_\+family, const Vk\+Allocation\+Callbacks $\ast$allocator, int \mbox{\hyperlink{glcorearb_8h_a0c9b182cab9e998936f82c09df65803a}{width}}, int \mbox{\hyperlink{glcorearb_8h_a691a080f32fb07a6fb3d75ed4862ec01}{height}}, uint32\+\_\+t min\+\_\+image\+\_\+count)
+\item 
+\mbox{\hyperlink{glcorearb_8h_a950fc91edb4504f62f1c577bf4727c29}{void}} \mbox{\hyperlink{imgui__impl__vulkan_8cpp_af4d7a2987aecd23a4ea05ae341998f94}{Im\+Gui\+\_\+\+Impl\+Vulkan\+H\+\_\+\+Destroy\+Window}} (Vk\+Instance instance, Vk\+Device device, \mbox{\hyperlink{struct_im_gui___impl_vulkan_h___window}{Im\+Gui\+\_\+\+Impl\+Vulkan\+H\+\_\+\+Window}} $\ast$wd, const Vk\+Allocation\+Callbacks $\ast$allocator)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{imgui__impl__vulkan_8cpp_ae04f471c6a6dab69bc2992843a91ad75}\label{imgui__impl__vulkan_8cpp_ae04f471c6a6dab69bc2992843a91ad75}} 
+\index{imgui\_impl\_vulkan.cpp@{imgui\_impl\_vulkan.cpp}!ImGui\_ImplVulkan\_CreateDeviceObjects@{ImGui\_ImplVulkan\_CreateDeviceObjects}}
+\index{ImGui\_ImplVulkan\_CreateDeviceObjects@{ImGui\_ImplVulkan\_CreateDeviceObjects}!imgui\_impl\_vulkan.cpp@{imgui\_impl\_vulkan.cpp}}
+\doxysubsubsection{\texorpdfstring{ImGui\_ImplVulkan\_CreateDeviceObjects()}{ImGui\_ImplVulkan\_CreateDeviceObjects()}}
+{\footnotesize\ttfamily bool Im\+Gui\+\_\+\+Impl\+Vulkan\+\_\+\+Create\+Device\+Objects (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{imgui__impl__vulkan_8cpp_a9e23e28665a8b9a1672a9ce58c5ce908}\label{imgui__impl__vulkan_8cpp_a9e23e28665a8b9a1672a9ce58c5ce908}} 
+\index{imgui\_impl\_vulkan.cpp@{imgui\_impl\_vulkan.cpp}!ImGui\_ImplVulkan\_CreateFontsTexture@{ImGui\_ImplVulkan\_CreateFontsTexture}}
+\index{ImGui\_ImplVulkan\_CreateFontsTexture@{ImGui\_ImplVulkan\_CreateFontsTexture}!imgui\_impl\_vulkan.cpp@{imgui\_impl\_vulkan.cpp}}
+\doxysubsubsection{\texorpdfstring{ImGui\_ImplVulkan\_CreateFontsTexture()}{ImGui\_ImplVulkan\_CreateFontsTexture()}}
+{\footnotesize\ttfamily bool Im\+Gui\+\_\+\+Impl\+Vulkan\+\_\+\+Create\+Fonts\+Texture (\begin{DoxyParamCaption}\item[{Vk\+Command\+Buffer}]{command\+\_\+buffer }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{imgui__impl__vulkan_8cpp_a74aab8119e9e91d8932f955546dcd973}\label{imgui__impl__vulkan_8cpp_a74aab8119e9e91d8932f955546dcd973}} 
+\index{imgui\_impl\_vulkan.cpp@{imgui\_impl\_vulkan.cpp}!ImGui\_ImplVulkan\_DestroyDeviceObjects@{ImGui\_ImplVulkan\_DestroyDeviceObjects}}
+\index{ImGui\_ImplVulkan\_DestroyDeviceObjects@{ImGui\_ImplVulkan\_DestroyDeviceObjects}!imgui\_impl\_vulkan.cpp@{imgui\_impl\_vulkan.cpp}}
+\doxysubsubsection{\texorpdfstring{ImGui\_ImplVulkan\_DestroyDeviceObjects()}{ImGui\_ImplVulkan\_DestroyDeviceObjects()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{glcorearb_8h_a950fc91edb4504f62f1c577bf4727c29}{void}} Im\+Gui\+\_\+\+Impl\+Vulkan\+\_\+\+Destroy\+Device\+Objects (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{imgui__impl__vulkan_8cpp_a74aab8119e9e91d8932f955546dcd973_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{imgui__impl__vulkan_8cpp_a691e5e749ff5bcde29d2b9672598b776}\label{imgui__impl__vulkan_8cpp_a691e5e749ff5bcde29d2b9672598b776}} 
+\index{imgui\_impl\_vulkan.cpp@{imgui\_impl\_vulkan.cpp}!ImGui\_ImplVulkan\_DestroyFontUploadObjects@{ImGui\_ImplVulkan\_DestroyFontUploadObjects}}
+\index{ImGui\_ImplVulkan\_DestroyFontUploadObjects@{ImGui\_ImplVulkan\_DestroyFontUploadObjects}!imgui\_impl\_vulkan.cpp@{imgui\_impl\_vulkan.cpp}}
+\doxysubsubsection{\texorpdfstring{ImGui\_ImplVulkan\_DestroyFontUploadObjects()}{ImGui\_ImplVulkan\_DestroyFontUploadObjects()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{glcorearb_8h_a950fc91edb4504f62f1c577bf4727c29}{void}} Im\+Gui\+\_\+\+Impl\+Vulkan\+\_\+\+Destroy\+Font\+Upload\+Objects (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{imgui__impl__vulkan_8cpp_a40db68872309c40d06827e5e5dc36741}\label{imgui__impl__vulkan_8cpp_a40db68872309c40d06827e5e5dc36741}} 
+\index{imgui\_impl\_vulkan.cpp@{imgui\_impl\_vulkan.cpp}!ImGui\_ImplVulkan\_Init@{ImGui\_ImplVulkan\_Init}}
+\index{ImGui\_ImplVulkan\_Init@{ImGui\_ImplVulkan\_Init}!imgui\_impl\_vulkan.cpp@{imgui\_impl\_vulkan.cpp}}
+\doxysubsubsection{\texorpdfstring{ImGui\_ImplVulkan\_Init()}{ImGui\_ImplVulkan\_Init()}}
+{\footnotesize\ttfamily bool Im\+Gui\+\_\+\+Impl\+Vulkan\+\_\+\+Init (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_im_gui___impl_vulkan___init_info}{Im\+Gui\+\_\+\+Impl\+Vulkan\+\_\+\+Init\+Info}} $\ast$}]{info,  }\item[{Vk\+Render\+Pass}]{render\+\_\+pass }\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=307pt]{imgui__impl__vulkan_8cpp_a40db68872309c40d06827e5e5dc36741_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{imgui__impl__vulkan_8cpp_a4c03e9375aa038eb0745c802af07fb21}\label{imgui__impl__vulkan_8cpp_a4c03e9375aa038eb0745c802af07fb21}} 
+\index{imgui\_impl\_vulkan.cpp@{imgui\_impl\_vulkan.cpp}!ImGui\_ImplVulkan\_NewFrame@{ImGui\_ImplVulkan\_NewFrame}}
+\index{ImGui\_ImplVulkan\_NewFrame@{ImGui\_ImplVulkan\_NewFrame}!imgui\_impl\_vulkan.cpp@{imgui\_impl\_vulkan.cpp}}
+\doxysubsubsection{\texorpdfstring{ImGui\_ImplVulkan\_NewFrame()}{ImGui\_ImplVulkan\_NewFrame()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{glcorearb_8h_a950fc91edb4504f62f1c577bf4727c29}{void}} Im\+Gui\+\_\+\+Impl\+Vulkan\+\_\+\+New\+Frame (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{imgui__impl__vulkan_8cpp_af0971a5d1f96143e36ffd633d4039874}\label{imgui__impl__vulkan_8cpp_af0971a5d1f96143e36ffd633d4039874}} 
+\index{imgui\_impl\_vulkan.cpp@{imgui\_impl\_vulkan.cpp}!ImGui\_ImplVulkan\_RenderDrawData@{ImGui\_ImplVulkan\_RenderDrawData}}
+\index{ImGui\_ImplVulkan\_RenderDrawData@{ImGui\_ImplVulkan\_RenderDrawData}!imgui\_impl\_vulkan.cpp@{imgui\_impl\_vulkan.cpp}}
+\doxysubsubsection{\texorpdfstring{ImGui\_ImplVulkan\_RenderDrawData()}{ImGui\_ImplVulkan\_RenderDrawData()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{glcorearb_8h_a950fc91edb4504f62f1c577bf4727c29}{void}} Im\+Gui\+\_\+\+Impl\+Vulkan\+\_\+\+Render\+Draw\+Data (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_im_draw_data}{Im\+Draw\+Data}} $\ast$}]{draw\+\_\+data,  }\item[{Vk\+Command\+Buffer}]{command\+\_\+buffer }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{imgui__impl__vulkan_8cpp_ae028fe3e0796e9960d9aa5119df87f4f}\label{imgui__impl__vulkan_8cpp_ae028fe3e0796e9960d9aa5119df87f4f}} 
+\index{imgui\_impl\_vulkan.cpp@{imgui\_impl\_vulkan.cpp}!ImGui\_ImplVulkan\_SetMinImageCount@{ImGui\_ImplVulkan\_SetMinImageCount}}
+\index{ImGui\_ImplVulkan\_SetMinImageCount@{ImGui\_ImplVulkan\_SetMinImageCount}!imgui\_impl\_vulkan.cpp@{imgui\_impl\_vulkan.cpp}}
+\doxysubsubsection{\texorpdfstring{ImGui\_ImplVulkan\_SetMinImageCount()}{ImGui\_ImplVulkan\_SetMinImageCount()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{glcorearb_8h_a950fc91edb4504f62f1c577bf4727c29}{void}} Im\+Gui\+\_\+\+Impl\+Vulkan\+\_\+\+Set\+Min\+Image\+Count (\begin{DoxyParamCaption}\item[{uint32\+\_\+t}]{min\+\_\+image\+\_\+count }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{imgui__impl__vulkan_8cpp_a5d24b6d00ffdc460712b1966199c28a2}\label{imgui__impl__vulkan_8cpp_a5d24b6d00ffdc460712b1966199c28a2}} 
+\index{imgui\_impl\_vulkan.cpp@{imgui\_impl\_vulkan.cpp}!ImGui\_ImplVulkan\_Shutdown@{ImGui\_ImplVulkan\_Shutdown}}
+\index{ImGui\_ImplVulkan\_Shutdown@{ImGui\_ImplVulkan\_Shutdown}!imgui\_impl\_vulkan.cpp@{imgui\_impl\_vulkan.cpp}}
+\doxysubsubsection{\texorpdfstring{ImGui\_ImplVulkan\_Shutdown()}{ImGui\_ImplVulkan\_Shutdown()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{glcorearb_8h_a950fc91edb4504f62f1c577bf4727c29}{void}} Im\+Gui\+\_\+\+Impl\+Vulkan\+\_\+\+Shutdown (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{imgui__impl__vulkan_8cpp_a5d24b6d00ffdc460712b1966199c28a2_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{imgui__impl__vulkan_8cpp_a2e0cbd37d4213651bfca9bd69f6512ae}\label{imgui__impl__vulkan_8cpp_a2e0cbd37d4213651bfca9bd69f6512ae}} 
+\index{imgui\_impl\_vulkan.cpp@{imgui\_impl\_vulkan.cpp}!ImGui\_ImplVulkanH\_CreateWindow@{ImGui\_ImplVulkanH\_CreateWindow}}
+\index{ImGui\_ImplVulkanH\_CreateWindow@{ImGui\_ImplVulkanH\_CreateWindow}!imgui\_impl\_vulkan.cpp@{imgui\_impl\_vulkan.cpp}}
+\doxysubsubsection{\texorpdfstring{ImGui\_ImplVulkanH\_CreateWindow()}{ImGui\_ImplVulkanH\_CreateWindow()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{glcorearb_8h_a950fc91edb4504f62f1c577bf4727c29}{void}} Im\+Gui\+\_\+\+Impl\+Vulkan\+H\+\_\+\+Create\+Window (\begin{DoxyParamCaption}\item[{Vk\+Instance}]{instance,  }\item[{Vk\+Physical\+Device}]{physical\+\_\+device,  }\item[{Vk\+Device}]{device,  }\item[{\mbox{\hyperlink{struct_im_gui___impl_vulkan_h___window}{Im\+Gui\+\_\+\+Impl\+Vulkan\+H\+\_\+\+Window}} $\ast$}]{wd,  }\item[{uint32\+\_\+t}]{queue\+\_\+family,  }\item[{const Vk\+Allocation\+Callbacks $\ast$}]{allocator,  }\item[{int}]{width,  }\item[{int}]{height,  }\item[{uint32\+\_\+t}]{min\+\_\+image\+\_\+count }\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{imgui__impl__vulkan_8cpp_a2e0cbd37d4213651bfca9bd69f6512ae_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{imgui__impl__vulkan_8cpp_a03fa20709ac538ff16a162e426240338}\label{imgui__impl__vulkan_8cpp_a03fa20709ac538ff16a162e426240338}} 
+\index{imgui\_impl\_vulkan.cpp@{imgui\_impl\_vulkan.cpp}!ImGui\_ImplVulkanH\_CreateWindowCommandBuffers@{ImGui\_ImplVulkanH\_CreateWindowCommandBuffers}}
+\index{ImGui\_ImplVulkanH\_CreateWindowCommandBuffers@{ImGui\_ImplVulkanH\_CreateWindowCommandBuffers}!imgui\_impl\_vulkan.cpp@{imgui\_impl\_vulkan.cpp}}
+\doxysubsubsection{\texorpdfstring{ImGui\_ImplVulkanH\_CreateWindowCommandBuffers()}{ImGui\_ImplVulkanH\_CreateWindowCommandBuffers()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{glcorearb_8h_a950fc91edb4504f62f1c577bf4727c29}{void}} Im\+Gui\+\_\+\+Impl\+Vulkan\+H\+\_\+\+Create\+Window\+Command\+Buffers (\begin{DoxyParamCaption}\item[{Vk\+Physical\+Device}]{physical\+\_\+device,  }\item[{Vk\+Device}]{device,  }\item[{\mbox{\hyperlink{struct_im_gui___impl_vulkan_h___window}{Im\+Gui\+\_\+\+Impl\+Vulkan\+H\+\_\+\+Window}} $\ast$}]{wd,  }\item[{uint32\+\_\+t}]{queue\+\_\+family,  }\item[{const Vk\+Allocation\+Callbacks $\ast$}]{allocator }\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=298pt]{imgui__impl__vulkan_8cpp_a03fa20709ac538ff16a162e426240338_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{imgui__impl__vulkan_8cpp_a03fa20709ac538ff16a162e426240338_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{imgui__impl__vulkan_8cpp_a56298dda09626af25de54d568b31830e}\label{imgui__impl__vulkan_8cpp_a56298dda09626af25de54d568b31830e}} 
+\index{imgui\_impl\_vulkan.cpp@{imgui\_impl\_vulkan.cpp}!ImGui\_ImplVulkanH\_CreateWindowSwapChain@{ImGui\_ImplVulkanH\_CreateWindowSwapChain}}
+\index{ImGui\_ImplVulkanH\_CreateWindowSwapChain@{ImGui\_ImplVulkanH\_CreateWindowSwapChain}!imgui\_impl\_vulkan.cpp@{imgui\_impl\_vulkan.cpp}}
+\doxysubsubsection{\texorpdfstring{ImGui\_ImplVulkanH\_CreateWindowSwapChain()}{ImGui\_ImplVulkanH\_CreateWindowSwapChain()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{glcorearb_8h_a950fc91edb4504f62f1c577bf4727c29}{void}} Im\+Gui\+\_\+\+Impl\+Vulkan\+H\+\_\+\+Create\+Window\+Swap\+Chain (\begin{DoxyParamCaption}\item[{Vk\+Physical\+Device}]{physical\+\_\+device,  }\item[{Vk\+Device}]{device,  }\item[{\mbox{\hyperlink{struct_im_gui___impl_vulkan_h___window}{Im\+Gui\+\_\+\+Impl\+Vulkan\+H\+\_\+\+Window}} $\ast$}]{wd,  }\item[{const Vk\+Allocation\+Callbacks $\ast$}]{allocator,  }\item[{int}]{w,  }\item[{int}]{h,  }\item[{uint32\+\_\+t}]{min\+\_\+image\+\_\+count }\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=298pt]{imgui__impl__vulkan_8cpp_a56298dda09626af25de54d568b31830e_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{imgui__impl__vulkan_8cpp_a56298dda09626af25de54d568b31830e_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{imgui__impl__vulkan_8cpp_a7bdbd122b66063f3df95a0eafa5bb7dd}\label{imgui__impl__vulkan_8cpp_a7bdbd122b66063f3df95a0eafa5bb7dd}} 
+\index{imgui\_impl\_vulkan.cpp@{imgui\_impl\_vulkan.cpp}!ImGui\_ImplVulkanH\_DestroyFrame@{ImGui\_ImplVulkanH\_DestroyFrame}}
+\index{ImGui\_ImplVulkanH\_DestroyFrame@{ImGui\_ImplVulkanH\_DestroyFrame}!imgui\_impl\_vulkan.cpp@{imgui\_impl\_vulkan.cpp}}
+\doxysubsubsection{\texorpdfstring{ImGui\_ImplVulkanH\_DestroyFrame()}{ImGui\_ImplVulkanH\_DestroyFrame()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{glcorearb_8h_a950fc91edb4504f62f1c577bf4727c29}{void}} Im\+Gui\+\_\+\+Impl\+Vulkan\+H\+\_\+\+Destroy\+Frame (\begin{DoxyParamCaption}\item[{Vk\+Device}]{device,  }\item[{\mbox{\hyperlink{struct_im_gui___impl_vulkan_h___frame}{Im\+Gui\+\_\+\+Impl\+Vulkan\+H\+\_\+\+Frame}} $\ast$}]{fd,  }\item[{const Vk\+Allocation\+Callbacks $\ast$}]{allocator }\end{DoxyParamCaption})}
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{imgui__impl__vulkan_8cpp_a7bdbd122b66063f3df95a0eafa5bb7dd_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{imgui__impl__vulkan_8cpp_acfc14877276e7856e05d37d8f6f3eab8}\label{imgui__impl__vulkan_8cpp_acfc14877276e7856e05d37d8f6f3eab8}} 
+\index{imgui\_impl\_vulkan.cpp@{imgui\_impl\_vulkan.cpp}!ImGui\_ImplVulkanH\_DestroyFrameRenderBuffers@{ImGui\_ImplVulkanH\_DestroyFrameRenderBuffers}}
+\index{ImGui\_ImplVulkanH\_DestroyFrameRenderBuffers@{ImGui\_ImplVulkanH\_DestroyFrameRenderBuffers}!imgui\_impl\_vulkan.cpp@{imgui\_impl\_vulkan.cpp}}
+\doxysubsubsection{\texorpdfstring{ImGui\_ImplVulkanH\_DestroyFrameRenderBuffers()}{ImGui\_ImplVulkanH\_DestroyFrameRenderBuffers()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{glcorearb_8h_a950fc91edb4504f62f1c577bf4727c29}{void}} Im\+Gui\+\_\+\+Impl\+Vulkan\+H\+\_\+\+Destroy\+Frame\+Render\+Buffers (\begin{DoxyParamCaption}\item[{Vk\+Device}]{device,  }\item[{\mbox{\hyperlink{struct_im_gui___impl_vulkan_h___frame_render_buffers}{Im\+Gui\+\_\+\+Impl\+Vulkan\+H\+\_\+\+Frame\+Render\+Buffers}} $\ast$}]{buffers,  }\item[{const Vk\+Allocation\+Callbacks $\ast$}]{allocator }\end{DoxyParamCaption})}
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{imgui__impl__vulkan_8cpp_acfc14877276e7856e05d37d8f6f3eab8_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{imgui__impl__vulkan_8cpp_ae5ddca6b231ca2e88b968af9440ac206}\label{imgui__impl__vulkan_8cpp_ae5ddca6b231ca2e88b968af9440ac206}} 
+\index{imgui\_impl\_vulkan.cpp@{imgui\_impl\_vulkan.cpp}!ImGui\_ImplVulkanH\_DestroyFrameSemaphores@{ImGui\_ImplVulkanH\_DestroyFrameSemaphores}}
+\index{ImGui\_ImplVulkanH\_DestroyFrameSemaphores@{ImGui\_ImplVulkanH\_DestroyFrameSemaphores}!imgui\_impl\_vulkan.cpp@{imgui\_impl\_vulkan.cpp}}
+\doxysubsubsection{\texorpdfstring{ImGui\_ImplVulkanH\_DestroyFrameSemaphores()}{ImGui\_ImplVulkanH\_DestroyFrameSemaphores()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{glcorearb_8h_a950fc91edb4504f62f1c577bf4727c29}{void}} Im\+Gui\+\_\+\+Impl\+Vulkan\+H\+\_\+\+Destroy\+Frame\+Semaphores (\begin{DoxyParamCaption}\item[{Vk\+Device}]{device,  }\item[{\mbox{\hyperlink{struct_im_gui___impl_vulkan_h___frame_semaphores}{Im\+Gui\+\_\+\+Impl\+Vulkan\+H\+\_\+\+Frame\+Semaphores}} $\ast$}]{fsd,  }\item[{const Vk\+Allocation\+Callbacks $\ast$}]{allocator }\end{DoxyParamCaption})}
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{imgui__impl__vulkan_8cpp_ae5ddca6b231ca2e88b968af9440ac206_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{imgui__impl__vulkan_8cpp_af4d7a2987aecd23a4ea05ae341998f94}\label{imgui__impl__vulkan_8cpp_af4d7a2987aecd23a4ea05ae341998f94}} 
+\index{imgui\_impl\_vulkan.cpp@{imgui\_impl\_vulkan.cpp}!ImGui\_ImplVulkanH\_DestroyWindow@{ImGui\_ImplVulkanH\_DestroyWindow}}
+\index{ImGui\_ImplVulkanH\_DestroyWindow@{ImGui\_ImplVulkanH\_DestroyWindow}!imgui\_impl\_vulkan.cpp@{imgui\_impl\_vulkan.cpp}}
+\doxysubsubsection{\texorpdfstring{ImGui\_ImplVulkanH\_DestroyWindow()}{ImGui\_ImplVulkanH\_DestroyWindow()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{glcorearb_8h_a950fc91edb4504f62f1c577bf4727c29}{void}} Im\+Gui\+\_\+\+Impl\+Vulkan\+H\+\_\+\+Destroy\+Window (\begin{DoxyParamCaption}\item[{Vk\+Instance}]{instance,  }\item[{Vk\+Device}]{device,  }\item[{\mbox{\hyperlink{struct_im_gui___impl_vulkan_h___window}{Im\+Gui\+\_\+\+Impl\+Vulkan\+H\+\_\+\+Window}} $\ast$}]{wd,  }\item[{const Vk\+Allocation\+Callbacks $\ast$}]{allocator }\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{imgui__impl__vulkan_8cpp_af4d7a2987aecd23a4ea05ae341998f94_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{imgui__impl__vulkan_8cpp_a1642edbcc3ebf28bd24366aed2696c72}\label{imgui__impl__vulkan_8cpp_a1642edbcc3ebf28bd24366aed2696c72}} 
+\index{imgui\_impl\_vulkan.cpp@{imgui\_impl\_vulkan.cpp}!ImGui\_ImplVulkanH\_DestroyWindowRenderBuffers@{ImGui\_ImplVulkanH\_DestroyWindowRenderBuffers}}
+\index{ImGui\_ImplVulkanH\_DestroyWindowRenderBuffers@{ImGui\_ImplVulkanH\_DestroyWindowRenderBuffers}!imgui\_impl\_vulkan.cpp@{imgui\_impl\_vulkan.cpp}}
+\doxysubsubsection{\texorpdfstring{ImGui\_ImplVulkanH\_DestroyWindowRenderBuffers()}{ImGui\_ImplVulkanH\_DestroyWindowRenderBuffers()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{glcorearb_8h_a950fc91edb4504f62f1c577bf4727c29}{void}} Im\+Gui\+\_\+\+Impl\+Vulkan\+H\+\_\+\+Destroy\+Window\+Render\+Buffers (\begin{DoxyParamCaption}\item[{Vk\+Device}]{device,  }\item[{\mbox{\hyperlink{struct_im_gui___impl_vulkan_h___window_render_buffers}{Im\+Gui\+\_\+\+Impl\+Vulkan\+H\+\_\+\+Window\+Render\+Buffers}} $\ast$}]{buffers,  }\item[{const Vk\+Allocation\+Callbacks $\ast$}]{allocator }\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{imgui__impl__vulkan_8cpp_a1642edbcc3ebf28bd24366aed2696c72_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{imgui__impl__vulkan_8cpp_a766ea9561cdaf481638ee07f44801449}\label{imgui__impl__vulkan_8cpp_a766ea9561cdaf481638ee07f44801449}} 
+\index{imgui\_impl\_vulkan.cpp@{imgui\_impl\_vulkan.cpp}!ImGui\_ImplVulkanH\_GetMinImageCountFromPresentMode@{ImGui\_ImplVulkanH\_GetMinImageCountFromPresentMode}}
+\index{ImGui\_ImplVulkanH\_GetMinImageCountFromPresentMode@{ImGui\_ImplVulkanH\_GetMinImageCountFromPresentMode}!imgui\_impl\_vulkan.cpp@{imgui\_impl\_vulkan.cpp}}
+\doxysubsubsection{\texorpdfstring{ImGui\_ImplVulkanH\_GetMinImageCountFromPresentMode()}{ImGui\_ImplVulkanH\_GetMinImageCountFromPresentMode()}}
+{\footnotesize\ttfamily int Im\+Gui\+\_\+\+Impl\+Vulkan\+H\+\_\+\+Get\+Min\+Image\+Count\+From\+Present\+Mode (\begin{DoxyParamCaption}\item[{Vk\+Present\+Mode\+K\+HR}]{present\+\_\+mode }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{imgui__impl__vulkan_8cpp_a7224bb4a6e72a8d5de8f57a5464aadac}\label{imgui__impl__vulkan_8cpp_a7224bb4a6e72a8d5de8f57a5464aadac}} 
+\index{imgui\_impl\_vulkan.cpp@{imgui\_impl\_vulkan.cpp}!ImGui\_ImplVulkanH\_SelectPresentMode@{ImGui\_ImplVulkanH\_SelectPresentMode}}
+\index{ImGui\_ImplVulkanH\_SelectPresentMode@{ImGui\_ImplVulkanH\_SelectPresentMode}!imgui\_impl\_vulkan.cpp@{imgui\_impl\_vulkan.cpp}}
+\doxysubsubsection{\texorpdfstring{ImGui\_ImplVulkanH\_SelectPresentMode()}{ImGui\_ImplVulkanH\_SelectPresentMode()}}
+{\footnotesize\ttfamily Vk\+Present\+Mode\+K\+HR Im\+Gui\+\_\+\+Impl\+Vulkan\+H\+\_\+\+Select\+Present\+Mode (\begin{DoxyParamCaption}\item[{Vk\+Physical\+Device}]{physical\+\_\+device,  }\item[{Vk\+Surface\+K\+HR}]{surface,  }\item[{const Vk\+Present\+Mode\+K\+HR $\ast$}]{request\+\_\+modes,  }\item[{int}]{request\+\_\+modes\+\_\+count }\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=342pt]{imgui__impl__vulkan_8cpp_a7224bb4a6e72a8d5de8f57a5464aadac_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{imgui__impl__vulkan_8cpp_af5466b601034ad87d0478d37ac8b9e4e}\label{imgui__impl__vulkan_8cpp_af5466b601034ad87d0478d37ac8b9e4e}} 
+\index{imgui\_impl\_vulkan.cpp@{imgui\_impl\_vulkan.cpp}!ImGui\_ImplVulkanH\_SelectSurfaceFormat@{ImGui\_ImplVulkanH\_SelectSurfaceFormat}}
+\index{ImGui\_ImplVulkanH\_SelectSurfaceFormat@{ImGui\_ImplVulkanH\_SelectSurfaceFormat}!imgui\_impl\_vulkan.cpp@{imgui\_impl\_vulkan.cpp}}
+\doxysubsubsection{\texorpdfstring{ImGui\_ImplVulkanH\_SelectSurfaceFormat()}{ImGui\_ImplVulkanH\_SelectSurfaceFormat()}}
+{\footnotesize\ttfamily Vk\+Surface\+Format\+K\+HR Im\+Gui\+\_\+\+Impl\+Vulkan\+H\+\_\+\+Select\+Surface\+Format (\begin{DoxyParamCaption}\item[{Vk\+Physical\+Device}]{physical\+\_\+device,  }\item[{Vk\+Surface\+K\+HR}]{surface,  }\item[{const Vk\+Format $\ast$}]{request\+\_\+formats,  }\item[{int}]{request\+\_\+formats\+\_\+count,  }\item[{Vk\+Color\+Space\+K\+HR}]{request\+\_\+color\+\_\+space }\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=342pt]{imgui__impl__vulkan_8cpp_af5466b601034ad87d0478d37ac8b9e4e_cgraph}
+\end{center}
+\end{figure}

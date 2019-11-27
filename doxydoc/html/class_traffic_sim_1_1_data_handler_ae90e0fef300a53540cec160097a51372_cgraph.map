@@ -1,0 +1,9 @@
+<map id="TrafficSim::DataHandler::saveMap" name="TrafficSim::DataHandler::saveMap">
+<area shape="rect" id="node1" title=" " alt="" coords="5,145,168,184"/>
+<area shape="rect" id="node2" href="$class_traffic_sim_1_1_road_tile.html#aa78303d3dedb141831748a542ac1d399" title=" " alt="" coords="229,5,370,44"/>
+<area shape="rect" id="node3" href="$class_traffic_sim_1_1_tile.html#ac29d863fd95debfbb21b01dbd047a043" title=" " alt="" coords="220,68,379,93"/>
+<area shape="rect" id="node4" href="$class_traffic_sim_1_1_grid.html#a56b0b3df3e8092fab2251be2d9ee9d05" title=" " alt="" coords="216,117,383,156"/>
+<area shape="rect" id="node5" href="$class_traffic_sim_1_1_grid.html#a88f381817f866b60d9f8d7b6ee6d4f3d" title=" " alt="" coords="219,180,380,205"/>
+<area shape="rect" id="node6" href="$class_traffic_sim_1_1_tile.html#a62307fcc5fc51b30424e6ad1ecd47488" title=" " alt="" coords="217,229,382,255"/>
+<area shape="rect" id="node7" href="$class_traffic_sim_1_1_road_tile.html#a9274e00f73e99aff5714787a30a6fa17" title=" " alt="" coords="229,279,370,317"/>
+</map>

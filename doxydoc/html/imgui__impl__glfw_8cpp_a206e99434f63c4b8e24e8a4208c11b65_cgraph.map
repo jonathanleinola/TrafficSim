@@ -1,0 +1,8 @@
+<map id="ImGui_ImplGlfw_NewFrame" name="ImGui_ImplGlfw_NewFrame">
+<area shape="rect" id="node1" title=" " alt="" coords="5,104,194,129"/>
+<area shape="rect" id="node2" href="$namespace_im_gui.html#a3179e560812f878f3961ce803a5d9302" title=" " alt="" coords="275,5,374,31"/>
+<area shape="rect" id="node3" href="$group__window.html#gaf7d17f3534b4b6dc9a6f905e3a240b7e" title="Retrieves the size of the framebuffer of the specified window." alt="" coords="242,55,407,80"/>
+<area shape="rect" id="node4" href="$group__input.html#ga03d4a1039b8662c71eeb40beea8cb622" title="Returns the value of the GLFW timer." alt="" coords="277,104,372,129"/>
+<area shape="rect" id="node5" href="$group__window.html#ga7feb769ebb3f3d21579b5a3fb07be76e" title="Retrieves the size of the client area of the specified window." alt="" coords="255,153,394,179"/>
+<area shape="rect" id="node6" href="$struct_im_font_atlas.html#a208b0ad1ada507d1c4309ea6dfedafb6" title=" " alt="" coords="256,203,393,228"/>
+</map>

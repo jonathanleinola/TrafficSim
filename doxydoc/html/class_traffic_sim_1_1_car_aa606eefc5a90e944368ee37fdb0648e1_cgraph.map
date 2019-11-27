@@ -1,0 +1,10 @@
+<map id="TrafficSim::Car::update" name="TrafficSim::Car::update">
+<area shape="rect" id="node1" title=" " alt="" coords="5,134,163,159"/>
+<area shape="rect" id="node2" href="$class_traffic_sim_1_1_vector_math.html#ad1a13646d3a5322058bd9c2379f802fb" title=" " alt="" coords="628,71,783,110"/>
+<area shape="rect" id="node3" href="$classsf_1_1_transformable.html#a73f9739bc6e74db2cea154bc8e94ec46" title="get the position of the object" alt="" coords="228,43,360,82"/>
+<area shape="rect" id="node4" href="$classsf_1_1_transformable.html#a86b461d6a941ad390c2ad8b6a4a20391" title="Move the object by a given offset." alt="" coords="211,106,376,131"/>
+<area shape="rect" id="node5" href="$class_traffic_sim_1_1_vector_math.html#afa1b13baaaa850a5c7d0ae5e4e49ed17" title=" " alt="" coords="216,155,371,194"/>
+<area shape="rect" id="node7" href="$classsf_1_1_transformable.html#a4dbfb1a7c80688b0b4c477d706550208" title="set the position of the object" alt="" coords="228,218,360,257"/>
+<area shape="rect" id="node8" href="$classsf_1_1_transformable.html#a32baf2bf1a74699b03bf8c95030a38ed" title="set the orientation of the object" alt="" coords="228,281,360,319"/>
+<area shape="rect" id="node6" href="$class_traffic_sim_1_1_vector_math.html#a7550893c7dc0f5fd064c877bb5af5460" title=" " alt="" coords="424,99,580,138"/>
+</map>

@@ -1,0 +1,5 @@
+<map id="TrafficSim::RoadTile::flip" name="TrafficSim::RoadTile::flip">
+<area shape="rect" id="node1" title=" " alt="" coords="5,5,146,44"/>
+<area shape="rect" id="node2" href="$class_traffic_sim_1_1_road_tile.html#a42a3bd6227b9a66a9cac0fc9918176bd" title=" " alt="" coords="194,5,336,44"/>
+<area shape="rect" id="node3" href="$classsf_1_1_transformable.html#af8a5ffddc0d93f238fee3bf8efe1ebda" title="Rotate the object." alt="" coords="384,5,516,44"/>
+</map>

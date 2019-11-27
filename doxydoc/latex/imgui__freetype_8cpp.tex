@@ -1,0 +1,84 @@
+\hypertarget{imgui__freetype_8cpp}{}\doxysection{deps/imgui/misc/freetype/imgui\+\_\+freetype.cpp File Reference}
+\label{imgui__freetype_8cpp}\index{deps/imgui/misc/freetype/imgui\_freetype.cpp@{deps/imgui/misc/freetype/imgui\_freetype.cpp}}
+{\ttfamily \#include \char`\"{}imgui\+\_\+freetype.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}imgui\+\_\+internal.\+h\char`\"{}}\newline
+{\ttfamily \#include $<$stdint.\+h$>$}\newline
+{\ttfamily \#include $<$ft2build.\+h$>$}\newline
+{\ttfamily \#include \char`\"{}imstb\+\_\+rectpack.\+h\char`\"{}}\newline
+Include dependency graph for imgui\+\_\+freetype.\+cpp\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{imgui__freetype_8cpp__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{struct_im_font_build_src_glyph_f_t}{Im\+Font\+Build\+Src\+Glyph\+FT}}
+\item 
+struct \mbox{\hyperlink{struct_im_font_build_src_data_f_t}{Im\+Font\+Build\+Src\+Data\+FT}}
+\item 
+struct \mbox{\hyperlink{struct_im_font_build_dst_data_f_t}{Im\+Font\+Build\+Dst\+Data\+FT}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{imgui__freetype_8cpp_a2269176f26c6ea4521fbc0e9ce9c0da8}{F\+T\+\_\+\+C\+E\+IL}}(X)~(((X + 63) \& -\/64) / 64)
+\item 
+\#define \mbox{\hyperlink{imgui__freetype_8cpp_a9592e63d0df8b6f0712e8da3aea5db23}{S\+T\+B\+R\+P\+\_\+\+A\+S\+S\+E\+RT}}(\mbox{\hyperlink{glcorearb_8h_a3dddca64560508b8d5bd9ee938e2d3a3}{x}})~\mbox{\hyperlink{imgui_8h_acb09e7dc42e8e3cefb0ecaa197978920}{I\+M\+\_\+\+A\+S\+S\+E\+RT}}(\mbox{\hyperlink{glcorearb_8h_a3dddca64560508b8d5bd9ee938e2d3a3}{x}})
+\item 
+\#define \mbox{\hyperlink{imgui__freetype_8cpp_aebe589aefd15ba7289a47168e31b5e45}{S\+T\+B\+R\+P\+\_\+\+S\+T\+A\+T\+IC}}
+\item 
+\#define \mbox{\hyperlink{imgui__freetype_8cpp_a0791e69f0dcd58efa795dd50eb8c6cd0}{S\+T\+B\+\_\+\+R\+E\+C\+T\+\_\+\+P\+A\+C\+K\+\_\+\+I\+M\+P\+L\+E\+M\+E\+N\+T\+A\+T\+I\+ON}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+bool \mbox{\hyperlink{imgui__freetype_8cpp_a8628e246d00246f0a6c5faadd4947812}{Im\+Font\+Atlas\+Build\+With\+Free\+Type}} (F\+T\+\_\+\+Library ft\+\_\+library, \mbox{\hyperlink{struct_im_font_atlas}{Im\+Font\+Atlas}} $\ast$atlas, unsigned int extra\+\_\+flags)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Macro Definition Documentation}
+\mbox{\Hypertarget{imgui__freetype_8cpp_a2269176f26c6ea4521fbc0e9ce9c0da8}\label{imgui__freetype_8cpp_a2269176f26c6ea4521fbc0e9ce9c0da8}} 
+\index{imgui\_freetype.cpp@{imgui\_freetype.cpp}!FT\_CEIL@{FT\_CEIL}}
+\index{FT\_CEIL@{FT\_CEIL}!imgui\_freetype.cpp@{imgui\_freetype.cpp}}
+\doxysubsubsection{\texorpdfstring{FT\_CEIL}{FT\_CEIL}}
+{\footnotesize\ttfamily \#define F\+T\+\_\+\+C\+E\+IL(\begin{DoxyParamCaption}\item[{}]{X }\end{DoxyParamCaption})~(((X + 63) \& -\/64) / 64)}
+
+\mbox{\Hypertarget{imgui__freetype_8cpp_a0791e69f0dcd58efa795dd50eb8c6cd0}\label{imgui__freetype_8cpp_a0791e69f0dcd58efa795dd50eb8c6cd0}} 
+\index{imgui\_freetype.cpp@{imgui\_freetype.cpp}!STB\_RECT\_PACK\_IMPLEMENTATION@{STB\_RECT\_PACK\_IMPLEMENTATION}}
+\index{STB\_RECT\_PACK\_IMPLEMENTATION@{STB\_RECT\_PACK\_IMPLEMENTATION}!imgui\_freetype.cpp@{imgui\_freetype.cpp}}
+\doxysubsubsection{\texorpdfstring{STB\_RECT\_PACK\_IMPLEMENTATION}{STB\_RECT\_PACK\_IMPLEMENTATION}}
+{\footnotesize\ttfamily \#define S\+T\+B\+\_\+\+R\+E\+C\+T\+\_\+\+P\+A\+C\+K\+\_\+\+I\+M\+P\+L\+E\+M\+E\+N\+T\+A\+T\+I\+ON}
+
+\mbox{\Hypertarget{imgui__freetype_8cpp_a9592e63d0df8b6f0712e8da3aea5db23}\label{imgui__freetype_8cpp_a9592e63d0df8b6f0712e8da3aea5db23}} 
+\index{imgui\_freetype.cpp@{imgui\_freetype.cpp}!STBRP\_ASSERT@{STBRP\_ASSERT}}
+\index{STBRP\_ASSERT@{STBRP\_ASSERT}!imgui\_freetype.cpp@{imgui\_freetype.cpp}}
+\doxysubsubsection{\texorpdfstring{STBRP\_ASSERT}{STBRP\_ASSERT}}
+{\footnotesize\ttfamily \#define S\+T\+B\+R\+P\+\_\+\+A\+S\+S\+E\+RT(\begin{DoxyParamCaption}\item[{}]{\mbox{\hyperlink{glcorearb_8h_a3dddca64560508b8d5bd9ee938e2d3a3}{x}} }\end{DoxyParamCaption})~\mbox{\hyperlink{imgui_8h_acb09e7dc42e8e3cefb0ecaa197978920}{I\+M\+\_\+\+A\+S\+S\+E\+RT}}(\mbox{\hyperlink{glcorearb_8h_a3dddca64560508b8d5bd9ee938e2d3a3}{x}})}
+
+\mbox{\Hypertarget{imgui__freetype_8cpp_aebe589aefd15ba7289a47168e31b5e45}\label{imgui__freetype_8cpp_aebe589aefd15ba7289a47168e31b5e45}} 
+\index{imgui\_freetype.cpp@{imgui\_freetype.cpp}!STBRP\_STATIC@{STBRP\_STATIC}}
+\index{STBRP\_STATIC@{STBRP\_STATIC}!imgui\_freetype.cpp@{imgui\_freetype.cpp}}
+\doxysubsubsection{\texorpdfstring{STBRP\_STATIC}{STBRP\_STATIC}}
+{\footnotesize\ttfamily \#define S\+T\+B\+R\+P\+\_\+\+S\+T\+A\+T\+IC}
+
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{imgui__freetype_8cpp_a8628e246d00246f0a6c5faadd4947812}\label{imgui__freetype_8cpp_a8628e246d00246f0a6c5faadd4947812}} 
+\index{imgui\_freetype.cpp@{imgui\_freetype.cpp}!ImFontAtlasBuildWithFreeType@{ImFontAtlasBuildWithFreeType}}
+\index{ImFontAtlasBuildWithFreeType@{ImFontAtlasBuildWithFreeType}!imgui\_freetype.cpp@{imgui\_freetype.cpp}}
+\doxysubsubsection{\texorpdfstring{ImFontAtlasBuildWithFreeType()}{ImFontAtlasBuildWithFreeType()}}
+{\footnotesize\ttfamily bool Im\+Font\+Atlas\+Build\+With\+Free\+Type (\begin{DoxyParamCaption}\item[{F\+T\+\_\+\+Library}]{ft\+\_\+library,  }\item[{\mbox{\hyperlink{struct_im_font_atlas}{Im\+Font\+Atlas}} $\ast$}]{atlas,  }\item[{unsigned int}]{extra\+\_\+flags }\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{imgui__freetype_8cpp_a8628e246d00246f0a6c5faadd4947812_cgraph}
+\end{center}
+\end{figure}

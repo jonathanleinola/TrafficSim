@@ -1,0 +1,137 @@
+\hypertarget{imgui__impl__allegro5_8cpp}{}\doxysection{deps/imgui/examples/imgui\+\_\+impl\+\_\+allegro5.cpp File Reference}
+\label{imgui__impl__allegro5_8cpp}\index{deps/imgui/examples/imgui\_impl\_allegro5.cpp@{deps/imgui/examples/imgui\_impl\_allegro5.cpp}}
+{\ttfamily \#include $<$stdint.\+h$>$}\newline
+{\ttfamily \#include $<$cstring$>$}\newline
+{\ttfamily \#include \char`\"{}imgui.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}imgui\+\_\+impl\+\_\+allegro5.\+h\char`\"{}}\newline
+{\ttfamily \#include $<$allegro5/allegro.\+h$>$}\newline
+{\ttfamily \#include $<$allegro5/allegro\+\_\+primitives.\+h$>$}\newline
+Include dependency graph for imgui\+\_\+impl\+\_\+allegro5.\+cpp\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{imgui__impl__allegro5_8cpp__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{struct_im_draw_vert_allegro}{Im\+Draw\+Vert\+Allegro}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{imgui__impl__allegro5_8cpp_a3075d26d56db9747d99d8e2229e11543}{A\+L\+L\+E\+G\+R\+O\+\_\+\+H\+A\+S\+\_\+\+C\+L\+I\+P\+B\+O\+A\+RD}}~(A\+L\+L\+E\+G\+R\+O\+\_\+\+V\+E\+R\+S\+I\+O\+N\+\_\+\+I\+NT $>$= ((5 $<$$<$ 24) $\vert$ (1 $<$$<$ 16) $\vert$ (12 $<$$<$ 8)))
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{glcorearb_8h_a950fc91edb4504f62f1c577bf4727c29}{void}} \mbox{\hyperlink{imgui__impl__allegro5_8cpp_a303aac161173a556e17e4bf0df5c476d}{Im\+Gui\+\_\+\+Impl\+Allegro5\+\_\+\+Render\+Draw\+Data}} (\mbox{\hyperlink{struct_im_draw_data}{Im\+Draw\+Data}} $\ast$draw\+\_\+data)
+\item 
+bool \mbox{\hyperlink{imgui__impl__allegro5_8cpp_a789742ed378f216bc5d5531d86212f36}{Im\+Gui\+\_\+\+Impl\+Allegro5\+\_\+\+Create\+Device\+Objects}} ()
+\item 
+\mbox{\hyperlink{glcorearb_8h_a950fc91edb4504f62f1c577bf4727c29}{void}} \mbox{\hyperlink{imgui__impl__allegro5_8cpp_a0d09ba855db6d3fdc94cc0c6eb4a032f}{Im\+Gui\+\_\+\+Impl\+Allegro5\+\_\+\+Invalidate\+Device\+Objects}} ()
+\item 
+bool \mbox{\hyperlink{imgui__impl__allegro5_8cpp_ad4f2998624c4f6df0a56222e774614c8}{Im\+Gui\+\_\+\+Impl\+Allegro5\+\_\+\+Init}} (A\+L\+L\+E\+G\+R\+O\+\_\+\+D\+I\+S\+P\+L\+AY $\ast$display)
+\item 
+\mbox{\hyperlink{glcorearb_8h_a950fc91edb4504f62f1c577bf4727c29}{void}} \mbox{\hyperlink{imgui__impl__allegro5_8cpp_a109536e8da23d4e801517f95d7f6d248}{Im\+Gui\+\_\+\+Impl\+Allegro5\+\_\+\+Shutdown}} ()
+\item 
+bool \mbox{\hyperlink{imgui__impl__allegro5_8cpp_a33e63231523cf294f97d6ae6759e52ca}{Im\+Gui\+\_\+\+Impl\+Allegro5\+\_\+\+Process\+Event}} (A\+L\+L\+E\+G\+R\+O\+\_\+\+E\+V\+E\+NT $\ast$ev)
+\item 
+\mbox{\hyperlink{glcorearb_8h_a950fc91edb4504f62f1c577bf4727c29}{void}} \mbox{\hyperlink{imgui__impl__allegro5_8cpp_a0e1712e5951f3f545d336db317cdcc6c}{Im\+Gui\+\_\+\+Impl\+Allegro5\+\_\+\+New\+Frame}} ()
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Macro Definition Documentation}
+\mbox{\Hypertarget{imgui__impl__allegro5_8cpp_a3075d26d56db9747d99d8e2229e11543}\label{imgui__impl__allegro5_8cpp_a3075d26d56db9747d99d8e2229e11543}} 
+\index{imgui\_impl\_allegro5.cpp@{imgui\_impl\_allegro5.cpp}!ALLEGRO\_HAS\_CLIPBOARD@{ALLEGRO\_HAS\_CLIPBOARD}}
+\index{ALLEGRO\_HAS\_CLIPBOARD@{ALLEGRO\_HAS\_CLIPBOARD}!imgui\_impl\_allegro5.cpp@{imgui\_impl\_allegro5.cpp}}
+\doxysubsubsection{\texorpdfstring{ALLEGRO\_HAS\_CLIPBOARD}{ALLEGRO\_HAS\_CLIPBOARD}}
+{\footnotesize\ttfamily \#define A\+L\+L\+E\+G\+R\+O\+\_\+\+H\+A\+S\+\_\+\+C\+L\+I\+P\+B\+O\+A\+RD~(A\+L\+L\+E\+G\+R\+O\+\_\+\+V\+E\+R\+S\+I\+O\+N\+\_\+\+I\+NT $>$= ((5 $<$$<$ 24) $\vert$ (1 $<$$<$ 16) $\vert$ (12 $<$$<$ 8)))}
+
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{imgui__impl__allegro5_8cpp_a789742ed378f216bc5d5531d86212f36}\label{imgui__impl__allegro5_8cpp_a789742ed378f216bc5d5531d86212f36}} 
+\index{imgui\_impl\_allegro5.cpp@{imgui\_impl\_allegro5.cpp}!ImGui\_ImplAllegro5\_CreateDeviceObjects@{ImGui\_ImplAllegro5\_CreateDeviceObjects}}
+\index{ImGui\_ImplAllegro5\_CreateDeviceObjects@{ImGui\_ImplAllegro5\_CreateDeviceObjects}!imgui\_impl\_allegro5.cpp@{imgui\_impl\_allegro5.cpp}}
+\doxysubsubsection{\texorpdfstring{ImGui\_ImplAllegro5\_CreateDeviceObjects()}{ImGui\_ImplAllegro5\_CreateDeviceObjects()}}
+{\footnotesize\ttfamily bool Im\+Gui\+\_\+\+Impl\+Allegro5\+\_\+\+Create\+Device\+Objects (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{imgui__impl__allegro5_8cpp_a789742ed378f216bc5d5531d86212f36_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{imgui__impl__allegro5_8cpp_ad4f2998624c4f6df0a56222e774614c8}\label{imgui__impl__allegro5_8cpp_ad4f2998624c4f6df0a56222e774614c8}} 
+\index{imgui\_impl\_allegro5.cpp@{imgui\_impl\_allegro5.cpp}!ImGui\_ImplAllegro5\_Init@{ImGui\_ImplAllegro5\_Init}}
+\index{ImGui\_ImplAllegro5\_Init@{ImGui\_ImplAllegro5\_Init}!imgui\_impl\_allegro5.cpp@{imgui\_impl\_allegro5.cpp}}
+\doxysubsubsection{\texorpdfstring{ImGui\_ImplAllegro5\_Init()}{ImGui\_ImplAllegro5\_Init()}}
+{\footnotesize\ttfamily bool Im\+Gui\+\_\+\+Impl\+Allegro5\+\_\+\+Init (\begin{DoxyParamCaption}\item[{A\+L\+L\+E\+G\+R\+O\+\_\+\+D\+I\+S\+P\+L\+AY $\ast$}]{display }\end{DoxyParamCaption})}
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=276pt]{imgui__impl__allegro5_8cpp_ad4f2998624c4f6df0a56222e774614c8_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{imgui__impl__allegro5_8cpp_a0d09ba855db6d3fdc94cc0c6eb4a032f}\label{imgui__impl__allegro5_8cpp_a0d09ba855db6d3fdc94cc0c6eb4a032f}} 
+\index{imgui\_impl\_allegro5.cpp@{imgui\_impl\_allegro5.cpp}!ImGui\_ImplAllegro5\_InvalidateDeviceObjects@{ImGui\_ImplAllegro5\_InvalidateDeviceObjects}}
+\index{ImGui\_ImplAllegro5\_InvalidateDeviceObjects@{ImGui\_ImplAllegro5\_InvalidateDeviceObjects}!imgui\_impl\_allegro5.cpp@{imgui\_impl\_allegro5.cpp}}
+\doxysubsubsection{\texorpdfstring{ImGui\_ImplAllegro5\_InvalidateDeviceObjects()}{ImGui\_ImplAllegro5\_InvalidateDeviceObjects()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{glcorearb_8h_a950fc91edb4504f62f1c577bf4727c29}{void}} Im\+Gui\+\_\+\+Impl\+Allegro5\+\_\+\+Invalidate\+Device\+Objects (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=349pt]{imgui__impl__allegro5_8cpp_a0d09ba855db6d3fdc94cc0c6eb4a032f_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{imgui__impl__allegro5_8cpp_a0e1712e5951f3f545d336db317cdcc6c}\label{imgui__impl__allegro5_8cpp_a0e1712e5951f3f545d336db317cdcc6c}} 
+\index{imgui\_impl\_allegro5.cpp@{imgui\_impl\_allegro5.cpp}!ImGui\_ImplAllegro5\_NewFrame@{ImGui\_ImplAllegro5\_NewFrame}}
+\index{ImGui\_ImplAllegro5\_NewFrame@{ImGui\_ImplAllegro5\_NewFrame}!imgui\_impl\_allegro5.cpp@{imgui\_impl\_allegro5.cpp}}
+\doxysubsubsection{\texorpdfstring{ImGui\_ImplAllegro5\_NewFrame()}{ImGui\_ImplAllegro5\_NewFrame()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{glcorearb_8h_a950fc91edb4504f62f1c577bf4727c29}{void}} Im\+Gui\+\_\+\+Impl\+Allegro5\+\_\+\+New\+Frame (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{imgui__impl__allegro5_8cpp_a33e63231523cf294f97d6ae6759e52ca}\label{imgui__impl__allegro5_8cpp_a33e63231523cf294f97d6ae6759e52ca}} 
+\index{imgui\_impl\_allegro5.cpp@{imgui\_impl\_allegro5.cpp}!ImGui\_ImplAllegro5\_ProcessEvent@{ImGui\_ImplAllegro5\_ProcessEvent}}
+\index{ImGui\_ImplAllegro5\_ProcessEvent@{ImGui\_ImplAllegro5\_ProcessEvent}!imgui\_impl\_allegro5.cpp@{imgui\_impl\_allegro5.cpp}}
+\doxysubsubsection{\texorpdfstring{ImGui\_ImplAllegro5\_ProcessEvent()}{ImGui\_ImplAllegro5\_ProcessEvent()}}
+{\footnotesize\ttfamily bool Im\+Gui\+\_\+\+Impl\+Allegro5\+\_\+\+Process\+Event (\begin{DoxyParamCaption}\item[{A\+L\+L\+E\+G\+R\+O\+\_\+\+E\+V\+E\+NT $\ast$}]{ev }\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=295pt]{imgui__impl__allegro5_8cpp_a33e63231523cf294f97d6ae6759e52ca_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{imgui__impl__allegro5_8cpp_a303aac161173a556e17e4bf0df5c476d}\label{imgui__impl__allegro5_8cpp_a303aac161173a556e17e4bf0df5c476d}} 
+\index{imgui\_impl\_allegro5.cpp@{imgui\_impl\_allegro5.cpp}!ImGui\_ImplAllegro5\_RenderDrawData@{ImGui\_ImplAllegro5\_RenderDrawData}}
+\index{ImGui\_ImplAllegro5\_RenderDrawData@{ImGui\_ImplAllegro5\_RenderDrawData}!imgui\_impl\_allegro5.cpp@{imgui\_impl\_allegro5.cpp}}
+\doxysubsubsection{\texorpdfstring{ImGui\_ImplAllegro5\_RenderDrawData()}{ImGui\_ImplAllegro5\_RenderDrawData()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{glcorearb_8h_a950fc91edb4504f62f1c577bf4727c29}{void}} Im\+Gui\+\_\+\+Impl\+Allegro5\+\_\+\+Render\+Draw\+Data (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_im_draw_data}{Im\+Draw\+Data}} $\ast$}]{draw\+\_\+data }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{imgui__impl__allegro5_8cpp_a109536e8da23d4e801517f95d7f6d248}\label{imgui__impl__allegro5_8cpp_a109536e8da23d4e801517f95d7f6d248}} 
+\index{imgui\_impl\_allegro5.cpp@{imgui\_impl\_allegro5.cpp}!ImGui\_ImplAllegro5\_Shutdown@{ImGui\_ImplAllegro5\_Shutdown}}
+\index{ImGui\_ImplAllegro5\_Shutdown@{ImGui\_ImplAllegro5\_Shutdown}!imgui\_impl\_allegro5.cpp@{imgui\_impl\_allegro5.cpp}}
+\doxysubsubsection{\texorpdfstring{ImGui\_ImplAllegro5\_Shutdown()}{ImGui\_ImplAllegro5\_Shutdown()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{glcorearb_8h_a950fc91edb4504f62f1c577bf4727c29}{void}} Im\+Gui\+\_\+\+Impl\+Allegro5\+\_\+\+Shutdown (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=349pt]{imgui__impl__allegro5_8cpp_a109536e8da23d4e801517f95d7f6d248_cgraph}
+\end{center}
+\end{figure}

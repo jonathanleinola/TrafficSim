@@ -1,0 +1,147 @@
+\hypertarget{deps_2imgui_2examples_2example__win32__directx12_2main_8cpp}{}\doxysection{deps/imgui/examples/example\+\_\+win32\+\_\+directx12/main.cpp File Reference}
+\label{deps_2imgui_2examples_2example__win32__directx12_2main_8cpp}\index{deps/imgui/examples/example\_win32\_directx12/main.cpp@{deps/imgui/examples/example\_win32\_directx12/main.cpp}}
+{\ttfamily \#include \char`\"{}imgui.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}imgui\+\_\+impl\+\_\+win32.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}imgui\+\_\+impl\+\_\+dx12.\+h\char`\"{}}\newline
+{\ttfamily \#include $<$d3d12.\+h$>$}\newline
+{\ttfamily \#include $<$dxgi1\+\_\+4.\+h$>$}\newline
+{\ttfamily \#include $<$tchar.\+h$>$}\newline
+Include dependency graph for main.\+cpp\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{deps_2imgui_2examples_2example__win32__directx12_2main_8cpp__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{struct_frame_context}{Frame\+Context}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+bool \mbox{\hyperlink{deps_2imgui_2examples_2example__win32__directx12_2main_8cpp_a9adec99bddda709d509857760a77a8fe}{Create\+Device\+D3D}} (H\+W\+ND h\+Wnd)
+\item 
+\mbox{\hyperlink{glcorearb_8h_a950fc91edb4504f62f1c577bf4727c29}{void}} \mbox{\hyperlink{deps_2imgui_2examples_2example__win32__directx12_2main_8cpp_ae184460b32863da763541b7e59cfdae7}{Cleanup\+Device\+D3D}} ()
+\item 
+\mbox{\hyperlink{glcorearb_8h_a950fc91edb4504f62f1c577bf4727c29}{void}} \mbox{\hyperlink{deps_2imgui_2examples_2example__win32__directx12_2main_8cpp_ab9ce49cc3b65f418ffe44be5b6b40da6}{Create\+Render\+Target}} ()
+\item 
+\mbox{\hyperlink{glcorearb_8h_a950fc91edb4504f62f1c577bf4727c29}{void}} \mbox{\hyperlink{deps_2imgui_2examples_2example__win32__directx12_2main_8cpp_a158bd53beaca42a81f1154cdcbef96ef}{Cleanup\+Render\+Target}} ()
+\item 
+\mbox{\hyperlink{glcorearb_8h_a950fc91edb4504f62f1c577bf4727c29}{void}} \mbox{\hyperlink{deps_2imgui_2examples_2example__win32__directx12_2main_8cpp_afe6da85c09a77ea8feb4a29cd4c3409d}{Wait\+For\+Last\+Submitted\+Frame}} ()
+\item 
+\mbox{\hyperlink{struct_frame_context}{Frame\+Context}} $\ast$ \mbox{\hyperlink{deps_2imgui_2examples_2example__win32__directx12_2main_8cpp_a0de3c377be355abc06ff2bb5c0dbef7d}{Wait\+For\+Next\+Frame\+Resources}} ()
+\item 
+\mbox{\hyperlink{glcorearb_8h_a950fc91edb4504f62f1c577bf4727c29}{void}} \mbox{\hyperlink{deps_2imgui_2examples_2example__win32__directx12_2main_8cpp_ae502a9300b04c8f5fcb097f9721a268f}{Resize\+Swap\+Chain}} (H\+W\+ND h\+Wnd, int \mbox{\hyperlink{glcorearb_8h_a0c9b182cab9e998936f82c09df65803a}{width}}, int \mbox{\hyperlink{glcorearb_8h_a691a080f32fb07a6fb3d75ed4862ec01}{height}})
+\item 
+L\+R\+E\+S\+U\+LT W\+I\+N\+A\+PI \mbox{\hyperlink{deps_2imgui_2examples_2example__win32__directx12_2main_8cpp_aa726a6316fd5b9e2520d1c71670ccc16}{Wnd\+Proc}} (H\+W\+ND h\+Wnd, U\+I\+NT msg, W\+P\+A\+R\+AM w\+Param, L\+P\+A\+R\+AM l\+Param)
+\item 
+int \mbox{\hyperlink{deps_2imgui_2examples_2example__win32__directx12_2main_8cpp_a2c3f6775325c30275d11c6abee2db6a0}{main}} (int, char $\ast$$\ast$)
+\item 
+L\+R\+E\+S\+U\+LT \mbox{\hyperlink{deps_2imgui_2examples_2example__win32__directx12_2main_8cpp_a48c0c047146040501474d98b32dfaa24}{Im\+Gui\+\_\+\+Impl\+Win32\+\_\+\+Wnd\+Proc\+Handler}} (H\+W\+ND h\+Wnd, U\+I\+NT msg, W\+P\+A\+R\+AM w\+Param, L\+P\+A\+R\+AM l\+Param)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{deps_2imgui_2examples_2example__win32__directx12_2main_8cpp_ae184460b32863da763541b7e59cfdae7}\label{deps_2imgui_2examples_2example__win32__directx12_2main_8cpp_ae184460b32863da763541b7e59cfdae7}} 
+\index{main.cpp@{main.cpp}!CleanupDeviceD3D@{CleanupDeviceD3D}}
+\index{CleanupDeviceD3D@{CleanupDeviceD3D}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{CleanupDeviceD3D()}{CleanupDeviceD3D()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{glcorearb_8h_a950fc91edb4504f62f1c577bf4727c29}{void}} Cleanup\+Device\+D3D (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=334pt]{deps_2imgui_2examples_2example__win32__directx12_2main_8cpp_ae184460b32863da763541b7e59cfdae7_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{deps_2imgui_2examples_2example__win32__directx12_2main_8cpp_a158bd53beaca42a81f1154cdcbef96ef}\label{deps_2imgui_2examples_2example__win32__directx12_2main_8cpp_a158bd53beaca42a81f1154cdcbef96ef}} 
+\index{main.cpp@{main.cpp}!CleanupRenderTarget@{CleanupRenderTarget}}
+\index{CleanupRenderTarget@{CleanupRenderTarget}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{CleanupRenderTarget()}{CleanupRenderTarget()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{glcorearb_8h_a950fc91edb4504f62f1c577bf4727c29}{void}} Cleanup\+Render\+Target (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{deps_2imgui_2examples_2example__win32__directx12_2main_8cpp_a158bd53beaca42a81f1154cdcbef96ef_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{deps_2imgui_2examples_2example__win32__directx12_2main_8cpp_a9adec99bddda709d509857760a77a8fe}\label{deps_2imgui_2examples_2example__win32__directx12_2main_8cpp_a9adec99bddda709d509857760a77a8fe}} 
+\index{main.cpp@{main.cpp}!CreateDeviceD3D@{CreateDeviceD3D}}
+\index{CreateDeviceD3D@{CreateDeviceD3D}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{CreateDeviceD3D()}{CreateDeviceD3D()}}
+{\footnotesize\ttfamily bool Create\+Device\+D3D (\begin{DoxyParamCaption}\item[{H\+W\+ND}]{h\+Wnd }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{deps_2imgui_2examples_2example__win32__directx12_2main_8cpp_ab9ce49cc3b65f418ffe44be5b6b40da6}\label{deps_2imgui_2examples_2example__win32__directx12_2main_8cpp_ab9ce49cc3b65f418ffe44be5b6b40da6}} 
+\index{main.cpp@{main.cpp}!CreateRenderTarget@{CreateRenderTarget}}
+\index{CreateRenderTarget@{CreateRenderTarget}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{CreateRenderTarget()}{CreateRenderTarget()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{glcorearb_8h_a950fc91edb4504f62f1c577bf4727c29}{void}} Create\+Render\+Target (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{deps_2imgui_2examples_2example__win32__directx12_2main_8cpp_a48c0c047146040501474d98b32dfaa24}\label{deps_2imgui_2examples_2example__win32__directx12_2main_8cpp_a48c0c047146040501474d98b32dfaa24}} 
+\index{main.cpp@{main.cpp}!ImGui\_ImplWin32\_WndProcHandler@{ImGui\_ImplWin32\_WndProcHandler}}
+\index{ImGui\_ImplWin32\_WndProcHandler@{ImGui\_ImplWin32\_WndProcHandler}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{ImGui\_ImplWin32\_WndProcHandler()}{ImGui\_ImplWin32\_WndProcHandler()}}
+{\footnotesize\ttfamily L\+R\+E\+S\+U\+LT Im\+Gui\+\_\+\+Impl\+Win32\+\_\+\+Wnd\+Proc\+Handler (\begin{DoxyParamCaption}\item[{H\+W\+ND}]{h\+Wnd,  }\item[{U\+I\+NT}]{msg,  }\item[{W\+P\+A\+R\+AM}]{w\+Param,  }\item[{L\+P\+A\+R\+AM}]{l\+Param }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{deps_2imgui_2examples_2example__win32__directx12_2main_8cpp_a2c3f6775325c30275d11c6abee2db6a0}\label{deps_2imgui_2examples_2example__win32__directx12_2main_8cpp_a2c3f6775325c30275d11c6abee2db6a0}} 
+\index{main.cpp@{main.cpp}!main@{main}}
+\index{main@{main}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily int main (\begin{DoxyParamCaption}\item[{int}]{,  }\item[{char $\ast$$\ast$}]{ }\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{deps_2imgui_2examples_2example__win32__directx12_2main_8cpp_a2c3f6775325c30275d11c6abee2db6a0_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{deps_2imgui_2examples_2example__win32__directx12_2main_8cpp_ae502a9300b04c8f5fcb097f9721a268f}\label{deps_2imgui_2examples_2example__win32__directx12_2main_8cpp_ae502a9300b04c8f5fcb097f9721a268f}} 
+\index{main.cpp@{main.cpp}!ResizeSwapChain@{ResizeSwapChain}}
+\index{ResizeSwapChain@{ResizeSwapChain}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{ResizeSwapChain()}{ResizeSwapChain()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{glcorearb_8h_a950fc91edb4504f62f1c577bf4727c29}{void}} Resize\+Swap\+Chain (\begin{DoxyParamCaption}\item[{H\+W\+ND}]{h\+Wnd,  }\item[{int}]{width,  }\item[{int}]{height }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{deps_2imgui_2examples_2example__win32__directx12_2main_8cpp_afe6da85c09a77ea8feb4a29cd4c3409d}\label{deps_2imgui_2examples_2example__win32__directx12_2main_8cpp_afe6da85c09a77ea8feb4a29cd4c3409d}} 
+\index{main.cpp@{main.cpp}!WaitForLastSubmittedFrame@{WaitForLastSubmittedFrame}}
+\index{WaitForLastSubmittedFrame@{WaitForLastSubmittedFrame}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{WaitForLastSubmittedFrame()}{WaitForLastSubmittedFrame()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{glcorearb_8h_a950fc91edb4504f62f1c577bf4727c29}{void}} Wait\+For\+Last\+Submitted\+Frame (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{deps_2imgui_2examples_2example__win32__directx12_2main_8cpp_afe6da85c09a77ea8feb4a29cd4c3409d_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{deps_2imgui_2examples_2example__win32__directx12_2main_8cpp_a0de3c377be355abc06ff2bb5c0dbef7d}\label{deps_2imgui_2examples_2example__win32__directx12_2main_8cpp_a0de3c377be355abc06ff2bb5c0dbef7d}} 
+\index{main.cpp@{main.cpp}!WaitForNextFrameResources@{WaitForNextFrameResources}}
+\index{WaitForNextFrameResources@{WaitForNextFrameResources}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{WaitForNextFrameResources()}{WaitForNextFrameResources()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_frame_context}{Frame\+Context}} $\ast$ Wait\+For\+Next\+Frame\+Resources (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{deps_2imgui_2examples_2example__win32__directx12_2main_8cpp_aa726a6316fd5b9e2520d1c71670ccc16}\label{deps_2imgui_2examples_2example__win32__directx12_2main_8cpp_aa726a6316fd5b9e2520d1c71670ccc16}} 
+\index{main.cpp@{main.cpp}!WndProc@{WndProc}}
+\index{WndProc@{WndProc}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{WndProc()}{WndProc()}}
+{\footnotesize\ttfamily L\+R\+E\+S\+U\+LT W\+I\+N\+A\+PI Wnd\+Proc (\begin{DoxyParamCaption}\item[{H\+W\+ND}]{h\+Wnd,  }\item[{U\+I\+NT}]{msg,  }\item[{W\+P\+A\+R\+AM}]{w\+Param,  }\item[{L\+P\+A\+R\+AM}]{l\+Param }\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{deps_2imgui_2examples_2example__win32__directx12_2main_8cpp_aa726a6316fd5b9e2520d1c71670ccc16_cgraph}
+\end{center}
+\end{figure}

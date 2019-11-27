@@ -1,0 +1,593 @@
+\hypertarget{u_synergy_8h}{}\doxysection{deps/imgui/examples/libs/usynergy/u\+Synergy.h File Reference}
+\label{u_synergy_8h}\index{deps/imgui/examples/libs/usynergy/uSynergy.h@{deps/imgui/examples/libs/usynergy/uSynergy.h}}
+{\ttfamily \#include $<$stdint.\+h$>$}\newline
+Include dependency graph for u\+Synergy.\+h\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=210pt]{u_synergy_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=210pt]{u_synergy_8h__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structu_synergy_cookie}{u\+Synergy\+Cookie}}
+\begin{DoxyCompactList}\small\item\em User context type. \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{structu_synergy_context}{u\+Synergy\+Context}}
+\begin{DoxyCompactList}\small\item\em u\+Synergy context \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{u_synergy_8h_afc2e10e098c39101f29b2e5bc7d58d8a}{U\+S\+Y\+N\+E\+R\+G\+Y\+\_\+\+L\+I\+T\+T\+L\+E\+\_\+\+E\+N\+D\+I\+AN}}
+\begin{DoxyCompactList}\small\item\em Determine endianness. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{u_synergy_8h_a769f91e298d8c0c9bdf549846cfa08b7}{U\+S\+Y\+N\+E\+R\+G\+Y\+\_\+\+F\+A\+L\+SE}}~0				/$\ast$ False \mbox{\hyperlink{glcorearb_8h_a7ab00df62abe96de01795dc0d15959db}{value}} $\ast$/
+\item 
+\#define \mbox{\hyperlink{u_synergy_8h_a911fb099dc0cd08adeea98de0304c637}{U\+S\+Y\+N\+E\+R\+G\+Y\+\_\+\+T\+R\+UE}}~1				/$\ast$ True \mbox{\hyperlink{glcorearb_8h_a7ab00df62abe96de01795dc0d15959db}{value}} $\ast$/
+\item 
+\#define \mbox{\hyperlink{u_synergy_8h_aea763582d071e5497c93df614ac5f570}{U\+S\+Y\+N\+E\+R\+G\+Y\+\_\+\+N\+U\+M\+\_\+\+J\+O\+Y\+S\+T\+I\+C\+KS}}~4				/$\ast$ Maximum number of supported joysticks $\ast$/
+\begin{DoxyCompactList}\small\item\em Constants and limits. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{u_synergy_8h_ae6a8ecd832d2fe8e85d0de33d64df252}{U\+S\+Y\+N\+E\+R\+G\+Y\+\_\+\+P\+R\+O\+T\+O\+C\+O\+L\+\_\+\+M\+A\+J\+OR}}~1				/$\ast$ Major protocol version $\ast$/
+\item 
+\#define \mbox{\hyperlink{u_synergy_8h_aeb6e3da49ad23095084ea6acb7dfb90f}{U\+S\+Y\+N\+E\+R\+G\+Y\+\_\+\+P\+R\+O\+T\+O\+C\+O\+L\+\_\+\+M\+I\+N\+OR}}~4				/$\ast$ Minor protocol version $\ast$/
+\item 
+\#define \mbox{\hyperlink{u_synergy_8h_ac1a9d3320f55b0a4c2463c3eb83ef918}{U\+S\+Y\+N\+E\+R\+G\+Y\+\_\+\+I\+D\+L\+E\+\_\+\+T\+I\+M\+E\+O\+UT}}~2000			/$\ast$ Timeout in \mbox{\hyperlink{classsf_1_1_time_ae379d420bc07170668f51522023957b9}{milliseconds}} before reconnecting $\ast$/
+\item 
+\#define \mbox{\hyperlink{u_synergy_8h_ae6d2583aedf1a4427454e1cbeffa8744}{U\+S\+Y\+N\+E\+R\+G\+Y\+\_\+\+T\+R\+A\+C\+E\+\_\+\+B\+U\+F\+F\+E\+R\+\_\+\+S\+I\+ZE}}~1024			/$\ast$ Maximum \mbox{\hyperlink{glcorearb_8h_a1066038b2c2621ffc27704c711f5a2a1}{length}} of traced \mbox{\hyperlink{glcorearb_8h_a7b6161cffb9b8aee272b3b916183d28c}{message}} $\ast$/
+\item 
+\#define \mbox{\hyperlink{u_synergy_8h_a8011521bd2a574c152dfacca4efb2437}{U\+S\+Y\+N\+E\+R\+G\+Y\+\_\+\+R\+E\+P\+L\+Y\+\_\+\+B\+U\+F\+F\+E\+R\+\_\+\+S\+I\+ZE}}~1024			/$\ast$ Maximum \mbox{\hyperlink{glcorearb_8h_ad44f36b109a794d382407ec0c276492f}{size}} of \mbox{\hyperlink{glcorearb_8h_ac8729153468b5dcf13f971b21d84d4e5}{a}} reply packet $\ast$/
+\item 
+\#define \mbox{\hyperlink{u_synergy_8h_a469ef62f67c95ce3136dbbc3cdec812e}{U\+S\+Y\+N\+E\+R\+G\+Y\+\_\+\+R\+E\+C\+E\+I\+V\+E\+\_\+\+B\+U\+F\+F\+E\+R\+\_\+\+S\+I\+ZE}}~4096			/$\ast$ Maximum \mbox{\hyperlink{glcorearb_8h_ad44f36b109a794d382407ec0c276492f}{size}} of an incoming packet $\ast$/
+\item 
+\#define \mbox{\hyperlink{u_synergy_8h_a72c3676527e7ead7e4920431c080dbd8}{U\+S\+Y\+N\+E\+R\+G\+Y\+\_\+\+M\+O\+D\+I\+F\+I\+E\+R\+\_\+\+S\+H\+I\+FT}}~0x0001			/$\ast$ Shift key modifier $\ast$/
+\begin{DoxyCompactList}\small\item\em Keyboard constants. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{u_synergy_8h_a607fa21b220a636d8b073d3bb52fd840}{U\+S\+Y\+N\+E\+R\+G\+Y\+\_\+\+M\+O\+D\+I\+F\+I\+E\+R\+\_\+\+C\+T\+RL}}~0x0002			/$\ast$ Ctrl key modifier $\ast$/
+\item 
+\#define \mbox{\hyperlink{u_synergy_8h_af85416992e1fcb45fcc939101bd99a6b}{U\+S\+Y\+N\+E\+R\+G\+Y\+\_\+\+M\+O\+D\+I\+F\+I\+E\+R\+\_\+\+A\+LT}}~0x0004			/$\ast$ Alt key modifier $\ast$/
+\item 
+\#define \mbox{\hyperlink{u_synergy_8h_a247779f400976db585b268ab9c46df04}{U\+S\+Y\+N\+E\+R\+G\+Y\+\_\+\+M\+O\+D\+I\+F\+I\+E\+R\+\_\+\+M\+E\+TA}}~0x0008			/$\ast$ Meta key modifier $\ast$/
+\item 
+\#define \mbox{\hyperlink{u_synergy_8h_a651f7bba19994bfc0f0a9cd1ac0de802}{U\+S\+Y\+N\+E\+R\+G\+Y\+\_\+\+M\+O\+D\+I\+F\+I\+E\+R\+\_\+\+W\+IN}}~0x0010			/$\ast$ Windows key modifier $\ast$/
+\item 
+\#define \mbox{\hyperlink{u_synergy_8h_a3c45764ada926f422083aee31511aeab}{U\+S\+Y\+N\+E\+R\+G\+Y\+\_\+\+M\+O\+D\+I\+F\+I\+E\+R\+\_\+\+A\+L\+T\+\_\+\+GR}}~0x0020			/$\ast$ Alt\+Gr key modifier $\ast$/
+\item 
+\#define \mbox{\hyperlink{u_synergy_8h_ad6a4c43937498a1e60115c29b88c7a91}{U\+S\+Y\+N\+E\+R\+G\+Y\+\_\+\+M\+O\+D\+I\+F\+I\+E\+R\+\_\+\+L\+E\+V\+E\+L5\+L\+O\+CK}}~0x0040			/$\ast$ Level5\+Lock key modifier $\ast$/
+\item 
+\#define \mbox{\hyperlink{u_synergy_8h_a0bdea03b09786e5ab2d16a888ab6affb}{U\+S\+Y\+N\+E\+R\+G\+Y\+\_\+\+M\+O\+D\+I\+F\+I\+E\+R\+\_\+\+C\+A\+P\+S\+L\+O\+CK}}~0x1000			/$\ast$ Caps\+Lock key modifier $\ast$/
+\item 
+\#define \mbox{\hyperlink{u_synergy_8h_a9b2673ef007bfb0be230ce19b595d0bf}{U\+S\+Y\+N\+E\+R\+G\+Y\+\_\+\+M\+O\+D\+I\+F\+I\+E\+R\+\_\+\+N\+U\+M\+L\+O\+CK}}~0x2000			/$\ast$ Num\+Lock key modifier $\ast$/
+\item 
+\#define \mbox{\hyperlink{u_synergy_8h_acb0984295259d8b0b3041309a9c76c94}{U\+S\+Y\+N\+E\+R\+G\+Y\+\_\+\+M\+O\+D\+I\+F\+I\+E\+R\+\_\+\+S\+C\+R\+O\+L\+L\+O\+CK}}~0x4000			/$\ast$ Scroll\+Lock key modifier $\ast$/
+\end{DoxyCompactItemize}
+\doxysubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef int \mbox{\hyperlink{u_synergy_8h_af3310ee47f2780aea3c0827fd0bd543e}{u\+Synergy\+Bool}}
+\begin{DoxyCompactList}\small\item\em Boolean type. \end{DoxyCompactList}\item 
+typedef \mbox{\hyperlink{u_synergy_8h_af3310ee47f2780aea3c0827fd0bd543e}{u\+Synergy\+Bool}}($\ast$ \mbox{\hyperlink{u_synergy_8h_a6f2bff65a2c6a494d8c34ae84afe9cb6}{u\+Synergy\+Connect\+Func}}) (\mbox{\hyperlink{structu_synergy_cookie}{u\+Synergy\+Cookie}} cookie)
+\begin{DoxyCompactList}\small\item\em Connect function. \end{DoxyCompactList}\item 
+typedef \mbox{\hyperlink{u_synergy_8h_af3310ee47f2780aea3c0827fd0bd543e}{u\+Synergy\+Bool}}($\ast$ \mbox{\hyperlink{u_synergy_8h_af968ec8c377105ba9bb1abda0eaec01b}{u\+Synergy\+Send\+Func}}) (\mbox{\hyperlink{structu_synergy_cookie}{u\+Synergy\+Cookie}} cookie, const uint8\+\_\+t $\ast$\mbox{\hyperlink{glcorearb_8h_af1b5122dc7bfe0a6319e14419cfe3423}{buffer}}, int \mbox{\hyperlink{glcorearb_8h_a1066038b2c2621ffc27704c711f5a2a1}{length}})
+\begin{DoxyCompactList}\small\item\em Send function. \end{DoxyCompactList}\item 
+typedef \mbox{\hyperlink{u_synergy_8h_af3310ee47f2780aea3c0827fd0bd543e}{u\+Synergy\+Bool}}($\ast$ \mbox{\hyperlink{u_synergy_8h_a003ed5141ef17adc6b9a383fa4b7d5b2}{u\+Synergy\+Receive\+Func}}) (\mbox{\hyperlink{structu_synergy_cookie}{u\+Synergy\+Cookie}} cookie, uint8\+\_\+t $\ast$\mbox{\hyperlink{glcorearb_8h_af1b5122dc7bfe0a6319e14419cfe3423}{buffer}}, int max\+Length, int $\ast$out\+Length)
+\begin{DoxyCompactList}\small\item\em Receive function. \end{DoxyCompactList}\item 
+typedef \mbox{\hyperlink{glcorearb_8h_a950fc91edb4504f62f1c577bf4727c29}{void}}($\ast$ \mbox{\hyperlink{u_synergy_8h_aca931c74bb1bccc88647036c0ca285df}{u\+Synergy\+Sleep\+Func}}) (\mbox{\hyperlink{structu_synergy_cookie}{u\+Synergy\+Cookie}} cookie, int time\+Ms)
+\begin{DoxyCompactList}\small\item\em Thread sleep function. \end{DoxyCompactList}\item 
+typedef uint32\+\_\+t($\ast$ \mbox{\hyperlink{u_synergy_8h_aa060f041a92198f13f266898fc6fed13}{u\+Synergy\+Get\+Time\+Func}}) ()
+\begin{DoxyCompactList}\small\item\em Get time function. \end{DoxyCompactList}\item 
+typedef \mbox{\hyperlink{glcorearb_8h_a950fc91edb4504f62f1c577bf4727c29}{void}}($\ast$ \mbox{\hyperlink{u_synergy_8h_ac485b31766901ab17e7e5515831da55b}{u\+Synergy\+Trace\+Func}}) (\mbox{\hyperlink{structu_synergy_cookie}{u\+Synergy\+Cookie}} cookie, const char $\ast$text)
+\begin{DoxyCompactList}\small\item\em Trace function. \end{DoxyCompactList}\item 
+typedef \mbox{\hyperlink{glcorearb_8h_a950fc91edb4504f62f1c577bf4727c29}{void}}($\ast$ \mbox{\hyperlink{u_synergy_8h_a170c0359b4788166f45aa054e1d898bc}{u\+Synergy\+Screen\+Active\+Callback}}) (\mbox{\hyperlink{structu_synergy_cookie}{u\+Synergy\+Cookie}} cookie, \mbox{\hyperlink{u_synergy_8h_af3310ee47f2780aea3c0827fd0bd543e}{u\+Synergy\+Bool}} active)
+\begin{DoxyCompactList}\small\item\em Screen active callback. \end{DoxyCompactList}\item 
+typedef \mbox{\hyperlink{glcorearb_8h_a950fc91edb4504f62f1c577bf4727c29}{void}}($\ast$ \mbox{\hyperlink{u_synergy_8h_ae3c3d8bff953b1f1b7c5945d22f8d986}{u\+Synergy\+Mouse\+Callback}}) (\mbox{\hyperlink{structu_synergy_cookie}{u\+Synergy\+Cookie}} cookie, uint16\+\_\+t \mbox{\hyperlink{glcorearb_8h_a3dddca64560508b8d5bd9ee938e2d3a3}{x}}, uint16\+\_\+t \mbox{\hyperlink{glcorearb_8h_a12b33d8afd2f771e63a85ea45a440c64}{y}}, int16\+\_\+t wheelX, int16\+\_\+t wheelY, \mbox{\hyperlink{u_synergy_8h_af3310ee47f2780aea3c0827fd0bd543e}{u\+Synergy\+Bool}} button\+Left, \mbox{\hyperlink{u_synergy_8h_af3310ee47f2780aea3c0827fd0bd543e}{u\+Synergy\+Bool}} button\+Right, \mbox{\hyperlink{u_synergy_8h_af3310ee47f2780aea3c0827fd0bd543e}{u\+Synergy\+Bool}} button\+Middle)
+\begin{DoxyCompactList}\small\item\em Mouse callback. \end{DoxyCompactList}\item 
+typedef \mbox{\hyperlink{glcorearb_8h_a950fc91edb4504f62f1c577bf4727c29}{void}}($\ast$ \mbox{\hyperlink{u_synergy_8h_a76d86f792ebb4a733b695a0922cf6ad2}{u\+Synergy\+Keyboard\+Callback}}) (\mbox{\hyperlink{structu_synergy_cookie}{u\+Synergy\+Cookie}} cookie, uint16\+\_\+t key, uint16\+\_\+t modifiers, \mbox{\hyperlink{u_synergy_8h_af3310ee47f2780aea3c0827fd0bd543e}{u\+Synergy\+Bool}} down, \mbox{\hyperlink{u_synergy_8h_af3310ee47f2780aea3c0827fd0bd543e}{u\+Synergy\+Bool}} repeat)
+\begin{DoxyCompactList}\small\item\em Key event callback. \end{DoxyCompactList}\item 
+typedef \mbox{\hyperlink{glcorearb_8h_a950fc91edb4504f62f1c577bf4727c29}{void}}($\ast$ \mbox{\hyperlink{u_synergy_8h_a24e6883df7f25f38a615c4864d652267}{u\+Synergy\+Joystick\+Callback}}) (\mbox{\hyperlink{structu_synergy_cookie}{u\+Synergy\+Cookie}} cookie, uint8\+\_\+t joy\+Num, uint16\+\_\+t buttons, int8\+\_\+t left\+StickX, int8\+\_\+t left\+StickY, int8\+\_\+t right\+StickX, int8\+\_\+t right\+StickY)
+\begin{DoxyCompactList}\small\item\em Joystick event callback. \end{DoxyCompactList}\item 
+typedef \mbox{\hyperlink{glcorearb_8h_a950fc91edb4504f62f1c577bf4727c29}{void}}($\ast$ \mbox{\hyperlink{u_synergy_8h_a70ec3746c9a9090d170ba86db3fde8d0}{u\+Synergy\+Clipboard\+Callback}}) (\mbox{\hyperlink{structu_synergy_cookie}{u\+Synergy\+Cookie}} cookie, enum \mbox{\hyperlink{u_synergy_8h_af0a3621df8565e1b7c038b6b37e76b37}{u\+Synergy\+Clipboard\+Format}} \mbox{\hyperlink{glcorearb_8h_a86f086d889f7cdb4d6461497ae891265}{format}}, const uint8\+\_\+t $\ast$\mbox{\hyperlink{glcorearb_8h_a88af890e5088b402709b94ff5be38aee}{data}}, uint32\+\_\+t \mbox{\hyperlink{glcorearb_8h_ad44f36b109a794d382407ec0c276492f}{size}})
+\begin{DoxyCompactList}\small\item\em Clipboard event callback. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{u_synergy_8h_af0a3621df8565e1b7c038b6b37e76b37}{u\+Synergy\+Clipboard\+Format}} \{ \mbox{\hyperlink{u_synergy_8h_af0a3621df8565e1b7c038b6b37e76b37aa3c95bf80f8e4d1fc71a732800935707}{U\+S\+Y\+N\+E\+R\+G\+Y\+\_\+\+C\+L\+I\+P\+B\+O\+A\+R\+D\+\_\+\+F\+O\+R\+M\+A\+T\+\_\+\+T\+E\+XT}} = 0, 
+\mbox{\hyperlink{u_synergy_8h_af0a3621df8565e1b7c038b6b37e76b37a1178d9ccae8706615be92277fe781109}{U\+S\+Y\+N\+E\+R\+G\+Y\+\_\+\+C\+L\+I\+P\+B\+O\+A\+R\+D\+\_\+\+F\+O\+R\+M\+A\+T\+\_\+\+B\+I\+T\+M\+AP}} = 1, 
+\mbox{\hyperlink{u_synergy_8h_af0a3621df8565e1b7c038b6b37e76b37a591bc0b568486e67f53251c360bfc554}{U\+S\+Y\+N\+E\+R\+G\+Y\+\_\+\+C\+L\+I\+P\+B\+O\+A\+R\+D\+\_\+\+F\+O\+R\+M\+A\+T\+\_\+\+H\+T\+ML}} = 2
+ \}
+\begin{DoxyCompactList}\small\item\em Clipboard types. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{glcorearb_8h_a950fc91edb4504f62f1c577bf4727c29}{void}} \mbox{\hyperlink{u_synergy_8h_a534546e175412d3e695e6cddfb9c5f89}{u\+Synergy\+Init}} (\mbox{\hyperlink{structu_synergy_context}{u\+Synergy\+Context}} $\ast$context)
+\begin{DoxyCompactList}\small\item\em Initialize u\+Synergy context. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{glcorearb_8h_a950fc91edb4504f62f1c577bf4727c29}{void}} \mbox{\hyperlink{u_synergy_8h_a98851569b00e68b34becffadb0ed9f62}{u\+Synergy\+Update}} (\mbox{\hyperlink{structu_synergy_context}{u\+Synergy\+Context}} $\ast$context)
+\begin{DoxyCompactList}\small\item\em Update u\+Synergy. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{glcorearb_8h_a950fc91edb4504f62f1c577bf4727c29}{void}} \mbox{\hyperlink{u_synergy_8h_a73500659ef90e12ef6f54429998ae582}{u\+Synergy\+Send\+Clipboard}} (\mbox{\hyperlink{structu_synergy_context}{u\+Synergy\+Context}} $\ast$context, const char $\ast$text)
+\begin{DoxyCompactList}\small\item\em Send clipboard data. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Macro Definition Documentation}
+\mbox{\Hypertarget{u_synergy_8h_a769f91e298d8c0c9bdf549846cfa08b7}\label{u_synergy_8h_a769f91e298d8c0c9bdf549846cfa08b7}} 
+\index{uSynergy.h@{uSynergy.h}!USYNERGY\_FALSE@{USYNERGY\_FALSE}}
+\index{USYNERGY\_FALSE@{USYNERGY\_FALSE}!uSynergy.h@{uSynergy.h}}
+\doxysubsubsection{\texorpdfstring{USYNERGY\_FALSE}{USYNERGY\_FALSE}}
+{\footnotesize\ttfamily \#define U\+S\+Y\+N\+E\+R\+G\+Y\+\_\+\+F\+A\+L\+SE~0				/$\ast$ False \mbox{\hyperlink{glcorearb_8h_a7ab00df62abe96de01795dc0d15959db}{value}} $\ast$/}
+
+\mbox{\Hypertarget{u_synergy_8h_ac1a9d3320f55b0a4c2463c3eb83ef918}\label{u_synergy_8h_ac1a9d3320f55b0a4c2463c3eb83ef918}} 
+\index{uSynergy.h@{uSynergy.h}!USYNERGY\_IDLE\_TIMEOUT@{USYNERGY\_IDLE\_TIMEOUT}}
+\index{USYNERGY\_IDLE\_TIMEOUT@{USYNERGY\_IDLE\_TIMEOUT}!uSynergy.h@{uSynergy.h}}
+\doxysubsubsection{\texorpdfstring{USYNERGY\_IDLE\_TIMEOUT}{USYNERGY\_IDLE\_TIMEOUT}}
+{\footnotesize\ttfamily \#define U\+S\+Y\+N\+E\+R\+G\+Y\+\_\+\+I\+D\+L\+E\+\_\+\+T\+I\+M\+E\+O\+UT~2000			/$\ast$ Timeout in \mbox{\hyperlink{classsf_1_1_time_ae379d420bc07170668f51522023957b9}{milliseconds}} before reconnecting $\ast$/}
+
+\mbox{\Hypertarget{u_synergy_8h_afc2e10e098c39101f29b2e5bc7d58d8a}\label{u_synergy_8h_afc2e10e098c39101f29b2e5bc7d58d8a}} 
+\index{uSynergy.h@{uSynergy.h}!USYNERGY\_LITTLE\_ENDIAN@{USYNERGY\_LITTLE\_ENDIAN}}
+\index{USYNERGY\_LITTLE\_ENDIAN@{USYNERGY\_LITTLE\_ENDIAN}!uSynergy.h@{uSynergy.h}}
+\doxysubsubsection{\texorpdfstring{USYNERGY\_LITTLE\_ENDIAN}{USYNERGY\_LITTLE\_ENDIAN}}
+{\footnotesize\ttfamily \#define U\+S\+Y\+N\+E\+R\+G\+Y\+\_\+\+L\+I\+T\+T\+L\+E\+\_\+\+E\+N\+D\+I\+AN}
+
+
+
+Determine endianness. 
+
+\mbox{\Hypertarget{u_synergy_8h_af85416992e1fcb45fcc939101bd99a6b}\label{u_synergy_8h_af85416992e1fcb45fcc939101bd99a6b}} 
+\index{uSynergy.h@{uSynergy.h}!USYNERGY\_MODIFIER\_ALT@{USYNERGY\_MODIFIER\_ALT}}
+\index{USYNERGY\_MODIFIER\_ALT@{USYNERGY\_MODIFIER\_ALT}!uSynergy.h@{uSynergy.h}}
+\doxysubsubsection{\texorpdfstring{USYNERGY\_MODIFIER\_ALT}{USYNERGY\_MODIFIER\_ALT}}
+{\footnotesize\ttfamily \#define U\+S\+Y\+N\+E\+R\+G\+Y\+\_\+\+M\+O\+D\+I\+F\+I\+E\+R\+\_\+\+A\+LT~0x0004			/$\ast$ Alt key modifier $\ast$/}
+
+\mbox{\Hypertarget{u_synergy_8h_a3c45764ada926f422083aee31511aeab}\label{u_synergy_8h_a3c45764ada926f422083aee31511aeab}} 
+\index{uSynergy.h@{uSynergy.h}!USYNERGY\_MODIFIER\_ALT\_GR@{USYNERGY\_MODIFIER\_ALT\_GR}}
+\index{USYNERGY\_MODIFIER\_ALT\_GR@{USYNERGY\_MODIFIER\_ALT\_GR}!uSynergy.h@{uSynergy.h}}
+\doxysubsubsection{\texorpdfstring{USYNERGY\_MODIFIER\_ALT\_GR}{USYNERGY\_MODIFIER\_ALT\_GR}}
+{\footnotesize\ttfamily \#define U\+S\+Y\+N\+E\+R\+G\+Y\+\_\+\+M\+O\+D\+I\+F\+I\+E\+R\+\_\+\+A\+L\+T\+\_\+\+GR~0x0020			/$\ast$ Alt\+Gr key modifier $\ast$/}
+
+\mbox{\Hypertarget{u_synergy_8h_a0bdea03b09786e5ab2d16a888ab6affb}\label{u_synergy_8h_a0bdea03b09786e5ab2d16a888ab6affb}} 
+\index{uSynergy.h@{uSynergy.h}!USYNERGY\_MODIFIER\_CAPSLOCK@{USYNERGY\_MODIFIER\_CAPSLOCK}}
+\index{USYNERGY\_MODIFIER\_CAPSLOCK@{USYNERGY\_MODIFIER\_CAPSLOCK}!uSynergy.h@{uSynergy.h}}
+\doxysubsubsection{\texorpdfstring{USYNERGY\_MODIFIER\_CAPSLOCK}{USYNERGY\_MODIFIER\_CAPSLOCK}}
+{\footnotesize\ttfamily \#define U\+S\+Y\+N\+E\+R\+G\+Y\+\_\+\+M\+O\+D\+I\+F\+I\+E\+R\+\_\+\+C\+A\+P\+S\+L\+O\+CK~0x1000			/$\ast$ Caps\+Lock key modifier $\ast$/}
+
+\mbox{\Hypertarget{u_synergy_8h_a607fa21b220a636d8b073d3bb52fd840}\label{u_synergy_8h_a607fa21b220a636d8b073d3bb52fd840}} 
+\index{uSynergy.h@{uSynergy.h}!USYNERGY\_MODIFIER\_CTRL@{USYNERGY\_MODIFIER\_CTRL}}
+\index{USYNERGY\_MODIFIER\_CTRL@{USYNERGY\_MODIFIER\_CTRL}!uSynergy.h@{uSynergy.h}}
+\doxysubsubsection{\texorpdfstring{USYNERGY\_MODIFIER\_CTRL}{USYNERGY\_MODIFIER\_CTRL}}
+{\footnotesize\ttfamily \#define U\+S\+Y\+N\+E\+R\+G\+Y\+\_\+\+M\+O\+D\+I\+F\+I\+E\+R\+\_\+\+C\+T\+RL~0x0002			/$\ast$ Ctrl key modifier $\ast$/}
+
+\mbox{\Hypertarget{u_synergy_8h_ad6a4c43937498a1e60115c29b88c7a91}\label{u_synergy_8h_ad6a4c43937498a1e60115c29b88c7a91}} 
+\index{uSynergy.h@{uSynergy.h}!USYNERGY\_MODIFIER\_LEVEL5LOCK@{USYNERGY\_MODIFIER\_LEVEL5LOCK}}
+\index{USYNERGY\_MODIFIER\_LEVEL5LOCK@{USYNERGY\_MODIFIER\_LEVEL5LOCK}!uSynergy.h@{uSynergy.h}}
+\doxysubsubsection{\texorpdfstring{USYNERGY\_MODIFIER\_LEVEL5LOCK}{USYNERGY\_MODIFIER\_LEVEL5LOCK}}
+{\footnotesize\ttfamily \#define U\+S\+Y\+N\+E\+R\+G\+Y\+\_\+\+M\+O\+D\+I\+F\+I\+E\+R\+\_\+\+L\+E\+V\+E\+L5\+L\+O\+CK~0x0040			/$\ast$ Level5\+Lock key modifier $\ast$/}
+
+\mbox{\Hypertarget{u_synergy_8h_a247779f400976db585b268ab9c46df04}\label{u_synergy_8h_a247779f400976db585b268ab9c46df04}} 
+\index{uSynergy.h@{uSynergy.h}!USYNERGY\_MODIFIER\_META@{USYNERGY\_MODIFIER\_META}}
+\index{USYNERGY\_MODIFIER\_META@{USYNERGY\_MODIFIER\_META}!uSynergy.h@{uSynergy.h}}
+\doxysubsubsection{\texorpdfstring{USYNERGY\_MODIFIER\_META}{USYNERGY\_MODIFIER\_META}}
+{\footnotesize\ttfamily \#define U\+S\+Y\+N\+E\+R\+G\+Y\+\_\+\+M\+O\+D\+I\+F\+I\+E\+R\+\_\+\+M\+E\+TA~0x0008			/$\ast$ Meta key modifier $\ast$/}
+
+\mbox{\Hypertarget{u_synergy_8h_a9b2673ef007bfb0be230ce19b595d0bf}\label{u_synergy_8h_a9b2673ef007bfb0be230ce19b595d0bf}} 
+\index{uSynergy.h@{uSynergy.h}!USYNERGY\_MODIFIER\_NUMLOCK@{USYNERGY\_MODIFIER\_NUMLOCK}}
+\index{USYNERGY\_MODIFIER\_NUMLOCK@{USYNERGY\_MODIFIER\_NUMLOCK}!uSynergy.h@{uSynergy.h}}
+\doxysubsubsection{\texorpdfstring{USYNERGY\_MODIFIER\_NUMLOCK}{USYNERGY\_MODIFIER\_NUMLOCK}}
+{\footnotesize\ttfamily \#define U\+S\+Y\+N\+E\+R\+G\+Y\+\_\+\+M\+O\+D\+I\+F\+I\+E\+R\+\_\+\+N\+U\+M\+L\+O\+CK~0x2000			/$\ast$ Num\+Lock key modifier $\ast$/}
+
+\mbox{\Hypertarget{u_synergy_8h_acb0984295259d8b0b3041309a9c76c94}\label{u_synergy_8h_acb0984295259d8b0b3041309a9c76c94}} 
+\index{uSynergy.h@{uSynergy.h}!USYNERGY\_MODIFIER\_SCROLLOCK@{USYNERGY\_MODIFIER\_SCROLLOCK}}
+\index{USYNERGY\_MODIFIER\_SCROLLOCK@{USYNERGY\_MODIFIER\_SCROLLOCK}!uSynergy.h@{uSynergy.h}}
+\doxysubsubsection{\texorpdfstring{USYNERGY\_MODIFIER\_SCROLLOCK}{USYNERGY\_MODIFIER\_SCROLLOCK}}
+{\footnotesize\ttfamily \#define U\+S\+Y\+N\+E\+R\+G\+Y\+\_\+\+M\+O\+D\+I\+F\+I\+E\+R\+\_\+\+S\+C\+R\+O\+L\+L\+O\+CK~0x4000			/$\ast$ Scroll\+Lock key modifier $\ast$/}
+
+\mbox{\Hypertarget{u_synergy_8h_a72c3676527e7ead7e4920431c080dbd8}\label{u_synergy_8h_a72c3676527e7ead7e4920431c080dbd8}} 
+\index{uSynergy.h@{uSynergy.h}!USYNERGY\_MODIFIER\_SHIFT@{USYNERGY\_MODIFIER\_SHIFT}}
+\index{USYNERGY\_MODIFIER\_SHIFT@{USYNERGY\_MODIFIER\_SHIFT}!uSynergy.h@{uSynergy.h}}
+\doxysubsubsection{\texorpdfstring{USYNERGY\_MODIFIER\_SHIFT}{USYNERGY\_MODIFIER\_SHIFT}}
+{\footnotesize\ttfamily \#define U\+S\+Y\+N\+E\+R\+G\+Y\+\_\+\+M\+O\+D\+I\+F\+I\+E\+R\+\_\+\+S\+H\+I\+FT~0x0001			/$\ast$ Shift key modifier $\ast$/}
+
+
+
+Keyboard constants. 
+
+\mbox{\Hypertarget{u_synergy_8h_a651f7bba19994bfc0f0a9cd1ac0de802}\label{u_synergy_8h_a651f7bba19994bfc0f0a9cd1ac0de802}} 
+\index{uSynergy.h@{uSynergy.h}!USYNERGY\_MODIFIER\_WIN@{USYNERGY\_MODIFIER\_WIN}}
+\index{USYNERGY\_MODIFIER\_WIN@{USYNERGY\_MODIFIER\_WIN}!uSynergy.h@{uSynergy.h}}
+\doxysubsubsection{\texorpdfstring{USYNERGY\_MODIFIER\_WIN}{USYNERGY\_MODIFIER\_WIN}}
+{\footnotesize\ttfamily \#define U\+S\+Y\+N\+E\+R\+G\+Y\+\_\+\+M\+O\+D\+I\+F\+I\+E\+R\+\_\+\+W\+IN~0x0010			/$\ast$ Windows key modifier $\ast$/}
+
+\mbox{\Hypertarget{u_synergy_8h_aea763582d071e5497c93df614ac5f570}\label{u_synergy_8h_aea763582d071e5497c93df614ac5f570}} 
+\index{uSynergy.h@{uSynergy.h}!USYNERGY\_NUM\_JOYSTICKS@{USYNERGY\_NUM\_JOYSTICKS}}
+\index{USYNERGY\_NUM\_JOYSTICKS@{USYNERGY\_NUM\_JOYSTICKS}!uSynergy.h@{uSynergy.h}}
+\doxysubsubsection{\texorpdfstring{USYNERGY\_NUM\_JOYSTICKS}{USYNERGY\_NUM\_JOYSTICKS}}
+{\footnotesize\ttfamily \#define U\+S\+Y\+N\+E\+R\+G\+Y\+\_\+\+N\+U\+M\+\_\+\+J\+O\+Y\+S\+T\+I\+C\+KS~4				/$\ast$ Maximum number of supported joysticks $\ast$/}
+
+
+
+Constants and limits. 
+
+\mbox{\Hypertarget{u_synergy_8h_ae6a8ecd832d2fe8e85d0de33d64df252}\label{u_synergy_8h_ae6a8ecd832d2fe8e85d0de33d64df252}} 
+\index{uSynergy.h@{uSynergy.h}!USYNERGY\_PROTOCOL\_MAJOR@{USYNERGY\_PROTOCOL\_MAJOR}}
+\index{USYNERGY\_PROTOCOL\_MAJOR@{USYNERGY\_PROTOCOL\_MAJOR}!uSynergy.h@{uSynergy.h}}
+\doxysubsubsection{\texorpdfstring{USYNERGY\_PROTOCOL\_MAJOR}{USYNERGY\_PROTOCOL\_MAJOR}}
+{\footnotesize\ttfamily \#define U\+S\+Y\+N\+E\+R\+G\+Y\+\_\+\+P\+R\+O\+T\+O\+C\+O\+L\+\_\+\+M\+A\+J\+OR~1				/$\ast$ Major protocol version $\ast$/}
+
+\mbox{\Hypertarget{u_synergy_8h_aeb6e3da49ad23095084ea6acb7dfb90f}\label{u_synergy_8h_aeb6e3da49ad23095084ea6acb7dfb90f}} 
+\index{uSynergy.h@{uSynergy.h}!USYNERGY\_PROTOCOL\_MINOR@{USYNERGY\_PROTOCOL\_MINOR}}
+\index{USYNERGY\_PROTOCOL\_MINOR@{USYNERGY\_PROTOCOL\_MINOR}!uSynergy.h@{uSynergy.h}}
+\doxysubsubsection{\texorpdfstring{USYNERGY\_PROTOCOL\_MINOR}{USYNERGY\_PROTOCOL\_MINOR}}
+{\footnotesize\ttfamily \#define U\+S\+Y\+N\+E\+R\+G\+Y\+\_\+\+P\+R\+O\+T\+O\+C\+O\+L\+\_\+\+M\+I\+N\+OR~4				/$\ast$ Minor protocol version $\ast$/}
+
+\mbox{\Hypertarget{u_synergy_8h_a469ef62f67c95ce3136dbbc3cdec812e}\label{u_synergy_8h_a469ef62f67c95ce3136dbbc3cdec812e}} 
+\index{uSynergy.h@{uSynergy.h}!USYNERGY\_RECEIVE\_BUFFER\_SIZE@{USYNERGY\_RECEIVE\_BUFFER\_SIZE}}
+\index{USYNERGY\_RECEIVE\_BUFFER\_SIZE@{USYNERGY\_RECEIVE\_BUFFER\_SIZE}!uSynergy.h@{uSynergy.h}}
+\doxysubsubsection{\texorpdfstring{USYNERGY\_RECEIVE\_BUFFER\_SIZE}{USYNERGY\_RECEIVE\_BUFFER\_SIZE}}
+{\footnotesize\ttfamily \#define U\+S\+Y\+N\+E\+R\+G\+Y\+\_\+\+R\+E\+C\+E\+I\+V\+E\+\_\+\+B\+U\+F\+F\+E\+R\+\_\+\+S\+I\+ZE~4096			/$\ast$ Maximum \mbox{\hyperlink{glcorearb_8h_ad44f36b109a794d382407ec0c276492f}{size}} of an incoming packet $\ast$/}
+
+\mbox{\Hypertarget{u_synergy_8h_a8011521bd2a574c152dfacca4efb2437}\label{u_synergy_8h_a8011521bd2a574c152dfacca4efb2437}} 
+\index{uSynergy.h@{uSynergy.h}!USYNERGY\_REPLY\_BUFFER\_SIZE@{USYNERGY\_REPLY\_BUFFER\_SIZE}}
+\index{USYNERGY\_REPLY\_BUFFER\_SIZE@{USYNERGY\_REPLY\_BUFFER\_SIZE}!uSynergy.h@{uSynergy.h}}
+\doxysubsubsection{\texorpdfstring{USYNERGY\_REPLY\_BUFFER\_SIZE}{USYNERGY\_REPLY\_BUFFER\_SIZE}}
+{\footnotesize\ttfamily \#define U\+S\+Y\+N\+E\+R\+G\+Y\+\_\+\+R\+E\+P\+L\+Y\+\_\+\+B\+U\+F\+F\+E\+R\+\_\+\+S\+I\+ZE~1024			/$\ast$ Maximum \mbox{\hyperlink{glcorearb_8h_ad44f36b109a794d382407ec0c276492f}{size}} of \mbox{\hyperlink{glcorearb_8h_ac8729153468b5dcf13f971b21d84d4e5}{a}} reply packet $\ast$/}
+
+\mbox{\Hypertarget{u_synergy_8h_ae6d2583aedf1a4427454e1cbeffa8744}\label{u_synergy_8h_ae6d2583aedf1a4427454e1cbeffa8744}} 
+\index{uSynergy.h@{uSynergy.h}!USYNERGY\_TRACE\_BUFFER\_SIZE@{USYNERGY\_TRACE\_BUFFER\_SIZE}}
+\index{USYNERGY\_TRACE\_BUFFER\_SIZE@{USYNERGY\_TRACE\_BUFFER\_SIZE}!uSynergy.h@{uSynergy.h}}
+\doxysubsubsection{\texorpdfstring{USYNERGY\_TRACE\_BUFFER\_SIZE}{USYNERGY\_TRACE\_BUFFER\_SIZE}}
+{\footnotesize\ttfamily \#define U\+S\+Y\+N\+E\+R\+G\+Y\+\_\+\+T\+R\+A\+C\+E\+\_\+\+B\+U\+F\+F\+E\+R\+\_\+\+S\+I\+ZE~1024			/$\ast$ Maximum \mbox{\hyperlink{glcorearb_8h_a1066038b2c2621ffc27704c711f5a2a1}{length}} of traced \mbox{\hyperlink{glcorearb_8h_a7b6161cffb9b8aee272b3b916183d28c}{message}} $\ast$/}
+
+\mbox{\Hypertarget{u_synergy_8h_a911fb099dc0cd08adeea98de0304c637}\label{u_synergy_8h_a911fb099dc0cd08adeea98de0304c637}} 
+\index{uSynergy.h@{uSynergy.h}!USYNERGY\_TRUE@{USYNERGY\_TRUE}}
+\index{USYNERGY\_TRUE@{USYNERGY\_TRUE}!uSynergy.h@{uSynergy.h}}
+\doxysubsubsection{\texorpdfstring{USYNERGY\_TRUE}{USYNERGY\_TRUE}}
+{\footnotesize\ttfamily \#define U\+S\+Y\+N\+E\+R\+G\+Y\+\_\+\+T\+R\+UE~1				/$\ast$ True \mbox{\hyperlink{glcorearb_8h_a7ab00df62abe96de01795dc0d15959db}{value}} $\ast$/}
+
+
+
+\doxysubsection{Typedef Documentation}
+\mbox{\Hypertarget{u_synergy_8h_af3310ee47f2780aea3c0827fd0bd543e}\label{u_synergy_8h_af3310ee47f2780aea3c0827fd0bd543e}} 
+\index{uSynergy.h@{uSynergy.h}!uSynergyBool@{uSynergyBool}}
+\index{uSynergyBool@{uSynergyBool}!uSynergy.h@{uSynergy.h}}
+\doxysubsubsection{\texorpdfstring{uSynergyBool}{uSynergyBool}}
+{\footnotesize\ttfamily typedef int \mbox{\hyperlink{u_synergy_8h_af3310ee47f2780aea3c0827fd0bd543e}{u\+Synergy\+Bool}}}
+
+
+
+Boolean type. 
+
+\mbox{\Hypertarget{u_synergy_8h_a70ec3746c9a9090d170ba86db3fde8d0}\label{u_synergy_8h_a70ec3746c9a9090d170ba86db3fde8d0}} 
+\index{uSynergy.h@{uSynergy.h}!uSynergyClipboardCallback@{uSynergyClipboardCallback}}
+\index{uSynergyClipboardCallback@{uSynergyClipboardCallback}!uSynergy.h@{uSynergy.h}}
+\doxysubsubsection{\texorpdfstring{uSynergyClipboardCallback}{uSynergyClipboardCallback}}
+{\footnotesize\ttfamily typedef \mbox{\hyperlink{glcorearb_8h_a950fc91edb4504f62f1c577bf4727c29}{void}}($\ast$ u\+Synergy\+Clipboard\+Callback) (\mbox{\hyperlink{structu_synergy_cookie}{u\+Synergy\+Cookie}} cookie, enum \mbox{\hyperlink{u_synergy_8h_af0a3621df8565e1b7c038b6b37e76b37}{u\+Synergy\+Clipboard\+Format}} \mbox{\hyperlink{glcorearb_8h_a86f086d889f7cdb4d6461497ae891265}{format}}, const uint8\+\_\+t $\ast$\mbox{\hyperlink{glcorearb_8h_a88af890e5088b402709b94ff5be38aee}{data}}, uint32\+\_\+t \mbox{\hyperlink{glcorearb_8h_ad44f36b109a794d382407ec0c276492f}{size}})}
+
+
+
+Clipboard event callback. 
+
+This callback is called when something is placed on the clipboard. Multiple callbacks may be fired for multiple clipboard formats if they are supported. The data provided is read-\/only and may not be modified by the application.
+
+
+\begin{DoxyParams}{Parameters}
+{\em cookie} & Cookie supplied in the Synergy context \\
+\hline
+{\em format} & Clipboard format \\
+\hline
+{\em data} & Memory area containing the clipboard raw data \\
+\hline
+{\em size} & Size of clipboard data \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{u_synergy_8h_a6f2bff65a2c6a494d8c34ae84afe9cb6}\label{u_synergy_8h_a6f2bff65a2c6a494d8c34ae84afe9cb6}} 
+\index{uSynergy.h@{uSynergy.h}!uSynergyConnectFunc@{uSynergyConnectFunc}}
+\index{uSynergyConnectFunc@{uSynergyConnectFunc}!uSynergy.h@{uSynergy.h}}
+\doxysubsubsection{\texorpdfstring{uSynergyConnectFunc}{uSynergyConnectFunc}}
+{\footnotesize\ttfamily typedef \mbox{\hyperlink{u_synergy_8h_af3310ee47f2780aea3c0827fd0bd543e}{u\+Synergy\+Bool}}($\ast$ u\+Synergy\+Connect\+Func) (\mbox{\hyperlink{structu_synergy_cookie}{u\+Synergy\+Cookie}} cookie)}
+
+
+
+Connect function. 
+
+This function is called when u\+Synergy needs to connect to the host. It doesn\textquotesingle{}t imply a network implementation or destination address, that must all be handled on the user side. The function should return U\+S\+Y\+N\+E\+R\+G\+Y\+\_\+\+T\+R\+UE if a connection was established or U\+S\+Y\+N\+E\+R\+G\+Y\+\_\+\+F\+A\+L\+SE if it could not connect.
+
+When network errors occur (e.\+g. u\+Synergy\+Send or u\+Synergy\+Receive fail) then the connect call will be called again so the implementation of the function must close any old connections and clean up resources before retrying.
+
+
+\begin{DoxyParams}{Parameters}
+{\em cookie} & Cookie supplied in the Synergy context \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{u_synergy_8h_aa060f041a92198f13f266898fc6fed13}\label{u_synergy_8h_aa060f041a92198f13f266898fc6fed13}} 
+\index{uSynergy.h@{uSynergy.h}!uSynergyGetTimeFunc@{uSynergyGetTimeFunc}}
+\index{uSynergyGetTimeFunc@{uSynergyGetTimeFunc}!uSynergy.h@{uSynergy.h}}
+\doxysubsubsection{\texorpdfstring{uSynergyGetTimeFunc}{uSynergyGetTimeFunc}}
+{\footnotesize\ttfamily typedef uint32\+\_\+t($\ast$ u\+Synergy\+Get\+Time\+Func) ()}
+
+
+
+Get time function. 
+
+This function is called when u\+Synergy needs to know the current time. This is used to determine when timeouts have occured. The time base should be a cyclic millisecond time value.
+
+\begin{DoxyReturn}{Returns}
+Time value in milliseconds 
+\end{DoxyReturn}
+\mbox{\Hypertarget{u_synergy_8h_a24e6883df7f25f38a615c4864d652267}\label{u_synergy_8h_a24e6883df7f25f38a615c4864d652267}} 
+\index{uSynergy.h@{uSynergy.h}!uSynergyJoystickCallback@{uSynergyJoystickCallback}}
+\index{uSynergyJoystickCallback@{uSynergyJoystickCallback}!uSynergy.h@{uSynergy.h}}
+\doxysubsubsection{\texorpdfstring{uSynergyJoystickCallback}{uSynergyJoystickCallback}}
+{\footnotesize\ttfamily typedef \mbox{\hyperlink{glcorearb_8h_a950fc91edb4504f62f1c577bf4727c29}{void}}($\ast$ u\+Synergy\+Joystick\+Callback) (\mbox{\hyperlink{structu_synergy_cookie}{u\+Synergy\+Cookie}} cookie, uint8\+\_\+t joy\+Num, uint16\+\_\+t buttons, int8\+\_\+t left\+StickX, int8\+\_\+t left\+StickY, int8\+\_\+t right\+StickX, int8\+\_\+t right\+StickY)}
+
+
+
+Joystick event callback. 
+
+This callback is called when a joystick stick or button changes. It is possible that multiple callbacks are fired when different sticks or buttons change as these are individual messages in the packet stream. Each callback will contain all the valid state for the different axes and buttons. The last callback received will represent the most current joystick state.
+
+
+\begin{DoxyParams}{Parameters}
+{\em cookie} & Cookie supplied in the Synergy context \\
+\hline
+{\em joy\+Num} & Joystick number, always in the range \mbox{[}0 ... U\+S\+Y\+N\+E\+R\+G\+Y\+\_\+\+N\+U\+M\+\_\+\+J\+O\+Y\+S\+T\+I\+C\+KS$>$ \\
+\hline
+{\em buttons} & Button pressed mask \\
+\hline
+{\em left\+StickX} & Left stick X position, in range \mbox{[}-\/127 ... 127\mbox{]} \\
+\hline
+{\em left\+StickY} & Left stick Y position, in range \mbox{[}-\/127 ... 127\mbox{]} \\
+\hline
+{\em right\+StickX} & Right stick X position, in range \mbox{[}-\/127 ... 127\mbox{]} \\
+\hline
+{\em right\+StickY} & Right stick Y position, in range \mbox{[}-\/127 ... 127\mbox{]} \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{u_synergy_8h_a76d86f792ebb4a733b695a0922cf6ad2}\label{u_synergy_8h_a76d86f792ebb4a733b695a0922cf6ad2}} 
+\index{uSynergy.h@{uSynergy.h}!uSynergyKeyboardCallback@{uSynergyKeyboardCallback}}
+\index{uSynergyKeyboardCallback@{uSynergyKeyboardCallback}!uSynergy.h@{uSynergy.h}}
+\doxysubsubsection{\texorpdfstring{uSynergyKeyboardCallback}{uSynergyKeyboardCallback}}
+{\footnotesize\ttfamily typedef \mbox{\hyperlink{glcorearb_8h_a950fc91edb4504f62f1c577bf4727c29}{void}}($\ast$ u\+Synergy\+Keyboard\+Callback) (\mbox{\hyperlink{structu_synergy_cookie}{u\+Synergy\+Cookie}} cookie, uint16\+\_\+t key, uint16\+\_\+t modifiers, \mbox{\hyperlink{u_synergy_8h_af3310ee47f2780aea3c0827fd0bd543e}{u\+Synergy\+Bool}} down, \mbox{\hyperlink{u_synergy_8h_af3310ee47f2780aea3c0827fd0bd543e}{u\+Synergy\+Bool}} repeat)}
+
+
+
+Key event callback. 
+
+This callback is called when a key is pressed or released.
+
+
+\begin{DoxyParams}{Parameters}
+{\em cookie} & Cookie supplied in the Synergy context \\
+\hline
+{\em key} & Key code of key that was pressed or released \\
+\hline
+{\em modifiers} & Status of modifier keys (alt, shift, etc.) \\
+\hline
+{\em down} & Down or up status, 1 is key is pressed down, 0 if key is released (up) \\
+\hline
+{\em repeat} & Repeat flag, 1 if the key is down because the key is repeating, 0 if the key is initially pressed by the user \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{u_synergy_8h_ae3c3d8bff953b1f1b7c5945d22f8d986}\label{u_synergy_8h_ae3c3d8bff953b1f1b7c5945d22f8d986}} 
+\index{uSynergy.h@{uSynergy.h}!uSynergyMouseCallback@{uSynergyMouseCallback}}
+\index{uSynergyMouseCallback@{uSynergyMouseCallback}!uSynergy.h@{uSynergy.h}}
+\doxysubsubsection{\texorpdfstring{uSynergyMouseCallback}{uSynergyMouseCallback}}
+{\footnotesize\ttfamily typedef \mbox{\hyperlink{glcorearb_8h_a950fc91edb4504f62f1c577bf4727c29}{void}}($\ast$ u\+Synergy\+Mouse\+Callback) (\mbox{\hyperlink{structu_synergy_cookie}{u\+Synergy\+Cookie}} cookie, uint16\+\_\+t \mbox{\hyperlink{glcorearb_8h_a3dddca64560508b8d5bd9ee938e2d3a3}{x}}, uint16\+\_\+t \mbox{\hyperlink{glcorearb_8h_a12b33d8afd2f771e63a85ea45a440c64}{y}}, int16\+\_\+t wheelX, int16\+\_\+t wheelY, \mbox{\hyperlink{u_synergy_8h_af3310ee47f2780aea3c0827fd0bd543e}{u\+Synergy\+Bool}} button\+Left, \mbox{\hyperlink{u_synergy_8h_af3310ee47f2780aea3c0827fd0bd543e}{u\+Synergy\+Bool}} button\+Right, \mbox{\hyperlink{u_synergy_8h_af3310ee47f2780aea3c0827fd0bd543e}{u\+Synergy\+Bool}} button\+Middle)}
+
+
+
+Mouse callback. 
+
+This callback is called when a mouse events happens. The mouse X and Y position, wheel and button state is communicated in the message. It\textquotesingle{}s up to the user to interpret if this is a mouse up, down, double-\/click or other message.
+
+
+\begin{DoxyParams}{Parameters}
+{\em cookie} & Cookie supplied in the Synergy context \\
+\hline
+{\em x} & Mouse X position \\
+\hline
+{\em y} & Mouse Y position \\
+\hline
+{\em wheelX} & Mouse wheel X position \\
+\hline
+{\em wheelY} & Mouse wheel Y position \\
+\hline
+{\em button\+Left} & Left button pressed status, 0 for released, 1 for pressed \\
+\hline
+{\em button\+Middle} & Middle button pressed status, 0 for released, 1 for pressed \\
+\hline
+{\em button\+Right} & Right button pressed status, 0 for released, 1 for pressed \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{u_synergy_8h_a003ed5141ef17adc6b9a383fa4b7d5b2}\label{u_synergy_8h_a003ed5141ef17adc6b9a383fa4b7d5b2}} 
+\index{uSynergy.h@{uSynergy.h}!uSynergyReceiveFunc@{uSynergyReceiveFunc}}
+\index{uSynergyReceiveFunc@{uSynergyReceiveFunc}!uSynergy.h@{uSynergy.h}}
+\doxysubsubsection{\texorpdfstring{uSynergyReceiveFunc}{uSynergyReceiveFunc}}
+{\footnotesize\ttfamily typedef \mbox{\hyperlink{u_synergy_8h_af3310ee47f2780aea3c0827fd0bd543e}{u\+Synergy\+Bool}}($\ast$ u\+Synergy\+Receive\+Func) (\mbox{\hyperlink{structu_synergy_cookie}{u\+Synergy\+Cookie}} cookie, uint8\+\_\+t $\ast$\mbox{\hyperlink{glcorearb_8h_af1b5122dc7bfe0a6319e14419cfe3423}{buffer}}, int max\+Length, int $\ast$out\+Length)}
+
+
+
+Receive function. 
+
+This function is called when u\+Synergy needs to receive data from the default connection. It should return U\+S\+Y\+N\+E\+R\+G\+Y\+\_\+\+T\+R\+UE if receiving data succeeded and U\+S\+Y\+N\+E\+R\+G\+Y\+\_\+\+F\+A\+L\+SE otherwise. This function should block until data has been received and wait for data to become available. If {\itshape out\+Length} is set to 0 upon completion it is assumed that the connection is alive, but still in a connecting state and needs time to settle.
+
+
+\begin{DoxyParams}{Parameters}
+{\em cookie} & Cookie supplied in the Synergy context \\
+\hline
+{\em buffer} & Address of buffer to receive data into \\
+\hline
+{\em max\+Length} & Maximum amount of bytes to write into the receive buffer \\
+\hline
+{\em out\+Length} & Address of integer that receives the actual amount of bytes written into {\itshape buffer} \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{u_synergy_8h_a170c0359b4788166f45aa054e1d898bc}\label{u_synergy_8h_a170c0359b4788166f45aa054e1d898bc}} 
+\index{uSynergy.h@{uSynergy.h}!uSynergyScreenActiveCallback@{uSynergyScreenActiveCallback}}
+\index{uSynergyScreenActiveCallback@{uSynergyScreenActiveCallback}!uSynergy.h@{uSynergy.h}}
+\doxysubsubsection{\texorpdfstring{uSynergyScreenActiveCallback}{uSynergyScreenActiveCallback}}
+{\footnotesize\ttfamily typedef \mbox{\hyperlink{glcorearb_8h_a950fc91edb4504f62f1c577bf4727c29}{void}}($\ast$ u\+Synergy\+Screen\+Active\+Callback) (\mbox{\hyperlink{structu_synergy_cookie}{u\+Synergy\+Cookie}} cookie, \mbox{\hyperlink{u_synergy_8h_af3310ee47f2780aea3c0827fd0bd543e}{u\+Synergy\+Bool}} active)}
+
+
+
+Screen active callback. 
+
+This callback is called when Synergy makes the screen active or inactive. This callback is usually sent when the mouse enters or leaves the screen.
+
+
+\begin{DoxyParams}{Parameters}
+{\em cookie} & Cookie supplied in the Synergy context \\
+\hline
+{\em active} & Activation flag, 1 if the screen has become active, 0 if the screen has become inactive \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{u_synergy_8h_af968ec8c377105ba9bb1abda0eaec01b}\label{u_synergy_8h_af968ec8c377105ba9bb1abda0eaec01b}} 
+\index{uSynergy.h@{uSynergy.h}!uSynergySendFunc@{uSynergySendFunc}}
+\index{uSynergySendFunc@{uSynergySendFunc}!uSynergy.h@{uSynergy.h}}
+\doxysubsubsection{\texorpdfstring{uSynergySendFunc}{uSynergySendFunc}}
+{\footnotesize\ttfamily typedef \mbox{\hyperlink{u_synergy_8h_af3310ee47f2780aea3c0827fd0bd543e}{u\+Synergy\+Bool}}($\ast$ u\+Synergy\+Send\+Func) (\mbox{\hyperlink{structu_synergy_cookie}{u\+Synergy\+Cookie}} cookie, const uint8\+\_\+t $\ast$\mbox{\hyperlink{glcorearb_8h_af1b5122dc7bfe0a6319e14419cfe3423}{buffer}}, int \mbox{\hyperlink{glcorearb_8h_a1066038b2c2621ffc27704c711f5a2a1}{length}})}
+
+
+
+Send function. 
+
+This function is called when u\+Synergy needs to send something over the default connection. It should return U\+S\+Y\+N\+E\+R\+G\+Y\+\_\+\+T\+R\+UE if sending succeeded and U\+S\+Y\+N\+E\+R\+G\+Y\+\_\+\+F\+A\+L\+SE otherwise. This function should block until the send operation is completed.
+
+
+\begin{DoxyParams}{Parameters}
+{\em cookie} & Cookie supplied in the Synergy context \\
+\hline
+{\em buffer} & Address of buffer to send \\
+\hline
+{\em length} & Length of buffer to send \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{u_synergy_8h_aca931c74bb1bccc88647036c0ca285df}\label{u_synergy_8h_aca931c74bb1bccc88647036c0ca285df}} 
+\index{uSynergy.h@{uSynergy.h}!uSynergySleepFunc@{uSynergySleepFunc}}
+\index{uSynergySleepFunc@{uSynergySleepFunc}!uSynergy.h@{uSynergy.h}}
+\doxysubsubsection{\texorpdfstring{uSynergySleepFunc}{uSynergySleepFunc}}
+{\footnotesize\ttfamily typedef \mbox{\hyperlink{glcorearb_8h_a950fc91edb4504f62f1c577bf4727c29}{void}}($\ast$ u\+Synergy\+Sleep\+Func) (\mbox{\hyperlink{structu_synergy_cookie}{u\+Synergy\+Cookie}} cookie, int time\+Ms)}
+
+
+
+Thread sleep function. 
+
+This function is called when u\+Synergy wants to suspend operation for a while before retrying an operation. It is mostly used when a socket times out or disconnect occurs to prevent u\+Synergy from continuously hammering a network connection in case the network is down.
+
+
+\begin{DoxyParams}{Parameters}
+{\em cookie} & Cookie supplied in the Synergy context \\
+\hline
+{\em time\+Ms} & Time to sleep the current thread (in milliseconds) \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{u_synergy_8h_ac485b31766901ab17e7e5515831da55b}\label{u_synergy_8h_ac485b31766901ab17e7e5515831da55b}} 
+\index{uSynergy.h@{uSynergy.h}!uSynergyTraceFunc@{uSynergyTraceFunc}}
+\index{uSynergyTraceFunc@{uSynergyTraceFunc}!uSynergy.h@{uSynergy.h}}
+\doxysubsubsection{\texorpdfstring{uSynergyTraceFunc}{uSynergyTraceFunc}}
+{\footnotesize\ttfamily typedef \mbox{\hyperlink{glcorearb_8h_a950fc91edb4504f62f1c577bf4727c29}{void}}($\ast$ u\+Synergy\+Trace\+Func) (\mbox{\hyperlink{structu_synergy_cookie}{u\+Synergy\+Cookie}} cookie, const char $\ast$text)}
+
+
+
+Trace function. 
+
+This function is called when u\+Synergy wants to trace something. It is optional to show these messages, but they are often useful when debugging. u\+Synergy only traces major events like connecting and disconnecting. Usually only a single trace is shown when the connection is established and no more trace are called.
+
+
+\begin{DoxyParams}{Parameters}
+{\em cookie} & Cookie supplied in the Synergy context \\
+\hline
+{\em text} & Text to be traced \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Enumeration Type Documentation}
+\mbox{\Hypertarget{u_synergy_8h_af0a3621df8565e1b7c038b6b37e76b37}\label{u_synergy_8h_af0a3621df8565e1b7c038b6b37e76b37}} 
+\index{uSynergy.h@{uSynergy.h}!uSynergyClipboardFormat@{uSynergyClipboardFormat}}
+\index{uSynergyClipboardFormat@{uSynergyClipboardFormat}!uSynergy.h@{uSynergy.h}}
+\doxysubsubsection{\texorpdfstring{uSynergyClipboardFormat}{uSynergyClipboardFormat}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{u_synergy_8h_af0a3621df8565e1b7c038b6b37e76b37}{u\+Synergy\+Clipboard\+Format}}}
+
+
+
+Clipboard types. 
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{USYNERGY\_CLIPBOARD\_FORMAT\_TEXT@{USYNERGY\_CLIPBOARD\_FORMAT\_TEXT}!uSynergy.h@{uSynergy.h}}\index{uSynergy.h@{uSynergy.h}!USYNERGY\_CLIPBOARD\_FORMAT\_TEXT@{USYNERGY\_CLIPBOARD\_FORMAT\_TEXT}}}\mbox{\Hypertarget{u_synergy_8h_af0a3621df8565e1b7c038b6b37e76b37aa3c95bf80f8e4d1fc71a732800935707}\label{u_synergy_8h_af0a3621df8565e1b7c038b6b37e76b37aa3c95bf80f8e4d1fc71a732800935707}} 
+U\+S\+Y\+N\+E\+R\+G\+Y\+\_\+\+C\+L\+I\+P\+B\+O\+A\+R\+D\+\_\+\+F\+O\+R\+M\+A\+T\+\_\+\+T\+E\+XT&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{USYNERGY\_CLIPBOARD\_FORMAT\_BITMAP@{USYNERGY\_CLIPBOARD\_FORMAT\_BITMAP}!uSynergy.h@{uSynergy.h}}\index{uSynergy.h@{uSynergy.h}!USYNERGY\_CLIPBOARD\_FORMAT\_BITMAP@{USYNERGY\_CLIPBOARD\_FORMAT\_BITMAP}}}\mbox{\Hypertarget{u_synergy_8h_af0a3621df8565e1b7c038b6b37e76b37a1178d9ccae8706615be92277fe781109}\label{u_synergy_8h_af0a3621df8565e1b7c038b6b37e76b37a1178d9ccae8706615be92277fe781109}} 
+U\+S\+Y\+N\+E\+R\+G\+Y\+\_\+\+C\+L\+I\+P\+B\+O\+A\+R\+D\+\_\+\+F\+O\+R\+M\+A\+T\+\_\+\+B\+I\+T\+M\+AP&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{USYNERGY\_CLIPBOARD\_FORMAT\_HTML@{USYNERGY\_CLIPBOARD\_FORMAT\_HTML}!uSynergy.h@{uSynergy.h}}\index{uSynergy.h@{uSynergy.h}!USYNERGY\_CLIPBOARD\_FORMAT\_HTML@{USYNERGY\_CLIPBOARD\_FORMAT\_HTML}}}\mbox{\Hypertarget{u_synergy_8h_af0a3621df8565e1b7c038b6b37e76b37a591bc0b568486e67f53251c360bfc554}\label{u_synergy_8h_af0a3621df8565e1b7c038b6b37e76b37a591bc0b568486e67f53251c360bfc554}} 
+U\+S\+Y\+N\+E\+R\+G\+Y\+\_\+\+C\+L\+I\+P\+B\+O\+A\+R\+D\+\_\+\+F\+O\+R\+M\+A\+T\+\_\+\+H\+T\+ML&\\
+\hline
+
+\end{DoxyEnumFields}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{u_synergy_8h_a534546e175412d3e695e6cddfb9c5f89}\label{u_synergy_8h_a534546e175412d3e695e6cddfb9c5f89}} 
+\index{uSynergy.h@{uSynergy.h}!uSynergyInit@{uSynergyInit}}
+\index{uSynergyInit@{uSynergyInit}!uSynergy.h@{uSynergy.h}}
+\doxysubsubsection{\texorpdfstring{uSynergyInit()}{uSynergyInit()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{glcorearb_8h_a950fc91edb4504f62f1c577bf4727c29}{void}} u\+Synergy\+Init (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structu_synergy_context}{u\+Synergy\+Context}} $\ast$}]{context }\end{DoxyParamCaption})}
+
+
+
+Initialize u\+Synergy context. 
+
+This function initializes {\itshape context} for use. Call this function directly after creating the context, before filling in any configuration data in it. Not calling this function will cause undefined behavior.
+
+
+\begin{DoxyParams}{Parameters}
+{\em context} & Context to be initialized \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{u_synergy_8h_a73500659ef90e12ef6f54429998ae582}\label{u_synergy_8h_a73500659ef90e12ef6f54429998ae582}} 
+\index{uSynergy.h@{uSynergy.h}!uSynergySendClipboard@{uSynergySendClipboard}}
+\index{uSynergySendClipboard@{uSynergySendClipboard}!uSynergy.h@{uSynergy.h}}
+\doxysubsubsection{\texorpdfstring{uSynergySendClipboard()}{uSynergySendClipboard()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{glcorearb_8h_a950fc91edb4504f62f1c577bf4727c29}{void}} u\+Synergy\+Send\+Clipboard (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structu_synergy_context}{u\+Synergy\+Context}} $\ast$}]{context,  }\item[{const char $\ast$}]{text }\end{DoxyParamCaption})}
+
+
+
+Send clipboard data. 
+
+This function sets new clipboard data and sends it to the server. Use this function if your client cuts or copies data onto the clipboard that it needs to share with the server.
+
+Currently there is only support for plaintext, but H\+T\+ML and image data could be supported with some effort.
+
+
+\begin{DoxyParams}{Parameters}
+{\em context} & Context to send clipboard data to \\
+\hline
+{\em text} & Text to set to the clipboard \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{u_synergy_8h_a98851569b00e68b34becffadb0ed9f62}\label{u_synergy_8h_a98851569b00e68b34becffadb0ed9f62}} 
+\index{uSynergy.h@{uSynergy.h}!uSynergyUpdate@{uSynergyUpdate}}
+\index{uSynergyUpdate@{uSynergyUpdate}!uSynergy.h@{uSynergy.h}}
+\doxysubsubsection{\texorpdfstring{uSynergyUpdate()}{uSynergyUpdate()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{glcorearb_8h_a950fc91edb4504f62f1c577bf4727c29}{void}} u\+Synergy\+Update (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structu_synergy_context}{u\+Synergy\+Context}} $\ast$}]{context }\end{DoxyParamCaption})}
+
+
+
+Update u\+Synergy. 
+
+This function updates u\+Synergy and does the bulk of the work. It does connection management, receiving data, reconnecting after errors or timeouts and so on. It assumes that networking operations are blocking and it can suspend the current thread if it needs to wait. It is best practice to call u\+Synergy\+Update from a background thread so it is responsive.
+
+Because u\+Synergy relies mostly on blocking calls it will mostly stay in thread sleep state waiting for system mutexes and won\textquotesingle{}t eat much memory.
+
+u\+Synergy\+Update doesn\textquotesingle{}t do any memory allocations or have any side effects beyond those of the callbacks it calls.
+
+
+\begin{DoxyParams}{Parameters}
+{\em context} & Context to be updated \\
+\hline
+\end{DoxyParams}
