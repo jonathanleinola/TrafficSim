@@ -21,15 +21,17 @@ void Statistics::drawGUI()
         constexpr float SCALE_MAX = 300.f;
         constexpr float SCALE_MIN = 0.f;
 
-        static auto getter = [](void *data, int idx) -> float
-        {
-            std::uint16_t *values = (std::uint16_t*)(data);
+        // Getter to convert std::uin16_t array to float array
+        static auto getter = [](void *data, int idx) -> float {
+            std::uint16_t *values = (std::uint16_t *)(data);
             return (float)(values[idx]);
         };
 
         ImGui::Begin("Statistics");
-        ImGui::PlotLines("Frame Times", getter, (void*)node_data, data_size, 0, "Number of Vehicles", SCALE_MIN, SCALE_MAX, ImVec2(0, 100));
-        ImGui::PlotHistogram("Histogram", getter, (void*)node_data, data_size, 0, "Number of Vehicles", SCALE_MIN, SCALE_MAX, ImVec2(0, 100));
+        int x = ImGui::GetContentRegionAvail().x;
+        int y = ImGui::GetContentRegionAvail().y / 2;
+        ImGui::PlotLines("Frame Times", getter, (void *)node_data, data_size, 0, "Number of Vehicles", SCALE_MIN, SCALE_MAX, ImVec2(x, y));
+        ImGui::PlotHistogram("Histogram", getter, (void *)node_data, data_size, 0, "Number of Vehicles", SCALE_MIN, SCALE_MAX, ImVec2(x, y));
         ImGui::End();
     }
 
