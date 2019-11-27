@@ -11,7 +11,7 @@ Tile::Tile(const sf::Vector2f &pos, float size, unsigned int tile_index)
     rect_.setFillColor(sf::Color(119, 160, 93));
     // rect_.setOutlineThickness(5.f);
     // rect_.setOutlineColor(sf::Color(66, 107, 41));
-    node_ = std::make_shared<Node>(pos_ + sf::Vector2f(size_ / 2, size_ / 2), sf::Color(66, 107, 41));
+    node_ = std::make_shared<Node>(pos_ + sf::Vector2f(size_ / 2, size_ / 2));
 }
 
 sf::Vector2f Tile::getCenter() const

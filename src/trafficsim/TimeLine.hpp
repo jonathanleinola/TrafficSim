@@ -11,8 +11,8 @@ class TimeLine
 public:
     TimeLine();
 
-    // Returns game time in seconds
-    float getGameTime() const;
+    // Returns game time as const ref to sf::Time object
+    const sf::Time &getGameTime() const;
     // Returns time from starting the app in seconds
     float getRealTime() const;
     // Returns time elapsed from last frame

@@ -68,7 +68,14 @@
         "stack": "cpp",
         "thread": "cpp",
         "random": "cpp",
-        "numeric": "cpp"
+        "numeric": "cpp",
+        "clocale": "cpp",
+        "strstream": "cpp",
+        "*.tcc": "cpp",
+        "memory_resource": "cpp",
+        "iomanip": "cpp",
+        "cfenv": "cpp",
+        "cinttypes": "cpp"
     },
     "C_Cpp.errorSquiggles": "Disabled"
 }

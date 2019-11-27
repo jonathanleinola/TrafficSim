@@ -54,17 +54,17 @@ void Application::run()
     //Main loop
     while (window_.isOpen())
     {
-        if (last_time < time_line_.getRealTime() && time_line_.getMultiplier())
+        if (last_time < time_line_.getRealTime() && time_line_.getMultiplier() && app_state_ != Editing)
         {
-            last_time = time_line_.getRealTime() + 2.f / time_line_.getMultiplier();
+            last_time = time_line_.getRealTime() + 1.6f / time_line_.getMultiplier();
             map_.addCar(sf::Vector2f(rand() % window_.getWidth(), rand() % window_.getHeight()), sf::Vector2f(rand() % window_.getWidth(), rand() % window_.getHeight()));
         }
 
         window_.pollEvent();
 
-        map_.update(time_line_.getGameTime());
+        map_.update(time_line_.getGameTime(), time_line_.getFrameTime() * time_line_.getMultiplier());
         time_line_.update();
-        
+
         handleInputBuffers(delta_mouse_pos - sf::Mouse::getPosition());
         delta_mouse_pos = sf::Mouse::getPosition();
 
@@ -117,6 +117,7 @@ void Application::drawGUI()
             }
             if (ImGui::MenuItem("Save"))
             {
+                data_.saveMap("test", map_.grid_);
             }
             ImGui::EndMenu();
         }
@@ -167,7 +168,6 @@ void Application::handleInputBuffers(const sf::Vector2i &delta_mp)
         else
             window_.moveView(delta_mp);
     }
-
 }
 
 void Application::close()

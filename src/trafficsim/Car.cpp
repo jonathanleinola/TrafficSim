@@ -14,7 +14,6 @@ Car::Car(const std::shared_ptr<Node> &pos, const std::shared_ptr<Node> &dest, co
 {
     Rando r(Textures_.size());
     int r_i = r.uniroll();
-    std::cout << r_i << std::endl;
     shape_.setTexture(Textures_.at(r_i-1));
     shape_.setOrigin({shape_.getSize().x / 2, shape_.getSize().y / 2});
     shape_.setPosition(pos_->getPos());
@@ -31,7 +30,7 @@ void Car::AddTexture(const sf::Texture *carTexture)
     Textures_.push_back(carTexture);
 }
 
-void Car::update(float deltatime, const std::vector<std::unique_ptr<Car>> &cars, const std::vector<std::unique_ptr<TrafficLightHandler>> &light_handlers)
+void Car::update(const sf::Time &game_time, float deltatime, const std::vector<std::unique_ptr<Car>> &cars, const std::vector<std::unique_ptr<TrafficLightHandler>> &light_handlers)
 {
     if (route_.size() < 1)
     {
@@ -42,8 +41,10 @@ void Car::update(float deltatime, const std::vector<std::unique_ptr<Car>> &cars,
     float delta_step = deltatime * speed_;
     if (VectorMath::Distance(shape_.getPosition(), route_.front()->getPos()) < delta_step)
     {
+        // Increment node cars_passed counter
+        prev_->incrementCounter(game_time);
         shape_.setPosition(route_.front()->getPos());
-        prev_ = std::make_shared<Node>(*route_.front());
+        prev_ = route_.front();
         route_.pop_front();
         if (route_.size() < 1)
         {

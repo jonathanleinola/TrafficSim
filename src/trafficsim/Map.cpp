@@ -15,17 +15,15 @@ Map::Map()
 {
 }
 
-void Map::update(float game_time)
+void Map::update(const sf::Time &game_time, float delta_time)
 {
     // Move cars, and other things which are dependent on time
     //cars, humans, trafficlights
     if(!simulating_)
         return;
-    double delta_time = game_time - game_time_.asSeconds();
-    game_time_ = sf::seconds(game_time);
 
     for (auto &car : cars_)
-        car->update(delta_time, cars_, light_handlers_);
+        car->update(game_time, delta_time, cars_, light_handlers_);
     removeFinishedCars();
 
     for (auto &light_handler : light_handlers_)
@@ -56,7 +54,7 @@ void Map::addLight(TrafficLight *light, unsigned int handler_id)
 
 void Map::newLightHandler(TrafficLight *light)
 {
-    if (light_handlers_.at(light_handlers_.size() - 1)->getLightCount() < 0)
+    if (light_handlers_.at(light_handlers_.size() - 1)->getLightCount() < 1)
     {
         current_handler_id_ = light_handlers_.size() - 1;
     }
@@ -121,4 +119,4 @@ void Map::draw(sf::RenderTarget &target, sf::RenderStates states) const
             target.draw(*light_handler, states);
     }
 }
-}; // namespace TrafficSim
+} // namespace TrafficSim

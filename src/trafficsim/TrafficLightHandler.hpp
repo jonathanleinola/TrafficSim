@@ -15,7 +15,7 @@ public:
     TrafficLightHandler(unsigned int handler_id);
 
     // return Traffic Light count in this handler
-    unsigned int getLightCount() const { return lights_.size(); }
+    std::size_t getLightCount() const { return lights_.size(); }
     // Returns all the lights in this handler
     const std::vector<TrafficLight *> &getLights() const { return lights_; }
 
