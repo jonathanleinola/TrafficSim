@@ -15,6 +15,7 @@ enum TileType
     IntersectionType,
     TrisectionType,
     JunctionType,
+    HomeRoadType,
 
     // Keep this as last
     Empty,

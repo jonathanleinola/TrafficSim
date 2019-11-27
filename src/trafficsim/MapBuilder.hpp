@@ -10,6 +10,7 @@
 #include "RoadJunction.hpp"
 #include "TrafficLight.hpp"
 #include "core/Window.hpp"
+#include "HomeRoad.hpp"
 
 namespace TrafficSim
 {
