@@ -43,8 +43,8 @@ private:
     Map map_;
     MapBuilder builder_;
     TimeLine time_line_;
-    Statistics statistics_;
     DataHandler data_;
+    Statistics statistics_;
     State app_state_ = Editing;
 
     // Input buffers

@@ -9,9 +9,9 @@ class RoadIntersection : public RoadTile
 {
 public:
     RoadIntersection(const Tile &tile);
+    virtual RoadType getType() const { return RoadType::IntersectionType; }
 
     virtual void flip();
-    virtual TileType getType() const { return TileType::IntersectionType; }
     virtual void connect(std::array<Tile *, 4> &neighbors);
 
     virtual bool connectableFrom(NeighborIndex n_index) const;

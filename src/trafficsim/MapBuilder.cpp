@@ -28,14 +28,14 @@ const char *editing_mode(EditingOption mode)
         "Add building"}[mode];
 }
 
-const char *building_type_name(TileType type)
+const char *building_type_name(BuildingType type)
 {
     return (const char *[]){
         "Home Building",
         "Office Building"}[type];
 }
 
-const char *road_type_name(TileType type)
+const char *road_type_name(RoadType type)
 {
     return (const char *[]){
         "Straight Road",
@@ -43,7 +43,10 @@ const char *road_type_name(TileType type)
         "Intersection",
         "Trisection",
         "Road Junction",
-        "Home Road"}[type];
+        "Home Road",
+
+        //Keep last
+        "Place holder"}[type];
 }
 
 void MapBuilder::drawGUI()
@@ -65,9 +68,9 @@ void MapBuilder::drawGUI()
     if (editing_option_ == EditingOption::AddRoad)
     {
         ImGui::Text("Road type selected:");
-        for (int i = 0; i != TileType::Empty; i++)
+        for (int i = 0; i < RoadType::TypeCount; i++)
         {
-            TileType road_type = static_cast<TileType>(i);
+            RoadType road_type = static_cast<RoadType>(i);
             if (ImGui::RadioButton(road_type_name(road_type), road_option_ == road_type))
                 road_option_ = road_type;
         }
@@ -76,17 +79,19 @@ void MapBuilder::drawGUI()
     ImGui::End();
 
     // Left-click option menu
-    if (selected_tile_index_ != UINT_MAX && map_.grid_.getTile(selected_tile_index_)->getType() != TileType::Empty)
+    if (selected_tile_index_ != UINT_MAX && map_.grid_.getTile(selected_tile_index_)->getCategory() == TileCategory::RoadCategory)
     {
+        auto road_tile = static_cast<RoadTile *>(map_.grid_.getTile(selected_tile_index_));
         ImGui::SetNextWindowPos(select_menu_pos_);
         ImGui::Begin("Tile Editor");
         sf::Vector2i another_pos(select_menu_pos_.x, select_menu_pos_.y + ImGui::GetWindowHeight());
         ImGui::BeginColumns("", 2);
-        for (int i = 0; i != TileType::Empty; i++)
+        RoadType selected_roadtype = road_tile->getType();
+        for (int i = 0; i < RoadType::TypeCount; i++)
         {
-            TileType road_type = static_cast<TileType>(i);
-            if (ImGui::RadioButton(road_type_name(road_type), map_.grid_.getTile(selected_tile_index_)->getType() == road_type))
-                addRoad(map_.grid_.getTile(selected_tile_index_)->getCenter(), road_type);
+            RoadType road_type = static_cast<RoadType>(i);
+            if (ImGui::RadioButton(road_type_name(road_type), selected_roadtype == road_type))
+                addRoad(road_tile->getCenter(), road_type);
         }
         ImGui::NextColumn();
         if (ImGui::Button("Rotate"))
@@ -98,7 +103,6 @@ void MapBuilder::drawGUI()
         // Traffic light editor
         ImGui::EndColumns();
         ImGui::End();
-        RoadTile *road_tile = dynamic_cast<RoadTile *>(map_.grid_.getTile(selected_tile_index_));
         ImGui::SetNextWindowPos(another_pos);
         ImGui::Begin("Traffic Light editor");
         if (road_tile && road_tile->getLight())
@@ -122,11 +126,19 @@ void MapBuilder::drawGUI()
     }
 }
 
-void MapBuilder::addRoad(const sf::Vector2f &pos, TileType type)
+void MapBuilder::addRoad(const sf::Vector2f &pos, RoadType type)
 {
     auto tile = map_.grid_.getTile(pos);
-    if (!tile || tile->getType() == type)
+    if (!tile)
         return;
+
+    // To check if there is already same type of road already.
+    if (tile->getCategory() == RoadCategory)
+    {
+        auto road_tile = static_cast<RoadTile *>(tile);
+        if (road_tile->getType() == type)
+            return;
+    }
 
     std::unique_ptr<Tile> road_tile;
     switch (type)
@@ -152,7 +164,8 @@ void MapBuilder::addRoad(const sf::Vector2f &pos, TileType type)
     default:
         break;
     }
-    if (tile->getType() != Empty)
+    // If there is road already a road we need to check if it has traffic light and then we need to remove it if yes
+    if (tile->getCategory() == TileCategory::RoadCategory)
     {
         RoadTile *temp = static_cast<RoadTile *>(tile);
         if (temp->getLight())
@@ -176,10 +189,10 @@ void MapBuilder::slideAdd(const sf::Vector2f &pos)
         return;
     if (last_tile_index_ != UINT_MAX)
     {
-        if (!map_.grid_.getTile(hovered_tile_index_) || map_.grid_.getTile(hovered_tile_index_)->getType() != Empty)
+        if (!map_.grid_.getTile(hovered_tile_index_) || map_.grid_.getTile(hovered_tile_index_)->getCategory() == RoadCategory)
             return;
         auto last_tile = map_.grid_.getTile(last_tile_index_);
-        if (last_tile && last_tile->getType() != Empty)
+        if (last_tile && last_tile->getCategory() == RoadCategory)
         {
             auto last_road = static_cast<RoadTile *>(last_tile);
             auto neighbors = map_.grid_.getNeigborTiles(last_tile_index_);
@@ -240,8 +253,10 @@ void MapBuilder::slideAdd(const sf::Vector2f &pos)
 void MapBuilder::addTrafficLight(const sf::Vector2f &pos)
 {
     auto tile = map_.grid_.getTile(pos);
-    if (!tile || tile->getType() != StraightRoadType)
-        return;
+    // Traffic light only can be on staright road type
+    if (!tile || tile->getCategory() == RoadCategory)
+        if(static_cast<RoadTile*>(tile)->getType() != RoadType::StraightRoadType)
+            return;
 
     RoadTile *road = static_cast<RoadTile *>(tile);
     if (road->getLight())
@@ -253,7 +268,7 @@ void MapBuilder::addTrafficLight(const sf::Vector2f &pos)
 void MapBuilder::removeRoad(const sf::Vector2f &pos)
 {
     auto tile = map_.grid_.getTile(pos);
-    if (!tile || tile->getType() == TileType::Empty)
+    if (!tile || tile->getCategory() != TileCategory::RoadCategory)
         return;
     RoadTile *road = static_cast<RoadTile *>(tile);
     if (road->getLight())
@@ -267,7 +282,7 @@ void MapBuilder::removeRoad(const sf::Vector2f &pos)
 void MapBuilder::rotateRoad(const sf::Vector2f &pos)
 {
     auto tile = map_.grid_.getTile(pos);
-    if (!tile || tile->getType() == TileType::Empty)
+    if (!tile || tile->getCategory() != TileCategory::RoadCategory)
         return;
 
     RoadTile *road_tile = static_cast<RoadTile *>(tile);
@@ -278,7 +293,7 @@ void MapBuilder::rotateRoad(const sf::Vector2f &pos)
 void MapBuilder::flipRoad(const sf::Vector2f &pos)
 {
     auto tile = map_.grid_.getTile(pos);
-    if (!tile || tile->getType() == TileType::Empty)
+    if (!tile || tile->getCategory() != TileCategory::RoadCategory)
         return;
 
     RoadTile *road_tile = static_cast<RoadTile *>(tile);
@@ -289,7 +304,7 @@ void MapBuilder::flipRoad(const sf::Vector2f &pos)
 void MapBuilder::connectRoad(Tile *tile)
 {
     // TODO - Do we need to disconnect empty tiles when clearing?
-    if (tile && tile->getType() != TileType::Empty)
+    if (tile && tile->getCategory() == TileCategory::RoadCategory)
     {
         tile->getNode()->disconnectAll();
         RoadTile *road_tile = static_cast<RoadTile *>(tile);
@@ -310,7 +325,8 @@ void MapBuilder::connectRoads()
 void MapBuilder::changeLightHandler(const sf::Vector2f &pos)
 {
     auto tile = map_.grid_.getTile(pos);
-    if (!tile || tile->getType() == TileType::Empty)
+    if (!tile || tile->getCategory() == TileCategory::RoadCategory)
+        if(static_cast<RoadTile*>(tile)->getType() == RoadType::StraightRoadType)
         return;
     RoadTile *new_light_tile = static_cast<RoadTile *>(tile);
     TrafficLight *new_light = new_light_tile->getLight();
@@ -367,7 +383,7 @@ void MapBuilder::setBuildingMode(bool val)
         return;
     building_mode_ = val;
     editing_option_ = Inspect;
-    road_option_ = TileType::StraightRoadType;
+    road_option_ = RoadType::StraightRoadType;
     selected_tile_index_ = UINT_MAX;
     hovered_tile_index_ = UINT_MAX;
     selected_light_ = nullptr;
@@ -428,7 +444,7 @@ void MapBuilder::handleInput(const sf::Event &ev)
             hovered_tile_index_ = new_tile->getTileIndex();
         }
     }
-    else if(ev.type == sf::Event::MouseButtonReleased)
+    else if (ev.type == sf::Event::MouseButtonReleased)
     {
         last_tile_index_ = UINT_MAX;
     }
