@@ -19,7 +19,7 @@ Window::Window()
     window_.resetGLStates();
     ImGui::SFML::Update(window_, clock_.restart());
     ImGui::SFML::Render(window_);
-    ImGui::GetFont()->Scale = 3.0f;
+    ImGui::GetFont()->Scale = 2.0f;
 }
 
 bool Window::isGuiHovered() const
