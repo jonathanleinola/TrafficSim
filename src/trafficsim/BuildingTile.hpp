@@ -11,6 +11,11 @@
 namespace TrafficSim
 {
 
+enum BuildingType
+{
+    HomeBuildingType = 0,
+    OfficeBildingType,
+};
 
 class BuildingTile : public Tile
 {
