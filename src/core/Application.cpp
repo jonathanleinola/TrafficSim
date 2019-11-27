@@ -27,18 +27,18 @@ Application::Application()
 {
     AppInstance = this;
     data_.loadTexturesFromFile("texture_list.txt");
-    StraightRoad::SetTexture(data_.getTextrue("straight_road"));
-    RoadTurn::SetTextures(data_.getTextrue("right_turn"), data_.getTextrue("left_turn"));
-    RoadIntersection::SetTextures(data_.getTextrue("right_intersection"), data_.getTextrue("left_intersection"));
-    RoadTrisection::SetTextures(data_.getTextrue("right_trisection"), data_.getTextrue("left_trisection"));
-    RoadJunction::SetTextures(data_.getTextrue("right_junction"), data_.getTextrue("left_junction"));
-    Car::AddTexture(data_.getTextrue("blue_car"));
-    Car::AddTexture(data_.getTextrue("brown_car"));
-    Car::AddTexture(data_.getTextrue("green_car"));
-    Car::AddTexture(data_.getTextrue("grey_car"));
-    Car::AddTexture(data_.getTextrue("white_car"));
-    Car::AddTexture(data_.getTextrue("red_car"));
-    Car::AddTexture(data_.getTextrue("teal_car"));
+    StraightRoad::SetTexture(data_.getTexture("straight_road"));
+    RoadTurn::SetTextures(data_.getTexture("right_turn"), data_.getTexture("left_turn"));
+    RoadIntersection::SetTextures(data_.getTexture("right_intersection"), data_.getTexture("left_intersection"));
+    RoadTrisection::SetTextures(data_.getTexture("right_trisection"), data_.getTexture("left_trisection"));
+    RoadJunction::SetTextures(data_.getTexture("right_junction"), data_.getTexture("left_junction"));
+    Car::AddTexture(data_.getTexture("blue_car"));
+    Car::AddTexture(data_.getTexture("brown_car"));
+    Car::AddTexture(data_.getTexture("green_car"));
+    Car::AddTexture(data_.getTexture("grey_car"));
+    Car::AddTexture(data_.getTexture("white_car"));
+    Car::AddTexture(data_.getTexture("red_car"));
+    Car::AddTexture(data_.getTexture("teal_car"));
 }
 
 void Application::run()

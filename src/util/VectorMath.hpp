@@ -26,7 +26,7 @@ public:
 
     static sf::Vector2f Rotate(const sf::Vector2f &v, float angle);
 
-    // returns float t. If 0 <= t <= 1 there is intersection between two lines specified with points v1, v2 and v3,v3
+    // returns float t. If 0 <= t <= 1 there is intersection between two lines specified with points v1, v2 and v3,v4
     static float IntersectionPoint(const sf::Vector2f &v1, const sf::Vector2f &v2, const sf::Vector2f &v3, const sf::Vector2f &v4);
 };
 } // namespace TrafficSim
