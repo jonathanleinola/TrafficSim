@@ -29,6 +29,7 @@ Application::Application()
     AppInstance = this;
     data_.loadTexturesFromFile("texture_list.txt");
     StraightRoad::SetTexture(data_.getTexture("straight_road"));
+    HomeRoad::SetTexture(data_.getTexture("home_road"));
     RoadTurn::SetTextures(data_.getTexture("right_turn"), data_.getTexture("left_turn"));
     RoadIntersection::SetTextures(data_.getTexture("right_intersection"), data_.getTexture("left_intersection"));
     RoadTrisection::SetTextures(data_.getTexture("right_trisection"), data_.getTexture("left_trisection"));

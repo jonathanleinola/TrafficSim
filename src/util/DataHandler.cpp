@@ -46,11 +46,12 @@ void DataHandler::saveMap(const char *file_name, Grid &grid) const
     //if(!fp)
     //    return 0;
 
+    // TODO save left and right turns and dtraffic lights
     for(unsigned int i=0;i<grid.getSideCount()*grid.getSideCount();i++)
     {   
 
         //std::cout << pos.x <<" "<< pos.y << std::endl;
-        if(grid.getTile(i)->getType()!=5)
+        if(grid.getTile(i)->getType()!= TileType::Empty)
         {
             
             RoadTile *road = static_cast<RoadTile *>(grid.getTile(i));

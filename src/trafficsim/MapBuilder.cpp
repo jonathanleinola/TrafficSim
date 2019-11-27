@@ -24,7 +24,15 @@ const char *editing_mode(EditingOption mode)
         "Remove",
         "Rotate",
         "Flip",
-        "Add light"}[mode];
+        "Add light",
+        "Add building"}[mode];
+}
+
+const char *building_type_name(TileType type)
+{
+    return (const char *[]){
+        "Home Building",
+        "Office Building"}[type];
 }
 
 const char *road_type_name(TileType type)

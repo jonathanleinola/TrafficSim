@@ -8,16 +8,10 @@
 namespace TrafficSim
 {
 
-enum TileType
+enum TileCategory
 {
-    StraightRoadType = 0,
-    RoadTurnType,
-    IntersectionType,
-    TrisectionType,
-    JunctionType,
-    HomeRoadType,
-
-    // Keep this as last
+    RoadCategory,
+    BuildingCategory,
     Empty,
 };
 

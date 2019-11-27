@@ -29,6 +29,16 @@ namespace TrafficSim
 *   connectableFrom()
 *   canConnectTo()
 */
+enum RoadType
+{
+    StraightRoadType = 0,
+    RoadTurnType,
+    IntersectionType,
+    TrisectionType,
+    JunctionType,
+    HomeRoadType,
+
+};
 
 class RoadTile : public Tile
 {
