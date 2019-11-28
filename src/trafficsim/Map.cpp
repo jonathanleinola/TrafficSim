@@ -54,7 +54,7 @@ void Map::addLight(TrafficLight *light, unsigned int handler_id)
 
 void Map::newLightHandler(TrafficLight *light)
 {
-    if (light_handlers_.at(light_handlers_.size() - 1)->getLightCount() < 1)
+    if (light_handlers_.size() > 1 && light_handlers_.at(light_handlers_.size() - 1)->getLightCount() < 1)
     {
         current_handler_id_ = light_handlers_.size() - 1;
     }
@@ -63,9 +63,12 @@ void Map::newLightHandler(TrafficLight *light)
         light_handlers_.push_back(std::make_unique<TrafficLightHandler>(light_handlers_.size()));
         current_handler_id_ = light_handlers_.size() - 1;
     }
-    light_handlers_.at(light->getHandlerId())->removeLight(light, light->getPos());
-    light->setHandlerId(current_handler_id_);
-    light_handlers_.at(current_handler_id_)->addLight(light);
+    if (light)
+    {
+        light_handlers_.at(light->getHandlerId())->removeLight(light, light->getPos());
+        light->setHandlerId(current_handler_id_);
+        light_handlers_.at(current_handler_id_)->addLight(light);
+    }
 }
 
 void Map::removeLight(TrafficLight *light)

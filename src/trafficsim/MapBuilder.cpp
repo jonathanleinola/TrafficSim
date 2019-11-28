@@ -21,18 +21,21 @@ const char *editing_mode(EditingOption mode)
     return (const char *[]){
         "Inspect",
         "Add road",
+        "Add template",
         "Remove",
         "Rotate",
         "Flip",
         "Add light",
-        "Add building"}[mode];
+        "Add building",
+    }[mode];
 }
 
 const char *building_type_name(BuildingType type)
 {
     return (const char *[]){
         "Home Building",
-        "Office Building"}[type];
+        "Office Building",
+    }[type];
 }
 
 const char *road_type_name(RoadType type)
@@ -44,9 +47,14 @@ const char *road_type_name(RoadType type)
         "Trisection",
         "Road Junction",
         "Home Road",
+    }[type];
+}
 
-        //Keep last
-        "Place holder"}[type];
+const char *template_type_name(TemplateType type)
+{
+    return (const char *[]){
+        "Cross Intersection",
+    }[type];
 }
 
 void MapBuilder::drawGUI()
@@ -65,14 +73,25 @@ void MapBuilder::drawGUI()
 
     // Choose road type to add
     ImGui::BeginChild("Road type", ImVec2(0, 0), true);
+
     if (editing_option_ == EditingOption::AddRoad)
     {
         ImGui::Text("Road type selected:");
-        for (int i = 0; i < RoadType::TypeCount; i++)
+        for (int i = 0; i < RoadType::RoadTypeCount; i++)
         {
             RoadType road_type = static_cast<RoadType>(i);
             if (ImGui::RadioButton(road_type_name(road_type), road_option_ == road_type))
                 road_option_ = road_type;
+        }
+    }
+    else if (editing_option_ == EditingOption::AddTemplate)
+    {
+        ImGui::Text("Template selected:");
+        for (int i = 0; i < TemplateType::TemplateTypeCount; i++)
+        {
+            TemplateType template_type = static_cast<TemplateType>(i);
+            if (ImGui::RadioButton(template_type_name(template_option_), template_option_ == template_type))
+                template_option_ = template_type;
         }
     }
     ImGui::EndChild();
@@ -87,7 +106,7 @@ void MapBuilder::drawGUI()
         sf::Vector2i another_pos(select_menu_pos_.x, select_menu_pos_.y + ImGui::GetWindowHeight());
         ImGui::BeginColumns("", 2);
         RoadType selected_roadtype = road_tile->getType();
-        for (int i = 0; i < RoadType::TypeCount; i++)
+        for (int i = 0; i < RoadType::RoadTypeCount; i++)
         {
             RoadType road_type = static_cast<RoadType>(i);
             if (ImGui::RadioButton(road_type_name(road_type), selected_roadtype == road_type))
@@ -126,7 +145,7 @@ void MapBuilder::drawGUI()
     }
 }
 
-void MapBuilder::addRoad(const sf::Vector2f &pos, RoadType type)
+void MapBuilder::addRoad(const sf::Vector2f &pos, RoadType type, bool autorotate)
 {
     auto tile = map_.grid_.getTile(pos);
     if (!tile)
@@ -176,7 +195,8 @@ void MapBuilder::addRoad(const sf::Vector2f &pos, RoadType type)
     }
     RoadTile *r = static_cast<RoadTile *>(road_tile.get());
     auto arr = map_.grid_.getNeigborTiles(tile->getTileIndex());
-    r->autoRotate(arr);
+    if (autorotate)
+        r->autoRotate(arr);
 
     map_.grid_.swapTile(road_tile);
     connectRoads();
@@ -250,9 +270,9 @@ void MapBuilder::slideAction(const sf::Vector2f &pos)
         }
         addRoad(pos, StraightRoadType);
     }
-    else if(editing_option_ == EditingOption::Remove)
+    else if (editing_option_ == EditingOption::Remove)
     {
-        if(map_.grid_.getTile(hovered_tile_index_) && map_.grid_.getTile(hovered_tile_index_)->getCategory() == TileCategory::RoadCategory)
+        if (map_.grid_.getTile(hovered_tile_index_) && map_.grid_.getTile(hovered_tile_index_)->getCategory() == TileCategory::RoadCategory)
         {
             removeRoad(map_.grid_.getTile(hovered_tile_index_)->getCenter());
         }
@@ -274,6 +294,46 @@ void MapBuilder::addTrafficLight(const sf::Vector2f &pos)
         return;
     road->addLight(map_.getCurrentHandlerId());
     map_.addLight(road->getLight());
+}
+
+void MapBuilder::addTemplate(const sf::Vector2f &pos)
+{
+    auto tile = map_.grid_.getTile(pos);
+    if (!tile)
+        return;
+    if (template_option_ == TemplateType::CrossIntersectionType)
+    {
+        CrossIntersection c;
+        if (c.CanPlace(tile->getTileIndex(), map_.grid_.getSideCount()))
+        {
+            map_.newLightHandler();
+            auto tiles_to_add = c.GetTiles(tile->getTileIndex(), map_.grid_.getSideCount());
+            for (auto tile_info : tiles_to_add)
+            {
+                addRoad(map_.grid_.getTile(tile_info.index)->getCenter(), tile_info.type, false);
+                RoadTile *road_tile = static_cast<RoadTile *>(map_.grid_.getTile(tile_info.index));
+                if (tile_info.dir.x == -1)
+                {
+                    rotateRoad(road_tile->getCenter());
+                    rotateRoad(road_tile->getCenter());
+                }
+                else if (tile_info.dir.y == 1)
+                {
+                    rotateRoad(road_tile->getCenter());
+                    rotateRoad(road_tile->getCenter());
+                    rotateRoad(road_tile->getCenter());
+                }
+                else if (tile_info.dir.y == -1)
+                {
+                    rotateRoad(road_tile->getCenter());
+                }
+                if (tile_info.flipped)
+                    road_tile->flip();
+                if (tile_info.hasLight)
+                    addTrafficLight(road_tile->getCenter());
+            }
+        }
+    }
 }
 
 void MapBuilder::removeRoad(const sf::Vector2f &pos)
@@ -367,6 +427,7 @@ void MapBuilder::selectTile(const sf::Vector2f &pos)
         unSelectTile();
         return;
     }
+
     if (new_tile->getTileIndex() == selected_tile_index_)
     {
         new_tile->unSelectTile();
@@ -418,6 +479,9 @@ void MapBuilder::handleInput(const sf::Event &ev)
             case AddRoad:
                 addRoad(pos, road_option_);
                 break;
+            case AddTemplate:
+                addTemplate(pos);
+                break;
             case Remove:
                 removeRoad(pos);
                 break;
@@ -446,13 +510,36 @@ void MapBuilder::handleInput(const sf::Event &ev)
         auto new_tile = map_.grid_.getTile(pos);
         if (!new_tile)
             return;
-        if (selected_tile_index_ != new_tile->getTileIndex())
+        if(hovered_tile_index_ == new_tile->getTileIndex())
+            return;
+        hovered_tile_index_ = new_tile->getTileIndex();
+        for (auto it = hovered_tile_indices_.begin(); it != hovered_tile_indices_.end(); ++it)
         {
-            if (hovered_tile_index_ != UINT_MAX)
-                if (hovered_tile_index_ != selected_tile_index_)
-                    map_.grid_.getTile(hovered_tile_index_)->unSelectTile();
+            if (map_.grid_.getTile(*it))
+                map_.grid_.getTile(*it)->unSelectTile();
+        }
+        hovered_tile_indices_.clear();
+        if (editing_option_ == EditingOption::AddTemplate)
+        {
+            if (template_option_ == TemplateType::CrossIntersectionType)
+            {
+                CrossIntersection c;
+                auto vec = c.GetTiles(new_tile->getTileIndex(), map_.grid_.getSideCount());
+                hovered_tile_indices_.reserve(vec.size());
+                for (auto tile_info : vec)
+                {
+                    if (map_.grid_.getTile(tile_info.index))
+                    {
+                        map_.grid_.getTile(tile_info.index)->hoverTile();
+                        hovered_tile_indices_.emplace_back(tile_info.index);
+                    }
+                }
+            }
+        }
+        else
+        {
             new_tile->hoverTile();
-            hovered_tile_index_ = new_tile->getTileIndex();
+            hovered_tile_indices_.emplace_back(new_tile->getTileIndex());
         }
     }
     else if (ev.type == sf::Event::MouseButtonReleased)
@@ -460,5 +547,4 @@ void MapBuilder::handleInput(const sf::Event &ev)
         last_tile_index_ = UINT_MAX;
     }
 }
-
 } // namespace TrafficSim

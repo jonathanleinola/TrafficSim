@@ -39,7 +39,7 @@ enum RoadType
     HomeRoadType,
 
     // Keep as last
-    TypeCount,
+    RoadTypeCount,
 };
 
 class RoadTile : public Tile
