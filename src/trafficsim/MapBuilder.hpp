@@ -49,7 +49,7 @@ public:
     // Adds a road
     void addRoad(const sf::Vector2f &pos, RoadType type);
     // When Left Control and left mousebutton pressed this gets called
-    void slideAdd(const sf::Vector2f &pos);
+    void slideAction(const sf::Vector2f &pos);
 
     // Rotates roads 90 degrees clockwise
     void rotateRoad(const sf::Vector2f &pos);
@@ -69,7 +69,7 @@ private:
     unsigned int selected_tile_index_ = UINT_MAX;
     // Stores highlighted tile, which is under mouse
     unsigned int hovered_tile_index_ = UINT_MAX;
-    // Stores index of last added tile for slideAdd()
+    // Stores index of last added tile for slideAction()
     unsigned int last_tile_index_ = UINT_MAX;
     // Stores light which if highlighted tile has one
     TrafficLight *selected_light_ = nullptr;

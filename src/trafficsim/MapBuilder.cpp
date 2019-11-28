@@ -182,71 +182,82 @@ void MapBuilder::addRoad(const sf::Vector2f &pos, RoadType type)
     connectRoads();
 }
 
-void MapBuilder::slideAdd(const sf::Vector2f &pos)
+void MapBuilder::slideAction(const sf::Vector2f &pos)
 {
     selected_tile_index_ = UINT_MAX;
     if (hovered_tile_index_ == last_tile_index_)
         return;
-    if (last_tile_index_ != UINT_MAX)
+    if (editing_option_ == EditingOption::AddRoad)
     {
-        if (!map_.grid_.getTile(hovered_tile_index_) || map_.grid_.getTile(hovered_tile_index_)->getCategory() == RoadCategory)
-            return;
-        auto last_tile = map_.grid_.getTile(last_tile_index_);
-        if (last_tile && last_tile->getCategory() == RoadCategory)
+        if (last_tile_index_ != UINT_MAX)
         {
-            auto last_road = static_cast<RoadTile *>(last_tile);
-            auto neighbors = map_.grid_.getNeigborTiles(last_tile_index_);
-            if (last_road->getDir().x == 1)
+            if (!map_.grid_.getTile(hovered_tile_index_) || map_.grid_.getTile(hovered_tile_index_)->getCategory() == RoadCategory)
+                return;
+            auto last_tile = map_.grid_.getTile(last_tile_index_);
+            if (last_tile && last_tile->getCategory() == RoadCategory)
             {
-                if (neighbors[RIGHT] && neighbors[RIGHT]->getTileIndex() != hovered_tile_index_)
+                auto last_road = static_cast<RoadTile *>(last_tile);
+                auto neighbors = map_.grid_.getNeigborTiles(last_tile_index_);
+                if (last_road->getDir().x == 1)
                 {
-                    addRoad(last_tile->getCenter(), RoadTurnType);
-                    if (last_tile_index_ - hovered_tile_index_ == map_.grid_.getSideCount())
+                    if (neighbors[RIGHT] && neighbors[RIGHT]->getTileIndex() != hovered_tile_index_)
                     {
-                        auto new_road = static_cast<RoadTile *>(map_.grid_.getTile(last_tile_index_));
-                        new_road->flip();
+                        addRoad(last_tile->getCenter(), RoadTurnType);
+                        if (last_tile_index_ - hovered_tile_index_ == map_.grid_.getSideCount())
+                        {
+                            auto new_road = static_cast<RoadTile *>(map_.grid_.getTile(last_tile_index_));
+                            new_road->flip();
+                        }
                     }
                 }
-            }
-            else if (last_road->getDir().x == -1)
-            {
-                if (neighbors[LEFT] && neighbors[LEFT]->getTileIndex() != hovered_tile_index_)
+                else if (last_road->getDir().x == -1)
                 {
-                    addRoad(last_tile->getCenter(), RoadTurnType);
-                    if (hovered_tile_index_ - last_tile_index_ == map_.grid_.getSideCount())
+                    if (neighbors[LEFT] && neighbors[LEFT]->getTileIndex() != hovered_tile_index_)
                     {
-                        auto new_road = static_cast<RoadTile *>(map_.grid_.getTile(last_tile_index_));
-                        new_road->flip();
+                        addRoad(last_tile->getCenter(), RoadTurnType);
+                        if (hovered_tile_index_ - last_tile_index_ == map_.grid_.getSideCount())
+                        {
+                            auto new_road = static_cast<RoadTile *>(map_.grid_.getTile(last_tile_index_));
+                            new_road->flip();
+                        }
                     }
                 }
-            }
-            else if (last_road->getDir().y == 1)
-            {
-                if (neighbors[UP] && neighbors[UP]->getTileIndex() != hovered_tile_index_)
+                else if (last_road->getDir().y == 1)
                 {
-                    addRoad(last_tile->getCenter(), RoadTurnType);
-                    if (last_tile_index_ - hovered_tile_index_ == 1)
+                    if (neighbors[UP] && neighbors[UP]->getTileIndex() != hovered_tile_index_)
                     {
-                        auto new_road = static_cast<RoadTile *>(map_.grid_.getTile(last_tile_index_));
-                        new_road->flip();
+                        addRoad(last_tile->getCenter(), RoadTurnType);
+                        if (last_tile_index_ - hovered_tile_index_ == 1)
+                        {
+                            auto new_road = static_cast<RoadTile *>(map_.grid_.getTile(last_tile_index_));
+                            new_road->flip();
+                        }
                     }
                 }
-            }
-            else if (last_road->getDir().y == -1)
-            {
-                if (neighbors[DOWN] && neighbors[DOWN]->getTileIndex() != hovered_tile_index_)
+                else if (last_road->getDir().y == -1)
                 {
-                    addRoad(last_tile->getCenter(), RoadTurnType);
-                    if (hovered_tile_index_ - last_tile_index_ == 1)
+                    if (neighbors[DOWN] && neighbors[DOWN]->getTileIndex() != hovered_tile_index_)
                     {
-                        auto new_road = static_cast<RoadTile *>(map_.grid_.getTile(last_tile_index_));
-                        new_road->flip();
+                        addRoad(last_tile->getCenter(), RoadTurnType);
+                        if (hovered_tile_index_ - last_tile_index_ == 1)
+                        {
+                            auto new_road = static_cast<RoadTile *>(map_.grid_.getTile(last_tile_index_));
+                            new_road->flip();
+                        }
                     }
                 }
             }
         }
+        addRoad(pos, StraightRoadType);
     }
-    addRoad(pos, StraightRoadType);
+    else if(editing_option_ == EditingOption::Remove)
+    {
+        if(map_.grid_.getTile(hovered_tile_index_) && map_.grid_.getTile(hovered_tile_index_)->getCategory() == TileCategory::RoadCategory)
+        {
+            removeRoad(map_.grid_.getTile(hovered_tile_index_)->getCenter());
+        }
+    }
+
     last_tile_index_ = hovered_tile_index_;
 }
 
@@ -255,7 +266,7 @@ void MapBuilder::addTrafficLight(const sf::Vector2f &pos)
     auto tile = map_.grid_.getTile(pos);
     // Traffic light only can be on staright road type
     if (!tile || tile->getCategory() == RoadCategory)
-        if(static_cast<RoadTile*>(tile)->getType() != RoadType::StraightRoadType)
+        if (static_cast<RoadTile *>(tile)->getType() != RoadType::StraightRoadType)
             return;
 
     RoadTile *road = static_cast<RoadTile *>(tile);
@@ -326,8 +337,8 @@ void MapBuilder::changeLightHandler(const sf::Vector2f &pos)
 {
     auto tile = map_.grid_.getTile(pos);
     if (!tile || tile->getCategory() == TileCategory::RoadCategory)
-        if(static_cast<RoadTile*>(tile)->getType() == RoadType::StraightRoadType)
-        return;
+        if (static_cast<RoadTile *>(tile)->getType() == RoadType::StraightRoadType)
+            return;
     RoadTile *new_light_tile = static_cast<RoadTile *>(tile);
     TrafficLight *new_light = new_light_tile->getLight();
     if (new_light_tile->getLight())

@@ -208,7 +208,7 @@ void Application::handleInputBuffers(const sf::Vector2i &delta_mp)
     {
         // if left control is down add a road if not move map
         if (key_buffer_[sf::Keyboard::LControl] && app_state_ == Editing)
-            builder_.slideAdd(window_.convert(sf::Mouse::getPosition(window_.getWindow())));
+            builder_.slideAction(window_.convert(sf::Mouse::getPosition(window_.getWindow())));
         else
             window_.moveView(delta_mp);
     }
