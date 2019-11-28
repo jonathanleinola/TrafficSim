@@ -54,6 +54,7 @@ const char *template_type_name(TemplateType type)
 {
     return (const char *[]){
         "Cross Intersection",
+        "T-intersection",
     }[type];
 }
 
@@ -90,7 +91,7 @@ void MapBuilder::drawGUI()
         for (int i = 0; i < TemplateType::TemplateTypeCount; i++)
         {
             TemplateType template_type = static_cast<TemplateType>(i);
-            if (ImGui::RadioButton(template_type_name(template_option_), template_option_ == template_type))
+            if (ImGui::RadioButton(template_type_name(template_type), template_option_ == template_type))
                 template_option_ = template_type;
         }
     }
@@ -301,37 +302,34 @@ void MapBuilder::addTemplate(const sf::Vector2f &pos)
     auto tile = map_.grid_.getTile(pos);
     if (!tile)
         return;
-    if (template_option_ == TemplateType::CrossIntersectionType)
+
+    if (IntersectionTemplates::CanPlace(template_option_, tile->getTileIndex(), map_.grid_.getSideCount()))
     {
-        CrossIntersection c;
-        if (c.CanPlace(tile->getTileIndex(), map_.grid_.getSideCount()))
+        map_.newLightHandler();
+        auto tiles_to_add = IntersectionTemplates::GetTiles(template_option_, tile->getTileIndex(), map_.grid_.getSideCount());
+        for (auto tile_info : tiles_to_add)
         {
-            map_.newLightHandler();
-            auto tiles_to_add = c.GetTiles(tile->getTileIndex(), map_.grid_.getSideCount());
-            for (auto tile_info : tiles_to_add)
+            addRoad(map_.grid_.getTile(tile_info.index)->getCenter(), tile_info.type, false);
+            RoadTile *road_tile = static_cast<RoadTile *>(map_.grid_.getTile(tile_info.index));
+            if (tile_info.dir.x == -1)
             {
-                addRoad(map_.grid_.getTile(tile_info.index)->getCenter(), tile_info.type, false);
-                RoadTile *road_tile = static_cast<RoadTile *>(map_.grid_.getTile(tile_info.index));
-                if (tile_info.dir.x == -1)
-                {
-                    rotateRoad(road_tile->getCenter());
-                    rotateRoad(road_tile->getCenter());
-                }
-                else if (tile_info.dir.y == 1)
-                {
-                    rotateRoad(road_tile->getCenter());
-                    rotateRoad(road_tile->getCenter());
-                    rotateRoad(road_tile->getCenter());
-                }
-                else if (tile_info.dir.y == -1)
-                {
-                    rotateRoad(road_tile->getCenter());
-                }
-                if (tile_info.flipped)
-                    road_tile->flip();
-                if (tile_info.hasLight)
-                    addTrafficLight(road_tile->getCenter());
+                rotateRoad(road_tile->getCenter());
+                rotateRoad(road_tile->getCenter());
             }
+            else if (tile_info.dir.y == 1)
+            {
+                rotateRoad(road_tile->getCenter());
+                rotateRoad(road_tile->getCenter());
+                rotateRoad(road_tile->getCenter());
+            }
+            else if (tile_info.dir.y == -1)
+            {
+                rotateRoad(road_tile->getCenter());
+            }
+            if (tile_info.flipped)
+                road_tile->flip();
+            if (tile_info.hasLight)
+                addTrafficLight(road_tile->getCenter());
         }
     }
 }
@@ -510,7 +508,7 @@ void MapBuilder::handleInput(const sf::Event &ev)
         auto new_tile = map_.grid_.getTile(pos);
         if (!new_tile)
             return;
-        if(hovered_tile_index_ == new_tile->getTileIndex())
+        if (hovered_tile_index_ == new_tile->getTileIndex())
             return;
         hovered_tile_index_ = new_tile->getTileIndex();
         for (auto it = hovered_tile_indices_.begin(); it != hovered_tile_indices_.end(); ++it)
@@ -521,18 +519,14 @@ void MapBuilder::handleInput(const sf::Event &ev)
         hovered_tile_indices_.clear();
         if (editing_option_ == EditingOption::AddTemplate)
         {
-            if (template_option_ == TemplateType::CrossIntersectionType)
+            auto vec = IntersectionTemplates::GetTiles(template_option_, new_tile->getTileIndex(), map_.grid_.getSideCount());
+            hovered_tile_indices_.reserve(vec.size());
+            for (auto tile_info : vec)
             {
-                CrossIntersection c;
-                auto vec = c.GetTiles(new_tile->getTileIndex(), map_.grid_.getSideCount());
-                hovered_tile_indices_.reserve(vec.size());
-                for (auto tile_info : vec)
+                if (map_.grid_.getTile(tile_info.index))
                 {
-                    if (map_.grid_.getTile(tile_info.index))
-                    {
-                        map_.grid_.getTile(tile_info.index)->hoverTile();
-                        hovered_tile_indices_.emplace_back(tile_info.index);
-                    }
+                    map_.grid_.getTile(tile_info.index)->hoverTile();
+                    hovered_tile_indices_.emplace_back(tile_info.index);
                 }
             }
         }
