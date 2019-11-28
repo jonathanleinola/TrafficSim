@@ -13,6 +13,7 @@
 #include "BuildingTile.hpp"
 #include "HomeRoad.hpp"
 #include "IntersectionTemplates.hpp"
+#include "BuildingTile.hpp"
 
 namespace TrafficSim
 {
@@ -21,6 +22,7 @@ enum EditingOption
 {
     Inspect = 0,
     AddRoad,
+    AddBuilding,
     AddTemplate,
     Remove,
     Rotate,
@@ -50,6 +52,7 @@ public:
 
     // Adds a road
     void addRoad(const sf::Vector2f &pos, RoadType type, bool autorotate = true);
+    void addBuilding(const sf::Vector2f &pos, BuildingType type);
     // When Left Control and left mousebutton pressed this gets called
     void slideAction(const sf::Vector2f &pos);
 
@@ -65,9 +68,15 @@ private:
     const Window &window_;
     bool building_mode_ = true;
     EditingOption editing_option_ = Inspect;
-    // Stores which road is put down when AddRoad is selected
-    RoadType road_option_ = RoadType::StraightRoadType;
-    TemplateType template_option_ = TemplateType::CrossIntersectionType;
+
+    // This is Magic, dont ask :D
+    union
+    {
+        RoadType road_option_;
+        TemplateType template_option_;
+        BuildingType building_option_;
+    };
+
     // Stores highlighted tile, which was left clicked
     unsigned int selected_tile_index_ = UINT_MAX;
     // Stores highlighted tile, which is under mouse
@@ -79,7 +88,6 @@ private:
     TrafficLight *selected_light_ = nullptr;
     // This stores menu which gets opened when road is selected
     sf::Vector2i select_menu_pos_;
-
 
 private:
     void addTemplate(const sf::Vector2f &pos);

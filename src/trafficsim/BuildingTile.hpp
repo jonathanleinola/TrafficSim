@@ -15,6 +15,9 @@ enum BuildingType
 {
     HomeBuildingType = 0,
     OfficeBildingType,
+
+    // Keep last
+    BuildingTypeCount
 };
 
 class BuildingTile : public Tile

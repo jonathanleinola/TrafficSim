@@ -14,6 +14,7 @@ namespace TrafficSim
 MapBuilder::MapBuilder(Map &map, const Window &window)
     : map_(map), window_(window)
 {
+    road_option_ = RoadType::StraightRoadType;
 }
 
 const char *editing_mode(EditingOption mode)
@@ -21,12 +22,12 @@ const char *editing_mode(EditingOption mode)
     return (const char *[]){
         "Inspect",
         "Add road",
+        "Add building",
         "Add template",
         "Remove",
         "Rotate",
         "Flip",
         "Add light",
-        "Add building",
     }[mode];
 }
 
@@ -74,7 +75,7 @@ void MapBuilder::drawGUI()
 
     // Choose road type to add
     ImGui::BeginChild("Road type", ImVec2(0, 0), true);
-
+    // Road type select
     if (editing_option_ == EditingOption::AddRoad)
     {
         ImGui::Text("Road type selected:");
@@ -85,6 +86,7 @@ void MapBuilder::drawGUI()
                 road_option_ = road_type;
         }
     }
+    // Template type select
     else if (editing_option_ == EditingOption::AddTemplate)
     {
         ImGui::Text("Template selected:");
@@ -93,6 +95,17 @@ void MapBuilder::drawGUI()
             TemplateType template_type = static_cast<TemplateType>(i);
             if (ImGui::RadioButton(template_type_name(template_type), template_option_ == template_type))
                 template_option_ = template_type;
+        }
+    }
+    // Building type select
+    else if (editing_option_ == EditingOption::AddBuilding)
+    {
+        ImGui::Text("Building selected:");
+        for (int i = 0; i < TemplateType::TemplateTypeCount; i++)
+        {
+            BuildingType building_type = static_cast<BuildingType>(i);
+            if (ImGui::RadioButton(building_type_name(building_type), building_option_ == building_type))
+                building_option_ = building_type;
         }
     }
     ImGui::EndChild();
@@ -201,6 +214,11 @@ void MapBuilder::addRoad(const sf::Vector2f &pos, RoadType type, bool autorotate
 
     map_.grid_.swapTile(road_tile);
     connectRoads();
+}
+
+void MapBuilder::addBuilding(const sf::Vector2f &pos, BuildingType type)
+{
+    
 }
 
 void MapBuilder::slideAction(const sf::Vector2f &pos)
@@ -476,6 +494,9 @@ void MapBuilder::handleInput(const sf::Event &ev)
             {
             case AddRoad:
                 addRoad(pos, road_option_);
+                break;
+            case AddBuilding:
+                addBuilding(pos, building_option_);
                 break;
             case AddTemplate:
                 addTemplate(pos);
