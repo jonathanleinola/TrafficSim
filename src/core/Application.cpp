@@ -186,21 +186,40 @@ void Application::handleEvent(const sf::Event &ev)
     {
         if (ev.key.code == sf::Keyboard::Num1 && key_buffer_[sf::Keyboard::LControl])
             ImGui::GetFont()->Scale = 1.f;
-        if (ev.key.code == sf::Keyboard::Num2 && key_buffer_[sf::Keyboard::LControl])
+        else if (ev.key.code == sf::Keyboard::Num2 && key_buffer_[sf::Keyboard::LControl])
             ImGui::GetFont()->Scale = 1.25f;
-        if (ev.key.code == sf::Keyboard::Num3 && key_buffer_[sf::Keyboard::LControl])
+        else if (ev.key.code == sf::Keyboard::Num3 && key_buffer_[sf::Keyboard::LControl])
             ImGui::GetFont()->Scale = 1.5f;
-        if (ev.key.code == sf::Keyboard::Num4 && key_buffer_[sf::Keyboard::LControl])
+        else if (ev.key.code == sf::Keyboard::Num4 && key_buffer_[sf::Keyboard::LControl])
             ImGui::GetFont()->Scale = 2.f;
-        if (ev.key.code == sf::Keyboard::Num5 && key_buffer_[sf::Keyboard::LControl])
+        else if (ev.key.code == sf::Keyboard::Num5 && key_buffer_[sf::Keyboard::LControl])
             ImGui::GetFont()->Scale = 2.5f;
-        if (ev.key.code == sf::Keyboard::Num6 && key_buffer_[sf::Keyboard::LControl])
+        else if (ev.key.code == sf::Keyboard::Num6 && key_buffer_[sf::Keyboard::LControl])
             ImGui::GetFont()->Scale = 3.f;
 
-        if (ev.key.code == sf::Keyboard::S && key_buffer_[sf::Keyboard::LControl])
+        else if (ev.key.code == sf::Keyboard::S && key_buffer_[sf::Keyboard::LControl])
             data_.saveMap("test.ts", map_.grid_);
-        if (ev.key.code == sf::Keyboard::O && key_buffer_[sf::Keyboard::LControl])
+        else if (ev.key.code == sf::Keyboard::O && key_buffer_[sf::Keyboard::LControl])
             data_.loadMap("test.ts", builder_);
+
+        else if (ev.key.code == sf::Keyboard::Up && key_buffer_[sf::Keyboard::LShift])
+        {
+            float zoom_vals[6] = {1.f, 1.25, 1.5f, 2.f, 2.5f, 3.f};
+            if (window_.gui_zoom_index < 5)
+            {
+                window_.gui_zoom_index++;
+                ImGui::GetFont()->Scale = zoom_vals[window_.gui_zoom_index];
+            }
+        }
+        else if (ev.key.code == sf::Keyboard::Down && key_buffer_[sf::Keyboard::LShift])
+        {
+            float zoom_vals[6] = {1.f, 1.25, 1.5f, 2.f, 2.5f, 3.f};
+            if (window_.gui_zoom_index > 0)
+            {
+                window_.gui_zoom_index--;
+                ImGui::GetFont()->Scale = zoom_vals[window_.gui_zoom_index];
+            }
+        }
     }
 }
 
