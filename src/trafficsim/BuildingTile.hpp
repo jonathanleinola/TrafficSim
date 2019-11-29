@@ -27,7 +27,7 @@ public:
 
     virtual BuildingType getType() const = 0;
 
-    // Direction of the road
+    // Direction of the building
     // Up: { 0, 1 }, Right { 1, 0 }, Down { 0, -1 }, Left { -1, 0 }
     const sf::Vector2f &getDir() const { return dir_; }
     bool isFlipped() const { return right_turn_; }
@@ -36,7 +36,7 @@ public:
     void rotate();
     virtual void flip();
 
-    // Auto rotates road if there is neighbor, only RoadTurn has own implementation
+    // Auto rotates building maybe later ..
     virtual void autoRotate(std::array<Tile *, 4> &neighbors);
 
     // Pure virtual functions

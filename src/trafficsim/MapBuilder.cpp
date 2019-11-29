@@ -222,15 +222,6 @@ void MapBuilder::addBuilding(const sf::Vector2f &pos, BuildingType type)
     if (!tile)
         return;
 
-    // To check if there is already same type of road already.
-    /*if (tile->getCategory() == RoadCategory)
-    {
-        auto road_tile = static_cast<RoadTile *>(tile);
-        if (road_tile->getType() == type)
-            return;
-    }
-    */
-
     std::unique_ptr<Tile> building_tile;
     
     switch (type)
@@ -243,22 +234,14 @@ void MapBuilder::addBuilding(const sf::Vector2f &pos, BuildingType type)
          break;
     }
 
-    // If there is road already a road we need to check if it has traffic light and then we need to remove it if yes
-    
     if (tile->getCategory() == TileCategory::BuildingCategory)
     {
         BuildingTile *temp = static_cast<BuildingTile *>(tile);
-       /* if (temp->getLight())
-        {
-            map_.removeLight(temp->getLight());
-            temp->removeLight();
-        }*/
+
     }
     
     BuildingTile *r = static_cast<BuildingTile *>(building_tile.get());
     auto arr = map_.grid_.getNeigborTiles(tile->getTileIndex());
-    //if (autorotate)
-    //    r->autoRotate(arr);
 
     map_.grid_.swapTile(building_tile);
     connectRoads();

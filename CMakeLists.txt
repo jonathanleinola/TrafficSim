@@ -61,12 +61,12 @@ configure_file(res/car/red_car.png red_car.png COPYONLY)
 configure_file(res/car/teal_car.png teal_car.png COPYONLY)
 configure_file(res/car/white_car.png white_car.png COPYONLY)
 
-configure_file(res/straight_road.png straight_road.png COPYONLY)
-
-configure_file(res/building/home_building.png home_building.png COPYONLY)
-configure_file(res/building/office_building.png office_building.png COPYONLY)
+configure_file(res/home_building.png home_building.png COPYONLY)
+configure_file(res/office_building.png office_building.png COPYONLY)
 
 configure_file(res/home_road.png home_road.png COPYONLY)
+
+configure_file(res/straight_road.png straight_road.png COPYONLY)
 
 configure_file(res/right_turn.png right_turn.png COPYONLY)
 configure_file(res/left_turn.png left_turn.png COPYONLY)
