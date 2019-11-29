@@ -13,7 +13,8 @@
 #include "BuildingTile.hpp"
 #include "HomeRoad.hpp"
 #include "IntersectionTemplates.hpp"
-#include "BuildingTile.hpp"
+#include "HomeBuilding.hpp"
+#include "OfficeBuilding.hpp"
 
 namespace TrafficSim
 {

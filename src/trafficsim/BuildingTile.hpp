@@ -14,7 +14,7 @@ namespace TrafficSim
 enum BuildingType
 {
     HomeBuildingType = 0,
-    OfficeBildingType,
+    OfficeBuildingType,
 
     // Keep last
     BuildingTypeCount

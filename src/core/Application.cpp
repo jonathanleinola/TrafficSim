@@ -17,6 +17,7 @@
 #include "trafficsim/RoadTrisection.hpp"
 #include "trafficsim/RoadJunction.hpp"
 #include "trafficsim/HomeRoad.hpp"
+#include "trafficsim/HomeBuilding.hpp"
 
 namespace TrafficSim
 {
@@ -41,6 +42,8 @@ Application::Application()
     Car::AddTexture(data_.getTexture("white_car"));
     Car::AddTexture(data_.getTexture("red_car"));
     Car::AddTexture(data_.getTexture("teal_car"));
+    Building::HomeBuilding::SetTexture(data_.getTexture("home_building"));
+    Building::OfficeBuilding::SetTexture(data_.getTexture("office_building"));
 }
 
 void Application::run()

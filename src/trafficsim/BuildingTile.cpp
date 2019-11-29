@@ -1,45 +1,103 @@
-#pragma once
+#include "BuildingTile.hpp"
 
-#include <array>
-#include <climits> // UINT_MAX
-
-#include <SFML/Graphics.hpp>
-
-#include "Tile.hpp"
-#include "TrafficLight.hpp"
+#include <iostream>
 
 namespace TrafficSim
 {
 
-class BuildingTile : public Tile
+BuildingTile::BuildingTile(const Tile &tile)
+    : Tile(tile.getPos(), tile.getSize(), tile.getTileIndex()), dir_(1, 0)
 {
-public:
-    BuildingTile(const Tile &tile);
-    virtual TileCategory getType() const { return TileCategory::BuildingCategory; };
+    rect_.setFillColor(sf::Color::White);
+    rect_.setOutlineThickness(0.f);
+}
 
-    // Direction of the road
-    // Up: { 0, 1 }, Right { 1, 0 }, Down { 0, -1 }, Left { -1, 0 }
-    const sf::Vector2f &getDir() const { return dir_; }
-    bool isFlipped() const { return right_turn_; }
+/*
+void BuildingTile::addLight(unsigned int handler_id)
+{
+    light_ = std::make_unique<TrafficLight>(pos_, dir_, size_, handler_id);
+}
 
-    void rotate();
-    virtual void flip();
+unsigned int BuildingTile::removeLight()
+{
+    unsigned int handler_id = UINT_MAX;
+    if (light_)
+        handler_id = light_->getHandlerId();
+    light_ = nullptr;
+    return handler_id;
+}
+*/
+void BuildingTile::autoRotate(std::array<Tile *, 4> &neighbors)
+{
+    if (neighbors[LEFT] && neighbors[LEFT]->getCategory() == TileCategory::RoadCategory)
+    {
+        BuildingTile *r = static_cast<BuildingTile *>(neighbors[LEFT]);
+        if (r->canConnectTo(RIGHT))
+            return;
+    }
+    if (neighbors[UP] && neighbors[UP]->getCategory() == TileCategory::RoadCategory)
+    {
+        BuildingTile *r = static_cast<BuildingTile *>(neighbors[UP]);
+        if (r->canConnectTo(DOWN))
+        {
+            rotate();
+            return;
+        }
+    }
+    if (neighbors[RIGHT] && neighbors[RIGHT]->getCategory() == TileCategory::RoadCategory)
+    {
+        BuildingTile *r = static_cast<BuildingTile *>(neighbors[RIGHT]);
+        if (r->canConnectTo(LEFT))
+        {
+            flip();
+            return;
+        }
+    }
+    if (neighbors[DOWN] && neighbors[DOWN]->getCategory() == TileCategory::RoadCategory)
+    {
+        BuildingTile *r = static_cast<BuildingTile *>(neighbors[DOWN]);
+        if (r->canConnectTo(UP))
+        {
+            rotate();
+            flip();
+            return;
+        }
+    }
+}
 
-    // Auto rotates road if there is neighbor, only RoadTurn has own implementation
-    virtual void autoRotate(std::array<Tile *, 4> &neighbors);
+void BuildingTile::connectTo(Tile *another, NeighborIndex from)
+{
+    if (!another || another->getCategory() != TileCategory::RoadCategory)
+        return;
 
-    // Pure virtual functions
-    virtual void connect(std::array<Tile *, 4> &neighbors) = 0;
-    virtual bool connectableFrom(NeighborIndex n_index) const = 0;
-    virtual bool canConnectTo(NeighborIndex n_index) const = 0;
+    BuildingTile *road_tile = static_cast<BuildingTile *>(another);
+    if (road_tile->connectableFrom(from))
+    {
+        this->node_->connect(road_tile->getNode());
+    }
+}
 
-    virtual void draw(sf::RenderTarget &target, sf::RenderStates states) const;
+void BuildingTile::rotate()
+{
+    dir_ = sf::Vector2f(dir_.y, -dir_.x);
+    rect_.rotate(90);
+ /*   if (light_)
+        light_->initPos(pos_, dir_, size_);
+*/
+}
 
-protected:
-    // Up: { 0, 1 }, Right { 1, 0 }, Down { 0, -1 }, Left { -1, 0 }
-    sf::Vector2f dir_;
-    bool right_turn_ = true;
+void BuildingTile::flip()
+{
+    rotate();
+    rotate();
+}
 
-    void connectTo(Tile *another, NeighborIndex from);
-};
+void BuildingTile::draw(sf::RenderTarget &target, sf::RenderStates states) const
+{
+    target.draw(rect_, states);
+ /*   if (light_)
+        target.draw(*light_, states);
+*/
+}
+
 } // namespace TrafficSim

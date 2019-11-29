@@ -15,6 +15,7 @@ MapBuilder::MapBuilder(Map &map, const Window &window)
     : map_(map), window_(window)
 {
     road_option_ = RoadType::StraightRoadType;
+    building_option_ = BuildingType::HomeBuildingType;
 }
 
 const char *editing_mode(EditingOption mode)
@@ -217,8 +218,50 @@ void MapBuilder::addRoad(const sf::Vector2f &pos, RoadType type, bool autorotate
 }
 
 void MapBuilder::addBuilding(const sf::Vector2f &pos, BuildingType type)
-{
+{  auto tile = map_.grid_.getTile(pos);
+    if (!tile)
+        return;
+
+    // To check if there is already same type of road already.
+    /*if (tile->getCategory() == RoadCategory)
+    {
+        auto road_tile = static_cast<RoadTile *>(tile);
+        if (road_tile->getType() == type)
+            return;
+    }
+    */
+
+    std::unique_ptr<Tile> building_tile;
     
+    switch (type)
+    {
+    case OfficeBuildingType:
+         building_tile = std::make_unique<OfficeBuilding>(*tile);
+         break;
+    case HomeBuildingType:
+         building_tile = std::make_unique<HomeBuilding>(*tile);
+         break;
+    }
+
+    // If there is road already a road we need to check if it has traffic light and then we need to remove it if yes
+    
+    if (tile->getCategory() == TileCategory::BuildingCategory)
+    {
+        BuildingTile *temp = static_cast<BuildingTile *>(tile);
+       /* if (temp->getLight())
+        {
+            map_.removeLight(temp->getLight());
+            temp->removeLight();
+        }*/
+    }
+    
+    BuildingTile *r = static_cast<BuildingTile *>(building_tile.get());
+    auto arr = map_.grid_.getNeigborTiles(tile->getTileIndex());
+    //if (autorotate)
+    //    r->autoRotate(arr);
+
+    map_.grid_.swapTile(building_tile);
+    connectRoads();
 }
 
 void MapBuilder::slideAction(const sf::Vector2f &pos)
