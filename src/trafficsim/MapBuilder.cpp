@@ -71,7 +71,10 @@ void MapBuilder::drawGUI()
     {
         EditingOption mode = static_cast<EditingOption>(i);
         if (ImGui::RadioButton(editing_mode(mode), editing_option_ == mode))
+        {
             editing_option_ = mode;
+            option_ = 0;
+        }
     }
 
     // Choose road type to add
@@ -82,9 +85,8 @@ void MapBuilder::drawGUI()
         ImGui::Text("Road type selected:");
         for (int i = 0; i < RoadType::RoadTypeCount; i++)
         {
-            RoadType road_type = static_cast<RoadType>(i);
-            if (ImGui::RadioButton(road_type_name(road_type), road_option_ == road_type))
-                road_option_ = road_type;
+            if (ImGui::RadioButton(road_type_name((RoadType)i), option_ == i))
+                option_ = i;
         }
     }
     // Template type select
@@ -93,9 +95,8 @@ void MapBuilder::drawGUI()
         ImGui::Text("Template selected:");
         for (int i = 0; i < TemplateType::TemplateTypeCount; i++)
         {
-            TemplateType template_type = static_cast<TemplateType>(i);
-            if (ImGui::RadioButton(template_type_name(template_type), template_option_ == template_type))
-                template_option_ = template_type;
+            if (ImGui::RadioButton(template_type_name((TemplateType)i), option_ == i))
+                option_ = i;
         }
     }
     // Building type select
@@ -104,9 +105,8 @@ void MapBuilder::drawGUI()
         ImGui::Text("Building selected:");
         for (int i = 0; i < TemplateType::TemplateTypeCount; i++)
         {
-            BuildingType building_type = static_cast<BuildingType>(i);
-            if (ImGui::RadioButton(building_type_name(building_type), building_option_ == building_type))
-                building_option_ = building_type;
+            if (ImGui::RadioButton(building_type_name((BuildingType)i), option_ == i))
+                option_ = i;
         }
     }
     ImGui::EndChild();
@@ -218,28 +218,28 @@ void MapBuilder::addRoad(const sf::Vector2f &pos, RoadType type, bool autorotate
 }
 
 void MapBuilder::addBuilding(const sf::Vector2f &pos, BuildingType type)
-{  auto tile = map_.grid_.getTile(pos);
+{
+    auto tile = map_.grid_.getTile(pos);
     if (!tile)
         return;
 
     std::unique_ptr<Tile> building_tile;
-    
+
     switch (type)
     {
     case OfficeBuildingType:
-         building_tile = std::make_unique<OfficeBuilding>(*tile);
-         break;
+        building_tile = std::make_unique<OfficeBuilding>(*tile);
+        break;
     case HomeBuildingType:
-         building_tile = std::make_unique<HomeBuilding>(*tile);
-         break;
+        building_tile = std::make_unique<HomeBuilding>(*tile);
+        break;
     }
 
     if (tile->getCategory() == TileCategory::BuildingCategory)
     {
         BuildingTile *temp = static_cast<BuildingTile *>(tile);
-
     }
-    
+
     BuildingTile *r = static_cast<BuildingTile *>(building_tile.get());
     auto arr = map_.grid_.getNeigborTiles(tile->getTileIndex());
 

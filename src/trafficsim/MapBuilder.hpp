@@ -73,6 +73,7 @@ private:
     // This is Magic, dont ask :D
     union
     {
+        int option_;
         RoadType road_option_;
         TemplateType template_option_;
         BuildingType building_option_;
