@@ -101,6 +101,6 @@ bool Car::frontEmpty(const std::vector<std::unique_ptr<Car>> &cars, const std::v
 void Car::findRoute()
 {
     std::map<std::shared_ptr<Node>, bool> visited;
-    pos_->search_DFS(pos_, dest_, visited, route_);
+    Node::search_AStar(pos_, dest_, visited, route_);
 }
 } // namespace TrafficSim
