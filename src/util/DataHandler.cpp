@@ -19,8 +19,9 @@ void DataHandler::loadMap(const char *file_name, MapBuilder &builder, Grid &grid
     builder.clearMap();
 
     std::ifstream file("test.csv");
-    sf::Vector2f pos, dir;
-    int i,j,flipped;
+    sf::Vector2f pos, dir,pos_tl;
+    int i,j,flipped,istrafficlight;
+    unsigned int handler_id;
 
     CsvRow row;
     while (file >> row)
@@ -43,6 +44,15 @@ void DataHandler::loadMap(const char *file_name, MapBuilder &builder, Grid &grid
             dir.y = stoi(row[3]);
 
             flipped=stoi(row[6]);
+
+            istrafficlight=stoi(row[7]);
+            
+            if(istrafficlight)
+            {
+                pos_tl.x=stof(row[8]);
+                pos_tl.y=stof(row[9]);
+                handler_id=stoi(row[10]);
+            }
 
             //add road
             // Fix the middle zero
@@ -98,6 +108,15 @@ void DataHandler::loadMap(const char *file_name, MapBuilder &builder, Grid &grid
                 builder.rotateRoad(pos);
                 builder.rotateRoad(pos);
             }
+
+            //Trafficlights
+            if(istrafficlight)
+            {
+                auto tile = grid.getTile(pos_tl);
+                RoadTile *road = static_cast<RoadTile *>(tile);
+                road->addLight(handler_id);
+                builder.addTrafficLight(pos_tl);
+            }
             
         }
         
@@ -106,41 +125,8 @@ void DataHandler::loadMap(const char *file_name, MapBuilder &builder, Grid &grid
     /*
     *   Load map using methods from MapBuilder:
     *   builder.addRoad(), builder.rotateRoad() and .flipRoad()
-    * 
+    */ 
 
-   std::cout << "Load map" << std::endl;
-   FILE * fp=fopen(file_name,"r");
-   while (getline(fp, ID, ',')) {
-    cout << "ID: " << ID << " " ; 
-
-    getline(file, nome, ',') ;
-    cout << "User: " << nome << " " ;
-
-    getline(file, idade, ',') ;
-    cout << "Idade: " << idade << " "  ; 
-
-    getline(file, genero);
-    cout << "Sexo: " <<  genero<< " "  ;
-} 
-    
-    
-    for(unsigned int i=0;i<grid.getSideCount()*grid.getSideCount();i++)
-    {
-            //std::cout << pos.x <<" "<< pos.y << std::endl;
-        if(grid.getTile(i)->getType()== TileType::Empty)
-        {
-            
-            RoadTile *road = static_cast<RoadTile *>(grid.getTile(i));
-            fprintf(fp, "%d,{%f %f},{%f %f}\n", road->getType(),road->getDir().x,road->getDir().y,road->getPos().x,road->getPos().y);
-        }
-        else
-        {
-
-        }
-    }
-    
-   fclose(fp);
-   */
     std::cout << "Map Loaded" << std::endl;
 }
 
@@ -180,11 +166,11 @@ void DataHandler::saveMap(const char *file_name, Grid &grid) const
             RoadTile *road = static_cast<RoadTile *>(grid.getTile(i));
             if(road->getLight())
             {
-                fprintf(fp, "%d,%d,%f,%f,%f,%f,%d,%f,%f,%d\n", road->getCategory(),road->getType(), road->getDir().x, road->getDir().y, road->getPos().x, road->getPos().y,road->isFlipped(),road->getLight()->getPos().x,road->getLight()->getPos().y,road->getLight()->getHandlerId());
+                fprintf(fp, "%d,%d,%f,%f,%f,%f,%d,1,%f,%f,%d\n", road->getCategory(),road->getType(), road->getDir().x, road->getDir().y, road->getPos().x, road->getPos().y,road->isFlipped(),road->getLight()->getPos().x,road->getLight()->getPos().y,road->getLight()->getHandlerId());
             }
             else
             {
-                fprintf(fp, "%d,%d,%f,%f,%f,%f,%d\n", road->getCategory(),road->getType(), road->getDir().x, road->getDir().y, road->getPos().x, road->getPos().y,road->isFlipped());
+                fprintf(fp, "%d,%d,%f,%f,%f,%f,%d,0\n", road->getCategory(),road->getType(), road->getDir().x, road->getDir().y, road->getPos().x, road->getPos().y,road->isFlipped());
             }
             
         }
