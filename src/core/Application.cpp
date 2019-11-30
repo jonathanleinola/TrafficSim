@@ -198,9 +198,9 @@ void Application::handleEvent(const sf::Event &ev)
             ImGui::GetFont()->Scale = 3.f;
 
         else if (ev.key.code == sf::Keyboard::S && key_buffer_[sf::Keyboard::LControl])
-            data_.saveMap("test.ts", map_.grid_);
+            data_.saveMap("test.csv", map_.grid_);
         else if (ev.key.code == sf::Keyboard::O && key_buffer_[sf::Keyboard::LControl])
-            data_.loadMap("test.ts", builder_, map_.grid_);
+            data_.loadMap("test.csv", builder_, map_.grid_);
 
         else if (ev.key.code == sf::Keyboard::Up && key_buffer_[sf::Keyboard::LShift])
         {
