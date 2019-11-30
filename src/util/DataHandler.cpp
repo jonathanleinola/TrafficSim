@@ -58,6 +58,21 @@ void DataHandler::loadMap(const char *file_name, MapBuilder &builder, Grid &grid
                 builder.addRoad(pos, RoadType::RoadTurnType, false);
             
             }
+            else if(road_type==RoadType::HomeRoadType)
+            {
+                builder.addRoad(pos, RoadType::HomeRoadType, false);
+            }
+            else if(road_type==RoadType::IntersectionType)
+            {
+                builder.addRoad(pos, RoadType::IntersectionType, false);
+            }
+            else if(road_type==RoadType::JunctionType){
+                builder.addRoad(pos, RoadType::JunctionType, false);
+            }
+            else if(road_type==RoadType::TrisectionType)
+            {
+                builder.addRoad(pos, RoadType::TrisectionType, false);
+            }
             
 
                 
