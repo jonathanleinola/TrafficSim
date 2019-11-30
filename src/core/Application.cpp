@@ -228,11 +228,26 @@ void Application::handleInputBuffers(const sf::Vector2i &delta_mp)
     // LEFT mouse button is pressed down
     if (button_buffer_[sf::Mouse::Left])
     {
-        // if left control is down add a road if not move map
+        // store temporarily selected "radio button" option such as "Add Road"
+        TrafficSim::EditingOption temppi = builder_.getEditingOption();
+
+        // if left control is down add a road
         if (key_buffer_[sf::Keyboard::LControl] && app_state_ == Editing)
             builder_.slideAction(window_.convert(sf::Mouse::getPosition(window_.getWindow())));
-        else
+        
+        // if left shift is down remove road or building
+        else if(key_buffer_[sf::Keyboard::LShift] && app_state_ == Editing)
+        {   
+            // change editing_option_ to "Remove" state
+            builder_.setEditingOption(Remove);
+            builder_.slideAction(window_.convert(sf::Mouse::getPosition(window_.getWindow())));
+            // set editing_option back to previous state 
+            builder_.setEditingOption(temppi);
+        }
+        // if no control or shift keys pressed move map
+        else{
             window_.moveView(delta_mp);
+        }
     }
 }
 

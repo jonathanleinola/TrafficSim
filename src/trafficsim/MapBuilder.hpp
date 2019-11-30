@@ -1,7 +1,7 @@
 #pragma once
 
 #include <climits> // UINT_MAX
-
+#include <string>
 #include "Map.hpp"
 #include "RoadTurn.hpp"
 #include "StraightRoad.hpp"
@@ -59,10 +59,14 @@ public:
 
     // Rotates roads 90 degrees clockwise
     void rotateRoad(const sf::Vector2f &pos);
-    //Rotates flips roads
+    // Rotates flips roads
     void flipRoad(const sf::Vector2f &pos);
     // Adds traffic light, only to StraightRoadType Tiles
     void addTrafficLight(const sf::Vector2f &pos);
+    // Implemented for easy tile removal with shift key
+    EditingOption getEditingOption(){ return editing_option_;}
+    // Implemented for setting editing_option_ back after tile removal 
+    void setEditingOption(EditingOption opti){ editing_option_ = opti;}
 
 private:
     Map &map_;
