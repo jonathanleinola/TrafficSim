@@ -29,7 +29,7 @@ public:
     // For trafficLight handlers
     void removeLight(TrafficLight *light);
     void addLight(TrafficLight *light, unsigned int handler_id = UINT_MAX);
-    void newLightHandler(TrafficLight *light);
+    void newLightHandler(TrafficLight *light = nullptr);
     unsigned int getCurrentHandlerId() const { return current_handler_id_; }
 
     // Inherited from sf::Drawable base class, draws Grid, cars and Traffic Light connections if in editing mode
