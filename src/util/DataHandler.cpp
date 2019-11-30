@@ -20,7 +20,7 @@ void DataHandler::loadMap(const char *file_name, MapBuilder &builder, Grid &grid
 
     std::ifstream file("test.csv");
     sf::Vector2f pos, dir;
-    int i,j;
+    int i,j,flipped;
 
     CsvRow row;
     while (file >> row)
@@ -42,6 +42,8 @@ void DataHandler::loadMap(const char *file_name, MapBuilder &builder, Grid &grid
             dir.x = stoi(row[2]);
             dir.y = stoi(row[3]);
 
+            flipped=stoi(row[6]);
+
             //add road
             // Fix the middle zero
             // you need to save road type. 
@@ -50,31 +52,40 @@ void DataHandler::loadMap(const char *file_name, MapBuilder &builder, Grid &grid
             if(road_type==RoadType::StraightRoadType)
             {
                 builder.addRoad(pos, RoadType::StraightRoadType, false);
-                
-                
-                // Direction of the road
-                // Up: { 0, 1 }, Right { 1, 0 }, Down { 0, -1 }, Left { -1, 0 }
-
-                std::cout << dir.x << " " << dir.y << std::endl;
-                if (dir.x == 0 && dir.y == -1)
-                {
-                    builder.rotateRoad(pos);
-                }
-                else if (dir.x == -1 && dir.y == 0)
-                {
-                    builder.rotateRoad(pos);
-                    builder.rotateRoad(pos);
-                }
-                else if (dir.x == 0 && dir.y == 1)
-                {
-                    builder.rotateRoad(pos);
-                    builder.rotateRoad(pos);
-                    builder.rotateRoad(pos);
-                }
             }
-        }
+            else if(road_type==RoadType::RoadTurnType)
+            {
+                builder.addRoad(pos, RoadType::RoadTurnType, false);
+            
+            }
+            
 
-        //builder.flipRoad(pos);
+                
+            // Direction of the road
+            // Up: { 0, 1 }, Right { 1, 0 }, Down { 0, -1 }, Left { -1, 0 }
+
+            //std::cout << dir.x << " " << dir.y << std::endl;
+            if(flipped==0)
+                builder.flipRoad(pos);
+            
+            if (dir.x == 0 && dir.y == -1 && flipped==1)
+            {
+                builder.rotateRoad(pos);
+            }
+            else if (dir.x == -1 && dir.y == 0 && flipped==1)
+            {
+                builder.rotateRoad(pos);
+                builder.rotateRoad(pos);
+            }
+            else if (dir.x == 0 && dir.y == 1 && flipped==1)
+            {
+                builder.rotateRoad(pos);
+                builder.rotateRoad(pos);
+                builder.rotateRoad(pos);
+            }
+            
+        }
+        
     }
 
     /*
@@ -150,9 +161,9 @@ void DataHandler::saveMap(const char *file_name, Grid &grid) const
         //std::cout << pos.x <<" "<< pos.y << std::endl;
         if (grid.getTile(i)->getCategory() == TileCategory::RoadCategory)
         {
-
+            
             RoadTile *road = static_cast<RoadTile *>(grid.getTile(i));
-            fprintf(fp, "%d,%d,%f,%f,%f,%f\n", road->getCategory(),road->getType(), road->getDir().x, road->getDir().y, road->getPos().x, road->getPos().y);
+            fprintf(fp, "%d,%d,%f,%f,%f,%f,%d\n", road->getCategory(),road->getType(), road->getDir().x, road->getDir().y, road->getPos().x, road->getPos().y,road->isFlipped());
         }
         else
         {
