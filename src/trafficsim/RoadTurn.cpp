@@ -14,13 +14,13 @@ RoadTurn::RoadTurn(const Tile &tile)
 
 void RoadTurn::autoRotate(std::array<Tile *, 4> &neighbors)
 {
-    if (neighbors[DOWN] && neighbors[DOWN]->getType() != Empty)
+    if (neighbors[DOWN] && neighbors[DOWN]->getCategory() == RoadCategory)
     {
         RoadTile *r = static_cast<RoadTile *>(neighbors[DOWN]);
         if (r->canConnectTo(UP))
             return;
     }
-    if (neighbors[UP] && neighbors[UP]->getType() != Empty)
+    if (neighbors[UP] && neighbors[UP]->getCategory() == RoadCategory)
     {
         RoadTile *r = static_cast<RoadTile *>(neighbors[UP]);
         if (r->canConnectTo(DOWN))
@@ -30,7 +30,7 @@ void RoadTurn::autoRotate(std::array<Tile *, 4> &neighbors)
             return;
         }
     }
-    if (neighbors[RIGHT] && neighbors[RIGHT]->getType() != Empty)
+    if (neighbors[RIGHT] && neighbors[RIGHT]->getCategory() == RoadCategory)
     {
         RoadTile *r = static_cast<RoadTile *>(neighbors[RIGHT]);
         if (r->canConnectTo(LEFT))
@@ -41,7 +41,7 @@ void RoadTurn::autoRotate(std::array<Tile *, 4> &neighbors)
             return;
         }
     }
-    if (neighbors[LEFT] && neighbors[LEFT]->getType() != Empty)
+    if (neighbors[LEFT] && neighbors[LEFT]->getCategory() == RoadCategory)
     {
         RoadTile *r = static_cast<RoadTile *>(neighbors[LEFT]);
         if (r->canConnectTo(RIGHT))

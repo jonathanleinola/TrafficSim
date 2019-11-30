@@ -28,8 +28,10 @@ public:
     Tile *getLeftNeighbor(unsigned int index);
     // Gets all neighbors from of tile located at index
     std::array<Tile*, 4> getNeigborTiles(unsigned int index);
-    // Returns map's side length
+    // Returns map's side length    
     unsigned int getSideCount() const { return TileCount; }
+    // return 
+    std::array<Tile*, 4> getYardTiles(unsigned int index);
     // Returns map total tile count
     unsigned int getTotalTileCount() const { return TileCount * TileCount; }
 

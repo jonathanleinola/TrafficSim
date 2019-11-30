@@ -1,45 +1,20 @@
-#pragma once
+#include "BuildingTile.hpp"
 
-#include <array>
-#include <climits> // UINT_MAX
-
-#include <SFML/Graphics.hpp>
-
-#include "Tile.hpp"
-#include "TrafficLight.hpp"
+#include <iostream>
 
 namespace TrafficSim
 {
 
-class BuildingTile : public Tile
+BuildingTile::BuildingTile(const Tile &tile)
+    : Tile(tile.getPos(), tile.getSize(), tile.getTileIndex()), dir_(1, 0)
 {
-public:
-    BuildingTile(const Tile &tile);
+    rect_.setFillColor(sf::Color::White);
+    rect_.setOutlineThickness(0.f);
+}
 
-    // Direction of the road
-    // Up: { 0, 1 }, Right { 1, 0 }, Down { 0, -1 }, Left { -1, 0 }
-    const sf::Vector2f &getDir() const { return dir_; }
-    bool isFlipped() const { return right_turn_; }
+void BuildingTile::draw(sf::RenderTarget &target, sf::RenderStates states) const
+{
+    target.draw(rect_, states);
+}
 
-    void rotate();
-    virtual void flip();
-
-    // Auto rotates road if there is neighbor, only RoadTurn has own implementation
-    virtual void autoRotate(std::array<Tile *, 4> &neighbors);
-
-    // Pure virtual functions
-    virtual TileType getType() const = 0;
-    virtual void connect(std::array<Tile *, 4> &neighbors) = 0;
-    virtual bool connectableFrom(NeighborIndex n_index) const = 0;
-    virtual bool canConnectTo(NeighborIndex n_index) const = 0;
-
-    virtual void draw(sf::RenderTarget &target, sf::RenderStates states) const;
-
-protected:
-    // Up: { 0, 1 }, Right { 1, 0 }, Down { 0, -1 }, Left { -1, 0 }
-    sf::Vector2f dir_;
-    bool right_turn_ = true;
-
-    void connectTo(Tile *another, NeighborIndex from);
-};
 } // namespace TrafficSim

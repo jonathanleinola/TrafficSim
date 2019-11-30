@@ -16,3 +16,5 @@ right_trisection right_trisection.png
 left_trisection left_trisection.png
 straight_road straight_road.png
 home_road home_road.png
+home_building home_building.png
+office_building office_building.png

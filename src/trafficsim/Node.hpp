@@ -34,7 +34,7 @@ public:
     float pathDistance(const std::shared_ptr<Node> &node) const;
 
     void incrementCounter(const sf::Time &game_time) const;
-    const std::vector<std::uint8_t> &getCarsPassed() const { return cars_passed_; }
+    const std::vector<std::uint16_t> &getCarsPassed() const { return cars_passed_; }
     void resetCounter() const;
 
     // Its drawable only for debugging purpouses
@@ -51,7 +51,7 @@ private:
     // 4 samples per hour -> 96 per day
     static constexpr unsigned int Samples_ = 96;
     // Statistic of whole day
-    mutable std::vector<std::uint8_t> cars_passed_;
+    mutable std::vector<std::uint16_t> cars_passed_;
 
     // For debugging
     sf::CircleShape shape_;
