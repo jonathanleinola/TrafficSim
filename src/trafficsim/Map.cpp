@@ -58,8 +58,8 @@ void Map::update(const sf::Time &game_time, float delta_time)
         car->update(game_time, delta_time, cars_, light_handlers_);
     removeFinishedCars();
 
-    for (auto &light_handler : light_handlers_)
-        light_handler->update(delta_time);
+    for (auto ita = light_handlers_.begin(); ita != light_handlers_.end(); ++ita)
+        ita->second->update(delta_time);
 }
 
 void Map::addCar(const Tile *spawn_pos, const Tile *dest)
@@ -76,10 +76,17 @@ unsigned int Map::addBuilding(BuildingTile *building)
 
 void Map::addLight(TrafficLight *light, unsigned int handler_id)
 {
-    if (light_handlers_.size() < 1)
-        light_handlers_.push_back(std::make_unique<TrafficLightHandler>(0));
+    if (light_handlers_.find(handler_id) == light_handlers_.end())
+    {
+        if (handler_id < UINT_MAX)
+        {
+            light_handlers_.insert({handler_id, std::make_unique<TrafficLightHandler>(handler_id)});
+        }
+        else
+            light_handlers_.insert({0, std::make_unique<TrafficLightHandler>(0)});
+    }
 
-    if (handler_id < light_handlers_.size())
+    if (light_handlers_.find(handler_id) != light_handlers_.end())
         light_handlers_.at(handler_id)->addLight(light);
     else
         light_handlers_.at(current_handler_id_)->addLight(light);
@@ -87,15 +94,9 @@ void Map::addLight(TrafficLight *light, unsigned int handler_id)
 
 void Map::newLightHandler(TrafficLight *light)
 {
-    if (light_handlers_.size() > 1 && light_handlers_.at(light_handlers_.size() - 1)->getLightCount() < 1)
-    {
-        current_handler_id_ = light_handlers_.size() - 1;
-    }
-    else
-    {
-        light_handlers_.push_back(std::make_unique<TrafficLightHandler>(light_handlers_.size()));
-        current_handler_id_ = light_handlers_.size() - 1;
-    }
+    current_handler_id_++;
+    light_handlers_.insert({current_handler_id_, std::make_unique<TrafficLightHandler>(current_handler_id_)});
+
     if (light)
     {
         light_handlers_.at(light->getHandlerId())->removeLight(light, light->getPos());
@@ -160,8 +161,8 @@ void Map::draw(sf::RenderTarget &target, sf::RenderStates states) const
     }
     else
     {
-        for (auto &light_handler : light_handlers_)
-            target.draw(*light_handler, states);
+        for (auto ita = light_handlers_.begin(); ita != light_handlers_.end(); ++ita)
+            target.draw(*ita->second, states);
     }
 }
 } // namespace TrafficSim

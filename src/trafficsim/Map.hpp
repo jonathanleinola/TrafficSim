@@ -54,7 +54,7 @@ public:
 private:
     bool simulating_ = false;
     std::vector<std::unique_ptr<Car>> cars_;
-    std::vector<std::unique_ptr<TrafficLightHandler>> light_handlers_;
+    std::map<unsigned int, std::unique_ptr<TrafficLightHandler>> light_handlers_;
     std::map<unsigned int, std::unique_ptr<BuildingHandler>> building_handlers_;
     unsigned int current_handler_id_ = 0;
     unsigned int current_building_id_ = 0;

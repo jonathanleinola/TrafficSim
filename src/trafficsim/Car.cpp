@@ -30,7 +30,7 @@ void Car::AddTexture(const sf::Texture *carTexture)
     Textures_.push_back(carTexture);
 }
 
-void Car::update(const sf::Time &game_time, float deltatime, const std::vector<std::unique_ptr<Car>> &cars, const std::vector<std::unique_ptr<TrafficLightHandler>> &light_handlers)
+void Car::update(const sf::Time &game_time, float deltatime, const std::vector<std::unique_ptr<Car>> &cars, const std::map<unsigned int, std::unique_ptr<TrafficLightHandler>> &light_handlers)
 {
     if (route_.size() < 1)
     {
@@ -68,7 +68,7 @@ void Car::update(const sf::Time &game_time, float deltatime, const std::vector<s
         shape_.move(dir_ * deltatime * speed_);
 }
 
-bool Car::frontEmpty(const std::vector<std::unique_ptr<Car>> &cars, const std::vector<std::unique_ptr<TrafficLightHandler>> &light_handlers) const
+bool Car::frontEmpty(const std::vector<std::unique_ptr<Car>> &cars, const std::map<unsigned int, std::unique_ptr<TrafficLightHandler>> &light_handlers) const
 {
     for (const auto &car : cars)
     {
@@ -79,9 +79,9 @@ bool Car::frontEmpty(const std::vector<std::unique_ptr<Car>> &cars, const std::v
         if (car->shape_.getGlobalBounds().contains(shape_.getPosition() + dir_ * shape_.getSize().y * 0.51f))
             return false;
     }
-    for (const auto &light_manager : light_handlers)
+    for (auto ita = light_handlers.begin(); ita != light_handlers.end(); ++ita)
     {
-        const auto &lights = light_manager->getLights();
+        const auto &lights = ita->second->getLights();
         for (const auto &light : lights)
         {
             if (!light->canDrive())
