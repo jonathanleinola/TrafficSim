@@ -121,7 +121,7 @@ void Application::drawGUI()
             if (ImGui::MenuItem("Load", "Ctrl+O"))
             {
                 // ".ts" for traffic sim :)
-                data_.loadMap("test.ts", builder_);
+                data_.loadMap("test.ts", builder_, map_.grid_);
             }
             if (ImGui::MenuItem("Save", "Ctrl+S"))
             {
@@ -200,7 +200,7 @@ void Application::handleEvent(const sf::Event &ev)
         else if (ev.key.code == sf::Keyboard::S && key_buffer_[sf::Keyboard::LControl])
             data_.saveMap("test.ts", map_.grid_);
         else if (ev.key.code == sf::Keyboard::O && key_buffer_[sf::Keyboard::LControl])
-            data_.loadMap("test.ts", builder_);
+            data_.loadMap("test.ts", builder_, map_.grid_);
 
         else if (ev.key.code == sf::Keyboard::Up && key_buffer_[sf::Keyboard::LShift])
         {
