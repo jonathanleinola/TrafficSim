@@ -58,6 +58,21 @@ void DataHandler::loadMap(const char *file_name, MapBuilder &builder, Grid &grid
                 builder.addRoad(pos, RoadType::RoadTurnType, false);
             
             }
+            else if(road_type==RoadType::HomeRoadType)
+            {
+                builder.addRoad(pos, RoadType::HomeRoadType, false);
+            }
+            else if(road_type==RoadType::IntersectionType)
+            {
+                builder.addRoad(pos, RoadType::IntersectionType, false);
+            }
+            else if(road_type==RoadType::JunctionType){
+                builder.addRoad(pos, RoadType::JunctionType, false);
+            }
+            else if(road_type==RoadType::TrisectionType)
+            {
+                builder.addRoad(pos, RoadType::TrisectionType, false);
+            }
             
 
                 
@@ -163,7 +178,15 @@ void DataHandler::saveMap(const char *file_name, Grid &grid) const
         {
             
             RoadTile *road = static_cast<RoadTile *>(grid.getTile(i));
-            fprintf(fp, "%d,%d,%f,%f,%f,%f,%d\n", road->getCategory(),road->getType(), road->getDir().x, road->getDir().y, road->getPos().x, road->getPos().y,road->isFlipped());
+            if(road->getLight())
+            {
+                fprintf(fp, "%d,%d,%f,%f,%f,%f,%d,%f,%f,%d\n", road->getCategory(),road->getType(), road->getDir().x, road->getDir().y, road->getPos().x, road->getPos().y,road->isFlipped(),road->getLight()->getPos().x,road->getLight()->getPos().y,road->getLight()->getHandlerId());
+            }
+            else
+            {
+                fprintf(fp, "%d,%d,%f,%f,%f,%f,%d\n", road->getCategory(),road->getType(), road->getDir().x, road->getDir().y, road->getPos().x, road->getPos().y,road->isFlipped());
+            }
+            
         }
         else
         {
