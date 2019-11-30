@@ -46,7 +46,7 @@ void Car::update(const sf::Time &game_time, float deltatime, const std::vector<s
         shape_.setPosition(route_.front()->getPos());
         prev_ = route_.front();
         route_.pop_front();
-        if (route_.size() < 1)
+        if (route_.size() < 1 || VectorMath::Distance(dest_->getPos(), route_.front()->getPos()) < delta_step)
         {
             finished = true;
             return;
@@ -101,6 +101,6 @@ bool Car::frontEmpty(const std::vector<std::unique_ptr<Car>> &cars, const std::m
 void Car::findRoute()
 {
     std::map<std::shared_ptr<Node>, bool> visited;
-    Node::search_DFS(pos_, dest_, visited, route_);
+    Node::search_AStar(pos_, dest_, visited, route_);
 }
 } // namespace TrafficSim
