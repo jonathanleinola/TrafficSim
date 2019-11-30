@@ -238,6 +238,7 @@ void MapBuilder::addBuilding(const sf::Vector2f &pos, BuildingType type)
 
     BuildingTile *r = static_cast<BuildingTile *>(building_tile.get());
     auto arr = map_.grid_.getNeigborTiles(tile->getTileIndex());
+    r->setId(map_.addBuilding(r));
 
     map_.grid_.swapTile(building_tile);
 }
@@ -406,6 +407,7 @@ void MapBuilder::removeItem(const sf::Vector2f &pos)
     {
 
         BuildingTile *building = static_cast<BuildingTile *>(tile);
+        map_.removeBuilding(building->getId());
         std::unique_ptr<Tile> empty_tile = std::make_unique<Tile>(tile->getPos(), tile->getSize(), tile->getTileIndex());
         map_.grid_.swapTile(empty_tile);
     }

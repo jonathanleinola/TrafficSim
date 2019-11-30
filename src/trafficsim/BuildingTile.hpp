@@ -31,11 +31,14 @@ public:
     // Direction of the building
     // Up: { 0, 1 }, Right { 1, 0 }, Down { 0, -1 }, Left { -1, 0 }
     const sf::Vector2f &getDir() const { return dir_; }
+    unsigned int getId() const { return id_; }
+    void setId(unsigned int id) { id_ = id; }
 
     virtual void draw(sf::RenderTarget &target, sf::RenderStates states) const;
 
 protected:
     // Up: { 0, 1 }, Right { 1, 0 }, Down { 0, -1 }, Left { -1, 0 }
     sf::Vector2f dir_;
-    };
+    unsigned int id_;
+};
 } // namespace TrafficSim

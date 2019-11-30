@@ -19,8 +19,8 @@ void DataHandler::loadMap(const char *file_name, MapBuilder &builder, Grid &grid
     builder.clearMap();
 
     std::ifstream file("test.csv");
-    sf::Vector2f pos, dir,pos_tl;
-    int i,j,flipped,istrafficlight;
+    sf::Vector2f pos, dir, pos_tl;
+    int i, j, flipped, istrafficlight;
     unsigned int handler_id;
 
     CsvRow row;
@@ -29,10 +29,9 @@ void DataHandler::loadMap(const char *file_name, MapBuilder &builder, Grid &grid
         //std::cout << row[0] << row[1] << row[2] << row[3] << row[4] << "\n";
 
         i = stoi(row[0]);
-        j=stoi(row[1]);
+        j = stoi(row[1]);
         TileCategory tile_category = static_cast<TileCategory>(i);
         RoadType road_type = static_cast<RoadType>(j);
-        
 
         if (tile_category == TileCategory::RoadCategory)
         {
@@ -43,89 +42,112 @@ void DataHandler::loadMap(const char *file_name, MapBuilder &builder, Grid &grid
             dir.x = stoi(row[2]);
             dir.y = stoi(row[3]);
 
-            flipped=stoi(row[6]);
+            flipped = stoi(row[6]);
 
-            istrafficlight=stoi(row[7]);
-            
-            if(istrafficlight)
+            istrafficlight = stoi(row[7]);
+
+            if (istrafficlight)
             {
-                pos_tl.x=stof(row[8]);
-                pos_tl.y=stof(row[9]);
-                handler_id=stoi(row[10]);
+                pos_tl.x = stof(row[8]);
+                pos_tl.y = stof(row[9]);
+                handler_id = stoi(row[10]);
             }
 
             //add road
             // Fix the middle zero
-            // you need to save road type. 
+            // you need to save road type.
             //    StraightRoadType = 0,
-            
-            if(road_type==RoadType::StraightRoadType)
+
+            if (road_type == RoadType::StraightRoadType)
             {
                 builder.addRoad(pos, RoadType::StraightRoadType, false);
             }
-            else if(road_type==RoadType::RoadTurnType)
+            else if (road_type == RoadType::RoadTurnType)
             {
                 builder.addRoad(pos, RoadType::RoadTurnType, false);
-            
             }
-            else if(road_type==RoadType::HomeRoadType)
+            else if (road_type == RoadType::HomeRoadType)
             {
                 builder.addRoad(pos, RoadType::HomeRoadType, false);
             }
-            else if(road_type==RoadType::IntersectionType)
+            else if (road_type == RoadType::IntersectionType)
             {
                 builder.addRoad(pos, RoadType::IntersectionType, false);
             }
-            else if(road_type==RoadType::JunctionType){
+            else if (road_type == RoadType::JunctionType)
+            {
                 builder.addRoad(pos, RoadType::JunctionType, false);
             }
-            else if(road_type==RoadType::TrisectionType)
+            else if (road_type == RoadType::TrisectionType)
             {
                 builder.addRoad(pos, RoadType::TrisectionType, false);
             }
-            
 
-                
             // Direction of the road
             // Up: { 0, 1 }, Right { 1, 0 }, Down { 0, -1 }, Left { -1, 0 }
 
             //std::cout << dir.x << " " << dir.y << std::endl;
-            if(flipped==0)
+            if (flipped == 0)
                 builder.flipRoad(pos);
-            
-            if (dir.x == 0 && dir.y == -1 && flipped==1)
-            {
-                builder.rotateRoad(pos);
-            }
-            else if (dir.x == -1 && dir.y == 0 && flipped==1)
+
+            if (dir.x == 1 && flipped == 0)
             {
                 builder.rotateRoad(pos);
                 builder.rotateRoad(pos);
             }
-            else if (dir.x == 0 && dir.y == 1 && flipped==1)
+            else if (dir.y == -1)
             {
-                builder.rotateRoad(pos);
-                builder.rotateRoad(pos);
-                builder.rotateRoad(pos);
+                if (flipped == 1)
+                {
+                    builder.rotateRoad(pos);
+                }
+                else
+                {
+                    builder.rotateRoad(pos);
+                    builder.rotateRoad(pos);
+                    builder.rotateRoad(pos);
+                }
+            }
+            else if (dir.x == -1)
+            {
+                if (flipped == 1)
+                {
+                    builder.rotateRoad(pos);
+                    builder.rotateRoad(pos);
+                }
+                else
+                {
+                }
+            }
+            else if (dir.y == 1)
+            {
+                if (flipped == 1)
+                {
+                    builder.rotateRoad(pos);
+                    builder.rotateRoad(pos);
+                    builder.rotateRoad(pos);
+                }
+                else
+                {
+                    builder.rotateRoad(pos);
+                }
             }
 
             //Trafficlights
-            if(istrafficlight)
+            if (istrafficlight)
             {
                 auto tile = grid.getTile(pos_tl);
                 RoadTile *road = static_cast<RoadTile *>(tile);
                 road->addLight(handler_id);
                 builder.addTrafficLight(pos_tl);
             }
-            
         }
-        
     }
 
     /*
     *   Load map using methods from MapBuilder:
     *   builder.addRoad(), builder.rotateRoad() and .flipRoad()
-    */ 
+    */
 
     std::cout << "Map Loaded" << std::endl;
 }
@@ -162,17 +184,16 @@ void DataHandler::saveMap(const char *file_name, Grid &grid) const
         //std::cout << pos.x <<" "<< pos.y << std::endl;
         if (grid.getTile(i)->getCategory() == TileCategory::RoadCategory)
         {
-            
+
             RoadTile *road = static_cast<RoadTile *>(grid.getTile(i));
-            if(road->getLight())
+            if (road->getLight())
             {
-                fprintf(fp, "%d,%d,%f,%f,%f,%f,%d,1,%f,%f,%d\n", road->getCategory(),road->getType(), road->getDir().x, road->getDir().y, road->getPos().x, road->getPos().y,road->isFlipped(),road->getLight()->getPos().x,road->getLight()->getPos().y,road->getLight()->getHandlerId());
+                fprintf(fp, "%d,%d,%f,%f,%f,%f,%d,1,%f,%f,%d\n", road->getCategory(), road->getType(), road->getDir().x, road->getDir().y, road->getPos().x, road->getPos().y, road->isFlipped(), road->getLight()->getPos().x, road->getLight()->getPos().y, road->getLight()->getHandlerId());
             }
             else
             {
-                fprintf(fp, "%d,%d,%f,%f,%f,%f,%d,0\n", road->getCategory(),road->getType(), road->getDir().x, road->getDir().y, road->getPos().x, road->getPos().y,road->isFlipped());
+                fprintf(fp, "%d,%d,%f,%f,%f,%f,%d,0\n", road->getCategory(), road->getType(), road->getDir().x, road->getDir().y, road->getPos().x, road->getPos().y, road->isFlipped());
             }
-            
         }
         else
         {

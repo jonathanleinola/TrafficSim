@@ -60,7 +60,7 @@ void Application::run()
         if (last_time < time_line_.getRealTime() && time_line_.getMultiplier() && app_state_ != Editing)
         {
             last_time = time_line_.getRealTime() + 1.6f / time_line_.getMultiplier();
-            map_.addCar(sf::Vector2f(rand() % window_.getWidth(), rand() % window_.getHeight()), sf::Vector2f(rand() % window_.getWidth(), rand() % window_.getHeight()));
+            //map_.addCar(sf::Vector2f(rand() % window_.getWidth(), rand() % window_.getHeight()), sf::Vector2f(rand() % window_.getWidth(), rand() % window_.getHeight()));
         }
 
         window_.pollEvent();

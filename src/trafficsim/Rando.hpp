@@ -42,8 +42,8 @@ public:
         // 1. normal distribution with mean value MR and std 1.5
         // 2. uniform distribution with range 1..MR 
 
-        Rando(int MR):max_roll(MR), rng(rd()), 
-            dice(std::normal_distribution<>(MR,1.5)),
+        Rando(int MR, float std = 1.5f):max_roll(MR), rng(rd()), 
+            dice(std::normal_distribution<>(MR,std)),
             unidice(std::uniform_int_distribution<>(1,MR))
         {
             // rng.seed(::time(NULL));

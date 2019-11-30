@@ -5,6 +5,7 @@
 #include <iostream> // FLT_MAX
 #include <memory>
 
+#include "Rando.hpp"
 #include "RoadTile.hpp"
 
 namespace TrafficSim
@@ -22,6 +23,27 @@ void Map::update(const sf::Time &game_time, float delta_time)
     if (!simulating_)
         return;
 
+    for (auto ita = building_handlers_.begin(); ita != building_handlers_.end(); ++ita)
+    {
+        if (ita->second->update(game_time))
+        {
+            Rando r(building_handlers_.size());
+            int index = r.uniroll() - 1;
+            int i = 0;
+            const Tile *tile;
+            for (auto itb = building_handlers_.begin(); itb != building_handlers_.end(); ++itb)
+            {
+                if (index == i)
+                {
+                    tile = itb->second->getClosestRoad();
+                    break;
+                }
+                i++;
+            }
+            addCar(ita->second->getClosestRoad(), tile);
+        }
+    }
+
     for (auto &car : cars_)
         car->update(game_time, delta_time, cars_, light_handlers_);
     removeFinishedCars();
@@ -30,15 +52,16 @@ void Map::update(const sf::Time &game_time, float delta_time)
         light_handler->update(delta_time);
 }
 
-void Map::addCar(const sf::Vector2f &spawn_pos, const sf::Vector2f &dest)
+void Map::addCar(const Tile *spawn_pos, const Tile *dest)
 {
-    auto n1 = closestRoadNode(spawn_pos);
-    auto n2 = closestRoadNode(dest);
-    if (!n1)
-        return;
-    if (n1->getPos() == n2->getPos())
-        return;
-    cars_.push_back(std::make_unique<Car>(Car(closestRoadNode(spawn_pos), closestRoadNode(dest), sf::Vector2f(50, 100))));
+    cars_.push_back(std::make_unique<Car>(Car(spawn_pos->getNode(), dest->getNode(), sf::Vector2f(50, 100))));
+}
+
+unsigned int Map::addBuilding(BuildingTile *building)
+{
+    building_handlers_.insert({current_building_id_, std::make_unique<BuildingHandler>(building, grid_.getTile(closestRoadNode(building->getCenter())->getPos()), current_building_id_)});
+    current_building_id_++;
+    return current_building_id_ - 1;
 }
 
 void Map::addLight(TrafficLight *light, unsigned int handler_id)
@@ -69,6 +92,11 @@ void Map::newLightHandler(TrafficLight *light)
         light->setHandlerId(current_handler_id_);
         light_handlers_.at(current_handler_id_)->addLight(light);
     }
+}
+
+void Map::removeBuilding(unsigned int id)
+{
+    building_handlers_.erase(id);
 }
 
 void Map::removeLight(TrafficLight *light)
