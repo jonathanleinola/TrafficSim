@@ -178,7 +178,15 @@ void DataHandler::saveMap(const char *file_name, Grid &grid) const
         {
             
             RoadTile *road = static_cast<RoadTile *>(grid.getTile(i));
-            fprintf(fp, "%d,%d,%f,%f,%f,%f,%d\n", road->getCategory(),road->getType(), road->getDir().x, road->getDir().y, road->getPos().x, road->getPos().y,road->isFlipped());
+            if(road->getLight())
+            {
+                fprintf(fp, "%d,%d,%f,%f,%f,%f,%d,%f,%f,%d\n", road->getCategory(),road->getType(), road->getDir().x, road->getDir().y, road->getPos().x, road->getPos().y,road->isFlipped(),road->getLight()->getPos().x,road->getLight()->getPos().y,road->getLight()->getHandlerId());
+            }
+            else
+            {
+                fprintf(fp, "%d,%d,%f,%f,%f,%f,%d\n", road->getCategory(),road->getType(), road->getDir().x, road->getDir().y, road->getPos().x, road->getPos().y,road->isFlipped());
+            }
+            
         }
         else
         {
