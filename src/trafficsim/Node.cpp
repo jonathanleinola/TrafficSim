@@ -2,6 +2,8 @@
 
 #include <iostream>
 
+#include "util/VectorMath.hpp"
+
 namespace TrafficSim
 {
 
@@ -43,9 +45,29 @@ void Node::resetCounter() const
         cars_passed_[i] = 0;
 }
 
-void Node::search_AStar(const std::shared_ptr<Node> &cur, const std::shared_ptr<Node> &dest, std::map<std::shared_ptr<Node>, bool> &visited, std::list<std::shared_ptr<Node>> &path) const
+void Node::search_AStar(const std::shared_ptr<Node> &cur, const std::shared_ptr<Node> &dest, std::map<std::shared_ptr<Node>, bool> &visited, std::list<std::shared_ptr<Node>> &path)
 {
-    
+    if (visited[cur])
+        return;
+    visited[cur] = true;
+    path.push_back(cur);
+
+    if (cur == dest)
+        return;
+
+    std::sort(cur->neighbors_.begin(), cur->neighbors_.end(), [&dest, &cur](const auto &n1, const auto &n2) -> bool {
+        float d1 = VectorMath::Distance(cur->getPos(), n1->getPos()) + VectorMath::Distance(n1->getPos(), dest->getPos());
+        float d2 = VectorMath::Distance(cur->getPos(), n2->getPos()) + VectorMath::Distance(n2->getPos(), dest->getPos());
+        return d1 < d2;
+    });
+    //Keeps track on which neighbor we are
+
+    for (unsigned int i = 0; i < cur->neighbors_.size(); ++i)
+    {
+        search_AStar(cur->neighbors_[i], dest, visited, path);
+    }
+    if (!visited[dest])
+        path.pop_back();
 }
 
 void Node::search_DFS(const std::shared_ptr<Node> &cur, const std::shared_ptr<Node> &dest, std::map<std::shared_ptr<Node>, bool> &visited, std::list<std::shared_ptr<Node>> &path) const

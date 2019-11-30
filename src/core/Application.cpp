@@ -248,6 +248,7 @@ void Application::handleInputBuffers(const sf::Vector2i &delta_mp)
 
 void Application::close()
 {
+    ImGui::SFML::Shutdown();
 }
 
 Application *Application::GetInstance()

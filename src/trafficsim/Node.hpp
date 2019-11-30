@@ -26,7 +26,7 @@ public:
 
     // Searching algorithms
     void search_DFS(const std::shared_ptr<Node> &cur, const std::shared_ptr<Node> &dest, std::map<std::shared_ptr<Node>, bool> &visited, std::list<std::shared_ptr<Node>> &path) const;
-    void search_AStar(const std::shared_ptr<Node> &cur, const std::shared_ptr<Node> &dest, std::map<std::shared_ptr<Node>, bool> &visited, std::list<std::shared_ptr<Node>> &path) const;
+    static void search_AStar(const std::shared_ptr<Node> &cur, const std::shared_ptr<Node> &dest, std::map<std::shared_ptr<Node>, bool> &visited, std::list<std::shared_ptr<Node>> &path);
     //Getters
     const sf::Vector2f &getPos() const { return position_; }
     const std::vector<std::shared_ptr<Node>> &getNeighbors() const { return neighbors_; }
@@ -45,7 +45,7 @@ private:
     const sf::Vector2f position_;
     //All nodes that this node is connected to
     // TODO - std::weak_ptr might be good for this
-    std::vector<std::shared_ptr<Node>> neighbors_;
+    mutable std::vector<std::shared_ptr<Node>> neighbors_;
 
     // For statistics
     // 4 samples per hour -> 96 per day
