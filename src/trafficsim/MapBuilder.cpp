@@ -133,7 +133,7 @@ void MapBuilder::drawGUI()
         if (ImGui::Button("Flip"))
             flipRoad(map_.grid_.getTile(selected_tile_index_)->getCenter());
         if (ImGui::Button("Remove"))
-            removeRoad(map_.grid_.getTile(selected_tile_index_)->getCenter());
+            removeItem(map_.grid_.getTile(selected_tile_index_)->getCenter());
         // Traffic light editor
         ImGui::EndColumns();
         ImGui::End();
@@ -244,7 +244,7 @@ void MapBuilder::addBuilding(const sf::Vector2f &pos, BuildingType type)
     auto arr = map_.grid_.getNeigborTiles(tile->getTileIndex());
 
     map_.grid_.swapTile(building_tile);
-    connectRoads();
+
 }
 
 void MapBuilder::slideAction(const sf::Vector2f &pos)
@@ -319,7 +319,11 @@ void MapBuilder::slideAction(const sf::Vector2f &pos)
     {
         if (map_.grid_.getTile(hovered_tile_index_) && map_.grid_.getTile(hovered_tile_index_)->getCategory() == TileCategory::RoadCategory)
         {
-            removeRoad(map_.grid_.getTile(hovered_tile_index_)->getCenter());
+            removeItem(map_.grid_.getTile(hovered_tile_index_)->getCenter());
+   
+        }else if(map_.grid_.getTile(hovered_tile_index_) && map_.grid_.getTile(hovered_tile_index_)->getCategory() == TileCategory::BuildingCategory)
+        {
+            removeBuilding(map_.grid_.getTile(hovered_tile_index_)->getCenter());
         }
     }
 
@@ -378,20 +382,44 @@ void MapBuilder::addTemplate(const sf::Vector2f &pos)
     }
 }
 
-void MapBuilder::removeRoad(const sf::Vector2f &pos)
+void MapBuilder::removeItem(const sf::Vector2f &pos)
 {
     auto tile = map_.grid_.getTile(pos);
-    if (!tile || tile->getCategory() != TileCategory::RoadCategory)
+    if (!tile)
         return;
-    RoadTile *road = static_cast<RoadTile *>(tile);
-    if (road->getLight())
-    {
-        map_.removeLight(road->getLight());
+
+    if (tile->getCategory() ==  TileCategory::RoadCategory ){
+        RoadTile *road = static_cast<RoadTile *>(tile);
+        if (road->getLight())
+        {
+            map_.removeLight(road->getLight());
+         }
+        std::unique_ptr<Tile> empty_tile = std::make_unique<Tile>(tile->getPos(), tile->getSize(), tile->getTileIndex());
+        map_.grid_.swapTile(empty_tile);
+        connectRoads();
     }
+    else if(tile->getCategory() ==  TileCategory::BuildingCategory ){
+
+        BuildingTile *building = static_cast<BuildingTile *>(tile);
+        std::unique_ptr<Tile> empty_tile = std::make_unique<Tile>(tile->getPos(), tile->getSize(), tile->getTileIndex());
+        map_.grid_.swapTile(empty_tile);
+    }else{
+        return;
+    }
+}
+
+void MapBuilder::removeBuilding(const sf::Vector2f &pos)
+{
+    auto tile = map_.grid_.getTile(pos);
+    if (!tile || tile->getCategory() != TileCategory::BuildingCategory)
+        return;
+    BuildingTile *building = static_cast<BuildingTile *>(tile);
     std::unique_ptr<Tile> empty_tile = std::make_unique<Tile>(tile->getPos(), tile->getSize(), tile->getTileIndex());
     map_.grid_.swapTile(empty_tile);
-    connectRoads();
+
 }
+
+
 void MapBuilder::rotateRoad(const sf::Vector2f &pos)
 {
     auto tile = map_.grid_.getTile(pos);
@@ -528,7 +556,7 @@ void MapBuilder::handleInput(const sf::Event &ev)
                 addTemplate(pos);
                 break;
             case Remove:
-                removeRoad(pos);
+                removeItem(pos);
                 break;
             case Rotate:
                 rotateRoad(pos);

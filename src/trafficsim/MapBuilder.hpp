@@ -93,7 +93,8 @@ private:
 
 private:
     void addTemplate(const sf::Vector2f &pos);
-    void removeRoad(const sf::Vector2f &pos);
+    void removeItem(const sf::Vector2f &pos);
+    void removeBuilding(const sf::Vector2f &pos);
     void selectTile(const sf::Vector2f &pos);
     void unSelectTile();
     void connectRoad(Tile *tile);
