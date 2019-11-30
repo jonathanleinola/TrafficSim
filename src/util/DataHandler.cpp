@@ -31,12 +31,10 @@ void DataHandler::loadMap(const char *file_name, MapBuilder &builder, Grid &grid
         i = stoi(row[0]);
         j=stoi(row[1]);
         TileCategory tile_category = static_cast<TileCategory>(i);
-        RoadType road_type = static_cast<RoadType>(j);
-        
 
         if (tile_category == TileCategory::RoadCategory)
         {
-
+            RoadType road_type = static_cast<RoadType>(j);
             pos.x = stof(row[4]);
             pos.y = stof(row[5]);
 
@@ -119,6 +117,24 @@ void DataHandler::loadMap(const char *file_name, MapBuilder &builder, Grid &grid
             }
             
         }
+        else if (tile_category == TileCategory::BuildingCategory)
+        {
+            BuildingType building_type = static_cast<BuildingType>(j);
+            pos.x = stof(row[4]);
+            pos.y = stof(row[5]);
+
+            dir.x = stoi(row[2]);
+            dir.y = stoi(row[3]);
+
+            if(building_type==BuildingType::HomeBuildingType)
+            {
+                builder.addBuilding(pos,BuildingType::HomeBuildingType);
+            }
+            else if(building_type==BuildingType::OfficeBuildingType)
+            {
+                builder.addBuilding(pos,BuildingType::OfficeBuildingType);
+            }   
+        }
         
     }
 
@@ -174,8 +190,11 @@ void DataHandler::saveMap(const char *file_name, Grid &grid) const
             }
             
         }
-        else
+        else if(grid.getTile(i)->getCategory() == TileCategory::BuildingCategory)
         {
+            BuildingTile *building = static_cast<BuildingTile *>(grid.getTile(i));
+            
+            fprintf(fp, "%d,%d,%f,%f,%f,%f\n",building->getCategory(),building->getType(),building->getDir().x,building->getDir().y,building->getPos().x,building->getPos().y);
         }
     }
 
