@@ -16,6 +16,8 @@ class Map : public sf::Drawable
 {
 public:
     Map();
+
+    void clearMap();
     
     // gets called when app state is changed
     void setSimulating(bool val);

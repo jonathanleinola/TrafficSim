@@ -70,7 +70,7 @@ void Node::search_AStar(const std::shared_ptr<Node> &cur, const std::shared_ptr<
         path.pop_back();
 }
 
-void Node::search_DFS(const std::shared_ptr<Node> &cur, const std::shared_ptr<Node> &dest, std::map<std::shared_ptr<Node>, bool> &visited, std::list<std::shared_ptr<Node>> &path) const
+void Node::search_DFS(const std::shared_ptr<Node> &cur, const std::shared_ptr<Node> &dest, std::map<std::shared_ptr<Node>, bool> &visited, std::list<std::shared_ptr<Node>> &path)
 {
     if (visited[cur])
         return;

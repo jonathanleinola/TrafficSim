@@ -475,7 +475,7 @@ void MapBuilder::changeLightHandler(const sf::Vector2f &pos)
 
 void MapBuilder::clearMap()
 {
-    map_.grid_.init();
+    map_.clearMap();
     connectRoads();
 }
 /*

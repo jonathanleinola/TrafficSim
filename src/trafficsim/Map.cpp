@@ -16,6 +16,16 @@ Map::Map()
 {
 }
 
+void Map::clearMap()
+{
+    cars_.clear();
+    light_handlers_.clear();
+    building_handlers_.clear();
+    unsigned int current_handler_id_ = 0;
+    unsigned int current_building_id_ = 0;
+    grid_.init();
+}
+
 void Map::update(const sf::Time &game_time, float delta_time)
 {
     // Move cars, and other things which are dependent on time
