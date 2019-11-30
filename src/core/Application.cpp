@@ -114,10 +114,11 @@ void Application::drawGUI()
         {
             if (ImGui::MenuItem("Load"))
             {
+                data_.loadMap("test.csv",builder_,map_.grid_);
             }
             if (ImGui::MenuItem("Save"))
             {
-                data_.saveMap("test", map_.grid_);
+                data_.saveMap("test.csv", map_.grid_);
             }
             ImGui::EndMenu();
         }

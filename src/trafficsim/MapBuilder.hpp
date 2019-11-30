@@ -46,7 +46,7 @@ public:
     void clearMap();
 
     // Adds a road
-    void addRoad(const sf::Vector2f &pos, TileType type);
+    void addRoad(const sf::Vector2f &pos, TileType type,bool autorotate=true);
     // When Left Control and left mousebutton pressed this gets called
     void slideAdd(const sf::Vector2f &pos);
 

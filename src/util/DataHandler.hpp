@@ -20,7 +20,7 @@ public:
     void loadTexture(const char *src, const char *texture_key);
     void loadTexturesFromFile(const char *src);
 
-    void loadMap(const char *file_name, MapBuilder &builder) const;
+    void loadMap(const char *file_name, MapBuilder &builder,Grid &grid) const;
     void saveMap(const char *file_name, Grid &grid) const;
 
     const sf::Texture *getTexture(const char *texture_name) { return textures_[texture_name].get(); }

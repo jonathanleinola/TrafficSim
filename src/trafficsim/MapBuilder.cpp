@@ -122,7 +122,7 @@ void MapBuilder::drawGUI()
     }
 }
 
-void MapBuilder::addRoad(const sf::Vector2f &pos, TileType type)
+void MapBuilder::addRoad(const sf::Vector2f &pos, TileType type,bool autorotate)
 {
     auto tile = map_.grid_.getTile(pos);
     if (!tile || tile->getType() == type)
@@ -163,7 +163,8 @@ void MapBuilder::addRoad(const sf::Vector2f &pos, TileType type)
     }
     RoadTile *r = static_cast<RoadTile *>(road_tile.get());
     auto arr = map_.grid_.getNeigborTiles(tile->getTileIndex());
-    r->autoRotate(arr);
+    if(autorotate)
+        r->autoRotate(arr);
 
     map_.grid_.swapTile(road_tile);
     connectRoads();
