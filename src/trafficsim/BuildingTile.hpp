@@ -25,6 +25,7 @@ class BuildingTile : public Tile
 public:
     BuildingTile(const Tile &tile);
 
+    virtual TileCategory getCategory() const { return TileCategory::BuildingCategory; };
     virtual BuildingType getType() const = 0;
 
     // Direction of the building
