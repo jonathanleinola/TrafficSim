@@ -17,8 +17,9 @@ MapBuilder::MapBuilder(Map &map, const Window &window)
     road_option_ = RoadType::StraightRoadType;
     building_option_ = BuildingType::HomeBuildingType;
 }
-
-const char *editing_mode(EditingOption mode)
+// Outside of class static means that the function/variable is only visible in this file
+// Kinda like private
+static const char *editing_mode(EditingOption mode)
 {
     return (const char *[]){
         "Inspect",
@@ -32,7 +33,7 @@ const char *editing_mode(EditingOption mode)
     }[mode];
 }
 
-const char *building_type_name(BuildingType type)
+static const char *building_type_name(BuildingType type)
 {
     return (const char *[]){
         "Home Building",
@@ -40,7 +41,7 @@ const char *building_type_name(BuildingType type)
     }[type];
 }
 
-const char *road_type_name(RoadType type)
+static const char *road_type_name(RoadType type)
 {
     return (const char *[]){
         "Straight Road",
@@ -163,7 +164,7 @@ void MapBuilder::drawGUI()
 void MapBuilder::addRoad(const sf::Vector2f &pos, RoadType type, bool autorotate)
 {
     auto tile = map_.grid_.getTile(pos);
-    if (!tile)
+    if (!tile || tile->getCategory() == BuildingCategory)
         return;
 
     // To check if there is already same type of road already.
@@ -220,7 +221,7 @@ void MapBuilder::addRoad(const sf::Vector2f &pos, RoadType type, bool autorotate
 void MapBuilder::addBuilding(const sf::Vector2f &pos, BuildingType type)
 {
     auto tile = map_.grid_.getTile(pos);
-    if (!tile)
+    if (!tile || tile->getCategory() != Empty)
         return;
 
     std::unique_ptr<Tile> building_tile;
@@ -235,24 +236,20 @@ void MapBuilder::addBuilding(const sf::Vector2f &pos, BuildingType type)
         break;
     }
 
-    if (tile->getCategory() == TileCategory::BuildingCategory)
-    {
-        BuildingTile *temp = static_cast<BuildingTile *>(tile);
-    }
-
     BuildingTile *r = static_cast<BuildingTile *>(building_tile.get());
     auto arr = map_.grid_.getNeigborTiles(tile->getTileIndex());
 
     map_.grid_.swapTile(building_tile);
-
 }
 
-void MapBuilder::slideAction(const sf::Vector2f &pos)
+void MapBuilder::slideAction(const sf::Vector2f &pos, EditingOption option)
 {
     selected_tile_index_ = UINT_MAX;
+    // Check if tile, which is hovered, hasnt changed since last frame
     if (hovered_tile_index_ == last_tile_index_)
         return;
-    if (editing_option_ == EditingOption::AddRoad)
+
+    if (option == EditingOption::AddRoad)
     {
         if (last_tile_index_ != UINT_MAX)
         {
@@ -315,13 +312,13 @@ void MapBuilder::slideAction(const sf::Vector2f &pos)
         }
         addRoad(pos, StraightRoadType);
     }
-    else if (editing_option_ == EditingOption::Remove)
+    else if (option == EditingOption::Remove)
     {
         if (map_.grid_.getTile(hovered_tile_index_) && map_.grid_.getTile(hovered_tile_index_)->getCategory() == TileCategory::RoadCategory)
         {
             removeItem(map_.grid_.getTile(hovered_tile_index_)->getCenter());
-   
-        }else if(map_.grid_.getTile(hovered_tile_index_) && map_.grid_.getTile(hovered_tile_index_)->getCategory() == TileCategory::BuildingCategory)
+        }
+        else if (map_.grid_.getTile(hovered_tile_index_) && map_.grid_.getTile(hovered_tile_index_)->getCategory() == TileCategory::BuildingCategory)
         {
             removeItem(map_.grid_.getTile(hovered_tile_index_)->getCenter());
         }
@@ -389,27 +386,25 @@ void MapBuilder::removeItem(const sf::Vector2f &pos)
     if (!tile)
         return;
 
-    if (tile->getCategory() ==  TileCategory::RoadCategory ){
+    if (tile->getCategory() == TileCategory::RoadCategory)
+    {
         RoadTile *road = static_cast<RoadTile *>(tile);
-    
+
         if (road->getLight())
         {
             map_.removeLight(road->getLight());
-         }
-     
+        }
+
         std::unique_ptr<Tile> empty_tile = std::make_unique<Tile>(tile->getPos(), tile->getSize(), tile->getTileIndex());
         map_.grid_.swapTile(empty_tile);
         connectRoads();
     }
-    else if(tile->getCategory() ==  TileCategory::BuildingCategory ){
+    else if (tile->getCategory() == TileCategory::BuildingCategory)
+    {
 
         BuildingTile *building = static_cast<BuildingTile *>(tile);
         std::unique_ptr<Tile> empty_tile = std::make_unique<Tile>(tile->getPos(), tile->getSize(), tile->getTileIndex());
         map_.grid_.swapTile(empty_tile);
-    }
-    else
-    {
-        return;
     }
 }
 

@@ -26,7 +26,7 @@ public:
 
     // Searching algorithms
     void search_DFS(const std::shared_ptr<Node> &cur, const std::shared_ptr<Node> &dest, std::map<std::shared_ptr<Node>, bool> &visited, std::list<std::shared_ptr<Node>> &path) const;
-
+    void search_AStar(const std::shared_ptr<Node> &cur, const std::shared_ptr<Node> &dest, std::map<std::shared_ptr<Node>, bool> &visited, std::list<std::shared_ptr<Node>> &path) const;
     //Getters
     const sf::Vector2f &getPos() const { return position_; }
     const std::vector<std::shared_ptr<Node>> &getNeighbors() const { return neighbors_; }

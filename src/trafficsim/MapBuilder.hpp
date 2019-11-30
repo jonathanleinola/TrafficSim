@@ -55,7 +55,7 @@ public:
     void addRoad(const sf::Vector2f &pos, RoadType type, bool autorotate = true);
     void addBuilding(const sf::Vector2f &pos, BuildingType type);
     // When Left Control and left mousebutton pressed this gets called
-    void slideAction(const sf::Vector2f &pos);
+    void slideAction(const sf::Vector2f &pos, EditingOption option);
 
     // Rotates roads 90 degrees clockwise
     void rotateRoad(const sf::Vector2f &pos);

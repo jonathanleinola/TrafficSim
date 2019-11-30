@@ -18,9 +18,7 @@ Node::Node(const sf::Vector2f &position)
     cars_passed_.reserve(Samples_);
     for (unsigned int i = 0; i < Samples_; ++i)
         cars_passed_.emplace_back(0);
-
 }
-
 
 void Node::incrementCounter(const sf::Time &game_time) const
 {
@@ -43,6 +41,11 @@ void Node::resetCounter() const
 {
     for (unsigned int i = 0; i < Samples_; ++i)
         cars_passed_[i] = 0;
+}
+
+void Node::search_AStar(const std::shared_ptr<Node> &cur, const std::shared_ptr<Node> &dest, std::map<std::shared_ptr<Node>, bool> &visited, std::list<std::shared_ptr<Node>> &path) const
+{
+    
 }
 
 void Node::search_DFS(const std::shared_ptr<Node> &cur, const std::shared_ptr<Node> &dest, std::map<std::shared_ptr<Node>, bool> &visited, std::list<std::shared_ptr<Node>> &path) const
