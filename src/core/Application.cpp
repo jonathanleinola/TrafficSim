@@ -121,12 +121,12 @@ void Application::drawGUI()
             if (ImGui::MenuItem("Load", "Ctrl+O"))
             {
                 // ".ts" for traffic sim :)
-                data_.loadMap("test.ts", builder_, map_.grid_);
+                data_.loadMap("test.csv", builder_, map_.grid_);
             }
             if (ImGui::MenuItem("Save", "Ctrl+S"))
             {
                 // ".ts" for traffic sim :)
-                data_.saveMap("test.ts", map_.grid_);
+                data_.saveMap("test.csv", map_.grid_);
             }
             ImGui::EndMenu();
         }
