@@ -19,7 +19,7 @@ void Map::update(const sf::Time &game_time, float delta_time)
 {
     // Move cars, and other things which are dependent on time
     //cars, humans, trafficlights
-    if(!simulating_)
+    if (!simulating_)
         return;
 
     for (auto &car : cars_)
@@ -54,7 +54,7 @@ void Map::addLight(TrafficLight *light, unsigned int handler_id)
 
 void Map::newLightHandler(TrafficLight *light)
 {
-    if (light_handlers_.at(light_handlers_.size() - 1)->getLightCount() < 1)
+    if (light_handlers_.size() > 1 && light_handlers_.at(light_handlers_.size() - 1)->getLightCount() < 1)
     {
         current_handler_id_ = light_handlers_.size() - 1;
     }
@@ -63,9 +63,12 @@ void Map::newLightHandler(TrafficLight *light)
         light_handlers_.push_back(std::make_unique<TrafficLightHandler>(light_handlers_.size()));
         current_handler_id_ = light_handlers_.size() - 1;
     }
-    light_handlers_.at(light->getHandlerId())->removeLight(light, light->getPos());
-    light->setHandlerId(current_handler_id_);
-    light_handlers_.at(current_handler_id_)->addLight(light);
+    if (light)
+    {
+        light_handlers_.at(light->getHandlerId())->removeLight(light, light->getPos());
+        light->setHandlerId(current_handler_id_);
+        light_handlers_.at(current_handler_id_)->addLight(light);
+    }
 }
 
 void Map::removeLight(TrafficLight *light)
@@ -84,13 +87,17 @@ std::shared_ptr<Node> Map::closestRoadNode(const sf::Vector2f &pos)
     float closest_distance = FLT_MAX;
     for (unsigned int i = 0; i < grid_.getTotalTileCount(); ++i)
     {
-        if (grid_.getTile(i)->getType() == TileType::StraightRoadType)
+        if (grid_.getTile(i)->getCategory() == TileCategory::RoadCategory)
         {
-            float dist = VectorMath::Distance(pos, grid_.getTile(i)->getCenter());
-            if (closest_distance > dist)
+            auto road_tile = static_cast<RoadTile *>(grid_.getTile(i));
+            if (road_tile->getType() == RoadType::StraightRoadType)
             {
-                closest_distance = dist;
-                closest = grid_.getTile(i)->getNode();
+                float dist = VectorMath::Distance(pos, grid_.getTile(i)->getCenter());
+                if (closest_distance > dist)
+                {
+                    closest_distance = dist;
+                    closest = grid_.getTile(i)->getNode();
+                }
             }
         }
     }
@@ -99,7 +106,7 @@ std::shared_ptr<Node> Map::closestRoadNode(const sf::Vector2f &pos)
 
 void Map::setSimulating(bool val)
 {
-    if(simulating_ == val)
+    if (simulating_ == val)
         return;
     simulating_ = val;
     cars_.clear();

@@ -32,6 +32,7 @@ public:
     void clear();
     void display();
 
+    int gui_zoom_index = 3;
 private:
     void zoomView(sf::Vector2i relative_to, float zoom);
 

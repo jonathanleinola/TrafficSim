@@ -17,6 +17,7 @@
 #include "trafficsim/RoadTrisection.hpp"
 #include "trafficsim/RoadJunction.hpp"
 #include "trafficsim/HomeRoad.hpp"
+#include "trafficsim/HomeBuilding.hpp"
 
 namespace TrafficSim
 {
@@ -24,7 +25,7 @@ namespace TrafficSim
 Application *Application::AppInstance = nullptr;
 
 Application::Application()
-    : builder_(map_, window_)
+    : builder_(map_, window_), statistics_(map_, window_)
 {
     AppInstance = this;
     data_.loadTexturesFromFile("texture_list.txt");
@@ -41,6 +42,8 @@ Application::Application()
     Car::AddTexture(data_.getTexture("white_car"));
     Car::AddTexture(data_.getTexture("red_car"));
     Car::AddTexture(data_.getTexture("teal_car"));
+    HomeBuilding::SetTexture(data_.getTexture("home_building"));
+    OfficeBuilding::SetTexture(data_.getTexture("office_building"));
 }
 
 void Application::run()
@@ -104,7 +107,10 @@ const char *state_mode(State state)
 void Application::drawGUI()
 {
     if (app_state_ == Simulating)
+    {
         time_line_.drawGUI();
+        statistics_.drawGUI();
+    }
     if (app_state_ == Editing)
         builder_.drawGUI();
 
@@ -112,13 +118,15 @@ void Application::drawGUI()
     {
         if (ImGui::BeginMenu("File"))
         {
-            if (ImGui::MenuItem("Load"))
+            if (ImGui::MenuItem("Load", "Ctrl+O"))
             {
-                data_.loadMap("test.csv",builder_,map_.grid_);
+                // ".ts" for traffic sim :)
+                data_.loadMap("test.ts", builder_);
             }
-            if (ImGui::MenuItem("Save"))
+            if (ImGui::MenuItem("Save", "Ctrl+S"))
             {
-                data_.saveMap("test.csv", map_.grid_);
+                // ".ts" for traffic sim :)
+                data_.saveMap("test.ts", map_.grid_);
             }
             ImGui::EndMenu();
         }
@@ -132,6 +140,22 @@ void Application::drawGUI()
             }
             ImGui::EndMenu();
         }
+        if (ImGui::BeginMenu("Scale"))
+        {
+            if (ImGui::MenuItem("Scale: 100%", "Ctrl+1", ImGui::GetFont()->Scale == 1.f))
+                ImGui::GetFont()->Scale = 1.f;
+            if (ImGui::MenuItem("Scale: 125%", "Ctrl+2", ImGui::GetFont()->Scale == 1.25f))
+                ImGui::GetFont()->Scale = 1.25f;
+            if (ImGui::MenuItem("Scale: 150%", "Ctrl+3", ImGui::GetFont()->Scale == 1.5f))
+                ImGui::GetFont()->Scale = 1.5f;
+            if (ImGui::MenuItem("Scale: 200%", "Ctrl+4", ImGui::GetFont()->Scale == 2.f))
+                ImGui::GetFont()->Scale = 2.f;
+            if (ImGui::MenuItem("Scale: 250%", "Ctrl+5", ImGui::GetFont()->Scale == 2.5f))
+                ImGui::GetFont()->Scale = 2.5f;
+            if (ImGui::MenuItem("Scale: 300%", "Ctrl+6", ImGui::GetFont()->Scale == 3.f))
+                ImGui::GetFont()->Scale = 3.f;
+            ImGui::EndMenu();
+        }
         ImGui::EndMainMenuBar();
     }
 }
@@ -139,6 +163,7 @@ void Application::drawGUI()
 void Application::handleEvent(const sf::Event &ev)
 {
     builder_.handleInput(ev);
+    statistics_.handleInput(ev);
     switch (ev.type)
     {
     case sf::Event::KeyPressed:
@@ -156,6 +181,46 @@ void Application::handleEvent(const sf::Event &ev)
     default:
         break;
     }
+    // Shortcuts
+    if (ev.type == sf::Event::KeyPressed)
+    {
+        if (ev.key.code == sf::Keyboard::Num1 && key_buffer_[sf::Keyboard::LControl])
+            ImGui::GetFont()->Scale = 1.f;
+        else if (ev.key.code == sf::Keyboard::Num2 && key_buffer_[sf::Keyboard::LControl])
+            ImGui::GetFont()->Scale = 1.25f;
+        else if (ev.key.code == sf::Keyboard::Num3 && key_buffer_[sf::Keyboard::LControl])
+            ImGui::GetFont()->Scale = 1.5f;
+        else if (ev.key.code == sf::Keyboard::Num4 && key_buffer_[sf::Keyboard::LControl])
+            ImGui::GetFont()->Scale = 2.f;
+        else if (ev.key.code == sf::Keyboard::Num5 && key_buffer_[sf::Keyboard::LControl])
+            ImGui::GetFont()->Scale = 2.5f;
+        else if (ev.key.code == sf::Keyboard::Num6 && key_buffer_[sf::Keyboard::LControl])
+            ImGui::GetFont()->Scale = 3.f;
+
+        else if (ev.key.code == sf::Keyboard::S && key_buffer_[sf::Keyboard::LControl])
+            data_.saveMap("test.ts", map_.grid_);
+        else if (ev.key.code == sf::Keyboard::O && key_buffer_[sf::Keyboard::LControl])
+            data_.loadMap("test.ts", builder_);
+
+        else if (ev.key.code == sf::Keyboard::Up && key_buffer_[sf::Keyboard::LShift])
+        {
+            float zoom_vals[6] = {1.f, 1.25, 1.5f, 2.f, 2.5f, 3.f};
+            if (window_.gui_zoom_index < 5)
+            {
+                window_.gui_zoom_index++;
+                ImGui::GetFont()->Scale = zoom_vals[window_.gui_zoom_index];
+            }
+        }
+        else if (ev.key.code == sf::Keyboard::Down && key_buffer_[sf::Keyboard::LShift])
+        {
+            float zoom_vals[6] = {1.f, 1.25, 1.5f, 2.f, 2.5f, 3.f};
+            if (window_.gui_zoom_index > 0)
+            {
+                window_.gui_zoom_index--;
+                ImGui::GetFont()->Scale = zoom_vals[window_.gui_zoom_index];
+            }
+        }
+    }
 }
 
 void Application::handleInputBuffers(const sf::Vector2i &delta_mp)
@@ -163,11 +228,26 @@ void Application::handleInputBuffers(const sf::Vector2i &delta_mp)
     // LEFT mouse button is pressed down
     if (button_buffer_[sf::Mouse::Left])
     {
-        // if left control is down add a road if not move map
+        // store temporarily selected "radio button" option such as "Add Road"
+        TrafficSim::EditingOption temppi = builder_.getEditingOption();
+
+        // if left control is down add a road
         if (key_buffer_[sf::Keyboard::LControl] && app_state_ == Editing)
-            builder_.slideAdd(window_.convert(sf::Mouse::getPosition(window_.getWindow())));
-        else
+            builder_.slideAction(window_.convert(sf::Mouse::getPosition(window_.getWindow())));
+        
+        // if left shift is down remove road or building
+        else if(key_buffer_[sf::Keyboard::LShift] && app_state_ == Editing)
+        {   
+            // change editing_option_ to "Remove" state
+            builder_.setEditingOption(Remove);
+            builder_.slideAction(window_.convert(sf::Mouse::getPosition(window_.getWindow())));
+            // set editing_option back to previous state 
+            builder_.setEditingOption(temppi);
+        }
+        // if no control or shift keys pressed move map
+        else{
             window_.moveView(delta_mp);
+        }
     }
 }
 
