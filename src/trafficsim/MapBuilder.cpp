@@ -327,7 +327,7 @@ void MapBuilder::slideAction(const sf::Vector2f &pos, EditingOption option)
     last_tile_index_ = hovered_tile_index_;
 }
 
-void MapBuilder::addTrafficLight(const sf::Vector2f &pos)
+void MapBuilder::addTrafficLight(const sf::Vector2f &pos, unsigned int handler_id)
 {
     auto tile = map_.grid_.getTile(pos);
     // Traffic light only can be on staright road type
@@ -338,8 +338,11 @@ void MapBuilder::addTrafficLight(const sf::Vector2f &pos)
     RoadTile *road = static_cast<RoadTile *>(tile);
     if (road->getLight())
         return;
-    road->addLight(map_.getCurrentHandlerId());
-    map_.addLight(road->getLight());
+    if(handler_id == UINT_MAX)
+        road->addLight(map_.getCurrentHandlerId());
+    else
+        road->addLight(handler_id);
+    map_.addLight(road->getLight(), road->getLight()->getHandlerId());
 }
 
 void MapBuilder::addTemplate(const sf::Vector2f &pos)
@@ -455,7 +458,7 @@ void MapBuilder::changeLightHandler(const sf::Vector2f &pos)
 {
     auto tile = map_.grid_.getTile(pos);
     if (!tile || tile->getCategory() == TileCategory::RoadCategory)
-        if (static_cast<RoadTile *>(tile)->getType() == RoadType::StraightRoadType)
+        if (static_cast<RoadTile *>(tile)->getType() != RoadType::StraightRoadType)
             return;
     RoadTile *new_light_tile = static_cast<RoadTile *>(tile);
     TrafficLight *new_light = new_light_tile->getLight();

@@ -62,7 +62,7 @@ public:
     // Rotates flips roads
     void flipRoad(const sf::Vector2f &pos);
     // Adds traffic light, only to StraightRoadType Tiles
-    void addTrafficLight(const sf::Vector2f &pos);
+    void addTrafficLight(const sf::Vector2f &pos, unsigned int handler_id = UINT_MAX);
     // Implemented for easy tile removal with shift key
     EditingOption getEditingOption(){ return editing_option_;}
     // Implemented for setting editing_option_ back after tile removal 
