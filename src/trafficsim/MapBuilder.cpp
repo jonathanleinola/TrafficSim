@@ -60,8 +60,7 @@ const char *template_type_name(TemplateType type)
         "T-intersection-down",
         "T-intersection-up",
         "T-intersection-left",
-        "T-intersection-right",
-
+        "T-intersection-right"
     }[type];
 }
 
@@ -108,7 +107,7 @@ void MapBuilder::drawGUI()
     else if (editing_option_ == EditingOption::AddBuilding)
     {
         ImGui::Text("Building selected:");
-        for (int i = 0; i < TemplateType::TemplateTypeCount; i++)
+        for (int i = 0; i < BuildingType::BuildingTypeCount; i++)
         {
             if (ImGui::RadioButton(building_type_name((BuildingType)i), option_ == i))
                 option_ = i;
