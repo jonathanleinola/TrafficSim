@@ -57,7 +57,11 @@ const char *template_type_name(TemplateType type)
 {
     return (const char *[]){
         "Cross Intersection",
-        "T-intersection",
+        "T-intersection-down",
+        "T-intersection-up",
+        "T-intersection-left",
+        "T-intersection-right",
+
     }[type];
 }
 
@@ -339,7 +343,7 @@ void MapBuilder::addTrafficLight(const sf::Vector2f &pos, unsigned int handler_i
     RoadTile *road = static_cast<RoadTile *>(tile);
     if (road->getLight())
         return;
-    if(handler_id == UINT_MAX)
+    if (handler_id == UINT_MAX)
         road->addLight(map_.getCurrentHandlerId());
     else
         road->addLight(handler_id);
