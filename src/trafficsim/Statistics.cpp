@@ -32,17 +32,11 @@ void Statistics::drawGUI()
             exportCSV("histogram.csv", map_.grid_.getTile(selected_tile_index_)->getNode()->getCarsPassed());
         };
 
-        int x = ImGui::GetContentRegionAvail().x;
-        int y = ImGui::GetContentRegionAvail().y / 2;
-        ImGui::PlotLines("Frame Times", getter, (void *)node_data, data_size, 0, "Number of Vehicles", SCALE_MIN, SCALE_MAX, ImVec2(x, y));
+        int x = ImGui::GetContentRegionAvail().x * 0.5f;
+        int y = ImGui::GetContentRegionAvail().y * 0.5f;
         ImGui::PlotHistogram("Histogram", getter, (void *)node_data, data_size, 0, "Number of Vehicles", SCALE_MIN, SCALE_MAX, ImVec2(x, y));
         ImGui::End();
     }
-
-    //static float TestData[6] = {0.f, 4.f, 3.f, 2.f, 0.f, 4.f};
-    //ImGui::PlotHistogram("Histogram Test", TestData, 6, 0, "Test", 0.f, 5.f, ImVec2(0, 80));
-    //   static float arr[] = {0.6f, 0.1f, 1.0f, 0.5f, 0.92f, 0.1f, 0.2f};
-    //   std::vector<float> v = {0.6f, 0.1f, 1.0f, 0.5f, 0.92f, 0.1f, 0.2f};
 }
 
 void Statistics::selectTile(const sf::Vector2f &pos)
@@ -100,6 +94,7 @@ void Statistics::exportCSV(const char *file_name, const std::vector<std::uint16_
         fprintf(fp, "%o,", i);
     }
     fclose(fp);
+    std::cout << "Histogram data saved" << std::endl;
 }
 
 } // namespace TrafficSim
