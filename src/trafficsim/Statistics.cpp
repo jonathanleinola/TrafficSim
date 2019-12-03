@@ -17,7 +17,6 @@ void Statistics::drawGUI()
     {
         const auto &node_data = map_.grid_.getTile(selected_tile_index_)->getNode()->getCarsPassed().data();
         std::size_t data_size = map_.grid_.getTile(selected_tile_index_)->getNode()->getCarsPassed().size();
-
         constexpr float SCALE_MAX = 300.f;
         constexpr float SCALE_MIN = 0.f;
 
@@ -28,6 +27,11 @@ void Statistics::drawGUI()
         };
 
         ImGui::Begin("Statistics");
+        if (ImGui::Button("Export"))
+        {
+            exportCSV("histogram.csv", map_.grid_.getTile(selected_tile_index_)->getNode()->getCarsPassed());
+        };
+
         int x = ImGui::GetContentRegionAvail().x;
         int y = ImGui::GetContentRegionAvail().y / 2;
         ImGui::PlotLines("Frame Times", getter, (void *)node_data, data_size, 0, "Number of Vehicles", SCALE_MIN, SCALE_MAX, ImVec2(x, y));
@@ -85,6 +89,17 @@ void Statistics::handleInput(const sf::Event &ev)
             selectTile(pos);
         }
     }
+}
+
+void Statistics::exportCSV(const char *file_name, const std::vector<std::uint16_t> &car_data)
+{
+    std::cout << "Export histogram of amount of cars" << std::endl;
+    FILE *fp = fopen(file_name, "w");
+    for (auto i : car_data)
+    {
+        fprintf(fp, "%o,", i);
+    }
+    fclose(fp);
 }
 
 } // namespace TrafficSim
