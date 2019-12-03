@@ -18,148 +18,164 @@ void DataHandler::loadMap(const char *file_name, MapBuilder &builder, Grid &grid
 {
     builder.clearMap();
 
-    std::ifstream file("test.csv");
-    sf::Vector2f pos, dir, pos_tl;
-    int i, j, flipped, istrafficlight;
-    unsigned int handler_id;
+    try{
+        std::ifstream file("test.csv");
+        file.exceptions(std::ifstream::failbit);
 
-    CsvRow row;
-    while (file >> row)
+        sf::Vector2f pos, dir, pos_tl;
+        int i, j, flipped, istrafficlight;
+        unsigned int handler_id;
+
+        CsvRow row;
+        while (file >> row)
+        {
+            //std::cout << row[0] << row[1] << row[2] << row[3] << row[4] << "\n";
+
+            i = stoi(row[0]);
+            j = stoi(row[1]);
+            TileCategory tile_category = static_cast<TileCategory>(i);
+
+            if (tile_category == TileCategory::RoadCategory)
+            {
+                RoadType road_type = static_cast<RoadType>(j);
+                pos.x = stof(row[4]);
+                pos.y = stof(row[5]);
+
+                dir.x = stoi(row[2]);
+                dir.y = stoi(row[3]);
+
+                flipped = stoi(row[6]);
+
+                istrafficlight = stoi(row[7]);
+
+                if (istrafficlight)
+                {
+                    pos_tl.x = stof(row[8]);
+                    pos_tl.y = stof(row[9]);
+                    handler_id = stoi(row[10]);
+                }
+
+
+                //add road
+                // Fix the middle zero
+                // you need to save road type.
+                //    StraightRoadType = 0,
+
+                if (road_type == RoadType::StraightRoadType)
+                {
+                    builder.addRoad(pos, RoadType::StraightRoadType, false);
+                }
+                else if (road_type == RoadType::RoadTurnType)
+                {
+                    builder.addRoad(pos, RoadType::RoadTurnType, false);
+                }
+                else if (road_type == RoadType::HomeRoadType)
+                {
+                    builder.addRoad(pos, RoadType::HomeRoadType, false);
+                }
+                else if (road_type == RoadType::IntersectionType)
+                {
+                    builder.addRoad(pos, RoadType::IntersectionType, false);
+                }
+                else if (road_type == RoadType::JunctionType)
+                {
+                    builder.addRoad(pos, RoadType::JunctionType, false);
+                }
+                else if (road_type == RoadType::TrisectionType)
+                {
+                    builder.addRoad(pos, RoadType::TrisectionType, false);
+                }
+
+                // Direction of the road
+                // Up: { 0, 1 }, Right { 1, 0 }, Down { 0, -1 }, Left { -1, 0 }
+
+                //std::cout << dir.x << " " << dir.y << std::endl;
+                if (flipped == 0)
+                    builder.flipRoad(pos);
+
+                if (dir.x == 1 && flipped == 0)
+                {
+                    builder.rotateRoad(pos);
+                    builder.rotateRoad(pos);
+                }
+                else if (dir.y == -1)
+                {
+                    if (flipped == 1)
+                    {
+                        builder.rotateRoad(pos);
+                    }
+                    else
+                    {
+                        builder.rotateRoad(pos);
+                        builder.rotateRoad(pos);
+                        builder.rotateRoad(pos);
+                    }
+                }
+                else if (dir.x == -1)
+                {
+                    if (flipped == 1)
+                    {
+                        builder.rotateRoad(pos);
+                        builder.rotateRoad(pos);
+                    }
+                    else
+                    {
+                    }
+                }
+                else if (dir.y == 1)
+                {
+                    if (flipped == 1)
+                    {
+                        builder.rotateRoad(pos);
+                        builder.rotateRoad(pos);
+                        builder.rotateRoad(pos);
+                    }
+                    else
+                    {
+                        builder.rotateRoad(pos);
+                    }
+                }
+
+                //Trafficlights
+                if (istrafficlight)
+                {
+                    auto tile = grid.getTile(pos_tl);
+                    RoadTile *road = static_cast<RoadTile *>(tile);
+                    builder.addTrafficLight(pos_tl,handler_id);
+                }
+            }
+            else if (tile_category == TileCategory::BuildingCategory)
+            {
+                BuildingType building_type = static_cast<BuildingType>(j);
+                pos.x = stof(row[4]);
+                pos.y = stof(row[5]);
+
+                dir.x = stoi(row[2]);
+                dir.y = stoi(row[3]);
+
+                if(building_type==BuildingType::HomeBuildingType)
+                {
+                    builder.addBuilding(pos,BuildingType::HomeBuildingType);
+                }
+                else if(building_type==BuildingType::OfficeBuildingType)
+                {
+                    builder.addBuilding(pos,BuildingType::OfficeBuildingType);
+                }   
+            }
+            
+        }
+        std::cout << "Map Loaded" << std::endl;
+    }
+    catch(const std::ios_base::failure &e)
     {
-        //std::cout << row[0] << row[1] << row[2] << row[3] << row[4] << "\n";
-
-        i = stoi(row[0]);
-        j = stoi(row[1]);
-        TileCategory tile_category = static_cast<TileCategory>(i);
-
-        if (tile_category == TileCategory::RoadCategory)
-        {
-            RoadType road_type = static_cast<RoadType>(j);
-            pos.x = stof(row[4]);
-            pos.y = stof(row[5]);
-
-            dir.x = stoi(row[2]);
-            dir.y = stoi(row[3]);
-
-            flipped = stoi(row[6]);
-
-            istrafficlight = stoi(row[7]);
-
-            if (istrafficlight)
-            {
-                pos_tl.x = stof(row[8]);
-                pos_tl.y = stof(row[9]);
-                handler_id = stoi(row[10]);
-            }
-
-            //add road
-            // Fix the middle zero
-            // you need to save road type.
-            //    StraightRoadType = 0,
-
-            if (road_type == RoadType::StraightRoadType)
-            {
-                builder.addRoad(pos, RoadType::StraightRoadType, false);
-            }
-            else if (road_type == RoadType::RoadTurnType)
-            {
-                builder.addRoad(pos, RoadType::RoadTurnType, false);
-            }
-            else if (road_type == RoadType::HomeRoadType)
-            {
-                builder.addRoad(pos, RoadType::HomeRoadType, false);
-            }
-            else if (road_type == RoadType::IntersectionType)
-            {
-                builder.addRoad(pos, RoadType::IntersectionType, false);
-            }
-            else if (road_type == RoadType::JunctionType)
-            {
-                builder.addRoad(pos, RoadType::JunctionType, false);
-            }
-            else if (road_type == RoadType::TrisectionType)
-            {
-                builder.addRoad(pos, RoadType::TrisectionType, false);
-            }
-
-            // Direction of the road
-            // Up: { 0, 1 }, Right { 1, 0 }, Down { 0, -1 }, Left { -1, 0 }
-
-            //std::cout << dir.x << " " << dir.y << std::endl;
-            if (flipped == 0)
-                builder.flipRoad(pos);
-
-            if (dir.x == 1 && flipped == 0)
-            {
-                builder.rotateRoad(pos);
-                builder.rotateRoad(pos);
-            }
-            else if (dir.y == -1)
-            {
-                if (flipped == 1)
-                {
-                    builder.rotateRoad(pos);
-                }
-                else
-                {
-                    builder.rotateRoad(pos);
-                    builder.rotateRoad(pos);
-                    builder.rotateRoad(pos);
-                }
-            }
-            else if (dir.x == -1)
-            {
-                if (flipped == 1)
-                {
-                    builder.rotateRoad(pos);
-                    builder.rotateRoad(pos);
-                }
-                else
-                {
-                }
-            }
-            else if (dir.y == 1)
-            {
-                if (flipped == 1)
-                {
-                    builder.rotateRoad(pos);
-                    builder.rotateRoad(pos);
-                    builder.rotateRoad(pos);
-                }
-                else
-                {
-                    builder.rotateRoad(pos);
-                }
-            }
-
-            //Trafficlights
-            if (istrafficlight)
-            {
-                auto tile = grid.getTile(pos_tl);
-                RoadTile *road = static_cast<RoadTile *>(tile);
-                road->addLight(handler_id);
-                builder.addTrafficLight(pos_tl);
-            }
-        }
-        else if (tile_category == TileCategory::BuildingCategory)
-        {
-            BuildingType building_type = static_cast<BuildingType>(j);
-            pos.x = stof(row[4]);
-            pos.y = stof(row[5]);
-
-            dir.x = stoi(row[2]);
-            dir.y = stoi(row[3]);
-
-            if(building_type==BuildingType::HomeBuildingType)
-            {
-                builder.addBuilding(pos,BuildingType::HomeBuildingType);
-            }
-            else if(building_type==BuildingType::OfficeBuildingType)
-            {
-                builder.addBuilding(pos,BuildingType::OfficeBuildingType);
-            }   
-        }
-        
+    std::cerr << "Exception loading file : \n";
+    std::cout << e.what() << std::endl;
+    }
+    catch(const std::invalid_argument &e)
+    {
+        std::cerr << "File format not supported : \n";
+        std::cout << e.what() << std::endl;
+        builder.clearMap();
     }
 
     /*
@@ -167,7 +183,6 @@ void DataHandler::loadMap(const char *file_name, MapBuilder &builder, Grid &grid
     *   builder.addRoad(), builder.rotateRoad() and .flipRoad()
     */
 
-    std::cout << "Map Loaded" << std::endl;
 }
 
 void DataHandler::saveMap(const char *file_name, Grid &grid) const
@@ -191,11 +206,14 @@ void DataHandler::saveMap(const char *file_name, Grid &grid) const
     //if(grid.getTile(0)==NULL)
     //    return 0;
     std::cout << "Save map" << std::endl;
-    FILE *fp = fopen(file_name, "w");
+    
     //if(!fp)
     //    return 0;
 
     // TODO save left and right turns and dtraffic lights
+
+    FILE *fp = fopen(file_name, "w");
+
     for (unsigned int i = 0; i < grid.getSideCount() * grid.getSideCount(); i++)
     {
 
@@ -219,9 +237,13 @@ void DataHandler::saveMap(const char *file_name, Grid &grid) const
             
             fprintf(fp, "%d,%d,%f,%f,%f,%f\n",building->getCategory(),building->getType(),building->getDir().x,building->getDir().y,building->getPos().x,building->getPos().y);
         }
+    
     }
-
     fclose(fp);
+
+
+
+   
     std::cout << "Map Saved" << std::endl;
 }
 
