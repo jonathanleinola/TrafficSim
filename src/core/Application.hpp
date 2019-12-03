@@ -38,6 +38,9 @@ public:
     // Draws GUI eg. menu bar
     void drawGUI();
 
+public:
+    void drawHeatMap();
+
 private:
     Window window_;
     Map map_;

@@ -38,6 +38,9 @@ public:
     void newLightHandler(TrafficLight *light = nullptr);
     unsigned int getCurrentHandlerId() const { return current_handler_id_; }
 
+    //When we add a road we need to call this
+    void updateClosestRoads();
+
 
     // Inherited from sf::Drawable base class, draws Grid, cars and Traffic Light connections if in editing mode
     virtual void draw(sf::RenderTarget &target, sf::RenderStates states) const;

@@ -110,6 +110,7 @@ void Application::drawGUI()
     {
         time_line_.drawGUI();
         statistics_.drawGUI();
+        drawHeatMap();
     }
     if (app_state_ == Editing)
         builder_.drawGUI();
@@ -158,6 +159,90 @@ void Application::drawGUI()
         }
         ImGui::EndMainMenuBar();
     }
+}
+
+void Application::drawHeatMap()
+{
+    ImGui::Begin("Heat map");
+    ImDrawList *draw_list = ImGui::GetWindowDrawList();
+
+    ImVec2 canvas_pos = ImGui::GetCursorScreenPos();     // ImDrawList API uses screen coordinates!
+    ImVec2 canvas_size = ImGui::GetContentRegionAvail(); // Resize canvas to what's available
+    if (canvas_size.x < 50.0f)
+        canvas_size.x = 50.0f;
+    if (canvas_size.y < 50.0f)
+        canvas_size.y = 50.0f;
+
+    draw_list->AddRectFilled(canvas_pos, ImVec2(canvas_pos.x + canvas_size.x, canvas_pos.y + canvas_size.y), IM_COL32(119, 160, 93, 180));
+    draw_list->AddRect(canvas_pos, ImVec2(canvas_pos.x + canvas_size.x, canvas_pos.y + canvas_size.y), IM_COL32(255, 255, 255, 255));
+
+    // Map view
+    // at the end canvas_size.x on purpose to get square
+    float canvas_view_w = window_.getView().getSize().x / (map_.grid_.getTile(0)->getSize() * map_.grid_.getSideCount()) * canvas_size.x;
+    float canvas_view_h = window_.getView().getSize().y / (map_.grid_.getTile(0)->getSize() * map_.grid_.getSideCount()) * canvas_size.x;
+    float canvas_view_x = {window_.getView().getCenter().x / (map_.grid_.getTile(0)->getSize() * map_.grid_.getSideCount()) * canvas_size.x};
+    float canvas_view_y = {window_.getView().getCenter().y / (map_.grid_.getTile(0)->getSize() * map_.grid_.getSideCount()) * canvas_size.x};
+    sf::Vector2f view_pos_min = {canvas_view_x - canvas_view_w / 2 + canvas_pos.x, canvas_view_y - canvas_view_h / 2  + canvas_pos.y};
+    sf::Vector2f view_pos_max = {canvas_view_x + canvas_view_w / 2 + canvas_pos.x, canvas_view_y + canvas_view_h / 2  + canvas_pos.y};
+    draw_list->AddRect(view_pos_min, view_pos_max, IM_COL32(255, 255, 255, 255));
+
+    float canvas_tile_size = canvas_size.x / map_.grid_.getSideCount();
+    const unsigned int time_window = 24 * 60 * 60 / 96;
+    float g_time = time_line_.getGameTime().asSeconds();
+    unsigned int time_index = g_time / time_window;
+
+    const int max_cars_per_sample = 300;
+
+    // No std::tuple 
+    struct TileSample
+    {
+        TileSample(const ImVec2 &p1, const ImVec2 &p2, const sf::Color &c)
+            : p1(p1), p2(p2), c(c){};
+
+        const ImVec2 p1;
+        const ImVec2 p2;
+        const sf::Color c;
+    };
+
+
+    // Heatmap
+    for (unsigned int i = 0; i < map_.grid_.getTotalTileCount(); ++i)
+    {
+        if (map_.grid_.getTile(i)->getCategory() == TileCategory::RoadCategory)
+        {
+            sf::Vector2f p_min = {(i % map_.grid_.getSideCount()) * canvas_tile_size + canvas_pos.x, int(i / map_.grid_.getSideCount()) * canvas_tile_size + canvas_pos.y};
+            sf::Vector2f p_max = p_min + sf::Vector2f(canvas_tile_size, canvas_tile_size);
+            std::uint16_t car_count = map_.grid_.getTile(i)->getNode()->getCarsPassed().at(time_index);
+            float heat_color = 255 - 0 - (car_count * max_cars_per_sample / (15*60)) * (255 - 0);
+            if(heat_color > 220 - 0)
+                draw_list->AddRectFilled(p_min, p_max, IM_COL32(26, 26, 26, 255));
+            else
+                draw_list->AddRectFilled(p_min, p_max, IM_COL32(255, 0 + heat_color, 0, 255));
+        }
+        if (map_.grid_.getTile(i)->getCategory() == TileCategory::BuildingCategory)
+        {
+            sf::Vector2f p_min = {(i % map_.grid_.getSideCount()) * canvas_tile_size + canvas_pos.x, int(i / map_.grid_.getSideCount()) * canvas_tile_size + canvas_pos.y};
+            sf::Vector2f p_max = p_min + sf::Vector2f(canvas_tile_size, canvas_tile_size);
+            draw_list->AddRectFilled(p_min, p_max, IM_COL32(47, 58, 224, 255));
+            map_.grid_.getTile(i)->getNode()->getCarsPassed().at(time_index);
+        }
+    }
+
+    bool adding_preview = false;
+    ImGui::InvisibleButton("canvas", canvas_size);
+    ImVec2 mouse_pos_in_canvas = ImVec2(ImGui::GetIO().MousePos.x - canvas_pos.x, ImGui::GetIO().MousePos.y - canvas_pos.y);
+
+    if (ImGui::IsItemHovered())
+    {
+        if (ImGui::IsMouseClicked(0))
+        {
+            std::cout << "Hello\n";
+        }
+    }
+    draw_list->PushClipRect(canvas_pos, ImVec2(canvas_pos.x + canvas_size.x, canvas_pos.y + canvas_size.y), true); // clip lines within the canvas (if we resize it, etc.)
+    draw_list->PopClipRect();
+
+    ImGui::End();
 }
 
 void Application::handleEvent(const sf::Event &ev)

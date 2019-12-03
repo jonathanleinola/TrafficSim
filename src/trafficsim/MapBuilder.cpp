@@ -216,6 +216,7 @@ void MapBuilder::addRoad(const sf::Vector2f &pos, RoadType type, bool autorotate
 
     map_.grid_.swapTile(road_tile);
     connectRoads();
+    map_.updateClosestRoads();
 }
 
 void MapBuilder::addBuilding(const sf::Vector2f &pos, BuildingType type)
