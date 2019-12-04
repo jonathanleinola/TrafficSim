@@ -28,7 +28,7 @@ void Map::clearMap()
 
 void Map::initDay()
 {
-    for(unsigned int i = 0; i < 0; ++i)
+    for(unsigned int i = 0; i < grid_.getTotalTileCount(); ++i)
     {
         if(grid_.getTile(i)->getCategory() == TileCategory::RoadCategory)
         {

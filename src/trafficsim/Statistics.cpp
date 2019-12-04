@@ -32,8 +32,8 @@ void Statistics::drawGUI()
             exportCSV("histogram.csv", map_.grid_.getTile(selected_tile_index_)->getNode()->getCarsPassed());
         };
 
-        int x = ImGui::GetContentRegionAvail().x * 0.5f;
-        int y = ImGui::GetContentRegionAvail().y * 0.5f;
+        int x = ImGui::GetContentRegionAvail().x;
+        int y = ImGui::GetContentRegionAvail().y;
         ImGui::PlotHistogram("Histogram", getter, (void *)node_data, data_size, 0, "Number of Vehicles", SCALE_MIN, SCALE_MAX, ImVec2(x, y));
         ImGui::End();
     }
