@@ -56,6 +56,12 @@ void Window::pollEvent()
     }
 }
 
+void Window::setViewPos(const sf::Vector2f &pos)
+{
+    view_.setCenter(pos);
+    window_.setView(view_);
+}
+
 void Window::moveView(const sf::Vector2i &delta_pos)
 {
     if (isGuiHovered())

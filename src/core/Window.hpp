@@ -24,6 +24,9 @@ public:
 
     // moves view when left mb is pressed and moved
     void moveView(const sf::Vector2i &delta_pos);
+    // For moving map with heatmap
+    void setViewPos(const sf::Vector2f &pos);
+
 
     // polls events from SFML
     void pollEvent();
