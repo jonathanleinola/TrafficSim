@@ -50,7 +50,8 @@ void Map::update(const sf::Time &game_time, float delta_time)
                 }
                 i++;
             }
-            addCar(ita->second->getClosestRoad(), tile);
+            if(tile && ita->second->getClosestRoad())
+                addCar(ita->second->getClosestRoad(), tile);
         }
     }
 
@@ -69,9 +70,24 @@ void Map::addCar(const Tile *spawn_pos, const Tile *dest)
 
 unsigned int Map::addBuilding(BuildingTile *building)
 {
-    building_handlers_.insert({current_building_id_, std::make_unique<BuildingHandler>(building, grid_.getTile(closestRoadNode(building->getCenter())->getPos()), current_building_id_)});
+    auto closest_road_node = closestRoadNode(building->getCenter());
+    if (closest_road_node)
+        building_handlers_.insert({current_building_id_, std::make_unique<BuildingHandler>(building, grid_.getTile(closest_road_node->getPos()), current_building_id_)});
+    else
+        building_handlers_.insert({current_building_id_, std::make_unique<BuildingHandler>(building, nullptr, current_building_id_)});
+
     current_building_id_++;
     return current_building_id_ - 1;
+}
+
+void Map::updateClosestRoads()
+{
+    for (auto it = building_handlers_.begin(); it != building_handlers_.end(); ++it)
+    {
+        auto closest_road_node = closestRoadNode(it->second->getBuildingTile()->getCenter());
+        if(closest_road_node)
+            it->second->setClosestRoad(grid_.getTile(closest_road_node->getPos()));
+    }
 }
 
 void Map::addLight(TrafficLight *light, unsigned int handler_id)

@@ -11,6 +11,7 @@ public:
 
     //Getters
     const sf::Window &getWindow() const { return window_; }
+    const sf::View &getView() const { return view_; }
     int getWidth() const { return window_.getSize().x; }
     int getHeight() const { return window_.getSize().y; }
     bool isOpen() const { return window_.isOpen(); }
@@ -33,6 +34,7 @@ public:
     void display();
 
     int gui_zoom_index = 3;
+
 private:
     void zoomView(sf::Vector2i relative_to, float zoom);
 

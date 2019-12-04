@@ -57,7 +57,10 @@ const char *template_type_name(TemplateType type)
 {
     return (const char *[]){
         "Cross Intersection",
-        "T-intersection",
+        "T-intersection-down",
+        "T-intersection-up",
+        "T-intersection-left",
+        "T-intersection-right"
     }[type];
 }
 
@@ -104,7 +107,7 @@ void MapBuilder::drawGUI()
     else if (editing_option_ == EditingOption::AddBuilding)
     {
         ImGui::Text("Building selected:");
-        for (int i = 0; i < TemplateType::TemplateTypeCount; i++)
+        for (int i = 0; i < BuildingType::BuildingTypeCount; i++)
         {
             if (ImGui::RadioButton(building_type_name((BuildingType)i), option_ == i))
                 option_ = i;
@@ -216,6 +219,7 @@ void MapBuilder::addRoad(const sf::Vector2f &pos, RoadType type, bool autorotate
 
     map_.grid_.swapTile(road_tile);
     connectRoads();
+    map_.updateClosestRoads();
 }
 
 void MapBuilder::addBuilding(const sf::Vector2f &pos, BuildingType type)
@@ -339,7 +343,7 @@ void MapBuilder::addTrafficLight(const sf::Vector2f &pos, unsigned int handler_i
     RoadTile *road = static_cast<RoadTile *>(tile);
     if (road->getLight())
         return;
-    if(handler_id == UINT_MAX)
+    if (handler_id == UINT_MAX)
         road->addLight(map_.getCurrentHandlerId());
     else
         road->addLight(handler_id);

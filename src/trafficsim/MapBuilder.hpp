@@ -64,9 +64,9 @@ public:
     // Adds traffic light, only to StraightRoadType Tiles
     void addTrafficLight(const sf::Vector2f &pos, unsigned int handler_id = UINT_MAX);
     // Implemented for easy tile removal with shift key
-    EditingOption getEditingOption(){ return editing_option_;}
-    // Implemented for setting editing_option_ back after tile removal 
-    void setEditingOption(EditingOption opti){ editing_option_ = opti;}
+    EditingOption getEditingOption() { return editing_option_; }
+    // Implemented for setting editing_option_ back after tile removal
+    void setEditingOption(EditingOption opti) { editing_option_ = opti; }
 
 private:
     Map &map_;
@@ -75,8 +75,7 @@ private:
     EditingOption editing_option_ = Inspect;
 
     // This is Magic, dont ask :D
-    union
-    {
+    union {
         int option_;
         RoadType road_option_;
         TemplateType template_option_;

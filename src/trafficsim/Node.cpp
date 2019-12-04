@@ -25,9 +25,9 @@ Node::Node(const sf::Vector2f &position)
 void Node::incrementCounter(const sf::Time &game_time) const
 {
     // Seconds in day divided by seconds per Samples per day will get seconds in sample
-    const unsigned int window = 24 * 60 * 60 / Samples_;
+    const unsigned int time_window = 24 * 60 * 60 / Samples_;
     float g_time = game_time.asSeconds();
-    unsigned int index = g_time / window;
+    unsigned int index = g_time / time_window;
     try
     {
         ++cars_passed_.at(index);

@@ -20,6 +20,7 @@ public:
     const BuildingTile *getBuildingTile() const { return building_tile_; }
     const Tile *getClosestRoad() const { return closest_road_; }
 
+    void setClosestRoad(const Tile *closest_road) { closest_road_ = closest_road; }
     unsigned int getId() const { return id_; }
 
 private:

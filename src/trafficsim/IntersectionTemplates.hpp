@@ -14,7 +14,10 @@ namespace TrafficSim
 enum TemplateType
 {
     CrossIntersectionType = 0,
-    TIntersectionType,
+    TIntersectionDownType,
+    TIntersectionUpType,
+    TIntersectionLeftType,
+    TIntersectionRightType,
 
     TemplateTypeCount,
 };
@@ -44,13 +47,37 @@ public:
             }
             return cross_intersection_indices_;
         }
-        else if (type == TIntersectionType)
+        else if (type == TIntersectionDownType)
         {
-            for (unsigned int i = 0; i < t_intersection_indices_.size(); ++i)
+            for (unsigned int i = 0; i < t_intersection_down_indices_.size(); ++i)
             {
-                t_intersection_indices_[i].index = index + (t_intersection_indices_[i].relative_pos.x - 1) + (t_intersection_indices_[i].relative_pos.y - 2) * map_side_count;
+                t_intersection_down_indices_[i].index = index + (t_intersection_down_indices_[i].relative_pos.x - 1) + (t_intersection_down_indices_[i].relative_pos.y - 2) * map_side_count;
             }
-            return t_intersection_indices_;
+            return t_intersection_down_indices_;
+        }
+        else if (type == TIntersectionUpType)
+        {
+            for (unsigned int i = 0; i < t_intersection_up_indices_.size(); ++i)
+            {
+                t_intersection_up_indices_[i].index = index + (t_intersection_up_indices_[i].relative_pos.x - 1) + (t_intersection_up_indices_[i].relative_pos.y - 2) * map_side_count;
+            }
+            return t_intersection_up_indices_;
+        }
+        else if (type == TIntersectionLeftType)
+        {
+            for (unsigned int i = 0; i < t_intersection_left_indices_.size(); ++i)
+            {
+                t_intersection_left_indices_[i].index = index + (t_intersection_left_indices_[i].relative_pos.x - 1) + (t_intersection_left_indices_[i].relative_pos.y - 2) * map_side_count;
+            }
+            return t_intersection_left_indices_;
+        }
+        else if (type == TIntersectionRightType)
+        {
+            for (unsigned int i = 0; i < t_intersection_right_indices_.size(); ++i)
+            {
+                t_intersection_right_indices_[i].index = index + (t_intersection_right_indices_[i].relative_pos.x - 1) + (t_intersection_right_indices_[i].relative_pos.y - 2) * map_side_count;
+            }
+            return t_intersection_right_indices_;
         }
 
         return cross_intersection_indices_;
@@ -68,7 +95,7 @@ public:
             if (index % map_side_count == 0)
                 return false;
         }
-        if (type == TIntersectionType)
+        if (type == TIntersectionDownType || type == TIntersectionUpType || type == TIntersectionLeftType || type == TIntersectionRightType)
         {
             if (index < map_side_count)
                 return false;
@@ -84,7 +111,10 @@ public:
 
 private:
     static std::vector<RoadInfo> cross_intersection_indices_;
-    static std::vector<RoadInfo> t_intersection_indices_;
+    static std::vector<RoadInfo> t_intersection_down_indices_;
+    static std::vector<RoadInfo> t_intersection_up_indices_;
+    static std::vector<RoadInfo> t_intersection_left_indices_;
+    static std::vector<RoadInfo> t_intersection_right_indices_;
 };
 
 } // namespace TrafficSim
