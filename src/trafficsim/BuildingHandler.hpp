@@ -32,8 +32,7 @@ private:
     const unsigned id_;
     // Stores the time when car leaves this building
     std::list<unsigned int> leaving_times_;
-    unsigned int max_capacity_ = 150;
-    unsigned int capacity_ = 50;
+    unsigned int capacity_ ;
 };
 
 } // namespace TrafficSim

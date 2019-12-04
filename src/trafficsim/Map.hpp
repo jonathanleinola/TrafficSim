@@ -18,6 +18,7 @@ public:
     Map();
 
     void clearMap();
+    void initDay();
     
     // gets called when app state is changed
     void setSimulating(bool val);

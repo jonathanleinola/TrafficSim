@@ -26,6 +26,21 @@ void Map::clearMap()
     grid_.init();
 }
 
+void Map::initDay()
+{
+    for(unsigned int i = 0; i < 0; ++i)
+    {
+        if(grid_.getTile(i)->getCategory() == TileCategory::RoadCategory)
+        {
+            grid_.getTile(i)->getNode()->resetCounter();
+        }
+    }
+    for (auto it = building_handlers_.begin(); it != building_handlers_.end(); ++it)
+    {
+        it->second->initDay();
+    }
+}
+
 void Map::update(const sf::Time &game_time, float delta_time)
 {
     // Move cars, and other things which are dependent on time
@@ -40,18 +55,19 @@ void Map::update(const sf::Time &game_time, float delta_time)
             Rando r(building_handlers_.size());
             int index = r.uniroll() - 1;
             int i = 0;
-            const Tile *tile;
+            const Tile *dest_tile;
             for (auto itb = building_handlers_.begin(); itb != building_handlers_.end(); ++itb)
             {
                 if (index == i)
                 {
-                    tile = itb->second->getClosestRoad();
+                    dest_tile = itb->second->getClosestRoad();
                     break;
                 }
                 i++;
             }
-            if(tile && ita->second->getClosestRoad())
-                addCar(ita->second->getClosestRoad(), tile);
+            auto spawn_tile = ita->second->getClosestRoad();
+            if(dest_tile && spawn_tile)
+                addCar(spawn_tile, dest_tile);
         }
     }
 

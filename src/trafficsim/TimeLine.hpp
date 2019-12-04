@@ -2,6 +2,7 @@
 
 #include <SFML/Graphics.hpp>
 
+#include "Map.hpp"
 #include "core/Window.hpp"
 
 namespace TrafficSim
@@ -9,7 +10,7 @@ namespace TrafficSim
 class TimeLine
 {
 public:
-    TimeLine();
+    TimeLine(Map &map);
 
     // Returns game time as const ref to sf::Time object
     const sf::Time &getGameTime() const;
@@ -21,7 +22,7 @@ public:
     float getMultiplier() const { return multiplier_; }
 
     // Need to call this once every frame so our game_clock_ will be updated
-    void update();
+    void update(bool simulating);
     // sets game_clock_ to 0
     void restart();
 
@@ -30,6 +31,7 @@ public:
     void drawGUI();
 
 private:
+    Map &map_;
     sf::Clock real_clock_;
     sf::Clock frame_clock_;
     sf::Time game_time_;

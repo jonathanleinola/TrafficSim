@@ -25,7 +25,7 @@ namespace TrafficSim
 Application *Application::AppInstance = nullptr;
 
 Application::Application()
-    : builder_(map_, window_), statistics_(map_, window_)
+    : builder_(map_, window_), statistics_(map_, window_), time_line_(map_)
 {
     AppInstance = this;
     data_.loadTexturesFromFile("texture_list.txt");
@@ -68,7 +68,7 @@ void Application::run()
         window_.pollEvent();
 
         map_.update(time_line_.getGameTime(), time_line_.getFrameTime() * time_line_.getMultiplier());
-        time_line_.update();
+        time_line_.update(app_state_ == State::Simulating);
 
         handleInputBuffers(delta_mouse_pos - sf::Mouse::getPosition());
         delta_mouse_pos = sf::Mouse::getPosition();
