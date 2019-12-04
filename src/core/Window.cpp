@@ -70,6 +70,13 @@ void Window::moveView(const sf::Vector2i &delta_pos)
     window_.setView(view_);
 }
 
+void Window::setZoom(float zoom)
+{
+    zoom_ = zoom;
+    view_.setSize(window_.getSize().x * zoom_, window_.getSize().y * zoom_);
+    window_.setView(view_);
+}
+
 
 void Window::zoomView(sf::Vector2i relative_to, float zoom_dir)
 {
@@ -77,7 +84,14 @@ void Window::zoomView(sf::Vector2i relative_to, float zoom_dir)
         return;
     const sf::Vector2f beforeCoord{window_.mapPixelToCoords(relative_to)};
     const float zoomfactor = 1.1f;
+    float old_zoom = zoom_;
     zoom_ = zoom_ * (zoom_dir < 0 ? zoomfactor : 1.f / zoomfactor);
+    // Max zoom
+    if(zoom_ < 0.5 || zoom_ > 4)
+    {
+        zoom_ = old_zoom;
+        return;
+    }
     view_.setSize(window_.getSize().x * zoom_, window_.getSize().y * zoom_);
     window_.setView(view_);
     const sf::Vector2f afterCoord{window_.mapPixelToCoords(relative_to)};

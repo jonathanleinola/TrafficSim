@@ -44,6 +44,8 @@ Application::Application()
     Car::AddTexture(data_.getTexture("teal_car"));
     HomeBuilding::SetTexture(data_.getTexture("home_building"));
     OfficeBuilding::SetTexture(data_.getTexture("office_building"));
+    window_.setViewPos({map_.grid_.getTile(0)->getSize() * map_.grid_.getSideCount() / 2, map_.grid_.getTile(0)->getSize() * map_.grid_.getSideCount() / 2});
+    window_.setZoom(3.f);
 }
 
 void Application::run()

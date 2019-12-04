@@ -27,6 +27,8 @@ public:
     // For moving map with heatmap
     void setViewPos(const sf::Vector2f &pos);
 
+    void setZoom(float zoom);
+
 
     // polls events from SFML
     void pollEvent();
