@@ -18,9 +18,10 @@ void DataHandler::loadMap(const char *file_name, MapBuilder &builder, Grid &grid
 {
     builder.clearMap();
 
-    try{
-        std::ifstream file("test.csv");
-        file.exceptions(std::ifstream::failbit);
+    try
+    {
+        std::ifstream file(file_name);
+        file.exceptions(std::ifstream::eofbit | std::ifstream::failbit | std::ifstream::badbit);
 
         sf::Vector2f pos, dir, pos_tl;
         int i, j, flipped, istrafficlight;
@@ -164,6 +165,7 @@ void DataHandler::loadMap(const char *file_name, MapBuilder &builder, Grid &grid
             }
             
         }
+        file.close();
         std::cout << "Map Loaded" << std::endl;
     }
     catch(const std::ios_base::failure &e)
