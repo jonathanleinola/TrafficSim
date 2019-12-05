@@ -100,6 +100,10 @@ void TimeLine::drawGUI()
     {
         game_time_ = game_time_ + sf::seconds(60 * 60);
     }
+    if(game_time_.asSeconds() > 24 * 60 * 60)
+    {
+        restart();
+    }
     ImGui::End();
 }
 
