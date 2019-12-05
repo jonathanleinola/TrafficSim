@@ -109,13 +109,19 @@ void Application::drawGUI()
     if (ImGui::BeginMainMenuBar())
     {
         if (ImGui::BeginMenu("File"))
-
         {
 
-            static char buf[32];
+            char buf[32];
             const char *c;
             std::string file_name;
             ImGui::InputText("Filename", buf, IM_ARRAYSIZE(buf));
+
+            if (ImGui::IsKeyPressed(ImGui::GetKeyIndex(ImGuiKey_Enter)))
+            {
+                file_name = buf + std::string(".csv");
+                c = file_name.c_str();
+                data_.loadMap(c, builder_, map_.grid_);
+            }
             if (ImGui::MenuItem("Load"))
             {
                 file_name = buf + std::string(".csv");
