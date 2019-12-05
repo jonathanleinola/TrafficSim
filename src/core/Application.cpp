@@ -127,7 +127,7 @@ void Application::drawGUI()
             const char *c;
             std::string file_name;
             ImGui::InputText("Filename", buf, IM_ARRAYSIZE(buf));
-            if (ImGui::MenuItem("Load", "Ctrl+O"))
+            if (ImGui::MenuItem("Load"))
             {
                 // ".ts" for traffic sim :)
 
@@ -297,9 +297,11 @@ void Application::handleEvent(const sf::Event &ev)
             ImGui::GetFont()->Scale = 3.f;
 
         else if (ev.key.code == sf::Keyboard::S && key_buffer_[sf::Keyboard::LControl])
-            data_.saveMap("test.csv", map_.grid_);
+            data_.saveMap(data_.getCurrentFileName(), map_.grid_);
         else if (ev.key.code == sf::Keyboard::O && key_buffer_[sf::Keyboard::LControl])
-            data_.loadMap("test.csv", builder_, map_.grid_);
+        {
+            //data_.loadMap("test.csv", builder_, map_.grid_);
+        }
 
         else if (ev.key.code == sf::Keyboard::Up && key_buffer_[sf::Keyboard::LShift])
         {

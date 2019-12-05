@@ -4,6 +4,7 @@
 #include <string>   // std::string
 #include <iostream> // std::cout
 #include <sstream>  // std::istringstream
+#include <stdio.h>
 
 namespace TrafficSim
 {
@@ -17,6 +18,7 @@ void DataHandler::loadTexture(const char *src, const char *texture_key)
 void DataHandler::loadMap(const char *file_name, MapBuilder &builder, Grid &grid) const
 {
     builder.clearMap();
+    current_file_ = std::string(file_name);
 
     try
     {
@@ -55,7 +57,6 @@ void DataHandler::loadMap(const char *file_name, MapBuilder &builder, Grid &grid
                     pos_tl.y = stof(row[9]);
                     handler_id = stoi(row[10]);
                 }
-
 
                 //add road
                 // Fix the middle zero
@@ -142,7 +143,7 @@ void DataHandler::loadMap(const char *file_name, MapBuilder &builder, Grid &grid
                 {
                     auto tile = grid.getTile(pos_tl);
                     RoadTile *road = static_cast<RoadTile *>(tile);
-                    builder.addTrafficLight(pos_tl,handler_id);
+                    builder.addTrafficLight(pos_tl, handler_id);
                 }
             }
             else if (tile_category == TileCategory::BuildingCategory)
@@ -154,26 +155,25 @@ void DataHandler::loadMap(const char *file_name, MapBuilder &builder, Grid &grid
                 dir.x = stoi(row[2]);
                 dir.y = stoi(row[3]);
 
-                if(building_type==BuildingType::HomeBuildingType)
+                if (building_type == BuildingType::HomeBuildingType)
                 {
-                    builder.addBuilding(pos,BuildingType::HomeBuildingType);
+                    builder.addBuilding(pos, BuildingType::HomeBuildingType);
                 }
-                else if(building_type==BuildingType::OfficeBuildingType)
+                else if (building_type == BuildingType::OfficeBuildingType)
                 {
-                    builder.addBuilding(pos,BuildingType::OfficeBuildingType);
-                }   
+                    builder.addBuilding(pos, BuildingType::OfficeBuildingType);
+                }
             }
-            
         }
         file.close();
         std::cout << "Map Loaded" << std::endl;
     }
-    catch(const std::ios_base::failure &e)
+    catch (const std::ios_base::failure &e)
     {
-    std::cerr << "Exception loading file : \n";
-    std::cout << e.what() << std::endl;
+        std::cerr << "Exception loading file : \n";
+        std::cout << e.what() << std::endl;
     }
-    catch(const std::invalid_argument &e)
+    catch (const std::invalid_argument &e)
     {
         std::cerr << "File format not supported : \n";
         std::cout << e.what() << std::endl;
@@ -184,7 +184,6 @@ void DataHandler::loadMap(const char *file_name, MapBuilder &builder, Grid &grid
     *   Load map using methods from MapBuilder:
     *   builder.addRoad(), builder.rotateRoad() and .flipRoad()
     */
-
 }
 
 void DataHandler::saveMap(const char *file_name, Grid &grid) const
@@ -208,7 +207,7 @@ void DataHandler::saveMap(const char *file_name, Grid &grid) const
     //if(grid.getTile(0)==NULL)
     //    return 0;
     std::cout << "Save map" << std::endl;
-    
+
     //if(!fp)
     //    return 0;
 
@@ -233,19 +232,15 @@ void DataHandler::saveMap(const char *file_name, Grid &grid) const
                 fprintf(fp, "%d,%d,%f,%f,%f,%f,%d,0\n", road->getCategory(), road->getType(), road->getDir().x, road->getDir().y, road->getPos().x, road->getPos().y, road->isFlipped());
             }
         }
-        else if(grid.getTile(i)->getCategory() == TileCategory::BuildingCategory)
+        else if (grid.getTile(i)->getCategory() == TileCategory::BuildingCategory)
         {
             BuildingTile *building = static_cast<BuildingTile *>(grid.getTile(i));
-            
-            fprintf(fp, "%d,%d,%f,%f,%f,%f\n",building->getCategory(),building->getType(),building->getDir().x,building->getDir().y,building->getPos().x,building->getPos().y);
+
+            fprintf(fp, "%d,%d,%f,%f,%f,%f\n", building->getCategory(), building->getType(), building->getDir().x, building->getDir().y, building->getPos().x, building->getPos().y);
         }
-    
     }
     fclose(fp);
 
-
-
-   
     std::cout << "Map Saved" << std::endl;
 }
 
