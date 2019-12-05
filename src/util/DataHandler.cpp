@@ -17,13 +17,12 @@ void DataHandler::loadTexture(const char *src, const char *texture_key)
 
 void DataHandler::loadMap(const char *file_name, MapBuilder &builder, Grid &grid) const
 {
-    builder.clearMap();
-    current_file_ = std::string(file_name);
-
     try
     {
         std::ifstream file(file_name);
         file.exceptions(std::ifstream::eofbit | std::ifstream::failbit | std::ifstream::badbit);
+        builder.clearMap();
+        current_file_ = std::string(file_name);
 
         sf::Vector2f pos, dir, pos_tl;
         int i, j, flipped, istrafficlight;
@@ -206,7 +205,7 @@ void DataHandler::saveMap(const char *file_name, Grid &grid) const
     */
     //if(grid.getTile(0)==NULL)
     //    return 0;
-    if(file_name[0] == '.')
+    if (file_name[0] == '.')
         return;
     std::cout << "Save map" << std::endl;
 
