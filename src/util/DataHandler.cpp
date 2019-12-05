@@ -206,6 +206,8 @@ void DataHandler::saveMap(const char *file_name, Grid &grid) const
     */
     //if(grid.getTile(0)==NULL)
     //    return 0;
+    if(file_name[0] == '.')
+        return;
     std::cout << "Save map" << std::endl;
 
     //if(!fp)

@@ -4,8 +4,6 @@
 #include <iostream>
 #include <string>
 #include <utility>
-#include <stdlib.h> // rand
-#include <time.h>   //time
 
 #include "imgui.h"
 #include "imgui-SFML.h"
@@ -50,21 +48,12 @@ Application::Application()
 
 void Application::run()
 {
-    // give random seed
-    srand(time(NULL));
-
     float last_time = time_line_.getRealTime();
     sf::Vector2i delta_mouse_pos = sf::Mouse::getPosition();
 
     //Main loop
     while (window_.isOpen())
     {
-        if (last_time < time_line_.getRealTime() && time_line_.getMultiplier() && app_state_ != Editing)
-        {
-            last_time = time_line_.getRealTime() + 1.6f / time_line_.getMultiplier();
-            //map_.addCar(sf::Vector2f(rand() % window_.getWidth(), rand() % window_.getHeight()), sf::Vector2f(rand() % window_.getWidth(), rand() % window_.getHeight()));
-        }
-
         window_.pollEvent();
 
         map_.update(time_line_.getGameTime(), time_line_.getFrameTime() * time_line_.getMultiplier());
@@ -129,8 +118,6 @@ void Application::drawGUI()
             ImGui::InputText("Filename", buf, IM_ARRAYSIZE(buf));
             if (ImGui::MenuItem("Load"))
             {
-                // ".ts" for traffic sim :)
-
                 file_name = buf + std::string(".csv");
                 c = file_name.c_str();
                 data_.loadMap(c, builder_, map_.grid_);
