@@ -10,11 +10,11 @@ namespace TrafficSim
 std::vector<const sf::Texture *> Car::Textures_;
 
 Car::Car(const std::shared_ptr<Node> &pos, const std::shared_ptr<Node> &dest, const sf::Vector2f &size)
-    : pos_(pos), dest_(dest), prev_(pos), shape_(size), speed_(200), acceleration_(0)
+    : pos_(pos), dest_(dest), prev_(pos), shape_(size), speed_(200), acceleration_(200)
 {
     Rando r(Textures_.size());
     int r_i = r.uniroll();
-    shape_.setTexture(Textures_.at(r_i-1));
+    shape_.setTexture(Textures_.at(r_i - 1));
     shape_.setOrigin({shape_.getSize().x / 2, shape_.getSize().y / 2});
     shape_.setPosition(pos_->getPos());
     findRoute();
@@ -64,38 +64,56 @@ void Car::update(const sf::Time &game_time, float deltatime, const std::vector<s
     }
     // Checks if there is something (another car) infront of this car
     // if there is -> we cant move forward
-    if (frontEmpty(cars, light_handlers))
-        shape_.move(dir_ * deltatime * speed_);
+    calculateVelocity(deltatime, cars, light_handlers);
+    shape_.move(dir_ * deltatime * speed_);
 }
 
-bool Car::frontEmpty(const std::vector<std::unique_ptr<Car>> &cars, const std::map<unsigned int, std::unique_ptr<TrafficLightHandler>> &light_handlers) const
+void Car::calculateVelocity(float deltatime, const std::vector<std::unique_ptr<Car>> &cars, const std::map<unsigned int, std::unique_ptr<TrafficLightHandler>> &light_handlers)
 {
     for (const auto &car : cars)
     {
         // safe distance to the car infront
         if (car->shape_.getGlobalBounds().contains(shape_.getPosition() + dir_ * shape_.getSize().y))
-            return false;
+        {
+            speed_ = std::max(speed_ - acceleration_ * acceleration_ * deltatime, 0.f);
+        }
         // car front
         if (car->shape_.getGlobalBounds().contains(shape_.getPosition() + dir_ * shape_.getSize().y * 0.51f))
-            return false;
+        {
+            speed_ = std::max(speed_ - acceleration_ * acceleration_* deltatime, 0.f);
+        }
     }
     for (auto ita = light_handlers.begin(); ita != light_handlers.end(); ++ita)
     {
         const auto &lights = ita->second->getLights();
+        sf::FloatRect rect(shape_.getPosition() - shape_.getOrigin(), {std::max(dir_.x * shape_.getSize().y*5.f, 2.f), std::max(dir_.y * shape_.getSize().y*5.f, 2.f)});
         for (const auto &light : lights)
         {
             if (!light->canDrive())
             {
-                if (light->getBlocker().getGlobalBounds().contains(shape_.getPosition() + dir_ * shape_.getSize().y))
-                    return false;
+                if (light->getBlocker().getGlobalBounds().intersects(rect))
+                {
+                    speed_ = std::max(speed_ - acceleration_ * acceleration_ * deltatime, 0.f);
+                }
                 // car front
-                if (light->getBlocker().getGlobalBounds().contains(shape_.getPosition() + dir_ * shape_.getSize().y * 0.51f))
-                    return false;
+                if (light->getBlocker().getGlobalBounds().intersects(rect))
+                {
+                    speed_ = std::max(speed_ - acceleration_ * acceleration_* deltatime, 0.f);
+                }
+                // if (light->getBlocker().getGlobalBounds().contains(shape_.getPosition() + dir_ * shape_.getSize().y))
+                // {
+                //     speed_ = std::max(speed_ - acceleration_ * deltatime, 0.f);
+                // }
+                // // car front
+                // if (light->getBlocker().getGlobalBounds().contains(shape_.getPosition() + dir_ * shape_.getSize().y * 0.51f))
+                // {
+                //     speed_ = std::max(speed_ - acceleration_ * deltatime, 0.f);
+                // }
             }
             // light infront
         }
     }
-    return true;
+    speed_ = std::min(speed_ + acceleration_ * deltatime, 200.f);
 }
 
 void Car::findRoute()

@@ -130,7 +130,7 @@ void Application::drawGUI()
                 c = file_name.c_str();
                 data_.loadMap(c, builder_, map_.grid_);
             }
-            if (ImGui::MenuItem("Load"))
+            if (ImGui::MenuItem("Load", "Enter"))
             {
                 file_name = buf + std::string(".csv");
                 c = file_name.c_str();
