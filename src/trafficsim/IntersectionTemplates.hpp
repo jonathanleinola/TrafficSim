@@ -18,6 +18,7 @@ enum TemplateType
     TIntersectionUpType,
     TIntersectionLeftType,
     TIntersectionRightType,
+    RoundaboutType,
 
     TemplateTypeCount,
 };
@@ -79,6 +80,14 @@ public:
             }
             return t_intersection_right_indices_;
         }
+        else if (type == RoundaboutType)
+        {
+            for (unsigned int i = 0; i < roundabout_indices_.size(); ++i)
+            {
+                roundabout_indices_[i].index = index + (roundabout_indices_[i].relative_pos.x - 1) + (roundabout_indices_[i].relative_pos.y - 2) * map_side_count;
+            }
+            return roundabout_indices_;
+        }
 
         return cross_intersection_indices_;
     }
@@ -95,7 +104,7 @@ public:
             if (index % map_side_count == 0)
                 return false;
         }
-        if (type == TIntersectionDownType || type == TIntersectionUpType || type == TIntersectionLeftType || type == TIntersectionRightType)
+        if (type == TIntersectionDownType || type == TIntersectionUpType || type == TIntersectionLeftType || type == TIntersectionRightType || type == RoundaboutType)
         {
             if (index < map_side_count)
                 return false;
@@ -115,6 +124,7 @@ private:
     static std::vector<RoadInfo> t_intersection_up_indices_;
     static std::vector<RoadInfo> t_intersection_left_indices_;
     static std::vector<RoadInfo> t_intersection_right_indices_;
+    static std::vector<RoadInfo> roundabout_indices_;
 };
 
 } // namespace TrafficSim
