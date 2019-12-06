@@ -80,6 +80,8 @@ configure_file(res/left_trisection.png left_trisection.png COPYONLY)
 configure_file(res/right_junction.png right_junction.png COPYONLY)
 configure_file(res/left_junction.png left_junction.png COPYONLY)
 
+configure_file(res/map1.csv map1.csv COPYONLY)
+
 
 find_package(OpenGL REQUIRED)
 if(NOT OPENGL_FOUND)

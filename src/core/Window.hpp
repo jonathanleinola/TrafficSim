@@ -41,7 +41,7 @@ public:
     int gui_zoom_index = 3;
 
 private:
-    void zoomView(sf::Vector2i relative_to, float zoom);
+    void zoomView(const sf::Vector2i &relative_to, float zoom);
 
 private:
     sf::RenderWindow window_;

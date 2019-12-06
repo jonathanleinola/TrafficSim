@@ -10,8 +10,8 @@ namespace TrafficSim
 {
 
 Window::Window()
-    : window_(sf::VideoMode(sf::VideoMode::getDesktopMode().width / 2, sf::VideoMode::getDesktopMode().height / 2), "Traffic Simulator", sf::Style::Default, sf::ContextSettings(0, 0, 8)),
-      view_(sf::View(sf::FloatRect(0, 0, sf::VideoMode::getDesktopMode().width / 2, sf::VideoMode::getDesktopMode().height / 2)))
+    : window_(sf::VideoMode(sf::VideoMode::getDesktopMode().width, sf::VideoMode::getDesktopMode().height), "Traffic Simulator", sf::Style::Default, sf::ContextSettings(0, 0, 8)),
+      view_(sf::View(sf::FloatRect(0, 0, sf::VideoMode::getDesktopMode().width, sf::VideoMode::getDesktopMode().height)))
 {
     window_.setView(view_);
     window_.setVerticalSyncEnabled(true);
@@ -78,7 +78,7 @@ void Window::setZoom(float zoom)
 }
 
 
-void Window::zoomView(sf::Vector2i relative_to, float zoom_dir)
+void Window::zoomView(const sf::Vector2i &relative_to, float zoom_dir)
 {
     if (zoom_dir == 0 || isGuiHovered())
         return;
