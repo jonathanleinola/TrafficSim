@@ -15,7 +15,8 @@ class DataHandler
 {
 
 public:
-    DataHandler(){};
+    DataHandler(std::vector<std::string> &logs)
+        : logs_(logs){};
     // Loads texture from file
     void loadTexture(const char *src, const char *texture_key);
     void loadTexturesFromFile(const char *src);
@@ -29,6 +30,7 @@ public:
 private:
     std::map<std::string, std::unique_ptr<sf::Texture>> textures_;
     mutable std::string current_file_;
+    std::vector<std::string> &logs_;
 };
 
 } // namespace TrafficSim

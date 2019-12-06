@@ -45,9 +45,10 @@ private:
     Window window_;
     Map map_;
     MapBuilder builder_;
+    Statistics statistics_;
     TimeLine time_line_;
     DataHandler data_;
-    Statistics statistics_;
+    std::vector<std::string> logs_;
     State app_state_ = Editing;
 
     // Input buffers

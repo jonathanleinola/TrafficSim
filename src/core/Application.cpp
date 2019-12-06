@@ -23,7 +23,7 @@ namespace TrafficSim
 Application *Application::AppInstance = nullptr;
 
 Application::Application()
-    : builder_(map_, window_), statistics_(map_, window_), time_line_(map_)
+    : builder_(map_, window_), statistics_(map_, window_), time_line_(map_), data_(logs_)
 {
     AppInstance = this;
     data_.loadTexturesFromFile("texture_list.txt");
@@ -97,6 +97,14 @@ const char *state_mode(State state)
 
 void Application::drawGUI()
 {
+    ImGui::Begin("Log");
+    ImGui::BeginChild("");
+    for(unsigned int i = logs_.size(); i > 0; --i)
+    {
+        ImGui::Text("Log: %s", logs_[i-1].c_str());
+    }
+    ImGui::EndChild();
+    ImGui::End();
     if (app_state_ == Simulating)
     {
         time_line_.drawGUI();

@@ -17,7 +17,7 @@ void DataHandler::loadTexture(const char *src, const char *texture_key)
 
 void DataHandler::loadMap(const char *file_name, MapBuilder &builder, Grid &grid) const
 {
-    // Dont save ".csv"-file
+    // Dont load ".csv"-file
     if(file_name[0] == '.')
         return;
     try
@@ -172,16 +172,18 @@ void DataHandler::loadMap(const char *file_name, MapBuilder &builder, Grid &grid
             }
         }
         file.close();
-        std::cout << "Map Loaded" << std::endl;
+        logs_.emplace_back("File, " + std::string(file_name) + ", loaded succesfully.");
     }
     catch (const std::ios_base::failure &e)
     {
-        std::cerr << "Error when loading file: \n";
+        logs_.emplace_back("Error loading file: " + std::string(file_name));
+        std::cerr << "Error loading file: ";
         std::cout << e.what() << std::endl;
     }
     catch (const std::invalid_argument &e)
     {
-        std::cerr << "File format not supported: \n";
+        logs_.emplace_back("File format not supported in file: " + std::string(file_name));
+        std::cerr << "File format not supported: ";
         std::cout << e.what() << std::endl;
         builder.clearMap();
     }
@@ -214,8 +216,8 @@ void DataHandler::saveMap(const char *file_name, Grid &grid) const
     //    return 0;
     if (file_name[0] == '.')
         return;
-    std::cout << "Save map" << std::endl;
 
+    logs_.emplace_back("Writing to file: " + std::string(file_name));
     //if(!fp)
     //    return 0;
 
@@ -249,7 +251,7 @@ void DataHandler::saveMap(const char *file_name, Grid &grid) const
     }
     fclose(fp);
 
-    std::cout << "Map Saved" << std::endl;
+    logs_.emplace_back("Map saved succesfully to: " + std::string(file_name));
 }
 
 void DataHandler::loadTexturesFromFile(const char *src)
