@@ -87,7 +87,7 @@ void Window::zoomView(sf::Vector2i relative_to, float zoom_dir)
     float old_zoom = zoom_;
     zoom_ = zoom_ * (zoom_dir < 0 ? zoomfactor : 1.f / zoomfactor);
     // Max zoom
-    if(zoom_ < 0.5 || zoom_ > 4)
+    if(zoom_ < 0.5 || zoom_ > 5)
     {
         zoom_ = old_zoom;
         return;

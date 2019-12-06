@@ -17,10 +17,17 @@ void DataHandler::loadTexture(const char *src, const char *texture_key)
 
 void DataHandler::loadMap(const char *file_name, MapBuilder &builder, Grid &grid) const
 {
+    // Dont save ".csv"-file
+    if(file_name[0] == '.')
+        return;
     try
     {
         std::ifstream file(file_name);
-        file.exceptions(std::ifstream::eofbit | std::ifstream::failbit | std::ifstream::badbit);
+        if(!file.good())
+        {
+            throw std::ios_base::failure("File not found.");
+        }
+        // file.exceptions(std::ifstream::eofbit | std::ifstream::failbit | std::ifstream::badbit);
         builder.clearMap();
         current_file_ = std::string(file_name);
 
@@ -169,12 +176,12 @@ void DataHandler::loadMap(const char *file_name, MapBuilder &builder, Grid &grid
     }
     catch (const std::ios_base::failure &e)
     {
-        std::cerr << "Exception loading file : \n";
+        std::cerr << "Error when loading file: \n";
         std::cout << e.what() << std::endl;
     }
     catch (const std::invalid_argument &e)
     {
-        std::cerr << "File format not supported : \n";
+        std::cerr << "File format not supported: \n";
         std::cout << e.what() << std::endl;
         builder.clearMap();
     }

@@ -111,7 +111,7 @@ void Application::drawGUI()
         if (ImGui::BeginMenu("File"))
         {
 
-            char buf[32];
+            static char buf[32];
             const char *c;
             std::string file_name;
             ImGui::InputText("Filename", buf, IM_ARRAYSIZE(buf));
