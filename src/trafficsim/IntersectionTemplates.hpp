@@ -18,7 +18,8 @@ enum TemplateType
     TIntersectionUpType,
     TIntersectionLeftType,
     TIntersectionRightType,
-    RoundaboutType,
+    RoundaboutLeftType,
+    RoundaboutRightType,
 
     TemplateTypeCount,
 };
@@ -80,13 +81,22 @@ public:
             }
             return t_intersection_right_indices_;
         }
-        else if (type == RoundaboutType)
+        else if (type == RoundaboutLeftType)
         {
-            for (unsigned int i = 0; i < roundabout_indices_.size(); ++i)
+            for (unsigned int i = 0; i < roundabout_left_indices_.size(); ++i)
             {
-                roundabout_indices_[i].index = index + (roundabout_indices_[i].relative_pos.x - 1) + (roundabout_indices_[i].relative_pos.y - 2) * map_side_count;
+                roundabout_left_indices_[i].index = index + (roundabout_left_indices_[i].relative_pos.x - 1) + (roundabout_left_indices_[i].relative_pos.y - 2) * map_side_count;
             }
-            return roundabout_indices_;
+            return roundabout_left_indices_;
+        }
+
+        else if (type == RoundaboutRightType)
+        {
+            for (unsigned int i = 0; i < roundabout_right_indices_.size(); ++i)
+            {
+                roundabout_right_indices_[i].index = index + (roundabout_right_indices_[i].relative_pos.x - 1) + (roundabout_right_indices_[i].relative_pos.y - 2) * map_side_count;
+            }
+            return roundabout_right_indices_;
         }
 
         return cross_intersection_indices_;
@@ -104,7 +114,7 @@ public:
             if (index % map_side_count == 0)
                 return false;
         }
-        if (type == TIntersectionDownType || type == TIntersectionUpType || type == TIntersectionLeftType || type == TIntersectionRightType || type == RoundaboutType)
+        if (type == TIntersectionDownType || type == TIntersectionUpType || type == TIntersectionLeftType || type == TIntersectionRightType || type == RoundaboutLeftType || type == RoundaboutRightType)
         {
             if (index < map_side_count)
                 return false;
@@ -124,7 +134,8 @@ private:
     static std::vector<RoadInfo> t_intersection_up_indices_;
     static std::vector<RoadInfo> t_intersection_left_indices_;
     static std::vector<RoadInfo> t_intersection_right_indices_;
-    static std::vector<RoadInfo> roundabout_indices_;
+    static std::vector<RoadInfo> roundabout_left_indices_;
+    static std::vector<RoadInfo> roundabout_right_indices_;
 };
 
 } // namespace TrafficSim
