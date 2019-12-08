@@ -2,7 +2,7 @@
 
 Traffic simulator implemented in C++
 
-![] (https://gph.is/g/EGRkzAJ)
+![] (https://media.giphy.com/media/ifXVEva4ksUVCz5vRn/giphy.gif)
 
 * _Jonathan Leinola_
 * _Niko Uski_
