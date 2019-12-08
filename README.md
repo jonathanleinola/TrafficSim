@@ -2,6 +2,8 @@
 
 Traffic simulator implemented in C++
 
+![] (https://gph.is/g/EGRkzAJ)
+
 * _Jonathan Leinola_
 * _Niko Uski_
 * _Artur Gynter_
