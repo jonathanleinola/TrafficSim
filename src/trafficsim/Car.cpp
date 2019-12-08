@@ -75,40 +75,46 @@ void Car::calculateVelocity(float deltatime, const std::vector<std::unique_ptr<C
         // safe distance to the car infront
         if (car->shape_.getGlobalBounds().contains(shape_.getPosition() + dir_ * shape_.getSize().y))
         {
-            speed_ = std::max(speed_ - acceleration_ * acceleration_ * deltatime, 0.f);
+            speed_ = 0;
+            return;
         }
         // car front
         if (car->shape_.getGlobalBounds().contains(shape_.getPosition() + dir_ * shape_.getSize().y * 0.51f))
         {
-            speed_ = std::max(speed_ - acceleration_ * acceleration_* deltatime, 0.f);
+            speed_ = 0;
+            return;
         }
     }
     for (auto ita = light_handlers.begin(); ita != light_handlers.end(); ++ita)
     {
         const auto &lights = ita->second->getLights();
-        sf::FloatRect rect(shape_.getPosition() - shape_.getOrigin(), {std::max(dir_.x * shape_.getSize().y*5.f, 2.f), std::max(dir_.y * shape_.getSize().y*5.f, 2.f)});
+        //sf::FloatRect rect(shape_.getPosition() - shape_.getOrigin(), {std::max(dir_.x * shape_.getSize().y*5.f, 2.f), std::max(dir_.y * shape_.getSize().y*5.f, 2.f)});
         for (const auto &light : lights)
         {
             if (!light->canDrive())
             {
-                if (light->getBlocker().getGlobalBounds().intersects(rect))
-                {
-                    speed_ = std::max(speed_ - acceleration_ * acceleration_ * deltatime, 0.f);
-                }
-                // car front
-                if (light->getBlocker().getGlobalBounds().intersects(rect))
-                {
-                    speed_ = std::max(speed_ - acceleration_ * acceleration_* deltatime, 0.f);
-                }
-                // if (light->getBlocker().getGlobalBounds().contains(shape_.getPosition() + dir_ * shape_.getSize().y))
+                // if (light->getBlocker().getGlobalBounds().intersects(rect))
                 // {
-                //     speed_ = std::max(speed_ - acceleration_ * deltatime, 0.f);
+                //     speed_ = std::max(speed_ - acceleration_ * acceleration_ * deltatime, 0.f);
+                //     return;
                 // }
                 // // car front
-                // if (light->getBlocker().getGlobalBounds().contains(shape_.getPosition() + dir_ * shape_.getSize().y * 0.51f))
+                // if (light->getBlocker().getGlobalBounds().intersects(rect))
                 // {
-                //     speed_ = std::max(speed_ - acceleration_ * deltatime, 0.f);
+                //     speed_ = std::max(speed_ - acceleration_ * acceleration_* deltatime, 0.f);
+                //     return;
                 // }
+                if (light->getBlocker().getGlobalBounds().contains(shape_.getPosition() + dir_ * shape_.getSize().y))
+                {
+                    speed_ = 0;
+                    return;
+                }
+                // car front
+                if (light->getBlocker().getGlobalBounds().contains(shape_.getPosition() + dir_ * shape_.getSize().y * 0.51f))
+                {
+                    speed_ = 0;
+                    return;
+                }
             }
             // light infront
         }
