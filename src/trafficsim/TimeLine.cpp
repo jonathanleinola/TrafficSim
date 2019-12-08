@@ -82,7 +82,7 @@ void TimeLine::drawGUI()
             restart();
         game_time_ = sf::seconds(7 * 60 * 60);
     }
-    if (ImGui::Button("Evening"))
+    if (ImGui::Button("Afternoon"))
     {
         if (15 * 60 * 60 > game_time_.asSeconds())
             restart();
@@ -100,7 +100,7 @@ void TimeLine::drawGUI()
     {
         game_time_ = game_time_ + sf::seconds(60 * 60);
     }
-    if(game_time_.asSeconds() > 24 * 60 * 60)
+    if (game_time_.asSeconds() > 24 * 60 * 60)
     {
         restart();
     }
