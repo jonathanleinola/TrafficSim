@@ -61,7 +61,8 @@ const char *template_type_name(TemplateType type)
         "T-intersection-up",
         "T-intersection-left",
         "T-intersection-right",
-        "Roundabout"
+        "Roundabout-left",
+        "Roundabout-right",
     }[type];
 }
 
