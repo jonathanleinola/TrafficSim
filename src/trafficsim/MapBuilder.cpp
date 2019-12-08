@@ -254,9 +254,28 @@ void MapBuilder::slideAction(const sf::Vector2f &pos, EditingOption option)
     // start_tile_index_ is used as a flag to initialize first roadtile rotation
     
     if(hovered_tile_index_ == selected_tile_index_)
+    {
         start_tile_index_ = selected_tile_index_;
 
+        auto start_neighbors = map_.grid_.getNeigborTiles(start_tile_index_);
+        // CLEAN this mess ..
+        // is there neighbors around start tile
+        auto right_tile = map_.grid_.getTile(start_tile_index_ + 1);
+        auto left_tile = map_.grid_.getTile(start_tile_index_ - 1);
+        auto top_tile = map_.grid_.getTile(start_tile_index_ - map_.grid_.getSideCount());
+        auto down_tile = map_.grid_.getTile(start_tile_index_ + map_.grid_.getSideCount());
+
+        if ((right_tile && right_tile->getCategory() == RoadCategory)||
+            (left_tile && left_tile->getCategory() == RoadCategory)||
+            (top_tile && top_tile->getCategory() == RoadCategory)||
+            (down_tile && down_tile->getCategory() == RoadCategory))
+        {     
+             start_tile_index_ = UINT_MAX;
+        }
+    }
+    
     selected_tile_index_ = UINT_MAX;
+    //start_tile_index_ = UINT_MAX;
     // Check if tile, which is hovered, hasnt changed since last frame
     if (hovered_tile_index_ == last_tile_index_)
         return;
@@ -266,8 +285,9 @@ void MapBuilder::slideAction(const sf::Vector2f &pos, EditingOption option)
         // This first if statement initialize the first road tile direction
         // #1 first loop: will not get inside as last_tile_index_ == UINT_MAX
         // new road tile gets added at the end of this function ### add road tile
-        // #2 second loop: will get inside as the last_tile_index_ == hovered_tile_index_  
-        if(start_tile_index_ != UINT_MAX && last_tile_index_ != UINT_MAX){
+        // #2 second loop: will get inside as the last_tile_index_ == hovered_tile_index_
+     
+        if((start_tile_index_ != UINT_MAX) && (last_tile_index_ != UINT_MAX)){
                 
             auto start_tile = map_.grid_.getTile(start_tile_index_);
             auto start_road = static_cast<RoadTile *>(start_tile);
@@ -290,8 +310,7 @@ void MapBuilder::slideAction(const sf::Vector2f &pos, EditingOption option)
                 start_road->flip();
             }
 
-            // first and last time to visit this if statement
-            // for building this road circle so the "gate" get closed 
+            // first and last time to visit this if statement 
             start_tile_index_ = UINT_MAX;
 
         }
