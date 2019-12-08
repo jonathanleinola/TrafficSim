@@ -259,6 +259,7 @@ void MapBuilder::slideAction(const sf::Vector2f &pos, EditingOption option)
         start_tile_index_ = selected_tile_index_;
 
         auto start_neighbors = map_.grid_.getNeigborTiles(start_tile_index_);
+      
         // CLEAN this mess ..
         // is there neighbors around start tile
         auto right_tile = map_.grid_.getTile(start_tile_index_ + 1);
