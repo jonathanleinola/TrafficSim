@@ -250,6 +250,12 @@ void MapBuilder::addBuilding(const sf::Vector2f &pos, BuildingType type)
 
 void MapBuilder::slideAction(const sf::Vector2f &pos, EditingOption option)
 {
+    // selected_tile_index_ is the left clicked tile
+    // start_tile_index_ is used as a flag to initialize first roadtile rotation
+    
+    if(hovered_tile_index_ == selected_tile_index_)
+        start_tile_index_ = selected_tile_index_;
+
     selected_tile_index_ = UINT_MAX;
     // Check if tile, which is hovered, hasnt changed since last frame
     if (hovered_tile_index_ == last_tile_index_)
@@ -257,7 +263,39 @@ void MapBuilder::slideAction(const sf::Vector2f &pos, EditingOption option)
 
     if (option == EditingOption::AddRoad)
     {
-        if (last_tile_index_ != UINT_MAX)
+        // This first if statement initialize the first road tile direction
+        // #1 first loop: will not get inside as last_tile_index_ == UINT_MAX
+        // new road tile gets added at the end of this function ### add road tile
+        // #2 second loop: will get inside as the last_tile_index_ == hovered_tile_index_  
+        if(start_tile_index_ != UINT_MAX && last_tile_index_ != UINT_MAX){
+                
+            auto start_tile = map_.grid_.getTile(start_tile_index_);
+            auto start_road = static_cast<RoadTile *>(start_tile);
+            // if mouse moved down from start tile 
+            if (hovered_tile_index_ - start_tile_index_ == map_.grid_.getSideCount())
+            {
+                // rotate road down
+                start_road->rotate();
+            }   
+            // if mouse moved up from start tile 
+            else if(start_tile_index_ - hovered_tile_index_ == map_.grid_.getSideCount()){
+        
+                // rotate road up
+                start_road->flip();
+                start_road->rotate();
+            }
+            // if mouse moved to left from start tile
+            else if(start_tile_index_ - hovered_tile_index_ == 1){
+                // rotate road left
+                start_road->flip();
+            }
+
+            // first and last time to visit this if statement
+            // for building this road circle so the "gate" get closed 
+            start_tile_index_ = UINT_MAX;
+
+        }
+        else if (last_tile_index_ != UINT_MAX)
         {
             if (!map_.grid_.getTile(hovered_tile_index_) || map_.grid_.getTile(hovered_tile_index_)->getCategory() == RoadCategory)
                 return;
@@ -316,7 +354,9 @@ void MapBuilder::slideAction(const sf::Vector2f &pos, EditingOption option)
                 }
             }
         }
+        // ### add road tile
         addRoad(pos, StraightRoadType);
+        
     }
     else if (option == EditingOption::Remove)
     {

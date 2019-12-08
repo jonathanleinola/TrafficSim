@@ -87,6 +87,8 @@ private:
     // Stores highlighted tile, which is under mouse
     unsigned int hovered_tile_index_ = UINT_MAX;
     std::vector<unsigned int> hovered_tile_indices_;
+    // Stores index of first added tile for slideAction()
+    unsigned int start_tile_index_ = UINT_MAX;
     // Stores index of last added tile for slideAction()
     unsigned int last_tile_index_ = UINT_MAX;
     // Stores light which if highlighted tile has one
