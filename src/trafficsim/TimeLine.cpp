@@ -87,18 +87,22 @@ void TimeLine::drawGUI()
         if (15 * 60 * 60 > game_time_.asSeconds())
             restart();
         game_time_ = sf::seconds(15 * 60 * 60);
+        map_.removeCars();
     }
     if (ImGui::Button("Hop 5min"))
     {
         game_time_ = game_time_ + sf::seconds(5 * 60);
+        map_.removeCars();
     }
     if (ImGui::Button("Hop 15min"))
     {
         game_time_ = game_time_ + sf::seconds(15 * 60);
+        map_.removeCars();
     }
     if (ImGui::Button("Hop 60min"))
     {
         game_time_ = game_time_ + sf::seconds(60 * 60);
+        map_.removeCars();
     }
     if (game_time_.asSeconds() > 24 * 60 * 60)
     {
