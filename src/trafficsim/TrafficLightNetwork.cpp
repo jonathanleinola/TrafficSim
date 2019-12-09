@@ -19,15 +19,12 @@ void TrafficLightNetwork::addLight(TrafficLight *light)
 
 void TrafficLightNetwork::removeLight(void *light_to_remove, const sf::Vector2f &pos)
 {
-    std::cout << lights_.size() << std::endl;
     lights_.erase(std::remove_if(lights_.begin(), lights_.end(), [&light_to_remove](const auto &light_element) -> bool {
                       return light_to_remove == light_element;
                   }),
                   lights_.end());
-    std::cout << lights_.size() << std::endl;
 
     vertices_.erase(std::remove_if(vertices_.begin(), vertices_.end(), [&pos](const auto &light_vertex) -> bool {
-                        std::cout << pos.x << " " << light_vertex.position.x << std::endl;
                         return (pos.x == light_vertex.position.x && pos.y == light_vertex.position.y);
                     }),
                     vertices_.end());

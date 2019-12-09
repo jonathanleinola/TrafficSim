@@ -28,15 +28,7 @@ void Node::incrementCounter(const sf::Time &game_time) const
     const unsigned int time_window = 24 * 60 * 60 / Samples_;
     float g_time = game_time.asSeconds();
     unsigned int index = g_time / time_window;
-    try
-    {
-        ++cars_passed_.at(index);
-    }
-    catch (const std::out_of_range &e)
-    {
-        std::cout << "Error when tried to access cars_passed_ array at index: " << index << std::endl;
-        std::cout << e.what() << std::endl;
-    }
+    ++cars_passed_.at(index);
 }
 
 void Node::resetCounter() const

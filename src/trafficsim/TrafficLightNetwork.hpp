@@ -1,8 +1,8 @@
 #pragma once
 
 #include <vector>
-#include <memory> // std::unique_ptr
-#include <climits>
+#include <memory>   // std::unique_ptr
+#include <climits>  // UINT_MAX
 
 #include "TrafficLight.hpp"
 
