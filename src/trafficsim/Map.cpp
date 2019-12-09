@@ -19,10 +19,10 @@ Map::Map()
 void Map::clearMap()
 {
     cars_.clear();
-    light_handlers_.clear();
+    light_networks_.clear();
     building_handlers_.clear();
-    unsigned int current_handler_id_ = 0;
-    unsigned int current_building_id_ = 0;
+    current_network_id_ = 0;
+    current_building_id_ = 0;
     grid_.init();
 }
 
@@ -72,10 +72,10 @@ void Map::update(const sf::Time &game_time, float delta_time)
     }
 
     for (auto &car : cars_)
-        car->update(game_time, delta_time, cars_, light_handlers_);
+        car->update(game_time, delta_time, cars_, light_networks_);
     removeFinishedCars();
 
-    for (auto ita = light_handlers_.begin(); ita != light_handlers_.end(); ++ita)
+    for (auto ita = light_networks_.begin(); ita != light_networks_.end(); ++ita)
         ita->second->update(delta_time);
 }
 
@@ -108,32 +108,32 @@ void Map::updateClosestRoads()
 
 void Map::addLight(TrafficLight *light, unsigned int handler_id)
 {
-    if (light_handlers_.find(handler_id) == light_handlers_.end())
+    if (light_networks_.find(handler_id) == light_networks_.end())
     {
         if (handler_id < UINT_MAX)
         {
-            light_handlers_.insert({handler_id, std::make_unique<TrafficLightHandler>(handler_id)});
+            light_networks_.insert({handler_id, std::make_unique<TrafficLightNetwork>(handler_id)});
         }
         else
-            light_handlers_.insert({0, std::make_unique<TrafficLightHandler>(0)});
+            light_networks_.insert({0, std::make_unique<TrafficLightNetwork>(0)});
     }
 
-    if (light_handlers_.find(handler_id) != light_handlers_.end())
-        light_handlers_.at(handler_id)->addLight(light);
+    if (light_networks_.find(handler_id) != light_networks_.end())
+        light_networks_.at(handler_id)->addLight(light);
     else
-        light_handlers_.at(current_handler_id_)->addLight(light);
+        light_networks_.at(current_network_id_)->addLight(light);
 }
 
-void Map::newLightHandler(TrafficLight *light)
+void Map::newLightNetwork(TrafficLight *light)
 {
-    current_handler_id_++;
-    light_handlers_.insert({current_handler_id_, std::make_unique<TrafficLightHandler>(current_handler_id_)});
+    current_network_id_++;
+    light_networks_.insert({current_network_id_, std::make_unique<TrafficLightNetwork>(current_network_id_)});
 
     if (light)
     {
-        light_handlers_.at(light->getHandlerId())->removeLight(light, light->getPos());
-        light->setHandlerId(current_handler_id_);
-        light_handlers_.at(current_handler_id_)->addLight(light);
+        light_networks_.at(light->getHandlerId())->removeLight(light, light->getPos());
+        light->setHandlerId(current_network_id_);
+        light_networks_.at(current_network_id_)->addLight(light);
     }
 }
 
@@ -144,7 +144,7 @@ void Map::removeBuilding(unsigned int id)
 
 void Map::removeLight(TrafficLight *light)
 {
-    light_handlers_.at(light->getHandlerId())->removeLight(light, light->getPos());
+    light_networks_.at(light->getHandlerId())->removeLight(light, light->getPos());
 }
 
 void Map::removeFinishedCars()
@@ -193,7 +193,7 @@ void Map::draw(sf::RenderTarget &target, sf::RenderStates states) const
     }
     else
     {
-        for (auto ita = light_handlers_.begin(); ita != light_handlers_.end(); ++ita)
+        for (auto ita = light_networks_.begin(); ita != light_networks_.end(); ++ita)
             target.draw(*ita->second, states);
     }
 }

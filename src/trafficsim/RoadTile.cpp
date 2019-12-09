@@ -12,9 +12,9 @@ RoadTile::RoadTile(const Tile &tile)
     rect_.setOutlineThickness(0.f);
 }
 
-void RoadTile::addLight(unsigned int handler_id)
+void RoadTile::addLight(unsigned int handler_id, float green_time)
 {
-    light_ = std::make_unique<TrafficLight>(pos_, dir_, size_, handler_id);
+    light_ = std::make_unique<TrafficLight>(pos_, dir_, size_, handler_id, green_time);
 }
 
 unsigned int RoadTile::removeLight()

@@ -157,7 +157,7 @@ void MapBuilder::drawGUI()
             }
             if (ImGui::Button("New handler"))
             {
-                map_.newLightHandler(road_tile->getLight());
+                map_.newLightNetwork(road_tile->getLight());
             }
             if (ImGui::Button("Change Handler"))
                 selected_light_ = road_tile->getLight();
@@ -394,7 +394,7 @@ void MapBuilder::slideAction(const sf::Vector2f &pos, EditingOption option)
     last_tile_index_ = hovered_tile_index_;
 }
 
-void MapBuilder::addTrafficLight(const sf::Vector2f &pos, unsigned int handler_id)
+void MapBuilder::addTrafficLight(const sf::Vector2f &pos, unsigned int handler_id, float green_time)
 {
     auto tile = map_.grid_.getTile(pos);
     // Traffic light only can be on staright road type
@@ -406,9 +406,9 @@ void MapBuilder::addTrafficLight(const sf::Vector2f &pos, unsigned int handler_i
     if (road->getLight())
         return;
     if (handler_id == UINT_MAX)
-        road->addLight(map_.getCurrentHandlerId());
+        road->addLight(map_.getCurrentNetworkId(), green_time);
     else
-        road->addLight(handler_id);
+        road->addLight(handler_id, green_time);
     map_.addLight(road->getLight(), road->getLight()->getHandlerId());
 }
 
@@ -420,7 +420,7 @@ void MapBuilder::addTemplate(const sf::Vector2f &pos)
 
     if (IntersectionTemplates::CanPlace(template_option_, tile->getTileIndex(), map_.grid_.getSideCount()))
     {
-        map_.newLightHandler();
+        map_.newLightNetwork();
         auto tiles_to_add = IntersectionTemplates::GetTiles(template_option_, tile->getTileIndex(), map_.grid_.getSideCount());
         for (auto tile_info : tiles_to_add)
         {

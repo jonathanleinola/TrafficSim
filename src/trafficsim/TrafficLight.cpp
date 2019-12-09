@@ -5,8 +5,8 @@
 namespace TrafficSim
 {
 
-TrafficLight::TrafficLight(const sf::Vector2f &pos, const sf::Vector2f &dir, float tile_size, unsigned int handler_id)
-    : handler_id_(handler_id), shape_(sf::Vector2f(50, 20)), blocker_(sf::Vector2f(10, tile_size))
+TrafficLight::TrafficLight(const sf::Vector2f &pos, const sf::Vector2f &dir, float tile_size, unsigned int handler_id, float green_time)
+    : handler_id_(handler_id), shape_(sf::Vector2f(50, 20)), blocker_(sf::Vector2f(10, tile_size)), green_time_(green_time)
 {
     blocker_.setOrigin(blocker_.getSize() * 0.5f);
     setColor(RED);

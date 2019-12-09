@@ -5,7 +5,7 @@
 #include <SFML/Graphics.hpp>
 
 #include "Node.hpp"
-#include "TrafficLightHandler.hpp"
+#include "TrafficLightNetwork.hpp"
 #include "util/VectorMath.hpp"
 
 namespace TrafficSim
@@ -17,7 +17,7 @@ public:
     Car(const std::shared_ptr<Node> &pos, const std::shared_ptr<Node> &dest, const sf::Vector2f &size);
 
     // Called every frame to move car
-    void update(const sf::Time &game_time, float deltatime, const std::vector<std::unique_ptr<Car>> &cars, const std::map<unsigned int, std::unique_ptr<TrafficLightHandler>> &light_handlers); //deltatime is time from the last update
+    void update(const sf::Time &game_time, float deltatime, const std::vector<std::unique_ptr<Car>> &cars, const std::map<unsigned int, std::unique_ptr<TrafficLightNetwork>> &light_handlers); //deltatime is time from the last update
 
     // returns true if car is at its destination
     bool isFinished() const { return finished; }
@@ -32,7 +32,7 @@ private:
     void findRoute();
     // returns true if there is nothing infront of the car
     // TODO - more efficient collider algorithm eg. raycast
-    void calculateVelocity(float deltatime, const std::vector<std::unique_ptr<Car>> &cars, const std::map<unsigned int, std::unique_ptr<TrafficLightHandler>> &light_handlers);
+    void calculateVelocity(float deltatime, const std::vector<std::unique_ptr<Car>> &cars, const std::map<unsigned int, std::unique_ptr<TrafficLightNetwork>> &light_handlers);
     
 private:
     const std::shared_ptr<Node> pos_, dest_;

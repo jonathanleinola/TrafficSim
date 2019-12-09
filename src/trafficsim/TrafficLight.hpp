@@ -15,7 +15,7 @@ enum LightColor
 class TrafficLight : public sf::Drawable
 {
 public:
-    TrafficLight(const sf::Vector2f &pos, const sf::Vector2f &dir, float tile_size, unsigned int handler_id);
+    TrafficLight(const sf::Vector2f &pos, const sf::Vector2f &dir, float tile_size, unsigned int handler_id, float green_time);
 
     // Getter for traffic light manager
     bool isActivated() const { return activated_; }
@@ -26,7 +26,7 @@ public:
     const sf::RectangleShape &getBlocker() const { return blocker_; }
     const sf::Vector2f &getPos() const { return shape_.getPosition(); }
 
-    // Called from TrafficLightHandler when this light is activated
+    // Called from TrafficLightNetwork when this light is activated
     void update(float delta_time);
 
     // Called when chaning handler
@@ -34,7 +34,7 @@ public:
     // Called when rotating/flipping
     void initPos(const sf::Vector2f &pos, const sf::Vector2f &dir, float tile_size);
 
-    // called from TrafficLightHandler once when activating
+    // called from TrafficLightNetwork once when activating
     void activate();
 
     // Inherited from sf::Drawable, draws light and blocker
@@ -49,7 +49,8 @@ private:
 public:
     // Time this light spends on green
     // Is public to change from GUI
-    float green_time_ = 5;
+    float green_time_;
+
 private:
     // This stores in which handler does this light belongs to, can be changed in run time
     unsigned int handler_id_;
@@ -66,7 +67,6 @@ private:
     float yellow_time_ = 1;
     // time in seconds from lights activation
     float activated_for_ = 0;
-
 };
 
 } // namespace TrafficSim

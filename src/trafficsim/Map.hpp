@@ -5,7 +5,7 @@
 #include "Car.hpp"
 #include "Grid.hpp"
 #include "RoadTile.hpp"
-#include "TrafficLightHandler.hpp"
+#include "TrafficLightNetwork.hpp"
 #include "BuildingHandler.hpp"
 
 namespace TrafficSim
@@ -36,9 +36,9 @@ public:
     void removeLight(TrafficLight *light);
     void removeBuilding(unsigned int id);
 
-    void addLight(TrafficLight *light, unsigned int handler_id = UINT_MAX);
-    void newLightHandler(TrafficLight *light = nullptr);
-    unsigned int getCurrentHandlerId() const { return current_handler_id_; }
+    void addLight(TrafficLight *light, unsigned int network_id = UINT_MAX);
+    void newLightNetwork(TrafficLight *light = nullptr);
+    unsigned int getCurrentNetworkId() const { return current_network_id_; }
 
     //When we add a road we need to call this
     void updateClosestRoads();
@@ -58,9 +58,9 @@ public:
 private:
     bool simulating_ = false;
     std::vector<std::unique_ptr<Car>> cars_;
-    std::map<unsigned int, std::unique_ptr<TrafficLightHandler>> light_handlers_;
+    std::map<unsigned int, std::unique_ptr<TrafficLightNetwork>> light_networks_;
     std::map<unsigned int, std::unique_ptr<BuildingHandler>> building_handlers_;
-    unsigned int current_handler_id_ = 0;
+    unsigned int current_network_id_ = 0;
     unsigned int current_building_id_ = 0;
 };
 

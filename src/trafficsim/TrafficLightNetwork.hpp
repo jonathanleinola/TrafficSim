@@ -9,10 +9,10 @@
 namespace TrafficSim
 {
 
-class TrafficLightHandler : public sf::Drawable
+class TrafficLightNetwork : public sf::Drawable
 {
 public:
-    TrafficLightHandler(unsigned int handler_id);
+    TrafficLightNetwork(unsigned int handler_id);
 
     // return Traffic Light count in this handler
     std::size_t getLightCount() const { return lights_.size(); }

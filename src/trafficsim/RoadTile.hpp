@@ -58,7 +58,7 @@ public:
 
     void rotate();
     virtual void flip();
-    void addLight(unsigned int handler_id);
+    void addLight(unsigned int handler_id, float green_time);
     unsigned int removeLight();
 
     // Auto rotates road if there is neighbor, only RoadTurn has own implementation

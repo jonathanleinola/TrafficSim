@@ -30,7 +30,7 @@ void Car::AddTexture(const sf::Texture *carTexture)
     Textures_.push_back(carTexture);
 }
 
-void Car::update(const sf::Time &game_time, float deltatime, const std::vector<std::unique_ptr<Car>> &cars, const std::map<unsigned int, std::unique_ptr<TrafficLightHandler>> &light_handlers)
+void Car::update(const sf::Time &game_time, float deltatime, const std::vector<std::unique_ptr<Car>> &cars, const std::map<unsigned int, std::unique_ptr<TrafficLightNetwork>> &light_handlers)
 {
     if (route_.size() < 1)
     {
@@ -68,7 +68,7 @@ void Car::update(const sf::Time &game_time, float deltatime, const std::vector<s
     shape_.move(dir_ * deltatime * speed_);
 }
 
-void Car::calculateVelocity(float deltatime, const std::vector<std::unique_ptr<Car>> &cars, const std::map<unsigned int, std::unique_ptr<TrafficLightHandler>> &light_handlers)
+void Car::calculateVelocity(float deltatime, const std::vector<std::unique_ptr<Car>> &cars, const std::map<unsigned int, std::unique_ptr<TrafficLightNetwork>> &light_handlers)
 {
     for (const auto &car : cars)
     {
