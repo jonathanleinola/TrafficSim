@@ -33,6 +33,7 @@ void DataHandler::loadMap(const char *file_name, MapBuilder &builder, Grid &grid
 
         sf::Vector2f pos, dir, pos_tl;
         int i, j, flipped, istrafficlight;
+        float green_time;
         unsigned int handler_id;
 
         CsvRow row;
@@ -62,11 +63,10 @@ void DataHandler::loadMap(const char *file_name, MapBuilder &builder, Grid &grid
                     pos_tl.x = stof(row[8]);
                     pos_tl.y = stof(row[9]);
                     handler_id = stoi(row[10]);
+                    green_time=stof(row[11]);
                 }
 
                 //add road
-                // Fix the middle zero
-                // you need to save road type.
                 //    StraightRoadType = 0,
 
                 if (road_type == RoadType::StraightRoadType)
@@ -149,7 +149,7 @@ void DataHandler::loadMap(const char *file_name, MapBuilder &builder, Grid &grid
                 {
                     auto tile = grid.getTile(pos_tl);
                     RoadTile *road = static_cast<RoadTile *>(tile);
-                    builder.addTrafficLight(pos_tl, handler_id);
+                    builder.addTrafficLight(pos_tl, handler_id,green_time);
                 }
             }
             else if (tile_category == TileCategory::BuildingCategory)
@@ -235,7 +235,7 @@ void DataHandler::saveMap(const char *file_name, Grid &grid) const
             RoadTile *road = static_cast<RoadTile *>(grid.getTile(i));
             if (road->getLight())
             {
-                fprintf(fp, "%d,%d,%f,%f,%f,%f,%d,1,%f,%f,%d\n", road->getCategory(), road->getType(), road->getDir().x, road->getDir().y, road->getPos().x, road->getPos().y, road->isFlipped(), road->getLight()->getPos().x, road->getLight()->getPos().y, road->getLight()->getHandlerId());
+                fprintf(fp, "%d,%d,%f,%f,%f,%f,%d,1,%f,%f,%d,%f\n", road->getCategory(), road->getType(), road->getDir().x, road->getDir().y, road->getPos().x, road->getPos().y, road->isFlipped(), road->getLight()->getPos().x, road->getLight()->getPos().y, road->getLight()->getHandlerId(),road->getLight()->green_time_);
             }
             else
             {
