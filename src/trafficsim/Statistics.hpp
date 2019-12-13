@@ -12,7 +12,7 @@ namespace TrafficSim
 class Statistics
 {
 public:
-  Statistics(Map &map, const Window &window);
+  Statistics(Map &map, const Window &window, std::vector<std::string> &logs);
 
   // Handle mouse input to select the map
   void handleInput(const sf::Event &ev);
@@ -26,5 +26,6 @@ private:
   unsigned int selected_tile_index_ = UINT_MAX;
   void selectTile(const sf::Vector2f &pos);
   void unSelectTile();
+  std::vector<std::string> &logs_;
 };
 } // namespace TrafficSim

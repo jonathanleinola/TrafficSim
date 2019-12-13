@@ -18,12 +18,12 @@ void DataHandler::loadTexture(const char *src, const char *texture_key)
 void DataHandler::loadMap(const char *file_name, MapBuilder &builder, Grid &grid) const
 {
     // Dont load ".csv"-file
-    if(file_name[0] == '.')
+    if (file_name[0] == '.')
         return;
     try
     {
         std::ifstream file(file_name);
-        if(!file.good())
+        if (!file.good())
         {
             throw std::ios_base::failure("File not found.");
         }
@@ -63,7 +63,7 @@ void DataHandler::loadMap(const char *file_name, MapBuilder &builder, Grid &grid
                     pos_tl.x = stof(row[8]);
                     pos_tl.y = stof(row[9]);
                     handler_id = stoi(row[10]);
-                    green_time=stof(row[11]);
+                    green_time = stof(row[11]);
                 }
 
                 //add road
@@ -149,7 +149,7 @@ void DataHandler::loadMap(const char *file_name, MapBuilder &builder, Grid &grid
                 {
                     auto tile = grid.getTile(pos_tl);
                     RoadTile *road = static_cast<RoadTile *>(tile);
-                    builder.addTrafficLight(pos_tl, handler_id,green_time);
+                    builder.addTrafficLight(pos_tl, handler_id, green_time);
                 }
             }
             else if (tile_category == TileCategory::BuildingCategory)
@@ -235,7 +235,7 @@ void DataHandler::saveMap(const char *file_name, Grid &grid) const
             RoadTile *road = static_cast<RoadTile *>(grid.getTile(i));
             if (road->getLight())
             {
-                fprintf(fp, "%d,%d,%f,%f,%f,%f,%d,1,%f,%f,%d,%f\n", road->getCategory(), road->getType(), road->getDir().x, road->getDir().y, road->getPos().x, road->getPos().y, road->isFlipped(), road->getLight()->getPos().x, road->getLight()->getPos().y, road->getLight()->getHandlerId(),road->getLight()->green_time_);
+                fprintf(fp, "%d,%d,%f,%f,%f,%f,%d,1,%f,%f,%d,%f\n", road->getCategory(), road->getType(), road->getDir().x, road->getDir().y, road->getPos().x, road->getPos().y, road->isFlipped(), road->getLight()->getPos().x, road->getLight()->getPos().y, road->getLight()->getHandlerId(), road->getLight()->green_time_);
             }
             else
             {

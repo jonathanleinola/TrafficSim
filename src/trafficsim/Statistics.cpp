@@ -9,7 +9,7 @@
 
 namespace TrafficSim
 {
-Statistics::Statistics(Map &map, const Window &window) : map_(map), window_(window){};
+Statistics::Statistics(Map &map, const Window &window, std::vector<std::string> &logs) : map_(map), window_(window), logs_(logs){};
 
 void Statistics::drawGUI()
 {
@@ -95,6 +95,7 @@ void Statistics::exportCSV(const char *file_name, const std::vector<std::uint16_
     }
     fclose(fp);
     std::cout << "Histogram data saved" << std::endl;
+    logs_.emplace_back("Histogram data saved in " + std::string(file_name));
 }
 
 } // namespace TrafficSim
