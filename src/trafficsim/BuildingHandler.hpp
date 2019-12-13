@@ -14,6 +14,7 @@ class BuildingHandler
 public:
     BuildingHandler(const BuildingTile *building_tile, const Tile *tile, unsigned int handler_id);
 
+    // Returns true if car is leaving
     bool update(const sf::Time &game_time);
     void initDay();
 
