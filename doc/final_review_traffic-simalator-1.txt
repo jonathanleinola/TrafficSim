@@ -1,0 +1,90 @@
+Final review of steering-behaviours-2
+
+Steering Behaviours
+
+by Julius Lindsberg
+
+Provide short comments (2-4 sentences) for each item below.
+
+## 1. Overall design and functionality (0-6p)
+
+  * 1.1: The implementation corresponds to the selected topic and
+scope. The extent of project is large enough to accommodate work for
+everyone (2p)
+
+The project easily meets all said requirements. 2/2p
+
+  * 1.2: The software structure is appropriate, clear and well
+documented. e.g. class structure is justified, inheritance used where
+appropriate, information hiding is implemented as appropriate. (2p)
+
+The documentation is sufficiently thorough and the program's internal logic has even been illustrated with
+informative graphs, class inheritance is logical and information hiding is appropriate.
+The project might have benefited from polymorphism a bit more in some places. For example
+it is possible that buildings behaving differently could have been implemented
+in said classes themselves with the help of virtual functions and that could possibly have been a more elegant solution.
+This feedback is however in the subjective field of untested alternative solutions and will not affect scoring in any way. 2/2p
+
+  * 1.3: Use of external libraries is justified and well documented. (2p)
+
+Yes. Every library that is used serves a proper purpose.
+in particular inheriting objects that will be rendered in simulation from sf::drawable is a neat little trick that
+shows undestanding of the libraries that are being used. 2/2p
+
+## 2. Working practices (0-6p)
+
+  * 2.1: Git is used appropriately (e.g., commits are logical and
+frequent enough, commit logs are descriptive). (2 p)
+
+There are no issues with the usage of git. Commits are executed as they should. 2/2p
+
+  * 2.2: Work is distributed and organised well. Everyone contributes to
+the project and has a relevant role that matches his/her skills. The
+distribution of roles is described well enough. (2p)
+
+Working practices in this project really are examplary and disciplined from beginning to the end. That holds for
+the distribution of roles and documentation of said roles as well. 2/2p
+
+  * 2.3: Quality assurance is appropriate. Implementation is tested
+comprehensively and those testing principles are well documented. (2p)
+
+the amount of thoughtwork and execution that were put in QA is sufficient for a project of this scope. While
+developing practices could possibly be improved with some automated unit testing, that is not at all a requirement.
+For some classes QA has been made easier by operator overloading << with text output. 2/2p
+
+## 3. Implementation aspects (0-8p)
+
+  * 3.1: Building the software is easy and well documented. CMake or
+such tool is highly recommended. (2p)
+
+Cross-platform building of project was implemented without problems. 2/2p
+
+  * 3.2: Memory management is robust, well-organised and
+coherent. E.g., smart pointers are used where appropriate or RO3/5 is
+followed. The memory management practices should be documented. (2p)
+
+The groups rationale behind memory management is sound and left for the standard library to worry about.
+Smart pointers are being used in sensible situations and are not there for just the sake of smart pointers.
+They seem to handle the situations where RO3/5 would otherwise be warranted for.
+Just a reminder that explicit destructors can be useful even if they aren't needed for the sake of freeing up memory.
+There are no entries in documentation over memory management practices. 1/2p
+
+  * 3.3: C++ standard library is used where appropriate. For example,
+containers are used instead of own solutions where it makes sense. (2p)
+
+There are plenty of instances where the standard library is being properly used. For example with containers 
+(also their member functions like find or at), smart pointers, and random distributions. 2/2p
+
+  * 3.4: Implementation works robustly also in exceptional
+situations. E.g., functions can survive invalid inputs and exception
+handling is used where appropriate. (2p)
+
+The program has enough error handling and general robustness for full points.
+Based on my limited amount of tests you could throw a brick at this program and it wouldn't shatter.
+The end result of this project is a polished, self contained program that simply works. 2/2p
+
+## 4. Project extensiveness (0-10p)
+
+The project completes most of the already suggested features in the project description and also adds in some
+new ones such as heatmaps and premade intersection types like roundabouts. Said features are not only implemented but are implemented
+in such a polished way (especially the GUI) that ensures a solid 10/10p.
